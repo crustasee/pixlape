@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Creator: CorelDRAW 2026 -->
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="21.4379mm" height="21.4379mm" version="1.1" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
+viewBox="0 0 935.01 935.01"
+ xmlns:xlink="http://www.w3.org/1999/xlink"
+ xmlns:xodm="http://www.corel.com/coreldraw/odm/2003">
+ <defs>
+  <style type="text/css">
+   <![CDATA[
+    .fil0 {fill:white}
+    .fil3 {fill:url(#id0);fill-rule:nonzero}
+    .fil6 {fill:url(#id1);fill-rule:nonzero}
+    .fil7 {fill:url(#id2);fill-rule:nonzero}
+    .fil5 {fill:url(#id3);fill-rule:nonzero}
+    .fil4 {fill:url(#id4);fill-rule:nonzero}
+    .fil2 {fill:url(#id5);fill-rule:nonzero}
+    .fil1 {fill:url(#id6);fill-rule:nonzero}
+   ]]>
+  </style>
+  <linearGradient id="id0" gradientUnits="userSpaceOnUse" x1="715.61" y1="224.73" x2="715.61" y2="762.3">
+   <stop offset="0" style="stop-opacity:1; stop-color:#B4B4B4"/>
+   <stop offset="0.8" style="stop-opacity:1; stop-color:#03ABAB"/>
+   <stop offset="1" style="stop-opacity:1; stop-color:#137980"/>
+  </linearGradient>
+  <linearGradient id="id1" gradientUnits="userSpaceOnUse" x1="147.03" y1="607.9" x2="302.1" y2="597.84">
+   <stop offset="0" style="stop-opacity:1; stop-color:#20626E"/>
+   <stop offset="1" style="stop-opacity:1; stop-color:#069D9F"/>
+  </linearGradient>
+  <linearGradient id="id2" gradientUnits="userSpaceOnUse" x1="348.62" y1="167.88" x2="322.77" y2="664.09">
+   <stop offset="0" style="stop-opacity:1; stop-color:#99CBD2"/>
+   <stop offset="0.901961" style="stop-opacity:1; stop-color:#498F93"/>
+   <stop offset="1" style="stop-opacity:1; stop-color:#2E7B7D"/>
+  </linearGradient>
+  <linearGradient id="id3" gradientUnits="userSpaceOnUse" x1="85" y1="514.19" x2="271.09" y2="400.48">
+   <stop offset="0" style="stop-opacity:1; stop-color:#00A9A9"/>
+   <stop offset="0.65098" style="stop-opacity:1; stop-color:#049496"/>
+   <stop offset="1" style="stop-opacity:1; stop-color:#088286"/>
+  </linearGradient>
+  <linearGradient id="id4" gradientUnits="userSpaceOnUse" x1="441.66" y1="436.66" x2="834.5" y2="359.13">
+   <stop offset="0" style="stop-opacity:1; stop-color:#0F5D64"/>
+   <stop offset="0.101961" style="stop-opacity:1; stop-color:#097A7E"/>
+   <stop offset="0.231373" style="stop-opacity:1; stop-color:#049395"/>
+   <stop offset="0.341176" style="stop-opacity:1; stop-color:#01A3A3"/>
+   <stop offset="0.431373" style="stop-opacity:1; stop-color:#00A8A8"/>
+   <stop offset="1" style="stop-opacity:1; stop-color:#4EBCC1"/>
+  </linearGradient>
+  <linearGradient id="id5" gradientUnits="userSpaceOnUse" x1="648.42" y1="431.49" x2="808.65" y2="529.7">
+   <stop offset="0" style="stop-opacity:1; stop-color:#079EA0"/>
+   <stop offset="0.431373" style="stop-opacity:1; stop-color:#14878E"/>
+   <stop offset="1" style="stop-opacity:1; stop-color:#256A77"/>
+  </linearGradient>
+  <linearGradient id="id6" gradientUnits="userSpaceOnUse" x1="653.58" y1="581.39" x2="581.22" y2="612.41">
+   <stop offset="0" style="stop-opacity:1; stop-color:#1A5964"/>
+   <stop offset="0.0901961" style="stop-opacity:1; stop-color:#1A5964"/>
+   <stop offset="0.301961" style="stop-opacity:1; stop-color:#137078"/>
+   <stop offset="0.501961" style="stop-opacity:1; stop-color:#0E8085"/>
+   <stop offset="0.658824" style="stop-opacity:1; stop-color:#0C858A"/>
+   <stop offset="1" style="stop-opacity:1; stop-color:#0A8B8F"/>
+  </linearGradient>
+ </defs>
+ <g id="Layer_x0020_1">
+  <metadata id="CorelCorpID_0Corel-Layer"/>
+  <rect class="fil0" x="-0" y="-0" width="935.01" height="935.01" rx="174.88" ry="174.88"/>
+  <g id="_792725274640">
+   <polygon class="fil1" points="643.25,767.47 658.76,767.47 658.76,395.31 627.74,441.83 627.74,731.29 "/>
+   <polygon class="fil2" points="643.25,767.47 643.25,405.65 762.13,178.22 787.98,178.22 787.98,457.34 674.26,767.47 "/>
+   <path class="fil3" d="M787.98 767.47l-144.73 0c14.99,-29.46 72.88,-150.93 98.21,-248.11 43.93,-171.09 46.52,-299.79 46.52,-299.79l0 547.9 0 0z"/>
+   <path class="fil4" d="M787.98 178.22l-191.25 0 -134.39 320.47 56.86 155.07 5.17 0c2.07,0 5.17,-1.55 10.34,-10.34 21.19,-39.28 253.27,-465.2 253.27,-465.2z"/>
+   <polygon class="fil5" points="147.03,771.09 162.54,767.47 302.1,514.19 302.1,431.49 162.54,188.55 147.03,180.29 "/>
+   <path class="fil6" d="M302.1 447.52c-11.89,35.66 -40.84,121.99 -70.3,177.29 -52.72,101.31 -84.77,146.28 -84.77,146.28 0,0 122.5,10.34 155.07,-29.46l0 -294.11z"/>
+   <path class="fil7" d="M405.48 643.42c5.17,9.3 8.27,10.34 10.34,10.34l108.54 0c1.03,-1.04 2.07,-2.07 2.07,-3.62 -0.51,-2.07 -1.03,-4.65 -2.07,-6.72l-191.25 -480.71 -186.08 17.58c0,0 236.22,422.81 258.44,463.13z"/>
+  </g>
+ </g>
+</svg>
