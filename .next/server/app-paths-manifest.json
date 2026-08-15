@@ -1,9 +1,0 @@
-{
-  "/(public)/page": "app/(public)/page.js",
-  "/(public)/products/page": "app/(public)/products/page.js",
-  "/(public)/about/page": "app/(public)/about/page.js",
-  "/(public)/blog/page": "app/(public)/blog/page.js",
-  "/(admin)/admin/changelog/page": "app/(admin)/admin/changelog/page.js",
-  "/(admin)/admin/document/page": "app/(admin)/admin/document/page.js",
-  "/(admin)/admin/settings/page": "app/(admin)/admin/settings/page.js"
-}
