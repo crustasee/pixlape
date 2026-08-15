@@ -6,7 +6,7 @@ import { Button } from '@/components/ui/Button';
 import { Input } from '@/components/ui/Input';
 import { IconRenderer } from '@/components/ui/IconRenderer';
 
-export interface SystemSettings {
+interface SystemSettings {
   siteName: string;
   siteDescription: string;
   mainLogoUrl: string;
@@ -34,7 +34,7 @@ export interface SystemSettings {
   discordUrl: string;
 }
 
-export const DEFAULT_SETTINGS: SystemSettings = {
+const DEFAULT_SETTINGS: SystemSettings = {
   siteName: 'PIXLAPE.COM',
   siteDescription: 'Independent developers. Digital Art material & Design assets. Crafted with care, built with love.',
   mainLogoUrl: '/logo_icon.svg',
