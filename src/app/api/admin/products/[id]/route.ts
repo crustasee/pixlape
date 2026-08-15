@@ -4,6 +4,8 @@ import { AssetItem } from '@/types';
 import { prisma, checkDbConnection } from '@/lib/db';
 import { verifyAdmin } from '@/lib/admin';
 
+export const dynamic = 'force-dynamic';
+
 // CORS Response Helper
 function addCorsHeaders(res: NextResponse) {
   res.headers.set('Access-Control-Allow-Origin', '*');
@@ -22,8 +24,8 @@ export async function GET(
   { params }: { params: { id: string } }
 ) {
   try {
-    const isAdmin = await verifyAdmin(req);
-    if (!isAdmin) {
+    const auth = await verifyAdmin(req);
+    if (!auth.success) {
       const res = NextResponse.json({ success: false, error: 'Unauthorized' }, { status: 401 });
       return addCorsHeaders(res);
     }
@@ -61,8 +63,8 @@ export async function PUT(
   { params }: { params: { id: string } }
 ) {
   try {
-    const isAdmin = await verifyAdmin(req);
-    if (!isAdmin) {
+    const auth = await verifyAdmin(req);
+    if (!auth.success) {
       const res = NextResponse.json({ success: false, error: 'Unauthorized' }, { status: 401 });
       return addCorsHeaders(res);
     }
@@ -108,8 +110,8 @@ export async function DELETE(
   { params }: { params: { id: string } }
 ) {
   try {
-    const isAdmin = await verifyAdmin(req);
-    if (!isAdmin) {
+    const auth = await verifyAdmin(req);
+    if (!auth.success) {
       const res = NextResponse.json({ success: false, error: 'Unauthorized' }, { status: 401 });
       return addCorsHeaders(res);
     }

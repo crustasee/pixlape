@@ -2,6 +2,8 @@ import { NextResponse } from 'next/server';
 import { verifyAdmin } from '@/lib/admin';
 import { prisma, checkDbConnection } from '@/lib/db';
 
+export const dynamic = 'force-dynamic';
+
 function addCorsHeaders(res: NextResponse) {
   res.headers.set('Access-Control-Allow-Origin', '*');
   res.headers.set('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
@@ -16,8 +18,8 @@ export async function OPTIONS() {
 
 export async function GET(req: Request) {
   try {
-    const isAdmin = await verifyAdmin(req);
-    if (!isAdmin) {
+    const auth = await verifyAdmin(req);
+    if (!auth.success) {
       const res = NextResponse.json({ success: false, error: 'Unauthorized' }, { status: 401 });
       return addCorsHeaders(res);
     }

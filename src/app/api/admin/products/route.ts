@@ -3,6 +3,8 @@ import { ASSETS_DATA } from '@/data/assets';
 import { prisma, checkDbConnection } from '@/lib/db';
 import { verifyAdmin } from '@/lib/admin';
 
+export const dynamic = 'force-dynamic';
+
 // CORS Response Helper
 function addCorsHeaders(res: NextResponse) {
   res.headers.set('Access-Control-Allow-Origin', '*');
@@ -19,8 +21,8 @@ export async function OPTIONS() {
 export async function GET(req: Request) {
   try {
     // Verify admin
-    const isAdmin = await verifyAdmin(req);
-    if (!isAdmin) {
+    const auth = await verifyAdmin(req);
+    if (!auth.success) {
       const res = NextResponse.json({ success: false, error: 'Unauthorized' }, { status: 401 });
       return addCorsHeaders(res);
     }
@@ -45,8 +47,8 @@ export async function GET(req: Request) {
 export async function POST(req: Request) {
   try {
     // Verify admin
-    const isAdmin = await verifyAdmin(req);
-    if (!isAdmin) {
+    const auth = await verifyAdmin(req);
+    if (!auth.success) {
       const res = NextResponse.json({ success: false, error: 'Unauthorized' }, { status: 401 });
       return addCorsHeaders(res);
     }

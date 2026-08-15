@@ -2,6 +2,8 @@ import { NextResponse } from 'next/server';
 import { ASSETS_DATA } from '@/data/assets';
 import { prisma, checkDbConnection } from '@/lib/db';
 
+export const dynamic = 'force-dynamic';
+
 function addCorsHeaders(res: NextResponse) {
   res.headers.set('Access-Control-Allow-Origin', '*');
   res.headers.set('Access-Control-Allow-Methods', 'GET, OPTIONS');
