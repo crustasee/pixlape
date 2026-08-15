@@ -257,7 +257,7 @@ export const PrivacyPolishClient: React.FC = () => {
         <div className="flex flex-col gap-10">
           {filteredSections.length === 0 ? (
             <div className="bg-white border-2 border-border-color p-8 rounded-xl text-center font-mono text-xs font-bold text-darkteal">
-              No policy section found for "{searchQuery}". Try searching for "cookies", "email", or "security".
+              No policy section found for &quot;{searchQuery}&quot;. Try searching for &quot;cookies&quot;, &quot;email&quot;, or &quot;security&quot;.
             </div>
           ) : (
             filteredSections.map((sec) => (

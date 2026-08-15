@@ -496,7 +496,7 @@ export const ProductForm: React.FC<ProductFormProps> = ({
                 onChange={handleChange}
               />
               <p className="text-xs font-mono font-bold text-black/70 pt-1">
-                🔗 If set, users clicking "DOWNLOAD" on the public asset detail page will be directed to this external link.
+                🔗 If set, users clicking &quot;DOWNLOAD&quot; on the public asset detail page will be directed to this external link.
               </p>
             </div>
 

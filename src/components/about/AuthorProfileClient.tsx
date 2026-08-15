@@ -44,7 +44,7 @@ export const AuthorProfileClient: React.FC = () => {
           </h1>
 
           <p className="font-mono text-sm sm:text-base md:text-lg text-darkteal italic bg-white/40 p-5 border-1 border-border-color rounded-lg leading-relaxed">
-            "We don't ship products. We ship pieces of ourselves. Built by independent hands, driven by obsession, and made with love that borders on madness."
+            &quot;We don&apos;t ship products. We ship pieces of ourselves. Built by independent hands, driven by obsession, and made with love that borders on madness.&quot;
           </p>
         </div>
 

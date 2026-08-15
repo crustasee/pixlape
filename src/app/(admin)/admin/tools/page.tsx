@@ -302,7 +302,7 @@ export default function AdminToolsPage() {
 
       return matchesSearch && matchesCategory;
     });
-  }, [searchQuery, selectedCategory]);
+  }, [searchQuery, selectedCategory, toolsList]);
 
   const categories: { key: CategoryFilter; label: string }[] = [
     { key: 'all', label: `ALL TOOLS (${toolsList.length})` },
@@ -424,7 +424,7 @@ export default function AdminToolsPage() {
           {!isLogCollapsed && (
             <div className="p-4 bg-evergreen text-neo-lime rounded-xl border-2 border-border-color min-h-[120px] max-h-[220px] overflow-y-auto leading-relaxed shadow-hard-sm space-y-1 font-mono">
               {actionLog.length === 0 ? (
-                <span className="text-neo-lime/60 italic">// Console ready. Execute actions in any tool above to view logs...</span>
+                <span className="text-neo-lime/60 italic">{"// Console ready. Execute actions in any tool above to view logs..."}</span>
               ) : (
                 actionLog.map((log, i) => <div key={i}>{log}</div>)
               )}
