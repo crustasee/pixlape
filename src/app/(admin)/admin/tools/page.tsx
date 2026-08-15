@@ -104,7 +104,7 @@ export default function AdminToolsPage() {
   };
 
   // Tools definitions list
-  const toolsList = [
+  const toolsList = useMemo(() => [
     {
       id: 'manage-db',
       index: '01',
@@ -171,7 +171,7 @@ export default function AdminToolsPage() {
       component: (
         <div className="space-y-4 font-mono text-black">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            <div className="p-4 bg-white/10 border-1 border-border-color rounded-lg shadow-hard-sm space-y-3 flex flex-col justify-between">
+            <div className="p-4 bg-white/10 border border-border-color rounded-lg shadow-hard-sm space-y-3 flex flex-col justify-between">
               <div>
                 <div className="font-black text-sm text-yellow-green uppercase flex items-center gap-2">
                   <span>⟳</span> Clear Cache
@@ -189,7 +189,7 @@ export default function AdminToolsPage() {
               </Button>
             </div>
 
-            <div className="p-4 bg-white/10 border-1 border-border-color rounded-lg shadow-hard-sm space-y-3 flex flex-col justify-between">
+            <div className="p-4 bg-white/10 border border-border-color rounded-lg shadow-hard-sm space-y-3 flex flex-col justify-between">
               <div>
                 <div className="font-black text-sm text-yellow-green uppercase flex items-center gap-4">
                   <span>^</span> Security Scan Audit
@@ -207,7 +207,7 @@ export default function AdminToolsPage() {
               </Button>
             </div>
 
-            <div className="p-4 bg-white/10 border-1 border-border-color rounded-lg shadow-hard-sm space-y-3 flex flex-col justify-between">
+            <div className="p-4 bg-white/10 border border-border-color rounded-lg shadow-hard-sm space-y-3 flex flex-col justify-between">
               <div>
                 <div className="font-black text-sm text-yellow-green uppercase flex items-center gap-2">
                   <span>^</span> Export Catalog JSON
@@ -240,7 +240,7 @@ export default function AdminToolsPage() {
       iconBg: 'bg-white',
       component: (
         <div className="space-y-4 font-mono text-black">
-          <div className="p-5 bg-evergreen border-1 border-border-color rounded-lg space-y-7">
+          <div className="p-5 bg-evergreen border border-border-color rounded-lg space-y-7">
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
               <div>
                 <label className="block text-sm font-black text-darkteal uppercase tracking-wider">
@@ -261,7 +261,7 @@ export default function AdminToolsPage() {
                 <Input
                   value={apiKey}
                   readOnly
-                  className="border-1 border-border-color bg-black font-mono text-xs font-black text-cayenne shadow-hard-sm w-full"
+                  className="border border-border-color bg-black font-mono text-xs font-black text-cayenne shadow-hard-sm w-full"
                 />
               </div>
               <div className="flex items-center gap-2 w-full sm:w-auto">
@@ -269,7 +269,7 @@ export default function AdminToolsPage() {
                   size="sm"
                   variant="neutral"
                   onClick={handleCopyKey}
-                  className="w-full sm:w-auto font-mono text-xs font-black uppercase border-1 rounded-sm border-border-color bg-neo-yellow text-black"
+                  className="w-full sm:w-auto font-mono text-xs font-black uppercase border rounded-sm border-border-color bg-neo-yellow text-black"
                 >
                   {copiedKey ? 'COPIED!' : 'COPY KEY'}
                 </Button>
@@ -287,7 +287,7 @@ export default function AdminToolsPage() {
         </div>
       ),
     },
-  ];
+  ], [addLog]);
 
   // Filter tools based on search and category
   const filteredTools = useMemo(() => {
@@ -422,7 +422,7 @@ export default function AdminToolsPage() {
           </div>
 
           {!isLogCollapsed && (
-            <div className="p-4 bg-evergreen text-neo-lime rounded-xl border-2 border-border-color min-h-[120px] max-h-[220px] overflow-y-auto leading-relaxed shadow-hard-sm space-y-1 font-mono">
+            <div className="p-4 bg-evergreen text-neo-lime rounded-xl border-2 border-border-color min-h-30 max-h-55 overflow-y-auto leading-relaxed shadow-hard-sm space-y-1 font-mono">
               {actionLog.length === 0 ? (
                 <span className="text-neo-lime/60 italic">{"// Console ready. Execute actions in any tool above to view logs..."}</span>
               ) : (

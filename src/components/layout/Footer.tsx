@@ -122,7 +122,7 @@ export const Footer: React.FC = () => {
               />
             </span>
             <span>
-              PIXLApe<span className="text-yellow-green font-mono">.COM</span>
+              PIXLApe<span className="text-cayenne font-pixel">.COM</span>
             </span>
           </Link>
 

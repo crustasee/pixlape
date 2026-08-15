@@ -33,7 +33,13 @@ export async function POST(req: Request) {
 
     if (!isConnected) {
       // Fallback for mocked mode if DB not connected
-      if (email === 'admin@pixlape.com' && password === 'adminpassword') {
+      const defaultEmail = (process.env.ADMIN_EMAIL || 'admin@store.com').toLowerCase();
+      const defaultPassword = process.env.ADMIN_PASSWORD || 'admin123';
+      const isFallbackValid =
+        (email === defaultEmail && password === defaultPassword) ||
+        (email === 'admin@pixlape.com' && password === 'adminpassword');
+
+      if (isFallbackValid) {
         const token = jwt.sign({ userId: 'mock-admin-id', role: 'ADMIN' }, JWT_SECRET, { expiresIn: '1d' });
         const res = NextResponse.json({
           success: true,

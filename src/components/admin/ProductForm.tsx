@@ -554,7 +554,7 @@ export const ProductForm: React.FC<ProductFormProps> = ({
                 onChange={handleChange}
                 rows={6}
                 placeholder="### 🎨 Asset Overview&#10;&#10;**Features:**&#10;- Feature 1&#10;- Feature 2..."
-                className="w-full px-4 py-3 bg-white border-2 border-border-color rounded-xl text-sm font-mono font-bold text-black placeholder-text/50 focus:outline-none focus:border-neo-pink shadow-hard-sm leading-relaxed"
+                className="w-full px-4 py-3 bg-white border-2 border-border-color rounded-xl text-sm font-mono font-bold text-black placeholder-black/50 focus:outline-none focus:border-neo-pink shadow-hard-sm leading-relaxed"
               />
             </div>
 
@@ -568,7 +568,7 @@ export const ProductForm: React.FC<ProductFormProps> = ({
                 onChange={handleChange}
                 rows={4}
                 placeholder={`{\n  "Sistem Operasi": "Windows 11 atau 10 64-bit",\n  "RAM": "8 GB Recommended"\n}`}
-                className="w-full px-4 py-3 bg-white border-2 border-border-color rounded-xl text-sm font-mono font-bold text-black placeholder-text/50 focus:outline-none focus:border-neo-pink shadow-hard-sm leading-relaxed"
+                className="w-full px-4 py-3 bg-white border-2 border-border-color rounded-xl text-sm font-mono font-bold text-black placeholder-black/50 focus:outline-none focus:border-neo-pink shadow-hard-sm leading-relaxed"
               />
             </div>
           </div>

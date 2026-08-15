@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import '@/styles/globals.css';
 import { SiteShell } from '@/components/layout/SiteShell';
+import { Providers } from '@/components/Providers';
 
 export const metadata: Metadata = {
   title: 'PIXLApe.COM — Independent Developer & Digital Asset Vault',
@@ -21,7 +22,9 @@ export default function RootLayout({
   return (
     <html lang="en" data-theme="light">
       <body>
-        <SiteShell>{children}</SiteShell>
+        <Providers>
+          <SiteShell>{children}</SiteShell>
+        </Providers>
       </body>
     </html>
   );

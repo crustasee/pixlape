@@ -303,7 +303,7 @@ export const PrivacyPolishClient: React.FC = () => {
         </div>
 
         {/* Document Footer & Contact Block */}
-        <div className="mt-4 pt-8 border-t-2 border-border-color flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 bg-neo-yellow/30 p-6 rounded-xl border border-border-color">
+        <div className="mt-4 pt-8 border-t-2 border-border-color flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 bg-neo-yellow/30 p-6 rounded-xl">
           <div className="flex flex-col gap-1 max-w-md">
             <div className="flex items-center gap-2 font-mono text-sm font-black uppercase text-darkteal">
               <Mail className="w-3.5 h-3.5 text-neo-pink" /> PRIVACY INQUIRIES & DATA DELETION

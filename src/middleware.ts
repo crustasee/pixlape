@@ -1,27 +1,34 @@
-import { NextResponse } from 'next/server';
-import type { NextRequest } from 'next/server';
+import { auth } from "@/lib/auth";
+import { NextResponse } from "next/server";
 
-export function middleware(request: NextRequest) {
-  const { pathname } = request.nextUrl;
+export default auth((req) => {
+  const { nextUrl } = req;
+  const isLoggedIn = !!req.auth;
+  const userRole = req.auth?.user?.role;
 
-  // Protect /admin routes in production if authorization token or session is missing
-  if (pathname.startsWith('/admin')) {
-    const adminToken = request.cookies.get('admin_token')?.value;
-    
-    // In development mode, allow easy access for testing
-    if (process.env.NODE_ENV !== 'production') {
-      return NextResponse.next();
-    }
+  const isAdminRoute = nextUrl.pathname.startsWith("/admin");
+  const isLoginPage = nextUrl.pathname === "/login" || nextUrl.pathname === "/admin/login";
 
-    if (!adminToken) {
-      // Redirect unauthenticated non-admin requests to homepage or login
-      return NextResponse.next();
-    }
+  // 1. Jika pengguna sudah login sebagai ADMIN dan mencoba akses halaman login -> redirect ke /admin
+  if (isLoginPage && isLoggedIn && userRole === "ADMIN") {
+    return NextResponse.redirect(new URL("/admin", nextUrl));
+  }
+
+  // 2. Jika pengguna belum login dan mencoba akses rute admin -> redirect ke /login
+  if (isAdminRoute && !isLoginPage && !isLoggedIn) {
+    const loginUrl = new URL("/login", nextUrl);
+    loginUrl.searchParams.set("callbackUrl", nextUrl.pathname);
+    return NextResponse.redirect(loginUrl);
+  }
+
+  // 3. Jika pengguna terotentikasi tapi bukan ADMIN -> redirect ke homepage /
+  if (isAdminRoute && !isLoginPage && isLoggedIn && userRole !== "ADMIN") {
+    return NextResponse.redirect(new URL("/", nextUrl));
   }
 
   return NextResponse.next();
-}
+});
 
 export const config = {
-  matcher: ['/admin/:path*'],
+  matcher: ["/admin/:path*", "/login", "/admin/login"],
 };

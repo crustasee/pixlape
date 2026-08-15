@@ -24,16 +24,16 @@ export const AuthorProfileClient: React.FC = () => {
         {/* ================= HEADER & MANIFESTO ================= */}
         <div className="flex flex-col gap-4 border-b-2 border-border-color pb-6">
           <div className="flex flex-wrap items-center gap-2.5">
-            <span className="bg-green-300 text-black border-1 border-border-color text-xs font-mono font-bold px-3 py-1.5 rounded-md uppercase tracking-wider shadow-hard-sm">
+            <span className="bg-green-300 text-black border border-border-color text-xs font-mono font-bold px-3 py-1.5 rounded-md uppercase tracking-wider shadow-hard-sm">
               PIXLApe Project
             </span>
-            <span className="bg-green-300 border-1 border-border-color text-black text-xs font-mono font-bold px-3 py-1.5 rounded-md shadow-hard-sm">
+            <span className="bg-green-300 border border-border-color text-black text-xs font-mono font-bold px-3 py-1.5 rounded-md shadow-hard-sm">
               VISUAL GRAPHIC
             </span>
-            <span className="bg-green-300 border-1 border-border-color text-black text-xs font-mono font-bold px-3 py-1.5 rounded-md shadow-hard-sm">
+            <span className="bg-green-300 border border-border-color text-black text-xs font-mono font-bold px-3 py-1.5 rounded-md shadow-hard-sm">
               FULLSTACK & VISUAL ARTIST
             </span>
-            <span className="bg-green-300 border-1 border-border-color text-black text-xs font-mono font-bold px-3 py-1.5 rounded-md flex items-center gap-2 shadow-hard-sm">
+            <span className="bg-green-300 border border-border-color text-black text-xs font-mono font-bold px-3 py-1.5 rounded-md flex items-center gap-2 shadow-hard-sm">
               <span className="w-2.5 h-2.5 rounded-full bg-evergreen animate-ping inline-block"></span>
               START PROJECT INQUIRY
             </span>
@@ -43,7 +43,7 @@ export const AuthorProfileClient: React.FC = () => {
             ++ABOUT PIXLAPE<span className="text-cayenne"> ++++PROJECT</span>
           </h1>
 
-          <p className="font-mono text-sm sm:text-base md:text-lg text-darkteal italic bg-white/40 p-5 border-1 border-border-color rounded-lg leading-relaxed">
+          <p className="font-mono text-sm sm:text-base md:text-lg text-darkteal italic bg-white/40 p-5 border border-border-color rounded-lg leading-relaxed">
             &quot;We don&apos;t ship products. We ship pieces of ourselves. Built by independent hands, driven by obsession, and made with love that borders on madness.&quot;
           </p>
         </div>
@@ -53,7 +53,7 @@ export const AuthorProfileClient: React.FC = () => {
 
           {/* Left Column: GIF Compatible Avatar Profile Component (5/12) */}
           <div className="lg:col-span-9 flex flex-col">
-            <div className="w-full border-1 border-border-color bg-yellow-green shadow-hard rounded-xl p-6 flex flex-col items-center text-center">
+            <div className="w-full border border-border-color bg-yellow-green shadow-hard rounded-xl p-6 flex flex-col items-center text-center">
 
               {/* Profile GIF Container with Pulsing Neon Frame */}
               <div className="w-full h-64 md:w-full md:h-64 border-2 border-border-color bg-soft-linen shadow-hard rounded-2xl overflow-hidden mb-5 p-1.5 group">
@@ -165,7 +165,7 @@ export const AuthorProfileClient: React.FC = () => {
               >
                 <button
                   type="button"
-                  className="w-full py-4 px-4 font-mono font-black text-xs sm:text-sm uppercase tracking-wider rounded-xl border-2 border-border-color bg-cayenne text-white shadow-hard hover:bg-yellow-green hover:text-evergreen transition-all duration-200 hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-hard-lg active:translate-x-0 active:translate-y-0 active:shadow-none flex items-center justify-center gap-2.5 cursor-pointer"
+                  className="w-full py-4 px-4 font-mono font-black text-xs sm:text-sm uppercase tracking-wider rounded-xl border-2 border-border-color bg-cayenne text-white shadow-hard hover:bg-yellow-green hover:text-evergreen transition-all duration-200 hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-hard-lg flex items-center justify-center gap-2.5 cursor-pointer"
                 >
                   COMMISION
                 </button>
@@ -187,7 +187,7 @@ export const AuthorProfileClient: React.FC = () => {
               >
                 <button
                   type="button"
-                  className="w-full py-4 px-4 font-mono font-black text-xs sm:text-sm uppercase tracking-wider rounded-xl border-2 border-border-color bg-green-400 text-black shadow-hard hover:bg-yellow-green hover:text-evergreen transition-all duration-200 hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-hard-lg active:translate-x-0 active:translate-y-0 active:shadow-none flex items-center justify-center gap-2.5 cursor-pointer"
+                  className="w-full py-4 px-4 font-mono font-black text-xs sm:text-sm uppercase tracking-wider rounded-xl border-2 border-border-color bg-green-400 text-black shadow-hard hover:bg-yellow-green hover:text-evergreen transition-all duration-200 hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-hard-lg flex items-center justify-center gap-2.5 cursor-pointer"
                 >
                  DISCUSS
                 </button>
@@ -206,7 +206,7 @@ export const AuthorProfileClient: React.FC = () => {
               <Link href="/" className="w-full">
                 <button
                   type="button"
-                  className="w-full py-4 px-4 font-mono font-black text-xs sm:text-sm uppercase tracking-wider rounded-xl border-2 border-border-color bg-yellow-green text-evergreen shadow-hard hover:bg-cayenne hover:text-white transition-all duration-200 hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-hard-lg active:translate-x-0 active:translate-y-0 active:shadow-none flex items-center justify-center gap-2.5 cursor-pointer"
+                  className="w-full py-4 px-4 font-mono font-black text-xs sm:text-sm uppercase tracking-wider rounded-xl border-2 border-border-color bg-yellow-green text-evergreen shadow-hard hover:bg-cayenne hover:text-white transition-all duration-200 hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-hard-lg flex items-center justify-center gap-2.5 cursor-pointer"
                 >
                   EXPLORE ASSET VAULT ▶
                 </button>
@@ -219,7 +219,7 @@ export const AuthorProfileClient: React.FC = () => {
         </div>
 
         {/* Statistics Section */}
-        <div className="border-1 border-border-color bg-soft-linen text-black p-6 rounded-lg flex flex-col gap-5 font-mono">
+        <div className="border border-border-color bg-soft-linen text-black p-6 rounded-lg flex flex-col gap-5 font-mono">
           <h3 className="font-head font-black text-lg tracking-wider uppercase text-darkteal">
             ●●●●●●○○○ STATISTICS AT A GLANCE
           </h3>
