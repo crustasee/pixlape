@@ -19,8 +19,8 @@ export const BLOG_POSTS: BlogPost[] = [
       "Free-and-pro tool recommendations from vault",
     ],
     shareUrls: {
-      twitter: "https://twitter.com/intent/tweet?text=Why%20Neo-Brutalism%20is%20Taking%20Over%20Modern%20Web%20Design&url=https://modtrove.com/blog/1",
-      linkedin: "https://www.linkedin.com/sharing/share-offsite/?url=https://modtrove.com/blog/1",
+      twitter: "https://twitter.com/intent/tweet?text=Why%20Neo-Brutalism%20is%20Taking%20Over%20Modern%20Web%20Design&url=https://pixlape.com/blog/1",
+      linkedin: "https://www.linkedin.com/sharing/share-offsite/?url=https://pixlape.com/blog/1",
     },
     content: `
 ### 🚀 Why Neo-Brutalism is Transforming Modern Web Interfaces
@@ -64,7 +64,7 @@ Here's a quick example of a Neo-Brutalist button in Tailwind CSS:
 }
 \`\`\`
 
-Stay tuned for our upcoming component library and design token templates dropping next week in the ModTrove Vault!
+Stay tuned for our upcoming component library and design token templates dropping next week in the PixlApe Vault!
     `,
   },
   {
@@ -85,8 +85,8 @@ Stay tuned for our upcoming component library and design token templates droppin
       "Free alternatives to paid SaaS products",
     ],
     shareUrls: {
-      twitter: "https://twitter.com/intent/tweet?text=10%20Developer%20Tools%20for%20Maximum%20Productivity&url=https://modtrove.com/blog/2",
-      linkedin: "https://www.linkedin.com/sharing/share-offsite/?url=https://modtrove.com/blog/2",
+      twitter: "https://twitter.com/intent/tweet?text=10%20Developer%20Tools%20for%20Maximum%20Productivity&url=https://pixlape.com/blog/2",
+      linkedin: "https://www.linkedin.com/sharing/share-offsite/?url=https://pixlape.com/blog/2",
     },
     content: `
 ### ⚡ 10 Developer & Designer Tools You Need Right Now
@@ -121,7 +121,7 @@ rg -l "interface" --type ts | xargs code
 git log --oneline | fzf | cut -d' ' -f1 | xargs git show
 \`\`\`
 
-These tools are all open-source and free. Check the ModTrove vault for curated bundles and install scripts!
+These tools are all open-source and free. Check the PixlApe vault for curated bundles and install scripts!
     `,
   },
   {
@@ -142,8 +142,8 @@ These tools are all open-source and free. Check the ModTrove vault for curated b
       "Which license to choose for your own projects",
     ],
     shareUrls: {
-      twitter: "https://twitter.com/intent/tweet?text=Open%20Source%20Licensing%20Explained&url=https://modtrove.com/blog/3",
-      linkedin: "https://www.linkedin.com/sharing/share-offsite/?url=https://modtrove.com/blog/3",
+      twitter: "https://twitter.com/intent/tweet?text=Open%20Source%20Licensing%20Explained&url=https://pixlape.com/blog/3",
+      linkedin: "https://www.linkedin.com/sharing/share-offsite/?url=https://pixlape.com/blog/3",
     },
     content: `
 ### 📜 Understanding Open Source Licenses
@@ -169,7 +169,7 @@ Open source and Creative Commons licenses are the backbone of the modern digital
 
 #### ✅ Best Practices
 
-When downloading assets from ModTrove or any digital vault:
+When downloading assets from PixlApe or any digital vault:
 
 - Always check the \`LICENSE\` file or metadata field.
 - Keep a record of attributions for CC-BY materials.
@@ -196,8 +196,8 @@ Stay compliant, stay creative.
       "Performance optimization techniques",
     ],
     shareUrls: {
-      twitter: "https://twitter.com/intent/tweet?text=Building%20Ultra-Fast%20Browser%20Extensions%20with%20Manifest%20V3&url=https://modtrove.com/blog/4",
-      linkedin: "https://www.linkedin.com/sharing/share-offsite/?url=https://modtrove.com/blog/4",
+      twitter: "https://twitter.com/intent/tweet?text=Building%20Ultra-Fast%20Browser%20Extensions%20with%20Manifest%20V3&url=https://pixlape.com/blog/4",
+      linkedin: "https://www.linkedin.com/sharing/share-offsite/?url=https://pixlape.com/blog/4",
     },
     content: `
 ### 🚀 Manifest V3: The Future of Browser Extensions
@@ -215,7 +215,7 @@ Google's Manifest V3 brought controversial changes — but also genuine performa
 \`\`\`json
 {
   "manifest_version": 3,
-  "name": "ModTrove Quick View",
+  "name": "PixlApe Quick View",
   "version": "1.0.0",
   "action": { "default_popup": "popup.html" },
   "background": { "service_worker": "background.js" },
@@ -237,7 +237,7 @@ Google's Manifest V3 brought controversial changes — but also genuine performa
 2. Verify service worker doesn't leak memory over 24 hours.
 3. Test in Chrome, Edge, and Brave — each implements V3 slightly differently.
 
-Check the ModTrove vault for our ready-to-use extension template with hot-reload dev server included!
+Check the PixlApe vault for our ready-to-use extension template with hot-reload dev server included!
     `,
   },
 ];

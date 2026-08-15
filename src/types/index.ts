@@ -41,6 +41,7 @@ export interface AssetItem {
   category?: CategoryType;
   isPremium?: boolean;
   price?: string;
+  downloadUrl?: string;
   bannerImage?: string;
   detailsMarkdown?: string;
   markdownFile?: string;
@@ -95,6 +96,7 @@ export interface Product {
   category: CategoryType | string;
   isPremium: boolean;
   price: number | string;
+  downloadUrl?: string;
   stock?: number;
   createdAt?: string | Date;
   updatedAt?: string | Date;
@@ -112,6 +114,7 @@ export interface CreateProductInput {
   license?: string;
   version?: string;
   isPremium?: boolean;
+  downloadUrl?: string;
   stock?: number;
 }
 

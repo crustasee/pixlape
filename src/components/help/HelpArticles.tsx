@@ -26,14 +26,14 @@ export const HELP_ARTICLES_DATA: HelpArticle[] = [
     id: 'cara-download',
     category: 'download',
     categoryLabel: 'Panduan Download',
-    categoryIcon: '📥',
+    categoryIcon: '▶',
     badgeBg: 'bg-green-300',
     badgeTextColor: 'text-black',
     title: 'Bagaimana Cara Download Asset & Material Digital',
     subtitle: 'Panduan langkah demi langkah mengunduh paket file (.ZIP, .CDR, .PSD, .SVG, CLI Tools) dari PIXLAPE Vault.',
     readTime: '3 min read',
     lastUpdated: '14 Agustus 2026',
-    summary: 'Proses pengunduhan di ModTrove dirancang cepat, langsung tanpa paywall rumit, dan terverifikasi aman melalui protokol enkripsi otomatis.',
+    summary: 'Proses pengunduhan di PixlApe dirancang cepat, langsung tanpa paywall rumit, dan terverifikasi aman melalui protokol enkripsi otomatis.',
     steps: [
       {
         step: '01',
@@ -63,7 +63,7 @@ export const HELP_ARTICLES_DATA: HelpArticle[] = [
     ],
     callout: {
       type: 'tip',
-      title: '💡 Tips Pengunduhan Cepat',
+      title: '◯ Tips Pengunduhan Cepat',
       text: 'Jika unduhan Anda terhenti karena kendala koneksi internet, Anda dapat mengulang unduhan kapan saja melalui tautan direktori yang sama tanpa kehilangan token.',
     },
     faqs: [
@@ -85,23 +85,23 @@ export const HELP_ARTICLES_DATA: HelpArticle[] = [
     id: 'kebijakan-lisensi',
     category: 'license',
     categoryLabel: 'Kebijakan Lisensi',
-    categoryIcon: '📜',
+    categoryIcon: '▶',
     badgeBg: 'bg-green-300',
     badgeTextColor: 'text-black',
     title: 'Kebijakan Lisensi & Hak Penggunaan Asset',
     subtitle: 'Penjelasan lengkap mengenai batas penggunaan personal, komersial, lisensi MIT, serta aturan distribusi.',
     readTime: '4 min read',
     lastUpdated: '14 Agustus 2026',
-    summary: 'Setiap asset di ModTrove dilindungi oleh ketetapan lisensi yang transparan untuk memastikan keamanan legalitas project Anda.',
+    summary: 'Setiap asset di PixlApe dilindungi oleh ketetapan lisensi yang transparan untuk memastikan keamanan legalitas project Anda.',
     keyPoints: [
       'Personal & Commercial Project: Diizinkan untuk projek klien, desain produk digital, majalah, dan website komersial.',
       'Dilarang Memperjualbelikan Mentahan: Dilarang mengunggah ulang mentahan file (raw source code/vector) ke marketplace pesaing.',
-      'Atribusi & Kredit: Atribusi kepada kreator ModTrove sangat diapresiasi namun tidak diwajibkan pada lisensi Pro Extended.',
+      'Atribusi & Kredit: Atribusi kepada kreator PixlApe sangat diapresiasi namun tidak diwajibkan pada lisensi Pro Extended.',
     ],
     callout: {
       type: 'important',
       title: '⚠️ Batasan Penting Lisensi',
-      text: 'Lisensi ModTrove memberi Anda hak pakai (Right-to-Use), bukan pengalihan hak cipta kepemilikan penuh. Anda dilarang mendaftarkan logo/asset ModTrove sebagai merek dagang (Trademark) eksklusif pribadi.',
+      text: 'Lisensi PixlApe memberi Anda hak pakai (Right-to-Use), bukan pengalihan hak cipta kepemilikan penuh. Anda dilarang mendaftarkan logo/asset PixlApe sebagai merek dagang (Trademark) eksklusif pribadi.',
     },
     faqs: [
       {
@@ -122,14 +122,14 @@ export const HELP_ARTICLES_DATA: HelpArticle[] = [
     id: 'kompatibilitas-platform',
     category: 'compatibility',
     categoryLabel: 'Kompatibilitas Platform',
-    categoryIcon: '🖥️',
+    categoryIcon: '▶',
     badgeBg: 'bg-green-300',
     badgeTextColor: 'text-black',
     title: 'Kompatibilitas Ekstensi & Platform Software',
     subtitle: 'Panduan dukungan format file (.CDR, .PSD, .AI, .FIG, .SVG), ekstensi browser, CLI, dan Sistem Operasi.',
     readTime: '3 min read',
     lastUpdated: '14 Agustus 2026',
-    summary: 'ModTrove memastikan setiap paket desain dan tool sistem kompatibel dengan standar software populer terkini.',
+    summary: 'PixlApe memastikan setiap paket desain dan tool sistem kompatibel dengan standar software populer terkini.',
     steps: [
       {
         step: 'CDR',
@@ -160,10 +160,10 @@ export const HELP_ARTICLES_DATA: HelpArticle[] = [
     faqs: [
       {
         question: 'Bagaimana cara membuka file .CDR jika saya menggunakan versi CorelDraw lama (X4/X5)?',
-        answer: 'Setiap paket CorelDraw di ModTrove menyertakan ekspor alternatif format .EPS dan .SVG yang dapat dibuka di semua versi CorelDraw tua.',
+        answer: 'Setiap paket CorelDraw di PixlApe menyertakan ekspor alternatif format .EPS dan .SVG yang dapat dibuka di semua versi CorelDraw tua.',
       },
       {
-        question: 'Apakah alat CLI ModTrove membutuhkan akses Administrator / Root?',
+        question: 'Apakah alat CLI PixlApe membutuhkan akses Administrator / Root?',
         answer: 'Tidak. Alat CLI berjalan dalam ruang lingkup user lokal tanpa memerlukan elevasi hak akses Administrator.',
       },
     ],
@@ -172,14 +172,14 @@ export const HELP_ARTICLES_DATA: HelpArticle[] = [
     id: 'tata-cara-kerjasama',
     category: 'collaboration',
     categoryLabel: 'Kerja Sama & Project',
-    categoryIcon: '🤝',
+    categoryIcon: '▶',
     badgeBg: 'bg-green-300',
     badgeTextColor: 'text-black',
     title: 'Tata Cara Kerja Sama & Kolaborasi Project',
     subtitle: 'Prosedur pengajuan asset kreator, pembagian hasil (Revenue Share), sertifikasi developer, dan kemitraan studio.',
     readTime: '5 min read',
     lastUpdated: '14 Agustus 2026',
-    summary: 'Kami membuka ruang kolaborasi seluas-luasnya bagi desainer, pengembang skrip, dan studio digital untuk berkembang bersama di ModTrove Vault.',
+    summary: 'Kami membuka ruang kolaborasi seluas-luasnya bagi desainer, pengembang skrip, dan studio digital untuk berkembang bersama di PixlApe Vault.',
     steps: [
       {
         step: '01',
@@ -189,12 +189,12 @@ export const HELP_ARTICLES_DATA: HelpArticle[] = [
       {
         step: '02',
         title: 'Review Kurasi & Standar Keamanan',
-        desc: 'Tim kurator ModTrove akan memeriksa standar visual, kelengkapan struktur file, dan keamanan skrip dalam waktu 1-3 hari kerja.',
+        desc: 'Tim kurator PixlApe akan memeriksa standar visual, kelengkapan struktur file, dan keamanan skrip dalam waktu 1-3 hari kerja.',
       },
       {
         step: '03',
         title: 'Penerbitan Asset & Sistem Bagi Hasil',
-        desc: 'Setelah disetujui, asset Anda akan ditayangkan di ModTrove Vault dengan skema bagi hasil transparan hingga 80% untuk kontributor.',
+        desc: 'Setelah disetujui, asset Anda akan ditayangkan di PixlApe Vault dengan skema bagi hasil transparan hingga 80% untuk kontributor.',
       },
       {
         step: '04',
@@ -209,12 +209,12 @@ export const HELP_ARTICLES_DATA: HelpArticle[] = [
     ],
     callout: {
       type: 'tip',
-      title: '🚀 Siap Berkolaborasi Dengan ModTrove?',
-      text: 'Hubungi tim kemitraan kami melalui email project@keratuli.site atau bergabung di channel #creator-collab pada Discord resmi ModTrove.',
+      title: '▶ Siap Berkolaborasi Dengan PixlApe?',
+      text: 'Hubungi tim kemitraan kami melalui email project@keratuli.site atau bergabung di channel #creator-collab pada Discord resmi PixlApe.',
     },
     faqs: [
       {
-        question: 'Kriteria asset seperti apa yang diterima di ModTrove Vault?',
+        question: 'Kriteria asset seperti apa yang diterima di PixlApe Vault?',
         answer: 'Asset dengan kualitas visual Neo-Brutalist yang estetis, terstruktur rapi, memiliki dokumentasi jelas, dan tidak melanggar hak cipta pihak ketiga.',
       },
       {
@@ -253,11 +253,11 @@ export const HelpArticles: React.FC = () => {
   }, [selectedCategory, searchQuery]);
 
   const categories = [
-    { key: 'all', label: `SEMUA PANDUAN (${HELP_ARTICLES_DATA.length})`, icon: '📚' },
-    { key: 'download', label: 'CARA DOWNLOAD', icon: '📥' },
-    { key: 'license', label: 'LISENSI & ATURAN', icon: '📜' },
-    { key: 'compatibility', label: 'KOMPATIBILITAS', icon: '🖥️' },
-    { key: 'collaboration', label: 'KERJA SAMA & PROJECT', icon: '🤝' },
+    { key: 'all', label: `SEMUA PANDUAN (${HELP_ARTICLES_DATA.length})`, icon: '▣' },
+    { key: 'download', label: 'CARA DOWNLOAD', icon: '▣' },
+    { key: 'license', label: 'LISENSI & ATURAN', icon: '▣' },
+    { key: 'compatibility', label: 'KOMPATIBILITAS', icon: '▣' },
+    { key: 'collaboration', label: 'Project Kolaborasi', icon: '▣' },
   ];
 
   const handleCopyArticleLink = (id: string) => {
@@ -276,13 +276,13 @@ export const HelpArticles: React.FC = () => {
   return (
     <div className="w-full space-y-8 font-mono text-text">
       {/* ── HEADER BANNER ── */}
-      <div className="bg-darkteal border-2 border-border-color p-6 md:p-8 rounded-2xl shadow-hard space-y-4">
+      <div className="bg-yellow-green border-2 border-border-color p-6 md:p-8 rounded-2xl shadow-hard space-y-4">
         <div className="flex flex-wrap items-center justify-between gap-3 border-b-2 border-border-color/20 pb-4">
           <div className="flex items-center gap-3">
-            <span className="px-3 py-1 bg-yellow-green text-black font-mono text-xs font-black uppercase rounded-lg border border-border-color shadow-[2px_2px_0_var(--border-color)]">
+            <span className="px-3 py-1 bg-yellow-100 text-darkteal font-mono text-xs font-black uppercase rounded-lg border border-border-color shadow-[2px_2px_0_var(--border-color)]">
               HELP ARTICLES CENTER
             </span>
-            <span className="text-xs font-bold text-white/80 hidden sm:inline">
+            <span className="text-sm font-bold text-darkteal hidden sm:inline">
               Panduan Resmi PIXLAPE Vault
             </span>
           </div>
@@ -292,10 +292,10 @@ export const HelpArticles: React.FC = () => {
         </div>
 
         <div className="space-y-2">
-          <h2 className="text-2xl md:text-4xl font-head font-black uppercase text-yellow-green tracking-tight">
+          <h2 className="text-2xl md:text-4xl font-head font-black uppercase text-darkteal tracking-tight">
             Pusat Informasi & Dokumentasi Detail
           </h2>
-          <p className="text-sm font-medium text-white/90 leading-relaxed max-w-3xl font-body">
+          <p className="text-lg font-mono text-darkteal leading-relaxed max-w-3xl font-body">
             Temukan rincian jawaban mengenai prosedur pengunduhan asset, batasan hukum lisensi,
             kompatibilitas software, serta panduan tata cara kerja sama dan kolaborasi penerbitan projek.
           </p>
@@ -317,7 +317,7 @@ export const HelpArticles: React.FC = () => {
             <button
               type="button"
               onClick={() => setSearchQuery('')}
-              className="px-4 py-2.5 bg-cayenne text-white text-xs font-black uppercase border-2 border-border-color rounded-xl cursor-pointer hover:bg-red-600 transition-all shrink-0"
+              className="px-4 py-2.5 bg-cayenne text-darkteal text-xs font-black uppercase border-2 border-border-color rounded-xl cursor-pointer hover:bg-red-600 transition-all shrink-0"
             >
               CLEAR SEARCH
             </button>
@@ -326,7 +326,7 @@ export const HelpArticles: React.FC = () => {
       </div>
 
       {/* ── CATEGORY FILTER TABS ── */}
-      <div className="flex flex-wrap items-center gap-2 bg-darkteal border-2 border-border-color p-3 rounded-2xl shadow-hard">
+      <div className="flex flex-wrap items-center gap-2 bg-yellow-50 border-2 border-border-color p-3 rounded-2xl shadow-hard">
         {categories.map((cat) => {
           const isActive = selectedCategory === cat.key;
           return (
@@ -337,7 +337,7 @@ export const HelpArticles: React.FC = () => {
               className={`px-4 py-2.5 rounded-lg border-2 font-mono text-sm font-black uppercase transition-all cursor-pointer flex items-center gap-5 ${
                 isActive
                   ? 'bg-yellow-green/30 text-black border-border-color shadow-[2px_2px_0_var(--border-color)] scale-105'
-                  : 'bg-white/10 text-white border-border-color hover:bg-yellow-green hover:text-black'
+                  : 'bg-white/10 text-darkteal border-border-color hover:bg-yellow-green hover:text-black'
               }`}
             >
               <span>{cat.icon}</span>
@@ -353,7 +353,7 @@ export const HelpArticles: React.FC = () => {
           <div className="bg-darkteal border-2 border-border-color p-8 rounded-2xl shadow-hard text-center space-y-3 font-mono">
             <span className="text-4xl">🔍</span>
             <h3 className="text-lg font-black text-yellow-green uppercase">Artikel Tidak Ditemukan</h3>
-            <p className="text-xs text-white/80 max-w-md mx-auto">
+            <p className="text-xs text-darkteal max-w-md mx-auto">
               Tidak ada panduan yang cocok dengan kata kunci &ldquo;{searchQuery}&rdquo;. Coba gunakan kata kunci lain atau bersihkan filter.
             </p>
             <button
@@ -362,7 +362,7 @@ export const HelpArticles: React.FC = () => {
                 setSearchQuery('');
                 setSelectedCategory('all');
               }}
-              className="px-4 py-2 bg-yellow-green text-black text-xs font-black uppercase border-2 border-border-color rounded-xl cursor-pointer hover:bg-neo-yellow"
+              className="px-4 py-2 bg-yellow-green text-darkteal text-xs font-black uppercase border-2 border-border-color rounded-xl cursor-pointer hover:bg-neo-yellow"
             >
               RESET FILTER
             </button>
@@ -382,7 +382,7 @@ export const HelpArticles: React.FC = () => {
                   className="p-5 md:p-6 bg-soft-linen border-b-2 border-border-color cursor-pointer select-none hover:bg-yellow-green/10 transition-colors flex flex-col md:flex-row md:items-center justify-between gap-4"
                 >
                   <div className="flex items-start md:items-center gap-4 flex-1 min-w-0">
-                    <span className="w-15 h-15 rounded-lg bg-white text-white border-1 border-border-color flex items-center justify-center text-2xl shrink-0">
+                    <span className="w-15 h-15 rounded-lg bg-white text-darkteal border-1 border-border-color flex items-center justify-center text-2xl shrink-0">
                       {article.categoryIcon}
                     </span>
                     <div className="flex-1 min-w-0 space-y-1">

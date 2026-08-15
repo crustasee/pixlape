@@ -70,7 +70,7 @@ export const AdminSidebar: React.FC = () => {
           <div className="flex items-center space-x-2.5">
             <span className="w-12 h-12 rounded-lg bg-white border-1.5 border-border-color flex items-center justify-center font-black text-white text-sm shadow-[2px_2px_0_var(--border-color)] group-hover:scale-105 transition-transform overflow-hidden p-0.5">
               <Image
-                src="/icon/shared/logopixl.png"
+                src="/logo1.svg"
                 alt="PIXLApe Logo"
                 width={52}
                 height={52}

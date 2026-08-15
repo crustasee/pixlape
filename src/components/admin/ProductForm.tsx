@@ -35,6 +35,7 @@ export const ProductForm: React.FC<ProductFormProps> = ({
     version: initialData?.version || 'v1.0.0',
     isPremium: initialData?.isPremium || false,
     os: initialData?.os || ['windows', 'macos'],
+    downloadUrl: initialData?.downloadUrl || '',
     bannerImage: initialData?.bannerImage || '',
     detailsMarkdown: initialData?.detailsMarkdown || '',
     markdownFile: initialData?.markdownFile || '',
@@ -108,6 +109,7 @@ export const ProductForm: React.FC<ProductFormProps> = ({
         version: initialData.version || 'v1.0.0',
         isPremium: initialData.isPremium || false,
         os: initialData.os || ['windows', 'macos'],
+        downloadUrl: initialData.downloadUrl || '',
         bannerImage: initialData.bannerImage || '',
         detailsMarkdown: initialData.detailsMarkdown || '',
         markdownFile: initialData.markdownFile || '',
@@ -484,6 +486,20 @@ export const ProductForm: React.FC<ProductFormProps> = ({
               </div>
             </div>
 
+            {/* External Target Download URL Field */}
+            <div className="space-y-1">
+              <Input
+                label="◯ URL External Target Download (Direct CDN / Download Mirror)"
+                name="downloadUrl"
+                placeholder="e.g. https://github.com/user/repo/releases/download/v1.0/installer.exe or https://drive.google.com/..."
+                value={formData.downloadUrl}
+                onChange={handleChange}
+              />
+              <p className="text-xs font-mono font-bold text-black/70 pt-1">
+                🔗 If set, users clicking "DOWNLOAD" on the public asset detail page will be directed to this external link.
+              </p>
+            </div>
+
             {/* Operating Systems */}
             <div className="space-y-2 pt-2">
               <label className="block text-[14px] font-mono font-black uppercase tracking-wider text-black">
@@ -611,6 +627,9 @@ export const ProductForm: React.FC<ProductFormProps> = ({
                 <div className="flex flex-wrap gap-1.5 text-xs font-mono font-black pt-1">
                   <span className="bg-neo-cyan text-black px-2 py-0.5 rounded border border-border-color">{formData.version}</span>
                   <span className="bg-neo-lime text-black px-2 py-0.5 rounded border border-border-color">{formData.size}</span>
+                  {formData.downloadUrl && (
+                    <span className="bg-neo-pink text-white px-2 py-0.5 rounded border border-border-color">🔗 EXT DOWNLOAD</span>
+                  )}
                   {(formData.os || []).map((o) => (
                     <span key={o} className="bg-surface text-black px-2 py-0.5 rounded border border-border-color uppercase">{o}</span>
                   ))}

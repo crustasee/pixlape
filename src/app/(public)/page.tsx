@@ -1,12 +1,12 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Sidebar } from '@/components/layout/Sidebar';
 import { AssetGrid } from '@/components/assets/AssetGrid';
 import { QuickModal } from '@/components/assets/QuickModal';
 import { useAssetFilter } from '@/hooks/useAssetFilter';
 import { AssetItem } from '@/types';
-import { ASSETS_DATA } from '@/data/assets';
+import { AssetService } from '@/lib/asset-service';
 
 export default function HomePage() {
   const {
@@ -23,6 +23,15 @@ export default function HomePage() {
   } = useAssetFilter();
 
   const [activeModalAsset, setActiveModalAsset] = useState<AssetItem | null>(null);
+  const [stats, setStats] = useState(() => AssetService.getStats());
+
+  useEffect(() => {
+    const updateStats = () => setStats(AssetService.getStats());
+    updateStats();
+    const unsubscribe = AssetService.subscribe(updateStats);
+    return () => unsubscribe();
+  }, []);
+
   const showHero = searchQuery.trim() === '' && osFilter === 'all';
 
   return (
@@ -72,9 +81,9 @@ export default function HomePage() {
               {/* Right Side: Compact Stats */}
               <div className="flex lg:flex-col sm:flex-row flex-wrap gap-4 shrink-0 justify-start sm:justify-between lg:justify-center">
                 {[
-                  { label: 'ASSETS COUNT', value: `${ASSETS_DATA.length}++`, color: 'bg-yellow-green text-black' },
-                  { label: 'FREE ITEMS', value: `${ASSETS_DATA.filter(a => !a.isPremium).length}`, color: 'bg-yellow-green text-black' },
-                  { label: 'PRO VAULT', value: `${ASSETS_DATA.filter(a => a.isPremium).length}`, color: 'bg-yellow-green text-black' },
+                  { label: 'ASSETS COUNT', value: `${stats.totalAssets}++`, color: 'bg-yellow-green text-black' },
+                  { label: 'FREE ITEMS', value: `${stats.freeAssets}`, color: 'bg-yellow-green text-black' },
+                  { label: 'PRO VAULT', value: `${stats.premiumAssets}`, color: 'bg-yellow-green text-black' },
                 ].map((stat) => (
                   <div
                     key={stat.label}

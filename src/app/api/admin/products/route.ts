@@ -52,7 +52,8 @@ export async function POST(req: Request) {
     }
 
     const body = await req.json();
-    const { name, desc, size, os, tag, icon, license, version, category, isPremium, price, stock, downloadLink, status, authorName, format } = body;
+    const { name, desc, size, os, tag, icon, license, version, category, isPremium, price, stock, downloadUrl, downloadLink, status, authorName, format } = body;
+    const finalDownloadUrl = downloadUrl || downloadLink || '';
 
     if (!name || !desc) {
       const res = NextResponse.json({ success: false, error: 'Name and description are required' }, { status: 400 });
@@ -84,7 +85,8 @@ export async function POST(req: Request) {
         isPremium: !!isPremium,
         price: Number(price) || 0.0,
         stock: Number(stock) || 100,
-        downloadLink: downloadLink || '',
+        downloadUrl: finalDownloadUrl,
+        downloadLink: finalDownloadUrl,
         status: status || 'PUBLISHED',
         authorName: authorName || 'Unknown',
         format: format || '',
@@ -112,7 +114,7 @@ export async function POST(req: Request) {
         isPremium: !!isPremium,
         price: Number(price) || 0.0,
         stock: Number(stock) || 100,
-        downloadLink: downloadLink || '',
+        downloadLink: finalDownloadUrl,
         status: status || 'PUBLISHED',
         authorName: authorName || 'Unknown',
         format: format || ''

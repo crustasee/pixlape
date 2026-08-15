@@ -43,22 +43,28 @@ export const AssetDetailView: React.FC<AssetDetailViewProps> = ({ assetId }) => 
   const [copiedMdSource, setCopiedMdSource] = useState(false);
 
   useEffect(() => {
-    const found = AssetService.getBySlugOrId(rawId) || AssetService.getAll()[0];
-    if (found) {
-      setAsset(found);
-      setIsPremiumMode(Boolean(found.isPremium));
+    const updateAssetData = () => {
+      const found = AssetService.getBySlugOrId(rawId) || AssetService.getAll()[0];
+      if (found) {
+        setAsset(found);
+        setIsPremiumMode(Boolean(found.isPremium));
 
-      if (found.markdownFile) {
-        fetch(found.markdownFile)
-          .then((res) => (res.ok ? res.text() : null))
-          .then((text) => {
-            if (text) setFetchedMarkdown(text);
-          })
-          .catch(() => { });
-      } else {
-        setFetchedMarkdown(null);
+        if (found.markdownFile) {
+          fetch(found.markdownFile)
+            .then((res) => (res.ok ? res.text() : null))
+            .then((text) => {
+              if (text) setFetchedMarkdown(text);
+            })
+            .catch(() => { });
+        } else {
+          setFetchedMarkdown(null);
+        }
       }
-    }
+    };
+
+    updateAssetData();
+    const unsubscribe = AssetService.subscribe(updateAssetData);
+    return () => unsubscribe();
   }, [rawId]);
 
   if (!asset) {
@@ -81,11 +87,16 @@ export const AssetDetailView: React.FC<AssetDetailViewProps> = ({ assetId }) => 
 
   const handleDownload = () => {
     setDownloading(true);
+    if (asset.downloadUrl && asset.downloadUrl.trim() !== '') {
+      if (typeof window !== 'undefined') {
+        window.open(asset.downloadUrl.trim(), '_blank');
+      }
+    }
     setTimeout(() => {
       setDownloading(false);
       setDownloadSuccess(true);
       setTimeout(() => setDownloadSuccess(false), 6000);
-    }, 1800);
+    }, 1200);
   };
 
   const applyCoupon = () => {
@@ -192,6 +203,11 @@ export const AssetDetailView: React.FC<AssetDetailViewProps> = ({ assetId }) => 
               <span className="bg-yellow-green text-darkteal border-1 border-border-color text-sm font-mono font-bold px-2 py-2 rounded-md uppercase">
                 {asset.category || 'ASSET'}
               </span>
+              {asset.downloadUrl && (
+                <span className="bg-neo-pink text-white border-1 border-border-color text-sm font-mono font-bold px-2 py-2 rounded-md uppercase flex items-center gap-1">
+                  🔗 DIRECT EXTERNAL DOWNLOAD
+                </span>
+              )}
             </div>
 
             <h1 className="font-head text-2xl sm:text-3xl md:text-4xl font-black uppercase text-evergreen tracking-tight leading-tight">

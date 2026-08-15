@@ -17,14 +17,15 @@ import {
   CheckCircle2,
   Heart,
 } from 'lucide-react';
+import { Google, Github, Discord, TwitterFill12, Facebook } from '@/components/ui/icontype';
 
 const SOCIAL_LINKS = [
-  { label: 'Google Account', href: 'https://myaccount.google.com', icon: ExternalLink, color: 'hover:bg-yellow-green hover:text-darkteal' },
-  { label: 'GitHub Org', href: 'https://github.com/modtrove', icon: ExternalLink, color: 'hover:bg-yellow-green hover:text-darkteal' },
-  { label: 'Vercel Deployment', href: 'https://vercel.com/modtrove-team', icon: Sparkles, color: 'hover:bg-yellow-green hover:text-darkteal' },
-  { label: 'Twitter / X', href: 'https://x.com/modtrove_official', icon: ExternalLink, color: 'hover:bg-yellow-green hover:text-darkteal' },
-  { label: 'Facebook', href: 'https://facebook.com/modtrove.vault', icon: ExternalLink, color: 'hover:bg-yellow-green hover:text-darkteal' },
-  { label: 'Discord', href: 'https://discord.gg/modtrove', icon: MessageCircle, color: 'hover:bg-yellow-green hover:text-darkteal' },
+  { label: 'Google Account', href: 'https://myaccount.google.com', icon: Google, color: 'hover:bg-yellow-green hover:text-darkteal' },
+  { label: 'GitHub Org', href: 'https://github.com/pixlape', icon: Github, color: 'hover:bg-yellow-green hover:text-darkteal' },
+  { label: 'Vercel Deployment', href: 'https://vercel.com/pixlape-team', icon: Sparkles, color: 'hover:bg-yellow-green hover:text-darkteal' },
+  { label: 'Twitter / X', href: 'https://x.com/pixlape_official', icon: TwitterFill12, color: 'hover:bg-yellow-green hover:text-darkteal' },
+  { label: 'Facebook', href: 'https://facebook.com/pixlape.vault', icon: Facebook, color: 'hover:bg-yellow-green hover:text-darkteal' },
+  { label: 'Discord', href: 'https://discord.gg/pixlape', icon: Discord, color: 'hover:bg-yellow-green hover:text-darkteal' },
   { label: 'Email Support', href: 'mailto:project@keratuli.site', icon: Mail, color: 'hover:bg-yellow-green hover:text-darkteal' },
 ];
 

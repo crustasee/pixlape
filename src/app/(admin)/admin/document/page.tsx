@@ -205,13 +205,13 @@ export default function AdminDocumentPage() {
         </section>
 
         {/* ── Main Web Collection Controller Bar ── */}
-        <section className="bg-purple-300 border-2 border-border-color p-6 rounded-xl shadow-hard space-y-5">
+        <section className="bg-yellow-200 border-2 border-border-color p-6 rounded-xl shadow-hard space-y-5">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b-2 border-border-color/20 pb-4">
             <div>
               <h3 className="font-head font-black text-2xl text-evergreen uppercase tracking-tight mt-1">
-                Articles & Documentation Collection
+                ○○●● Articles & Documentation Collection
               </h3>
-              <p className="text-sm font-medium text-darkteal">
+              <p className="text-lg font-mono text-darkteal">
                 Manage, publish, and edit articles displayed on the public Blog, Help Center, and Legal tabs.
               </p>
             </div>
@@ -219,7 +219,7 @@ export default function AdminDocumentPage() {
             <Link href="/admin/document/new">
               <Button
                 variant="primary"
-                className="font-mono text-lg uppercase bg-green-500 text-black border-1 border-border-color shadow-hard-sm shrink-0"
+                className="font-mono text-lg uppercase bg-green-600 text-black border-1 border-border-color shadow-hard-sm shrink-0"
               >
                 ▶ NEW ARTICLE
               </Button>
@@ -229,48 +229,48 @@ export default function AdminDocumentPage() {
           {/* Filter Bar & Tabs */}
           <div className="flex flex-col lg:flex-row items-stretch lg:items-center justify-between gap-4 font-mono">
             {/* Category Tab Buttons */}
-            <div className="flex bg-purple-300 flex-wrap items-center gap-2 select-none">
+            <div className="flex flex-wrap items-center gap-2 select-none">
               <button
                 onClick={() => setActiveTab('ALL')}
-                className={`px-3.5 py-2 rounded-xl text-xs font-black border-2 transition-all ${activeTab === 'ALL'
+                className={`px-3.5 py-2 rounded-xl text-sm font-black border-2 transition-all ${activeTab === 'ALL'
                   ? 'bg-yellow-green text-darkteal border-border-color shadow-[2.5px_2.5px_0_var(--border-color)]'
-                  : 'bg-purple-400 text-text border-border-color hover:bg-green-200/80'
+                  : 'bg-yellow-100 text-darkteal border-border-color hover:bg-green-200/80'
                   }`}
               >
                 ALL ({documents.length})
               </button>
               <button
                 onClick={() => setActiveTab('BLOG')}
-                className={`px-3.5 py-2 rounded-xl text-xs font-black border-2 transition-all ${activeTab === 'BLOG'
-                  ? 'bg-purple-500 text-black border-border-color shadow-[2.5px_2.5px_0_var(--border-color)]'
-                  : 'bg-white/20 text-text border-border-color hover:bg-neo-yellow/20'
+                className={`px-3.5 py-2 rounded-xl text-darkteal text-sm font-black border-2 transition-all ${activeTab === 'BLOG'
+                  ? 'bg-purple-200 text-black border-border-color shadow-[2.5px_2.5px_0_var(--border-color)]'
+                  : 'bg-yellow-100 text-darkteal border-border-color hover:bg-neo-yellow/20'
                   }`}
               >
                 BLOG ARTICLES ({blogCount})
               </button>
               <button
                 onClick={() => setActiveTab('HELP')}
-                className={`px-3.5 py-2 rounded-xl text-xs font-black border-2 transition-all ${activeTab === 'HELP'
-                  ? 'bg-purple-500 text-black border-border-color shadow-[2.5px_2.5px_0_var(--border-color)]'
-                  : 'bg-white/20 text-text border-border-color hover:bg-neo-cyan/20'
+                className={`px-3.5 py-2 rounded-xl text-darkteal text-xs font-black border-2 transition-all ${activeTab === 'HELP'
+                  ? 'bg-purple-200 text-black border-border-color shadow-[2.5px_2.5px_0_var(--border-color)]'
+                  : 'bg-yellow-100 text-darkteal border-border-color hover:bg-neo-cyan/20'
                   }`}
               >
                 HELP & FAQS ({helpCount})
               </button>
               <button
                 onClick={() => setActiveTab('LEGAL')}
-                className={`px-3.5 py-2 rounded-xl text-xs font-black border-2 transition-all ${activeTab === 'LEGAL'
-                  ? 'bg-purple-500 text-black border-border-color shadow-[2.5px_2.5px_0_var(--border-color)]'
-                  : 'bg-white/20 text-text border-border-color hover:bg-neo-lime/20'
+                className={`px-3.5 py-2 rounded-xl text-darkteal text-xs font-black border-2 transition-all ${activeTab === 'LEGAL'
+                  ? 'bg-purple-200 text-black border-border-color shadow-[2.5px_2.5px_0_var(--border-color)]'
+                  : 'bg-yellow-100 text-darkteal border-border-color hover:bg-neo-lime/20'
                   }`}
               >
                 LEGAL & POLICIES ({legalCount})
               </button>
               <button
                 onClick={() => setActiveTab('MARKDOWN')}
-                className={`px-3.5 py-2 rounded-xl text-xs font-black border-2 transition-all ${activeTab === 'MARKDOWN'
-                  ? 'bg-purple-500 text-white border-border-color shadow-[2.5px_2.5px_0_var(--border-color)]'
-                  : 'bg-white/20 text-text border-border-color hover:bg-neo-purple/20'
+                className={`px-3.5 py-2 rounded-xl text-darkteal text-xs font-black border-2 transition-all ${activeTab === 'MARKDOWN'
+                  ? 'bg-purple-200 text-white border-border-color shadow-[2.5px_2.5px_0_var(--border-color)]'
+                  : 'bg-yellow-100 text-darkteal border-border-color hover:bg-neo-purple/20'
                   }`}
               >
                 MARKDOWN ({markdownCount})

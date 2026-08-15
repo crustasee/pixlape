@@ -56,7 +56,7 @@ Modern web design has entered a new era. Enter **Neo-Brutalism**: a design movem
     (post.highlights?.length ? post.highlights : [
         'Explores modern brutalist UI design trends & systems',
         'Practical developer & creator workflow tips',
-        'Free-and-pro tool recommendations from ModTrove Vault',
+        'Free-and-pro tool recommendations from PixlApe Vault',
     ]), [post.highlights]);
 
     const wordCount = useMemo(() => post.content?.split(/\s+/).length || 0, [post.content]);

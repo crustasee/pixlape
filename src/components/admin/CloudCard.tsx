@@ -56,7 +56,7 @@ export const CloudCard: React.FC<CloudCardProps> = ({
   const [editForm, setEditForm] = useState({
     name: provider.name,
     category: provider.category,
-    accountEmail: provider.accountEmail || `${provider.id}_admin@modtrove.vault`,
+    accountEmail: provider.accountEmail || `${provider.id}_admin@pixlape.vault`,
     rootUrl: provider.rootUrl,
     totalStorage: provider.totalStorage,
     speed: provider.speed,

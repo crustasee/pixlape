@@ -43,7 +43,7 @@ export const ManageDatabaseWidget: React.FC<ManageDatabaseWidgetProps> = ({ onLo
     setIsProcessing(true);
     onLog('Creating full SQL & JSON database snapshot backup...');
     setTimeout(() => {
-      onLog(`✓ Backup created successfully: modtrove_db_dump_${Date.now()}.sql`);
+      onLog(`✓ Backup created successfully: pixlape_db_dump_${Date.now()}.sql`);
       setIsProcessing(false);
     }, 900);
   };

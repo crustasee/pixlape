@@ -24,10 +24,10 @@ export const Header: React.FC = () => {
       <div className="max-w-[1950px] mx-auto w-full px-4 sm:px-6 md:px-8 py-3.5 flex items-center justify-between gap-6">
         <Link
           href="/"
-          className="logo flex items-center gap-5 font-pixel text-lg font-black tracking-tighter text-darkteal focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 rounded-lg"
+          className="logo flex items-center gap-5 font-pixel text-sm font-black tracking-tighter text-darkteal focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 rounded-lg"
           aria-label="PIXLApe Home"
         >
-          <span className="logo-icon relative overflow-hidden flex items-center justify-center w-9 h-9 bg-white border-1 transition-transform duration-300 hover:scale-105">
+          <span className="logo-icon relative flex items-center justify-center w-9 h-9 bg-white rounded-lg transition-transform duration-300 hover:scale-110">
             <Image
               src="/icon/logo_icon.svg"
               alt="M"
@@ -38,7 +38,7 @@ export const Header: React.FC = () => {
             />
           </span>
           <span className="hidden sm:inline">
-            __PIXLApe<span className="text-cayenne font-pixel text-xl">.COM</span>
+            __PIXLApe<span className="text-cayenne font-pixel text-sm">.COM</span>
           </span>
         </Link>
 
@@ -50,9 +50,9 @@ export const Header: React.FC = () => {
               <Link
                 key={item.href}
                 href={item.href}
-                className={`font-pixel text-sm font-black tracking-wider transition-all duration-200 px-3 py-1.5 rounded-xl border-2 focus:outline-none focus:ring-2 focus:ring-yellow-green focus:ring-offset-2 ${isActive
+                className={`font-mono text-xs font-black tracking-wider transition-all duration-200 px-3 py-1.5 rounded-xl border-2 focus:outline-none focus:ring-2 focus:ring-yellow-green focus:ring-offset-2 ${isActive
                   ? 'bg-yellow-green text-darkteal border-border-color'
-                  : 'bg-yellow-100 text-darkteal font-pixel text-sm border-transparent hover:bg-yellow-green hover:text-darkteal hover:border-border-color hover:shadow-[2px_2px_0_var(--border-color)]'
+                  : 'bg-yellow-100 text-darkteal font-mono text-sm border-transparent hover:bg-yellow-green hover:text-darkteal hover:border-border-color hover:shadow-[2px_2px_0_var(--border-color)]'
                   }`}
                 aria-current={isActive ? 'page' : undefined}
               >

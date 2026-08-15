@@ -32,18 +32,18 @@ export default function AdminDashboardPage() {
   const stats = AssetService.getStats();
 
   const categoryBreakdown = [
-    { name: 'Design App', count: assets.filter((a) => a.category === 'design_app').length, color: 'bg-neo-yellow text-black', icon: 'public/icon/appssoftware.svg' },
-    { name: 'Multimedia', count: assets.filter((a) => a.category === 'multimedia').length, color: 'bg-neo-pink text-white', icon: 'public/icon/multimedia.svg' },
-    { name: 'Apk Package', count: assets.filter((a) => a.category === 'apk_package').length, color: 'bg-neo-cyan text-black', icon: 'public/icon/android.svg' },
-    { name: 'Tools App', count: assets.filter((a) => a.category === 'tools_app').length, color: 'bg-neo-lime text-black', icon: 'public/icon/devtools.svg' },
-    { name: 'Art & Graphics', count: assets.filter((a) => a.category === 'art_graphics').length, color: 'bg-neo-purple text-white', icon: 'public/icon/artgraphic.svg' },
+    { name: 'Design App', count: assets.filter((a) => a.category === 'design_app').length, color: 'bg-green-300 text-black', icon: 'public/icon/appssoftware.svg' },
+    { name: 'Multimedia', count: assets.filter((a) => a.category === 'multimedia').length, color: 'bg-purple-400 text-black', icon: 'public/icon/multimedia.svg' },
+    { name: 'Apk Package', count: assets.filter((a) => a.category === 'apk_package').length, color: 'bg-yellow-300 text-black', icon: 'public/icon/android.svg' },
+    { name: 'Tools App', count: assets.filter((a) => a.category === 'tools_app').length, color: 'bg-blue-300 text-black', icon: 'public/icon/devtools.svg' },
+    { name: 'Art & Graphics', count: assets.filter((a) => a.category === 'art_graphics').length, color: 'bg-pink-300 text-black', icon: 'public/icon/artgraphic.svg' },
   ];
 
   const quickActions = [
-    { label: 'New Product', desc: 'Add a new asset', href: '/admin/products/new', icon: '/icon/button/add.svg', colorClass: 'bg-darkteal text-white' },
-    { label: 'All Products', desc: 'Manage catalog', href: '/admin/products', icon: '/icon/button/all_product.svg', colorClass: 'bg-darkteal text-white' },
-    { label: 'Cloud Mirrors', desc: 'View storage mirrors', href: '/admin/cloud', icon: '/icon/button/cloudmirror.svg', colorClass: 'bg-darkteal text-white' },
-    { label: 'Public Site', desc: 'View live store', href: '/', icon: '/icon/button/publicsite.svg', colorClass: 'bg-darkteal text-white' },
+    { label: 'New Product', desc: 'Add a new asset', href: '/admin/products/new', icon: '/icon/button/add.svg', colorClass: 'bg-green-400 text-evergreen' },
+    { label: 'All Products', desc: 'Manage catalog', href: '/admin/products', icon: '/icon/button/all_product.svg', colorClass: 'bg-green-400 text-evergreen' },
+    { label: 'Cloud Mirrors', desc: 'View storage mirrors', href: '/admin/cloud', icon: '/icon/button/cloudmirror.svg', colorClass: 'bg-green-400 text-evergreen' },
+    { label: 'Public Site', desc: 'View live store', href: '/', icon: '/icon/button/publicsite.svg', colorClass: 'bg-green-400 text-evergreen' },
   ];
 
   const recentActivity = [
@@ -64,8 +64,8 @@ export default function AdminDashboardPage() {
             <div>
               <h2 className="text-lg font-mono font-black text-darkteal uppercase tracking-widest">Vault Dashboard Metrics</h2>
             </div>
-            <span className="text-sm text-black bg-yellow-100 border-2 border-border-color px-2.5 py-1 rounded-xl shadow-hard-sm select-none">
-              Sync Active
+            <span className="font-mono text-sm text-white bg-green-500 border-1 border-border-color px-2.5 py-1 rounded-lg shadow-hard-sm select-none">
+              ●●●○○ Sync
             </span>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-5">
@@ -80,12 +80,12 @@ export default function AdminDashboardPage() {
         <section className="grid grid-cols-1 lg:grid-cols-12 gap-6">
 
           {/* Quick Action Shortcuts — 4 cols */}
-          <div className="lg:col-span-4 bg-yellow-green border-2 border-border-color p-5 rounded-xl shadow-hard space-y-4">
+          <div className="lg:col-span-4 bg-yellow-100 border-2 border-border-color p-5 rounded-xl shadow-hard space-y-4">
             <div>
               <h3 className="text-md text-darkteal font-mono font-black uppercase tracking-widest flex items-center gap-5">
                 <span>▶ Quick Actions</span>
               </h3>
-              <p className="text-sm text-darkteal font-mono font-black uppercase tracking-widest flex items-center gap-5">++++++++++++++++++++++++++++++++++++++</p>
+              <p className="text-lg font-mono text-darkteal font-black uppercase tracking-widest flex items-center gap-5">-------------------------------------------------------------</p>
             </div>
             <div className="grid grid-cols-1 gap-2.5">
               {quickActions.map((action) => (
@@ -107,20 +107,19 @@ export default function AdminDashboardPage() {
           {/* Category Breakdown — 4 cols */}
           <div className="lg:col-span-4 bg-yellow-100 border-2 border-border-color p-5 rounded-xl shadow-hard space-y-4">
             <div>
-              <h3 className="text-xl font-mono font-black uppercase tracking-widest text-darkteal flex items-center gap-4">
-                <IconRenderer icon="/icon/overview.svg" alt="Breakdown" className="w-4 h-4 object-contain" />
-                <span>Filter</span>
+              <h3 className="text-lg font-mono font-black uppercase tracking-widest text-darkteal flex items-center gap-4">
+                <span>◯ Filter</span>
               </h3>
-              <p className="text-sm font-mono text-darkteal">Vault assets by category</p>
+              <p className="text-lg font-mono text-darkteal font-black uppercase tracking-widest flex items-center gap-5">-------------------------------------------------------------</p>
             </div>
             <div className="space-y-2.5 font-mono text-sm">
               {categoryBreakdown.map((cat) => (
-                <div key={cat.name} className="flex items-center justify-between p-3 bg-yellow-green border-2 border-border-color rounded-lg shadow-hard-sm">
+                <div key={cat.name} className="flex items-center justify-between p-3 bg-yellow-200 border-2 border-border-color rounded-lg shadow-hard-sm">
                   <div className="flex items-center space-x-3">
                     <div className="w-8 h-8 rounded-lg bg-white border border-border-color flex items-center justify-center p-1 overflow-hidden shrink-0">
                       <IconRenderer icon={cat.icon} alt={cat.name} className="w-full h-full object-contain" />
                     </div>
-                    <span className="font-black text-text uppercase text-sm">{cat.name}</span>
+                    <span className="font-black text-darkteal uppercase text-lg">{cat.name}</span>
                   </div>
                   <span className={`px-2.5 py-1 rounded-md text-xs font-black border border-border-color shadow-[1px_1px_0_var(--border-color)] ${cat.color}`}>
                     {cat.count} items
@@ -131,16 +130,16 @@ export default function AdminDashboardPage() {
           </div>
 
           {/* Activity Feed — 4 cols */}
-          <div className="lg:col-span-4 bg-yellow-100 border-2 border-border-color p-5 rounded-xl shadow-hard space-y-4">
+          <div className="flex-col-2 lg:col-span-4 bg-yellow-100 border-2 border-border-color p-5 rounded-xl shadow-hard space-y-4">
             <div>
               <h3 className="text-lg font-mono font-black uppercase tracking-widest text-darkteal flex items-center gap-4">
                 <span>▶ Recent System Activity</span>
               </h3>
-              <p className="text-sm font-mono font-bold text-darkteal">Audit log & activity feed</p>
+              <p className="text-sm font-mono font-bold text-darkteal">+++++++ Audit log & activity feed ++++++++++</p>
             </div>
             <div className="space-y-1 font-mono text-xs">
               {recentActivity.map((act, idx) => (
-                <div key={idx} className="p-3 bg-yellow-green border-2 border-border-color rounded-lg shadow-hard-sm flex items-start space-x-3">
+                <div key={idx} className="p-3 bg-yellow-200 border-2 border-border-color rounded-lg shadow-hard-sm flex items-start space-x-3">
                   <span className={`w-2.5 h-2.5 rounded-full ${act.color} border border-border-color shrink-0 mt-1`} />
                   <div className="min-w-0 flex-1">
                     <div className="font-black text-lg text-darkteal flex justify-between items-center">
@@ -158,7 +157,7 @@ export default function AdminDashboardPage() {
 
         {/* ── Section 3: Recent Asset Catalog Table ── */}
         <section className="space-y-4">
-          <div className="flex items-center justify-between">
+          <div className="flex flex-col-2items-center justify-between">
             <div>
               <h2 className="text-base font-black uppercase font-mono text-text tracking-wide">
                 Vault Product Assets ({assets.length})

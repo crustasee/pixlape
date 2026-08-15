@@ -11,7 +11,7 @@ interface CliToolsWidgetProps {
 export const CliToolsWidget: React.FC<CliToolsWidgetProps> = ({ onLog, showHeader = true }) => {
   const [commandInput, setCommandInput] = useState('');
   const [terminalHistory, setTerminalHistory] = useState<string[]>([
-    'ModTrove CLI Shell v2026.1.0 [Ready]',
+    'PixlApe CLI Shell v2026.1.0 [Ready]',
     'Type "help" or click preset buttons to execute commands.',
   ]);
   const terminalEndRef = useRef<HTMLDivElement | null>(null);
@@ -47,7 +47,7 @@ export const CliToolsWidget: React.FC<CliToolsWidgetProps> = ({ onLog, showHeade
         '  - asset-cli --sync   : Force re-indexing of asset catalog',
       ]);
     } else if (lower === 'clear') {
-      setTerminalHistory(['ModTrove CLI Shell v2026.1.0 [Ready]']);
+      setTerminalHistory(['PixlApe CLI Shell v2026.1.0 [Ready]']);
     } else if (lower === 'status') {
       setTerminalHistory((prev) => [
         ...prev,

@@ -1,8 +1,8 @@
 'use client';
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { CategoryType, OSFilterType } from '@/types';
-import { ASSET_DATABASE } from '@/data/assets';
+import { AssetService } from '@/lib/asset-service';
 
 interface SidebarProps {
   currentCategory: CategoryType;
@@ -35,12 +35,28 @@ export const Sidebar: React.FC<SidebarProps> = ({
   currentOS,
   onOSChange,
 }) => {
+  const [counts, setCounts] = useState<Record<CategoryType, number>>(() => AssetService.getCategoryCounts());
+  const [totalItems, setTotalItems] = useState<number>(() => AssetService.getAll().length);
+
+  useEffect(() => {
+    const updateStats = () => {
+      setCounts(AssetService.getCategoryCounts());
+      setTotalItems(AssetService.getAll().length);
+    };
+
+    updateStats();
+    const unsubscribe = AssetService.subscribe(updateStats);
+    return () => {
+      unsubscribe();
+    };
+  }, []);
+
   const categories: { id: CategoryType; label: string; badge: string; variant: 'yellow' | 'pink' | 'cyan' | 'lime' | 'purple'; icon: string }[] = [
-    { id: 'design_app', label: 'Design Apps', badge: `${ASSET_DATABASE.design_app.length}`, variant: 'yellow', icon: '/icon/appssoftware.svg' },
-    { id: 'multimedia', label: 'Multimedia', badge: `${ASSET_DATABASE.multimedia.length}`, variant: 'yellow', icon: '/icon/multimedia.svg' },
-    { id: 'apk_package', label: 'APK Packages', badge: `${ASSET_DATABASE.apk_package.length}`, variant: 'yellow', icon: '/icon/android.svg' },
-    { id: 'tools_app', label: 'Dev Tools', badge: `${ASSET_DATABASE.tools_app.length}`, variant: 'yellow', icon: '/icon/devtools.svg' },
-    { id: 'art_graphics', label: 'Art & Graphics', badge: `${ASSET_DATABASE.art_graphics.length}`, variant: 'yellow', icon: '/icon/artgraphic.svg' },
+    { id: 'design_app', label: 'Design Apps', badge: `${counts.design_app || 0}`, variant: 'yellow', icon: '/icon/appssoftware.svg' },
+    { id: 'multimedia', label: 'Multimedia', badge: `${counts.multimedia || 0}`, variant: 'yellow', icon: '/icon/multimedia.svg' },
+    { id: 'apk_package', label: 'APK Packages', badge: `${counts.apk_package || 0}`, variant: 'yellow', icon: '/icon/android.svg' },
+    { id: 'tools_app', label: 'Dev Tools', badge: `${counts.tools_app || 0}`, variant: 'yellow', icon: '/icon/devtools.svg' },
+    { id: 'art_graphics', label: 'Art & Graphics', badge: `${counts.art_graphics || 0}`, variant: 'yellow', icon: '/icon/artgraphic.svg' },
   ];
 
   const osFilters: { id: OSFilterType; label: string; icon: string }[] = [
@@ -117,7 +133,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
         <div className="flex flex-col gap-2.5 font-mono text-xs text-black bg-black/20 p-3.5 rounded-xl border border-white/10">
           <div className="flex justify-between">
             <span>Total Assets:</span>
-            <span className="font-black text-black">41 Items</span>
+            <span className="font-black text-black">{totalItems} Items</span>
           </div>
           <div className="flex justify-between">
             <span>Online Now:</span>

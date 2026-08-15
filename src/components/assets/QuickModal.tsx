@@ -130,7 +130,7 @@ export const QuickModal: React.FC<QuickModalProps> = ({ asset, onClose }) => {
         </div>
 
         {/* Action Buttons */}
-        <div className="flex gap-3">
+        <div className="flex gap-3 flex-col sm:flex-row">
           <Button
             onClick={onClose}
             variant="neutral"
@@ -138,6 +138,23 @@ export const QuickModal: React.FC<QuickModalProps> = ({ asset, onClose }) => {
           >
             CLOSE
           </Button>
+
+          {asset.downloadUrl ? (
+            <a
+              href={asset.downloadUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex-1 inline-flex"
+            >
+              <Button
+                variant="primary"
+                className="w-full uppercase font-black tracking-wider bg-yellow-green text-black rounded-xl py-2.5 focus:outline-none focus:ring-2 focus:ring-cayenne focus:ring-offset-2"
+              >
+                🔗 DOWNLOAD LINK →
+              </Button>
+            </a>
+          ) : null}
+
           <Link href={detailUrl} className="flex-1 inline-flex">
             <Button
               variant="default"

@@ -42,24 +42,24 @@ export const DEFAULT_SETTINGS: SystemSettings = {
   adminName: 'Super Admin',
   adminEmail: 'project@keratuli.site',
   adminRole: 'SUPERADMIN',
-  adminBio: 'Lead Vault Architect & Digital Asset Curator at ModTrove.',
+  adminBio: 'Lead Vault Architect & Digital Asset Curator at PixlApe.',
   currency: 'USD',
   maintenanceMode: false,
   marqueeText: '🔥 CORELDRAW 2026 GRAPHICS SUITE DROPPED • OVER 1,200+ NEO-BRUTALIST ICONS ACTIVE • DOWNLOAD PRO ASSETS INSTANTLY',
   defaultLicense: 'MIT License',
   defaultPrice: 29,
   itemsPerPage: 24,
-  adminSecretKey: 'modtrove_secret_2026_key',
+  adminSecretKey: 'pixlape_secret_2026_key',
   virusTotalAutoScan: true,
   cloudSyncInterval: '15 mins',
   // Platform Defaults
-  googleClientId: '84930291-modtrove.apps.googleusercontent.com',
+  googleClientId: '84930291-pixlape.apps.googleusercontent.com',
   googleProfileUrl: 'https://myaccount.google.com',
-  githubUrl: 'https://github.com/modtrove',
-  vercelUrl: 'https://vercel.com/modtrove-team',
-  twitterUrl: 'https://x.com/modtrove_official',
-  facebookUrl: 'https://facebook.com/modtrove.vault',
-  discordUrl: 'https://discord.gg/modtrove',
+  githubUrl: 'https://github.com/pixlape',
+  vercelUrl: 'https://vercel.com/pixlape-team',
+  twitterUrl: 'https://x.com/pixlape_official',
+  facebookUrl: 'https://facebook.com/pixlape.vault',
+  discordUrl: 'https://discord.gg/pixlape',
 };
 
 export default function AdminSettingsPage() {
@@ -74,7 +74,7 @@ export default function AdminSettingsPage() {
   useEffect(() => {
     if (typeof window !== 'undefined') {
       try {
-        const savedSettings = localStorage.getItem('modtrove_admin_settings');
+        const savedSettings = localStorage.getItem('pixlape_admin_settings');
         if (savedSettings) {
           const parsed = JSON.parse(savedSettings);
           setSettings((prev) => ({ ...prev, ...parsed }));
@@ -132,7 +132,7 @@ export default function AdminSettingsPage() {
     e.preventDefault();
     if (typeof window !== 'undefined') {
       try {
-        localStorage.setItem('modtrove_admin_settings', JSON.stringify(settings));
+        localStorage.setItem('pixlape_admin_settings', JSON.stringify(settings));
       } catch (err) {
         console.error('Failed to save settings to localStorage', err);
       }
@@ -145,7 +145,7 @@ export default function AdminSettingsPage() {
     const dataStr = 'data:text/json;charset=utf-8,' + encodeURIComponent(JSON.stringify(settings, null, 2));
     const downloadAnchor = document.createElement('a');
     downloadAnchor.setAttribute('href', dataStr);
-    downloadAnchor.setAttribute('download', `modtrove_settings_config_${Date.now()}.json`);
+    downloadAnchor.setAttribute('download', `pixlape_settings_config_${Date.now()}.json`);
     document.body.appendChild(downloadAnchor);
     downloadAnchor.click();
     downloadAnchor.remove();
@@ -154,7 +154,7 @@ export default function AdminSettingsPage() {
   const handleResetDefaults = () => {
     if (confirm('Are you sure you want to reset all settings to system defaults?')) {
       if (typeof window !== 'undefined') {
-        localStorage.removeItem('modtrove_admin_settings');
+        localStorage.removeItem('pixlape_admin_settings');
       }
       setSettings(DEFAULT_SETTINGS);
       setSaved(true);
@@ -665,7 +665,7 @@ export default function AdminSettingsPage() {
                   <h2 className="text-xl font-head font-black uppercase text-darkteal flex items-center gap-3">
                     <span>▶ Social Media & Platform Account Integrations</span>
                   </h2>
-                  <p className="text-xs font-mono font-bold text-darkteal/80 mt-1">
+                  <p className="text-sm font-mono font-bold text-darkteal mt-1">
                     Connect public developer accounts (Google, GitHub, Vercel) and social media handles (Twitter, Facebook, Discord).
                   </p>
                 </div>
@@ -673,8 +673,8 @@ export default function AdminSettingsPage() {
                 {/* Developer & Cloud Accounts Section */}
                 <div className="space-y-4 bg-yellow-100 p-5 rounded-xl border-2 border-border-color shadow-hard-sm">
                   <div className="flex items-center justify-between border-b-2 border-border-color/20 pb-2">
-                    <span className="font-mono font-black text-sm uppercase text-darkteal flex items-center gap-2">
-                      🌐 DEVELOPER & CLOUD PLATFORMS
+                    <span className="font-mono font-black text-md uppercase text-darkteal flex items-center gap-2">
+                      ◯ DEVELOPER & CLOUD PLATFORMS
                     </span>
                     <span className="text-[10px] font-black bg-yellow-green text-darkteal px-2 py-0.5 rounded border border-border-color uppercase">
                       3 CONNECTED
@@ -683,7 +683,7 @@ export default function AdminSettingsPage() {
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <Input
-                      label="Google OAuth Client ID"
+                      label="Google Auth Client ID"
                       name="googleClientId"
                       value={settings.googleClientId}
                       onChange={handleChange}
@@ -692,7 +692,7 @@ export default function AdminSettingsPage() {
                     />
 
                     <Input
-                      label="Google Profile / Developer Console URL"
+                      label="Google Profile / Dev Console URL"
                       name="googleProfileUrl"
                       value={settings.googleProfileUrl}
                       onChange={handleChange}
@@ -707,7 +707,7 @@ export default function AdminSettingsPage() {
                       name="githubUrl"
                       value={settings.githubUrl}
                       onChange={handleChange}
-                      placeholder="https://github.com/modtrove"
+                      placeholder="https://github.com/pixlape"
                       className="border-2 border-border-color bg-white text-xs font-mono font-bold text-darkteal shadow-hard-sm"
                     />
 
@@ -716,7 +716,7 @@ export default function AdminSettingsPage() {
                       name="vercelUrl"
                       value={settings.vercelUrl}
                       onChange={handleChange}
-                      placeholder="https://vercel.com/modtrove-team"
+                      placeholder="https://vercel.com/pixlape-team"
                       className="border-2 border-border-color bg-white text-xs font-mono font-bold text-darkteal shadow-hard-sm"
                     />
                   </div>
@@ -725,8 +725,8 @@ export default function AdminSettingsPage() {
                 {/* Social Media Section */}
                 <div className="space-y-4 bg-yellow-100 p-5 rounded-xl border-2 border-border-color shadow-hard-sm">
                   <div className="flex items-center justify-between border-b-2 border-border-color/20 pb-2">
-                    <span className="font-mono font-black text-sm uppercase text-darkteal flex items-center gap-2">
-                      📣 SOCIAL MEDIA CHANNELS
+                    <span className="font-mono font-black text-md uppercase text-darkteal flex items-center gap-2">
+                      ◯ SOCIAL MEDIA CHANNELS
                     </span>
                     <span className="text-[10px] font-black bg-cayenne text-white px-2 py-0.5 rounded border border-border-color uppercase">
                       PUBLIC FOOTER
@@ -735,30 +735,30 @@ export default function AdminSettingsPage() {
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <Input
-                      label="Twitter / X Handle or Profile URL"
+                      label="Twitter / X URL"
                       name="twitterUrl"
                       value={settings.twitterUrl}
                       onChange={handleChange}
-                      placeholder="https://x.com/modtrove_official"
+                      placeholder="https://x.com/pixlape_official"
                       className="border-2 border-border-color bg-white text-xs font-mono font-bold text-darkteal shadow-hard-sm"
                     />
 
                     <Input
-                      label="Facebook Page or Profile URL"
+                      label="Facebook URL"
                       name="facebookUrl"
                       value={settings.facebookUrl}
                       onChange={handleChange}
-                      placeholder="https://facebook.com/modtrove.vault"
+                      placeholder="https://facebook.com/pixlape.vault"
                       className="border-2 border-border-color bg-white text-xs font-mono font-bold text-darkteal shadow-hard-sm"
                     />
                   </div>
 
                   <Input
-                    label="Discord Community Invite Link"
+                    label="Discord Link"
                     name="discordUrl"
                     value={settings.discordUrl}
                     onChange={handleChange}
-                    placeholder="https://discord.gg/modtrove"
+                    placeholder="https://discord.gg/pixlape"
                     className="border-2 border-border-color bg-white text-xs font-mono font-bold text-darkteal shadow-hard-sm"
                   />
                 </div>
@@ -783,44 +783,44 @@ export default function AdminSettingsPage() {
           {/* ── RIGHT COLUMN (4 Cols): LIVE LOGO & PROFILE PREVIEW PANEL ── */}
           <aside className="lg:col-span-4 space-y-6 sticky top-20 font-mono">
             {/* Social Media & Platform Integration Status Card */}
-            <div className="bg-yellow-100 p-6 rounded-2xl border-2 border-border-color shadow-hard space-y-4 text-darkteal">
+            <div className="bg-yellow-green p-6 rounded-2xl border-2 border-border-color shadow-hard space-y-4 text-darkteal">
               <div className="flex items-center justify-between border-b-2 border-border-color pb-3">
                 <span className="text-base font-mono font-black uppercase text-darkteal flex items-center gap-2">
-                  <span>INTEGRATIONS STATUS</span>
+                  <span>●●●○○ INTEGRATIONS STATUS</span>
                 </span>
-                <span className="text-[10px] font-mono font-black bg-yellow-green text-darkteal px-2 py-0.5 rounded border border-border-color uppercase">
+                <span className="text-sm font-mono font-black bg-yellow-green text-darkteal px-2 py-0.5 rounded border border-border-color uppercase">
                   6 ACTIVE
                 </span>
               </div>
 
-              <div className="space-y-2 font-mono text-xs">
-                <a href={settings.googleProfileUrl} target="_blank" rel="noreferrer" className="flex items-center justify-between p-2.5 bg-white border-2 border-border-color rounded-xl hover:bg-yellow-green transition-all shadow-hard-sm">
-                  <span className="font-bold flex items-center gap-2">🌐 Google OAuth</span>
-                  <span className="badge bg-green-500 text-white font-black text-[10px] px-2 py-0.5 rounded">CONNECTED</span>
+              <div className="space-y-2 font-mono text-lg">
+                <a href={settings.googleProfileUrl} target="_blank" rel="noreferrer" className="flex items-center justify-between p-2.5 bg-white border-1 border-border-color rounded-lg hover:bg-yellow-green transition-all shadow-hard-sm">
+                  <span className="font-bold text-sm flex items-center gap-2">◪ Google Auth</span>
+                  <span className="badge bg-green-500 text-white font-black text-sm px-2 py-0.5 rounded">CONNECTED</span>
                 </a>
 
-                <a href={settings.githubUrl} target="_blank" rel="noreferrer" className="flex items-center justify-between p-2.5 bg-white border-2 border-border-color rounded-xl hover:bg-yellow-green transition-all shadow-hard-sm">
-                  <span className="font-bold flex items-center gap-2">🐙 GitHub Org</span>
-                  <span className="badge bg-yellow-green text-darkteal font-black text-[10px] px-2 py-0.5 rounded">VERIFIED</span>
+                <a href={settings.githubUrl} target="_blank" rel="noreferrer" className="flex items-center justify-between p-2.5 bg-white border-1 border-border-color rounded-lg hover:bg-yellow-green transition-all shadow-hard-sm">
+                  <span className="font-bold text-sm flex items-center gap-2">▩ GitHub</span>
+                  <span className="badge bg-yellow-green text-darkteal font-black text-sm px-2 py-0.5 rounded">VERIFIED</span>
                 </a>
 
                 <a href={settings.vercelUrl} target="_blank" rel="noreferrer" className="flex items-center justify-between p-2.5 bg-white border-2 border-border-color rounded-xl hover:bg-yellow-green transition-all shadow-hard-sm">
-                  <span className="font-bold flex items-center gap-2">▲ Vercel Edge</span>
-                  <span className="badge bg-yellow-green text-darkteal font-black text-[10px] px-2 py-0.5 rounded">DEPLOYED</span>
+                  <span className="font-bold text-sm flex items-center gap-2">▲ Vercel Edge</span>
+                  <span className="badge bg-yellow-green text-darkteal font-black text-sm px-2 py-0.5 rounded">DEPLOYED</span>
                 </a>
 
-                <a href={settings.twitterUrl} target="_blank" rel="noreferrer" className="flex items-center justify-between p-2.5 bg-white border-2 border-border-color rounded-xl hover:bg-yellow-green transition-all shadow-hard-sm">
-                  <span className="font-bold flex items-center gap-2">🐦 Twitter / X</span>
-                  <span className="badge bg-cayenne text-white font-black text-[10px] px-2 py-0.5 rounded">ACTIVE</span>
+                <a href={settings.twitterUrl} target="_blank" rel="noreferrer" className="flex items-center justify-between p-2.5 bg-white border-1 border-border-color rounded-lg hover:bg-yellow-green transition-all shadow-hard-sm">
+                  <span className="font-bold text-sm flex items-center gap-2">✕  Twitter / X</span>
+                  <span className="badge bg-cayenne text-white font-black text-sm px-2 py-0.5 rounded">ACTIVE</span>
                 </a>
 
-                <a href={settings.facebookUrl} target="_blank" rel="noreferrer" className="flex items-center justify-between p-2.5 bg-white border-2 border-border-color rounded-xl hover:bg-yellow-green transition-all shadow-hard-sm">
-                  <span className="font-bold flex items-center gap-2">📘 Facebook</span>
+                <a href={settings.facebookUrl} target="_blank" rel="noreferrer" className="flex items-center justify-between p-2.5 bg-white border-1 border-border-color rounded-lg hover:bg-yellow-green transition-all shadow-hard-sm">
+                  <span className="font-bold text-sm flex items-center gap-2">▩ Facebook</span>
                   <span className="badge bg-cayenne text-white font-black text-[10px] px-2 py-0.5 rounded">ACTIVE</span>
                 </a>
 
                 <a href={settings.discordUrl} target="_blank" rel="noreferrer" className="flex items-center justify-between p-2.5 bg-white border-2 border-border-color rounded-xl hover:bg-yellow-green transition-all shadow-hard-sm">
-                  <span className="font-bold flex items-center gap-2">💬 Discord</span>
+                  <span className="font-bold text-sm flex items-center gap-2">⌗ Discord</span>
                   <span className="badge bg-yellow-green text-darkteal font-black text-[10px] px-2 py-0.5 rounded">JOIN</span>
                 </a>
               </div>
@@ -830,8 +830,7 @@ export default function AdminSettingsPage() {
             <div className="bg-yellow-100 p-6 rounded-2xl border-2 border-border-color shadow-hard space-y-4 text-darkteal">
               <div className="flex items-center justify-between border-b-2 border-border-color pb-3">
                 <span className="text-base font-mono font-black uppercase text-darkteal flex items-center gap-2">
-                  <IconRenderer icon="/icon/articles.svg" alt="Preview" className="w-6 h-6 object-contain" />
-                  <span>STORE LOGO PREVIEW</span>
+                  <span>◯◯◯</span><span>STORE LOGO PREVIEW</span>
                 </span>
                 <span className="text-[10px] font-mono font-black bg-cayenne text-white px-2 py-0.5 rounded border border-border-color uppercase">
                   PUBLIC HEADER
@@ -875,8 +874,8 @@ export default function AdminSettingsPage() {
 
               {/* Live Ticker Preview */}
               <div className="space-y-2">
-                <span className="text-xs font-mono font-black text-cayenne uppercase block">Live Marquee Ticker Preview:</span>
-                <div className="bg-yellow-green text-darkteal p-2.5 rounded-xl border-2 border-border-color text-xs font-mono font-black truncate shadow-hard-sm">
+                <span className="text-sm font-mono font-black text-cayenne uppercase block">Live Marquee Ticker Preview:</span>
+                <div className="bg-yellow-50 text-darkteal p-2.5 rounded-xl border-2 border-border-color text-xs font-mono font-black truncate shadow-hard-sm">
                   {settings.marqueeText}
                 </div>
               </div>
@@ -886,15 +885,14 @@ export default function AdminSettingsPage() {
             <div className="bg-yellow-100 p-6 rounded-2xl border-2 border-border-color shadow-hard space-y-4 text-darkteal">
               <div className="flex items-center justify-between border-b-2 border-border-color pb-3">
                 <span className="text-base font-mono font-black uppercase text-darkteal flex items-center gap-3">
-                  <IconRenderer icon="/icon/stock/app1.svg" alt="Admin" className="w-6 h-6 object-contain" />
-                  <span>ADMIN AVATAR CARD</span>
+                  <span>◯◯◯</span><span>ADMIN AVATAR CARD</span>
                 </span>
                 <span className="text-[10px] font-mono font-black bg-yellow-green text-darkteal px-2 py-0.5 rounded border border-border-color uppercase">
                   {settings.adminRole || 'SUPERADMIN'}
                 </span>
               </div>
 
-              <div className="bg-yellow-green/30 p-4 rounded-xl border-2 border-border-color shadow-hard-sm space-y-3">
+              <div className="bg-yellow-50 p-4 rounded-xl border-2 border-border-color shadow-hard-sm space-y-3">
                 <div className="flex items-center space-x-3">
                   <div className="w-14 h-14 rounded-xl bg-white border-2 border-border-color flex items-center justify-center p-1 shadow-hard-sm overflow-hidden relative shrink-0">
                     {settings.adminAvatarUrl && !avatarError ? (
@@ -911,8 +909,8 @@ export default function AdminSettingsPage() {
                     )}
                   </div>
                   <div className="min-w-0 flex-1">
-                    <h4 className="font-mono font-black text-base text-darkteal uppercase truncate">{settings.adminName || 'Super Admin'}</h4>
-                    <span className="text-xs text-darkteal font-mono font-bold block truncate">{settings.adminEmail}</span>
+                    <h4 className="font-mono font-black text-base text-darkteal uppercase truncate">{settings.adminName || 'ADMIN'}</h4>
+                    <span className="text-sm text-darkteal font-mono font-bold block truncate">{settings.adminEmail}</span>
                     <span className="inline-block mt-1 px-2 py-0.5 text-[9px] font-mono font-black bg-yellow-green text-darkteal border border-border-color rounded uppercase">
                       ● ONLINE
                     </span>

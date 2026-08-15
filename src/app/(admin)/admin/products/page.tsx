@@ -103,9 +103,9 @@ export default function AdminProductsPage() {
         </div>
 
         {/* Results Counter */}
-        <div className="flex items-center justify-between text-xs font-mono font-bold text-text/80 px-1">
+        <div className="flex items-center justify-between text-sm font-mono font-bold text-darkteal px-1">
           <span>
-            Showing <strong className="text-neo-pink font-black">{filteredProducts.length}</strong> of{' '}
+            Showing <strong className="text-cayenne font-black">{filteredProducts.length}</strong> of{' '}
             {totalAssetsCount} assets
           </span>
         </div>

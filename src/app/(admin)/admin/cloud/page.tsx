@@ -23,9 +23,9 @@ const DEFAULT_PROVIDERS: CloudProvider[] = [
     percentUsed: 21,
     speed: '1.2 GB/s',
     mirrorCount: 41,
-    rootUrl: 'https://drive.google.com/drive/folders/modtrove_vault',
-    color: 'bg-blue-400 text-black',
-    badgeBg: 'bg-neo-yellow text-black',
+    rootUrl: 'https://drive.google.com/drive/folders/pixlape_vault',
+    color: 'bg-white text-black',
+    badgeBg: 'bg-white text-black',
   },
   {
     id: 'onedrive',
@@ -38,7 +38,7 @@ const DEFAULT_PROVIDERS: CloudProvider[] = [
     percentUsed: 31,
     speed: '950 MB/s',
     mirrorCount: 41,
-    rootUrl: 'https://onedrive.live.com/?id=modtrove_vault',
+    rootUrl: 'https://onedrive.live.com/?id=pixlape_vault',
     color: 'bg-white text-black',
     badgeBg: 'bg-white text-black',
   },
@@ -53,9 +53,9 @@ const DEFAULT_PROVIDERS: CloudProvider[] = [
     percentUsed: 36,
     speed: '800 MB/s',
     mirrorCount: 41,
-    rootUrl: 'https://dropbox.com/sh/modtrove_vault',
-    color: 'bg-neo-pink text-white',
-    badgeBg: 'bg-neo-pink text-white',
+    rootUrl: 'https://dropbox.com/sh/pixlape_vault',
+    color: 'bg-white text-black',
+    badgeBg: 'bg-white text-black',
   },
   {
     id: 'mediafire',
@@ -68,9 +68,9 @@ const DEFAULT_PROVIDERS: CloudProvider[] = [
     percentUsed: 51,
     speed: '1.5 GB/s',
     mirrorCount: 38,
-    rootUrl: 'https://mediafire.com/folder/modtrove_assets',
-    color: 'bg-neo-lime text-black',
-    badgeBg: 'bg-neo-lime text-black',
+    rootUrl: 'https://mediafire.com/folder/pixlape_assets',
+    color: 'bg-white text-black',
+    badgeBg: 'bg-white text-black',
   },
   {
     id: 'mega',
@@ -83,9 +83,9 @@ const DEFAULT_PROVIDERS: CloudProvider[] = [
     percentUsed: 29,
     speed: '1.1 GB/s',
     mirrorCount: 35,
-    rootUrl: 'https://mega.nz/folder/modtrove_vault',
-    color: 'bg-neo-purple text-white',
-    badgeBg: 'bg-neo-purple text-white',
+    rootUrl: 'https://mega.nz/folder/pixlape_vault',
+    color: 'bg-white text-black',
+    badgeBg: 'bg-white text-black',
   },
   {
     id: 'amazons3',
@@ -98,9 +98,9 @@ const DEFAULT_PROVIDERS: CloudProvider[] = [
     percentUsed: 6.8,
     speed: '3.5 GB/s',
     mirrorCount: 41,
-    rootUrl: 's3://us-east-1.amazonaws.com/modtrove-assets',
-    color: 'bg-neo-yellow text-black',
-    badgeBg: 'bg-neo-yellow text-black',
+    rootUrl: 's3://us-east-1.amazonaws.com/pixlape-assets',
+    color: 'bg-white text-black',
+    badgeBg: 'bg-white text-black',
   },
   {
     id: 'cloudflare_r2',
@@ -114,8 +114,8 @@ const DEFAULT_PROVIDERS: CloudProvider[] = [
     speed: '4.0 GB/s',
     mirrorCount: 41,
     rootUrl: 'https://r2.pixlape.com/vault-mirrors',
-    color: 'bg-neo-cyan text-black',
-    badgeBg: 'bg-neo-cyan text-black',
+    color: 'bg-white text-black',
+    badgeBg: 'bg-white text-black',
   },
   {
     id: 'gcs',
@@ -129,8 +129,8 @@ const DEFAULT_PROVIDERS: CloudProvider[] = [
     speed: '3.2 GB/s',
     mirrorCount: 41,
     rootUrl: 'https://storage.googleapis.com/pixlape-vault',
-    color: 'bg-neo-lime text-black',
-    badgeBg: 'bg-neo-lime text-black',
+    color: 'bg-white text-black',
+    badgeBg: 'bg-white text-black',
   },
   {
     id: 'pcloud',
@@ -144,8 +144,8 @@ const DEFAULT_PROVIDERS: CloudProvider[] = [
     speed: '0 MB/s',
     mirrorCount: 0,
     rootUrl: 'https://pcloud.com/vault_mirror',
-    color: 'bg-surface text-text',
-    badgeBg: 'bg-surface text-text',
+    color: 'bg-white text-black',
+    badgeBg: 'bg-white text-black',
   },
 ];
 
@@ -325,8 +325,8 @@ export default function AdminCloudPage() {
               <Button
                 variant="primary"
                 onClick={handleGenerateMirror}
-                className="w-1400px py-4 font-mono text-xl font-black uppercase bg-pink-300 text-evergreen border-2 border-border-color shadow-hard-sm"
-              >GENERATE LINK
+                className="w-[300px] py-4 font-pixel text-2xl bg-yellow-400 text-darkteal border-2 border-border-color shadow-hard-sm"
+              >●●●○○ GENERATE LINK
               </Button>
             </div>
           </div>
@@ -345,7 +345,7 @@ export default function AdminCloudPage() {
                   setCopiedGeneratedLink(true);
                   setTimeout(() => setCopiedGeneratedLink(false), 2500);
                 }}
-                className="font-mono text-xs font-black uppercase bg-neo-yellow text-black border-2 border-border-color shadow-[2px_2px_0_var(--border-color)] shrink-0"
+                className="font-mono text-sm font-black uppercase bg-yellow-green text-black border-2 border-border-color shadow-[2px_2px_0_var(--border-color)] shrink-0"
               >
                 {copiedGeneratedLink ? '✅ COPIED!' : '📋 COPY MIRROR LINK'}
               </Button>

@@ -2,6 +2,7 @@
 
 import { useState, useMemo, useEffect } from 'react';
 import { AssetItem, CategoryType, OSFilterType, SortOption } from '@/types';
+import { AssetService } from '@/lib/asset-service';
 import { ASSET_DATABASE } from '@/data/assets';
 
 export function useAssetFilter() {
@@ -13,24 +14,17 @@ export function useAssetFilter() {
   const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
-    async function fetchAssets() {
-      try {
-        setLoading(true);
-        const res = await fetch('/api/public/products');
-        const json = await res.json();
-        if (json.success && json.data) {
-          setAllAssets(json.data);
-        } else {
-          setAllAssets(getDefaultAssets());
-        }
-      } catch {
-        setAllAssets(getDefaultAssets());
-      } finally {
-        setLoading(false);
-      }
+    function syncAssets() {
+      const current = AssetService.getAll();
+      setAllAssets(current);
+      setLoading(false);
     }
 
-    fetchAssets();
+    syncAssets();
+    const unsubscribe = AssetService.subscribe(syncAssets);
+    return () => {
+      unsubscribe();
+    };
   }, []);
 
   function getDefaultAssets(): AssetItem[] {

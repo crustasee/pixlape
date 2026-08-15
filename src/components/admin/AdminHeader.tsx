@@ -113,13 +113,13 @@ export const AdminHeader: React.FC<AdminHeaderProps> = ({
               setShowUserMenu(!showUserMenu);
               setShowNotifications(false);
             }}
-            className={`flex items-center space-x-2 p-1.5 px-3 rounded-lg bg-darktealborder-2 border-border-color shadow-hard-sm hover:translate-x-0.5 hover:translate-y-0.5 hover:shadow-none transition-all duration-200 focus:outline-none cursor-pointer ${showUserMenu ? 'bg-neo-cyan text-black' : 'hover:bg-neo-yellow'
+            className={`flex items-center space-x-2 p-1.5 px-3 rounded-lg bg-darktealborder-2 border-black shadow-hard-sm hover:translate-x-0.5 hover:translate-y-0.5 hover:shadow-none transition-all duration-200 focus:outline-none cursor-pointer ${showUserMenu ? 'bg-neo-cyan text-black' : 'hover:bg-neo-yellow'
               }`}
             aria-label="User menu"
             aria-expanded={showUserMenu}
           >
             <div className="w-6 h-6 rounded-lg bg-darkteal text-yellow-green flex items-center justify-center font-mono font-black text-xs border border-border-color shadow-[1px_1px_0_var(--border-color)] shrink-0">
-              A
+              ⌗
             </div>
             <span className="text-xs font-mono font-black text-text hidden sm:inline">ADMIN</span>
             <span className="text-xs font-mono text-white" aria-hidden="true">▼</span>

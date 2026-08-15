@@ -7,7 +7,7 @@ export async function generateMetadata({ params }: { params: { id: string } }) {
   const targetId = parseInt(params.id, 10);
   const post = BLOG_POSTS.find((b) => b.id === targetId) || BLOG_POSTS[0];
   return {
-    title: `${post.title} — ModTrove Insights`,
+    title: `${post.title} — PixlApe Insights`,
     description: post.excerpt,
   };
 }

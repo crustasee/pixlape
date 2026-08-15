@@ -22,7 +22,7 @@ class AssetStore {
     // Hydrate from localStorage if in browser environment
     if (typeof window !== 'undefined') {
       try {
-        const saved = localStorage.getItem('modtrove_custom_assets');
+        const saved = localStorage.getItem('pixlape_custom_assets');
         if (saved) {
           const parsed = JSON.parse(saved);
           if (Array.isArray(parsed) && parsed.length > 0) {
@@ -55,7 +55,7 @@ class AssetStore {
   private save() {
     if (typeof window !== 'undefined') {
       try {
-        localStorage.setItem('modtrove_custom_assets', JSON.stringify(this.assets));
+        localStorage.setItem('pixlape_custom_assets', JSON.stringify(this.assets));
       } catch (e) {
         console.error('Failed to persist assets to localStorage', e);
       }
@@ -119,6 +119,7 @@ class AssetStore {
       category: data.category || 'design_app',
       isPremium: Boolean(data.isPremium),
       price: data.price ? (String(data.price).startsWith('$') ? String(data.price) : `$${data.price}`) : data.isPremium ? '$29' : 'FREE',
+      downloadUrl: data.downloadUrl || '',
       bannerImage: data.bannerImage || '',
       detailsMarkdown: data.detailsMarkdown || '',
       markdownFile: data.markdownFile || '',
@@ -272,5 +273,22 @@ export class AssetService {
       categoriesCount,
       securityStatus: '100% VirusTotal Verified',
     };
+  }
+
+  static getCategoryCounts(): Record<CategoryType, number> {
+    const all = store.getAll();
+    const counts: Record<CategoryType, number> = {
+      design_app: 0,
+      multimedia: 0,
+      apk_package: 0,
+      tools_app: 0,
+      art_graphics: 0,
+    };
+    all.forEach((item) => {
+      if (item.category && counts[item.category] !== undefined) {
+        counts[item.category] += 1;
+      }
+    });
+    return counts;
   }
 }

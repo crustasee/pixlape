@@ -41,11 +41,11 @@ const PRIVACY_SECTIONS: PrivacySection[] = [
   {
     id: 'local-storage',
     badge: 'SECTION 02',
-    badgeColor: 'bg-neo-cyan text-black',
+    badgeColor: 'bg-cayenne text-white',
     title: 'Local Storage & Browser Cookies',
     summary: 'We use client-side local storage exclusively for your user interface preferences.',
     details: [
-      'modtrove_theme: Preserves your preferred UI theme (dark mode vs. light mode).',
+      'pixlape_theme: Preserves your preferred UI theme (dark mode vs. light mode).',
       'cart_items: Keeps track of items added to your workspace cart locally in your browser memory.',
       'No third-party advertising cookies are stored or read by our servers.',
       'You can clear your local storage at any time via your browser settings without affecting core site browsing.',
@@ -79,7 +79,7 @@ const PRIVACY_SECTIONS: PrivacySection[] = [
   {
     id: 'third-party-links',
     badge: 'SECTION 05',
-    badgeColor: 'bg-neo-purple text-white',
+    badgeColor: 'bg-cayenne text-white',
     title: 'External Platforms & Embeds',
     summary: 'Links to GitHub, Discord, and external developer tools operate under their respective privacy policies.',
     details: [
@@ -145,66 +145,66 @@ export const PrivacyPolishClient: React.FC = () => {
         </Link>
 
         <div className="flex items-center gap-2">
-          <span className="inline-flex items-center gap-2 px-3 py-1 rounded-lg bg-neo-pink text-white border-2 border-border-color font-mono font-black text-xs shadow-hard-sm">
+          <span className="inline-flex items-center gap-2 px-3 py-1 rounded-lg bg-neo-pink text-yellow-100 border-2 border-border-color font-mono font-black text-xs shadow-hard-sm">
             <CheckCircle2 className="w-3.5 h-3.5" /> POLISH V2.4 SPEC
           </span>
         </div>
       </div>
 
       {/* Single Document Panel */}
-      <div className="bg-surface border-2 border-border-color rounded-2xl shadow-hard-lg p-6 sm:p-10 md:p-12 flex flex-col gap-8 relative overflow-hidden">
+      <div className="w-full bg-yellow-100 border-2 border-border-color rounded-xl shadow-hard-lg p-6 sm:p-10 md:p-12 flex flex-col gap-8 relative overflow-hidden">
 
         {/* Document Header Stamp & Meta */}
         <div className="flex flex-col gap-4 border-b-2 border-border-color pb-8">
           <div className="flex flex-wrap items-center justify-between gap-3">
-            <div className="inline-flex items-center gap-2 px-3 py-1 bg-black text-neo-yellow font-mono text-[11px] font-black uppercase tracking-wider rounded-md">
+            <div className="inline-flex items-center gap-2 px-3 py-1 bg-darkteal text-neo-yellow font-mono text-xs font-black uppercase tracking-wider rounded-md">
               <Terminal className="w-3.5 h-3.5" /> OFFICIAL MANIFEST // REF: PRIVACY-2026
             </div>
-            <div className="font-mono text-xs font-bold text-text/70">
+            <div className="font-mono text-xs font-bold text-darkteal">
               EFFECTIVE: AUGUST 2026
             </div>
           </div>
 
           <div className="flex flex-col gap-2">
-            <h1 className="font-head font-black text-3xl sm:text-4xl md:text-5xl text-text tracking-tight uppercase leading-none">
+            <h1 className="font-head font-black text-3xl sm:text-4xl md:text-5xl text-darkteal tracking-tight uppercase leading-none">
               PRIVACY POLISH <span className="text-neo-pink">POLICY</span>
             </h1>
-            <p className="font-body text-sm sm:text-base text-text/90 leading-relaxed font-medium">
+            <p className="font-body text-sm sm:text-base text-darkteal leading-relaxed font-medium">
               Transparent, zero-tracker digital asset vault policy. No secret analytics, no behavioral profiling, zero third-party monetization. Pure code and clean assets.
             </p>
           </div>
 
           {/* Core Guarantee Indicators */}
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-2">
-            <div className="bg-white/70 border border-border-color p-2.5 rounded-xl flex items-center gap-2.5">
+            <div className="bg-white text-darkteal border border-border-color p-2.5 rounded-xl flex items-center gap-2.5">
               <EyeOff className="w-4 h-4 text-neo-pink shrink-0" />
               <div>
-                <div className="font-mono text-[10px] font-black text-text/60 uppercase">AD TRACKERS</div>
-                <div className="font-head font-black text-xs sm:text-sm text-text">0 TRACKERS</div>
+                <div className="font-mono text-xs font-black text-darkteal uppercase">AD TRACKERS</div>
+                <div className="font-head font-black text-xs sm:text-sm text-darkteal">0 TRACKERS</div>
               </div>
             </div>
 
-            <div className="bg-white/70 border border-border-color p-2.5 rounded-xl flex items-center gap-2.5">
-              <Lock className="w-4 h-4 text-neo-lime shrink-0" />
+            <div className="bg-white text-darkteal border border-border-color p-2.5 rounded-xl flex items-center gap-2.5">
+              <Lock className="w-4 h-4 text-yellow-green shrink-0" />
               <div>
-                <div className="font-mono text-[10px] font-black text-text/60 uppercase">TRANSPORT</div>
-                <div className="font-head font-black text-xs sm:text-sm text-text">TLS 1.3</div>
+                <div className="font-mono text-xs font-black text-darkteal uppercase">TRANSPORT</div>
+                <div className="font-head font-black text-xs sm:text-sm text-darkteal">TLS 1.3</div>
               </div>
             </div>
 
-            <div className="bg-white/70 border border-border-color p-2.5 rounded-xl flex items-center gap-2.5">
+            <div className="bg-white text-darkteal border border-border-color p-2.5 rounded-xl flex items-center gap-2.5">
               <Database className="w-4 h-4 text-black shrink-0" />
               <div>
-                <div className="font-mono text-[10px] font-black text-text/60 uppercase">STORAGE</div>
-                <div className="font-head font-black text-xs sm:text-sm text-text">UI PREFS</div>
+                <div className="font-mono text-xs font-black text-darkteal uppercase">STORAGE</div>
+                <div className="font-head font-black text-xs sm:text-sm text-darkteal">UI PREFS</div>
               </div>
             </div>
 
-            <div className="bg-white/70 border border-border-color p-2.5 rounded-xl flex items-center gap-2.5">
+            <div className="bg-white text-darkteal border border-border-color p-2.5 rounded-xl flex items-center gap-2.5">
               <ShieldCheck className="w-4 h-4 text-green-600 shrink-0" />
               <div>
-                <div className="font-mono text-[10px] font-black text-text/60 uppercase">SAFETY</div>
-                <div className="font-head font-black text-xs sm:text-sm text-text">100% CLEAN</div>
+                <div className="font-mono text-xs font-black text-darkteal uppercase">SAFETY</div>
+                <div className="font-head font-black text-xs sm:text-sm text-darkteal">100% CLEAN</div>
               </div>
             </div>
           </div>
@@ -218,7 +218,7 @@ export const PrivacyPolishClient: React.FC = () => {
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 placeholder="Filter document topics (e.g. cookies, email, deletion)..."
-                className="w-full pl-10 pr-4 py-2 bg-white border-2 border-border-color rounded-xl font-mono text-xs font-bold text-text outline-none focus:border-neo-pink transition-all"
+                className="w-full pl-10 pr-4 py-2 bg-white border-2 border-border-color rounded-xl font-mono text-sm font-bold text-darkteal outline-none focus:border-neo-pink transition-all"
               />
             </div>
 
@@ -240,12 +240,12 @@ export const PrivacyPolishClient: React.FC = () => {
 
           {/* Table of Contents Pill Bar */}
           <div className="flex flex-wrap items-center gap-1.5 pt-1">
-            <span className="font-mono text-[10px] font-black uppercase text-text/50 mr-1">TOC:</span>
+            <span className="font-mono text-sm font-black uppercase text-darkteal mr-1">TOC:</span>
             {PRIVACY_SECTIONS.map((sec) => (
               <button
                 key={sec.id}
                 onClick={() => scrollToSection(sec.id)}
-                className="px-2.5 py-1 bg-white/60 hover:bg-white border border-border-color rounded-md font-mono text-[11px] font-bold text-text transition-all cursor-pointer hover:border-neo-pink"
+                className="px-2.5 py-1 bg-white hover:bg-white border border-border-color rounded-md font-mono text-sm font-bold text-darkteal transition-all cursor-pointer hover:border-neo-pink"
               >
                 {sec.title.split(' ')[0]}
               </button>
@@ -256,7 +256,7 @@ export const PrivacyPolishClient: React.FC = () => {
         {/* Continuous Document Sections */}
         <div className="flex flex-col gap-10">
           {filteredSections.length === 0 ? (
-            <div className="bg-white/80 border-2 border-border-color p-8 rounded-xl text-center font-mono text-xs font-bold text-text/70">
+            <div className="bg-white border-2 border-border-color p-8 rounded-xl text-center font-mono text-xs font-bold text-darkteal">
               No policy section found for "{searchQuery}". Try searching for "cookies", "email", or "security".
             </div>
           ) : (
@@ -273,13 +273,13 @@ export const PrivacyPolishClient: React.FC = () => {
                   >
                     {sec.badge}
                   </span>
-                  <h2 className="font-head font-black text-xl sm:text-2xl text-text uppercase tracking-wide">
+                  <h2 className="font-head font-black text-xl sm:text-2xl text-darkteal uppercase tracking-wide">
                     {sec.title}
                   </h2>
                 </div>
 
                 {/* Section Summary */}
-                <p className="font-body text-sm font-bold text-text/80 bg-white/60 p-3 rounded-xl border border-border-color/40">
+                <p className="font-body text-sm font-bold text-darkteal bg-white p-3 rounded-xl border border-border-color shadow-hard-sm">
                   {sec.summary}
                 </p>
 
@@ -288,7 +288,7 @@ export const PrivacyPolishClient: React.FC = () => {
                   {sec.details.map((detail, dIdx) => (
                     <div
                       key={dIdx}
-                      className="flex items-start gap-3 font-body text-xs sm:text-sm text-text/90 leading-relaxed font-medium bg-white/90 p-3 rounded-xl border border-border-color shadow-hard-sm"
+                      className="flex items-start gap-3 font-body text-xs sm:text-sm text-darkteal leading-relaxed font-medium bg-white p-3 rounded-xl border border-border-color shadow-hard-sm"
                     >
                       <span className="font-mono font-black text-neo-pink text-xs select-none mt-0.5 shrink-0">
                         [✓]
@@ -305,10 +305,10 @@ export const PrivacyPolishClient: React.FC = () => {
         {/* Document Footer & Contact Block */}
         <div className="mt-4 pt-8 border-t-2 border-border-color flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 bg-neo-yellow/30 p-6 rounded-xl border border-border-color">
           <div className="flex flex-col gap-1 max-w-md">
-            <div className="flex items-center gap-2 font-mono text-[11px] font-black uppercase text-text">
+            <div className="flex items-center gap-2 font-mono text-sm font-black uppercase text-darkteal">
               <Mail className="w-3.5 h-3.5 text-neo-pink" /> PRIVACY INQUIRIES & DATA DELETION
             </div>
-            <p className="font-body text-xs text-text/80 font-medium">
+            <p className="font-body text-xs text-darkteal font-medium">
               Need a copy of your email data or request immediate deletion? Contact maintainers directly.
             </p>
           </div>
