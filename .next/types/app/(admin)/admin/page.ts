@@ -1,4 +1,4 @@
-// File: D:\Projectweb\modtlab\main_page\src\app\(admin)\admin\page.tsx
+// File: D:\Projectweb\modtlab\PixlApe\src\app\(admin)\admin\page.tsx
 import * as entry from '../../../../../src/app/(admin)/admin/page.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 
