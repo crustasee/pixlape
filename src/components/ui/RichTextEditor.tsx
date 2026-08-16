@@ -136,49 +136,49 @@ export const RichTextEditor: React.FC<RichTextEditorProps> = ({
     <div className="space-y-2 font-mono">
       {/* Label and Header Bar */}
       <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2">
-        <label className="block text-[14px] font-mono font-black uppercase tracking-wider text-black flex items-center gap-2">
+        <label className="block text-md font-mono font-black uppercase tracking-wider text-darkteal flex items-center gap-2">
           <span>{label}</span>
           {required && <span className="text-red-500 font-bold">*</span>}
         </label>
 
         {/* Mode Selector (Write vs Preview) */}
-        <div className="flex items-center gap-1.5 bg-white p-1 rounded-xl border-2 border-border-color shadow-[2px_2px_0_var(--border-color)]">
+        <div className="flex items-center gap-1.5 bg-yellow-green p-1 rounded-xl border-2 border-border-color shadow-[2px_2px_0_var(--border-color)]">
           <button
             type="button"
             onClick={() => setActiveMode('write')}
             className={`px-3 py-1 text-xs font-mono font-black uppercase rounded-lg transition-all cursor-pointer ${
               activeMode === 'write'
-                ? 'bg-neo-yellow text-black border border-border-color shadow-[1px_1px_0_var(--border-color)]'
-                : 'text-black/70 hover:bg-black/5'
+                ? 'bg-cayenne text-white border border-border-color shadow-[1px_1px_0_var(--border-color)]'
+                : 'text-black hover:bg-yellow-green'
             }`}
           >
-            ✏️ EDIT MODE
+            EDIT MODE
           </button>
           <button
             type="button"
             onClick={() => setActiveMode('preview')}
             className={`px-3 py-1 text-xs font-mono font-black uppercase rounded-lg transition-all cursor-pointer ${
               activeMode === 'preview'
-                ? 'bg-neo-cyan text-black border border-border-color shadow-[1px_1px_0_var(--border-color)]'
-                : 'text-black/70 hover:bg-black/5'
+                ? 'bg-cayenne text-white border border-border-color shadow-[1px_1px_0_var(--border-color)]'
+                : 'text-black hover:bg-yellow-green'
             }`}
           >
-            👁️ LIVE PREVIEW
+            PREVIEW
           </button>
         </div>
       </div>
 
       {/* Editor Main Container */}
-      <div className="bg-white border-2 border-border-color rounded-2xl shadow-hard-lg overflow-hidden flex flex-col">
+      <div className="bg-white border border-border-color rounded-lg shadow-hard-sm overflow-hidden flex flex-col">
         {/* Editor Utility Toolbar */}
         {activeMode === 'write' && (
-          <div className="bg-[#FAF7F2] border-b-2 border-border-color p-2.5 flex flex-wrap items-center gap-2 select-none">
+          <div className="bg-green-300 border-b-2 border-border-color p-2.5 flex flex-wrap items-center gap-2 select-none">
             {/* Font Size & Heading Dropdown */}
             <div className="flex items-center gap-1">
               <select
                 value={fontSizeSelect}
                 onChange={handleHeadingChange}
-                className="px-2.5 py-1.5 bg-white border-2 border-border-color rounded-xl text-xs font-mono font-black text-black focus:outline-none shadow-[1.5px_1.5px_0_var(--border-color)] cursor-pointer"
+                className="px-2.5 py-1.5 bg-green-300 border border-border-color rounded-lg text-xs font-mono font-black text-black focus:outline-none shadow-[1.5px_1.5px_0_var(--border-color)] cursor-pointer"
                 title="Heading / Font Size"
               >
                 <option value="normal">Normal Text</option>
@@ -200,7 +200,7 @@ export const RichTextEditor: React.FC<RichTextEditorProps> = ({
                 type="button"
                 onClick={() => insertFormatting('**', '**', 'Bold Text')}
                 title="Bold (Ctrl+B)"
-                className="w-8 h-8 rounded-xl border-2 border-border-color bg-white hover:bg-neo-yellow text-black font-black text-xs flex items-center justify-center shadow-[1.5px_1.5px_0_var(--border-color)] hover:translate-x-0.5 hover:translate-y-0.5 transition-all cursor-pointer"
+                className="w-8 h-8 rounded-lg border border-border-color bg-green-400 hover:bg-cayenne text-black font-black text-lg flex items-center justify-center shadow-[1.5px_1.5px_0_var(--border-color)] hover:translate-x-0.5 hover:translate-y-0.5 transition-all cursor-pointer"
               >
                 B
               </button>
@@ -210,7 +210,7 @@ export const RichTextEditor: React.FC<RichTextEditorProps> = ({
                 type="button"
                 onClick={() => insertFormatting('*', '*', 'Italic Text')}
                 title="Italic (Ctrl+I)"
-                className="w-8 h-8 rounded-xl border-2 border-border-color bg-white hover:bg-neo-yellow text-black italic font-bold text-xs flex items-center justify-center shadow-[1.5px_1.5px_0_var(--border-color)] hover:translate-x-0.5 hover:translate-y-0.5 transition-all cursor-pointer"
+                className="w-8 h-8 rounded-lg border border-border-color bg-green-400 hover:bg-cayenne text-black italic font-bold text-lg flex items-center justify-center shadow-[1.5px_1.5px_0_var(--border-color)] hover:translate-x-0.5 hover:translate-y-0.5 transition-all cursor-pointer"
               >
                 <i>I</i>
               </button>
@@ -220,7 +220,7 @@ export const RichTextEditor: React.FC<RichTextEditorProps> = ({
                 type="button"
                 onClick={() => insertFormatting('<u>', '</u>', 'Underlined Text')}
                 title="Underline"
-                className="w-8 h-8 rounded-xl border-2 border-border-color bg-white hover:bg-neo-yellow text-black underline font-bold text-xs flex items-center justify-center shadow-[1.5px_1.5px_0_var(--border-color)] hover:translate-x-0.5 hover:translate-y-0.5 transition-all cursor-pointer"
+                className="w-8 h-8 rounded-lg border border-border-color bg-green-400 hover:bg-cayenne text-black underline font-bold text-lg flex items-center justify-center shadow-[1.5px_1.5px_0_var(--border-color)] hover:translate-x-0.5 hover:translate-y-0.5 transition-all cursor-pointer"
               >
                 <u>U</u>
               </button>
@@ -230,7 +230,7 @@ export const RichTextEditor: React.FC<RichTextEditorProps> = ({
                 type="button"
                 onClick={() => insertFormatting('~~', '~~', 'Strikethrough')}
                 title="Strikethrough"
-                className="w-8 h-8 rounded-xl border-2 border-border-color bg-white hover:bg-neo-yellow text-black line-through font-bold text-xs flex items-center justify-center shadow-[1.5px_1.5px_0_var(--border-color)] hover:translate-x-0.5 hover:translate-y-0.5 transition-all cursor-pointer"
+                className="w-8 h-8 rounded-lg border border-border-color bg-green-400 hover:bg-cayenne text-black line-through font-bold text-lg flex items-center justify-center shadow-[1.5px_1.5px_0_var(--border-color)] hover:translate-x-0.5 hover:translate-y-0.5 transition-all cursor-pointer"
               >
                 S
               </button>
@@ -245,10 +245,9 @@ export const RichTextEditor: React.FC<RichTextEditorProps> = ({
                 type="button"
                 onClick={() => insertLinePrefix('%d. ')}
                 title="Numbered List"
-                className="h-8 px-2.5 rounded-xl border-2 border-border-color bg-white hover:bg-neo-cyan text-black font-black text-xs flex items-center gap-1 shadow-[1.5px_1.5px_0_var(--border-color)] hover:translate-x-0.5 hover:translate-y-0.5 transition-all cursor-pointer"
+                className="h-8 px-2.5 rounded-lg border border-border-color bg-green-400 hover:bg-cayenne text-black font-black text-xl items-center gap-1 shadow-[1.5px_1.5px_0_var(--border-color)] hover:translate-x-0.5 hover:translate-y-0.5 transition-all cursor-pointer"
               >
-                <span>1.</span>
-                <span className="hidden sm:inline">List</span>
+                <span className="hidden sm:inline">≡</span>
               </button>
 
               {/* Bullet List */}
@@ -256,10 +255,9 @@ export const RichTextEditor: React.FC<RichTextEditorProps> = ({
                 type="button"
                 onClick={() => insertLinePrefix('- ')}
                 title="Bullet List"
-                className="h-8 px-2.5 rounded-xl border-2 border-border-color bg-white hover:bg-neo-cyan text-black font-black text-xs flex items-center gap-1 shadow-[1.5px_1.5px_0_var(--border-color)] hover:translate-x-0.5 hover:translate-y-0.5 transition-all cursor-pointer"
+                className="h-8 px-2.5 rounded-lg border border-border-color bg-green-400 hover:bg-cayenne text-black font-black text-xs flex items-center gap-1 shadow-[1.5px_1.5px_0_var(--border-color)] hover:translate-x-0.5 hover:translate-y-0.5 transition-all cursor-pointer"
               >
-                <span>•</span>
-                <span className="hidden sm:inline">Bullet</span>
+                <span className="hidden sm:inline">●●</span>
               </button>
 
               {/* Blockquote */}
@@ -267,7 +265,7 @@ export const RichTextEditor: React.FC<RichTextEditorProps> = ({
                 type="button"
                 onClick={() => insertLinePrefix('> ')}
                 title="Quote Block"
-                className="w-8 h-8 rounded-xl border-2 border-border-color bg-white hover:bg-neo-lime text-black font-black text-xs flex items-center justify-center shadow-[1.5px_1.5px_0_var(--border-color)] hover:translate-x-0.5 hover:translate-y-0.5 transition-all cursor-pointer"
+                className="w-8 h-8 rounded-lg border border-border-color bg-green-400 hover:bg-cayenne text-black font-black text-xs flex items-center justify-center shadow-[1.5px_1.5px_0_var(--border-color)] hover:translate-x-0.5 hover:translate-y-0.5 transition-all cursor-pointer"
               >
                 &ldquo;&rdquo;
               </button>
@@ -277,7 +275,7 @@ export const RichTextEditor: React.FC<RichTextEditorProps> = ({
                 type="button"
                 onClick={() => insertFormatting('`', '`', 'code')}
                 title="Inline Code"
-                className="w-8 h-8 rounded-xl border-2 border-border-color bg-white hover:bg-neo-purple hover:text-white text-black font-black text-xs flex items-center justify-center shadow-[1.5px_1.5px_0_var(--border-color)] hover:translate-x-0.5 hover:translate-y-0.5 transition-all cursor-pointer"
+                className="w-8 h-8 rounded-lg border border-border-color bg-green-400 hover:bg-cayenne text-black font-black text-xs flex items-center justify-center shadow-[1.5px_1.5px_0_var(--border-color)] hover:translate-x-0.5 hover:translate-y-0.5 transition-all cursor-pointer"
               >
                 &lt;/&gt;
               </button>
@@ -292,9 +290,9 @@ export const RichTextEditor: React.FC<RichTextEditorProps> = ({
                 type="button"
                 onClick={() => insertFormatting('<div align="left">\n', '\n</div>', 'Left aligned content')}
                 title="Align Left"
-                className="w-8 h-8 rounded-xl border-2 border-border-color bg-white hover:bg-neo-yellow text-black font-black text-xs flex items-center justify-center shadow-[1.5px_1.5px_0_var(--border-color)] hover:translate-x-0.5 hover:translate-y-0.5 transition-all cursor-pointer"
+                className="w-8 h-8 rounded-lg border border-border-color bg-green-400 hover:bg-cayenne text-black font-black text-lg flex items-center justify-center shadow-[1.5px_1.5px_0_var(--border-color)] hover:translate-x-0.5 hover:translate-y-0.5 transition-all cursor-pointer"
               >
-                ⬅️
+                ◁
               </button>
 
               {/* Align Center */}
@@ -302,9 +300,9 @@ export const RichTextEditor: React.FC<RichTextEditorProps> = ({
                 type="button"
                 onClick={() => insertFormatting('<div align="center">\n', '\n</div>', 'Centered content')}
                 title="Align Center"
-                className="w-8 h-8 rounded-xl border-2 border-border-color bg-white hover:bg-neo-yellow text-black font-black text-xs flex items-center justify-center shadow-[1.5px_1.5px_0_var(--border-color)] hover:translate-x-0.5 hover:translate-y-0.5 transition-all cursor-pointer"
+                className="w-8 h-8 rounded-lg border border-border-color bg-green-400 hover:bg-cayenne text-black font-black text-lg flex items-center justify-center shadow-[1.5px_1.5px_0_var(--border-color)] hover:translate-x-0.5 hover:translate-y-0.5 transition-all cursor-pointer"
               >
-                ↔️
+                ▩
               </button>
 
               {/* Align Right */}
@@ -312,9 +310,9 @@ export const RichTextEditor: React.FC<RichTextEditorProps> = ({
                 type="button"
                 onClick={() => insertFormatting('<div align="right">\n', '\n</div>', 'Right aligned content')}
                 title="Align Right"
-                className="w-8 h-8 rounded-xl border-2 border-border-color bg-white hover:bg-neo-yellow text-black font-black text-xs flex items-center justify-center shadow-[1.5px_1.5px_0_var(--border-color)] hover:translate-x-0.5 hover:translate-y-0.5 transition-all cursor-pointer"
+                className="w-8 h-8 rounded-lg border border-border-color bg-green-400 hover:bg-cayenne text-black font-black text-lg flex items-center justify-center shadow-[1.5px_1.5px_0_var(--border-color)] hover:translate-x-0.5 hover:translate-y-0.5 transition-all cursor-pointer"
               >
-                ➡️
+                ▷
               </button>
             </div>
           </div>

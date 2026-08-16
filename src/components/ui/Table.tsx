@@ -20,9 +20,9 @@ export function Table<T>({
   emptyMessage = 'No data available in catalog',
 }: TableProps<T>) {
   return (
-    <div className="w-full overflow-x-auto rounded-2xl border-2 border-border-color bg-surface shadow-hard">
+    <div className="w-full shadow-hard-sm">
       <table className="w-full text-left text-sm text-text font-mono">
-        <thead className="bg-yellow-green text-black border-b-2 border-border-color text-xs sm:text-sm font-black uppercase tracking-wider font-mono select-none">
+        <thead className="bg-yellow-green text-darkteal text-xs sm:text-sm font-black uppercase tracking-wider font-mono">
           <tr>
             {columns.map((col, idx) => (
               <th key={idx} className="px-5 py-4 font-black" scope="col">
@@ -31,7 +31,7 @@ export function Table<T>({
             ))}
           </tr>
         </thead>
-        <tbody className="divide-y-2 divide-border-color/20 bg-yellow-100 text-darkteal font-mono">
+        <tbody className="divide-y-2 divide-border-color bg-yellow-100 text-darkteal font-mono">
           {data.length === 0 ? (
             <tr>
               <td colSpan={columns.length} className="px-5 py-10 text-center text-darkteal font-bold italic">
@@ -40,7 +40,7 @@ export function Table<T>({
             </tr>
           ) : (
             data.map((item) => (
-              <tr key={keyExtractor(item)} className="hover:bg-yellow-green/50 transition-colors">
+              <tr key={keyExtractor(item)} className="hover:bg-yellow-green transition-colors">
                 {columns.map((col, idx) => (
                   <td key={idx} className="px-5 py-4 whitespace-nowrap font-medium">
                     {col.cell

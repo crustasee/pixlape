@@ -183,33 +183,31 @@ export const ProductForm: React.FC<ProductFormProps> = ({
     <form onSubmit={handleSubmit} className="w-full max-w-full space-y-8 select-none font-mono text-text">
 
       {/* ── Sticky Configurator Control Header ── */}
-      <div className="bg-darkteal p-6 rounded-lg border-2 border-border-color shadow-hard-lg flex flex-col md:flex-row items-start md:items-center justify-between gap-4 sticky top-20 z-20">
+      <div className="bg-yellow-green p-3 rounded-lg border border-border-color shadow-hard-sm flex flex-col md:flex-row items-start md:items-center justify-between gap-4 sticky top-20 z-20">
         <div>
           <div className="flex items-center gap-6">
-            <span className="px-3 py-1 rounded-md text-[14px] font-mono font-black uppercase tracking-wider bg-cayenne text-soft-linen border border-border-color shadow-[2px_2px_0_var(--border-color)]">
-              MANAGE PRODUCT VAULT
+            <span className="px-3 py-1 rounded-md text-xs font-mono font-black uppercase tracking-wider bg-cayenne text-soft-linen border border-border-color shadow-[2px_2px_0_var(--border-color)]">
+              MANAGE CONTENT
             </span>
-            <span className="text-[16px] text-yellow-green font-mono font-bold">Live Sync & Preview Mode</span>
           </div>
-          <h2 className="text-2xl font-black text-yellow-green font-mono tracking-tight uppercase mt-1">
+          <h2 className="text-xl font-black text-darkteal font-mono tracking-tight uppercase mt-1">
             {initialData?.name ? `Edit Asset: ${initialData.name}` : 'Create New Asset Product'}
           </h2>
         </div>
 
         <div className="flex items-center gap-3 w-full md:w-auto justify-end">
           <Link href="/admin/products">
-            <Button type="button" variant="neutral" className="font-mono text-lg font-black uppercase bg-cayenne text-white py-2.5 px-3">
-              X
+            <Button type="button" variant="neutral" className="font-mono text-xl font-black uppercase bg-cayenne text-white py-2.5 px-3">
+              cancel
             </Button>
           </Link>
           <Button
             type="submit"
             disabled={isSubmitting}
             variant="primary"
-            className="font-mono text-sm font-black text-white uppercase bg-yellow-green border-2 border-border-color hover:translate-x-0.5 hover:translate-y-0.5 transition-all flex items-center gap-2 py-2.5 px-5 cursor-pointer"
+            className="font-mono text-sm font-black text-darkteal uppercase bg-green-500 border-2 border-border-color hover:translate-x-0.5 hover:translate-y-0.5 transition-all flex items-center gap-2 py-2.5 px-5 cursor-pointer"
           >
-            <IconRenderer icon="/icon/button/save_white.svg" alt="Publish" className="w-5 h-5 object-contain" />
-            <span>{isSubmitting ? 'SAVING...' : initialData?.name ? 'SAVE CHANGES' : 'PUBLISH ASSET'}</span>
+            <span>{isSubmitting ? 'SAVING...' : initialData?.name ? 'SAVE' : 'PUBLISH ASSET'}</span>
           </Button>
         </div>
       </div>
@@ -218,13 +216,12 @@ export const ProductForm: React.FC<ProductFormProps> = ({
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
 
         {/* ── LEFT / MAIN FORM AREA (8 Cols) - UNIFIED BEIGE PANEL ── */}
-        <div className="lg:col-span-8 bg-soft-linen p-6 sm:p-8 rounded-2xl border-2 border-border-color shadow-hard-lg space-y-8 font-mono">
+        <div className="lg:col-span-8 bg-yellow-100 p-6 sm:p-8 rounded-2xl border-2 border-border-color shadow-hard-lg space-y-8 font-mono">
 
           {/* Section 1: Basic Information */}
           <div className="space-y-5">
-            <h3 className="text-base sm:text-xl font-mono font-black uppercase tracking-widest text-black border-b-2 border-border-color/20 pb-3 flex items-center gap-7">
-              <IconRenderer icon="/icon/multimedia.svg" alt="Info" className="w-7 h-7 object-contain" />
-              <span>Primary Product Information ▶▶▶▶▶▶▶▶▶▶</span>
+            <h3 className="text-base sm:text-xl font-mono font-black uppercase tracking-widest text-darkteal border-b-2 border-border-color/20 pb-3 flex items-center gap-7">
+              <span>▶ Primary Product Information</span>
             </h3>
 
             <Input
@@ -256,14 +253,14 @@ export const ProductForm: React.FC<ProductFormProps> = ({
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-5 pt-2">
               <div className="space-y-1 font-mono">
-                <label className="block text-[14px] font-mono font-black uppercase tracking-wider text-black mb-1">
+                <label className="block text-sm font-mono font-black uppercase tracking-wider text-darkteal">
                   Asset Category *
                 </label>
                 <select
                   name="category"
                   value={formData.category}
                   onChange={handleChange}
-                  className="w-full px-3.5 py-3 bg-white border-2 border-border-color rounded-xl text-sm font-mono font-bold text-black focus:outline-none shadow-hard-sm"
+                  className="w-full px-3.5 py-3 bg-white border border-border-color rounded-xl text-sm font-mono font-bold text-black focus:outline-none shadow-hard-sm"
                 >
                   <option value="tools_app">Tools App</option>
                   <option value="design_app">Design App</option>
@@ -290,21 +287,20 @@ export const ProductForm: React.FC<ProductFormProps> = ({
           {/* Section 2: Icon & Cover Media */}
           <div className="space-y-5">
             <div className="border-b-2 border-border-color/20 pb-3 flex items-center justify-between">
-              <h3 className="text-base sm:text-xl font-mono font-black uppercase tracking-widest text-black flex items-center gap-7">
-                <IconRenderer icon="/icon/button/add.svg" alt="Icon" className="w-8 h-8 object-contain" />
-                <span>INSERT ICON & HERO BANNER</span>
+              <h3 className="text-base sm:text-xl font-mono font-black uppercase tracking-widest text-darkteal flex items-center gap-7">
+                <span>◯ INSERT ICON & IMAGE</span>
               </h3>
               <button
                 type="button"
                 onClick={() => setUseCustomIcon(!useCustomIcon)}
-                className="text-sm font-mono font-black text-black hover:underline cursor-pointer"
+                className="text-sm font-mono font-black text-darkteal cursor-pointer"
               >
                 {useCustomIcon ? 'Switch to Preset Glyphs & SVGs' : 'Switch to Custom Image Path (.png, .svg)'}
               </button>
             </div>
 
-            <div className="flex flex-col sm:flex-row items-center gap-4 bg-white p-5 rounded-xl border-2 border-border-color shadow-hard-sm">
-              <div className="w-20 h-20 rounded-2xl bg-neo-yellow border-2 border-border-color flex items-center justify-center shrink-0 shadow-hard-sm overflow-hidden p-2.5">
+            <div className="flex flex-col sm:flex-row items-center gap-4 bg-yellow-100 p-5 rounded-xl border-2 border-border-color shadow-hard-sm">
+              <div className="w-20 h-20 rounded-2xl bg-white border border-border-color flex items-center justify-center shrink-0 shadow-hard-sm overflow-hidden p-2.5">
                 <IconRenderer icon={currentActiveIcon} alt="Icon Preview" className="w-full h-full object-contain" />
               </div>
 
@@ -384,16 +380,15 @@ export const ProductForm: React.FC<ProductFormProps> = ({
 
           {/* Section 3: Pricing, OS & License */}
           <div className="space-y-5">
-            <h3 className="text-base sm:text-lg font-mono font-black uppercase tracking-widest text-black border-b-2 border-border-color/20 pb-3 flex items-center gap-6">
-              <IconRenderer icon="/icon/finance.svg" alt="Tier" className="w-5 h-5 object-contain" />
-              <span>Access Tier, Pricing & Operating Systems</span>
+            <h3 className="text-base sm:text-lg font-mono font-black uppercase tracking-widest text-darkteal border-b-2 border-border-color/20 pb-3 flex items-center gap-6">
+              <span>◯ Access Tier, Pricing & Operating Systems</span>
             </h3>
 
             {/* Pro Vault Toggle */}
-            <div className="flex items-center justify-between p-4 bg-yellow-green/40 border-2 border-border-color rounded-xl shadow-hard-sm">
+            <div className="flex items-center justify-between p-4 bg-yellow-100 border-2 border-border-color rounded-xl shadow-hard-sm">
               <div>
-                <span className="font-mono font-black text-lg uppercase text-black block">Pro Vault Access Tier</span>
-                <span className="text-xs font-mono font-bold text-black/75">Exclusive for Pro membership users</span>
+                <span className="font-mono font-black text-sm uppercase text-darkteal block">Pro Vault Access Tier</span>
+                <span className="text-xs font-mono font-bold text-darkteal">Exclusive for Pro membership users</span>
               </div>
               <input
                 type="checkbox"
@@ -430,7 +425,7 @@ export const ProductForm: React.FC<ProductFormProps> = ({
                       key={vp}
                       type="button"
                       onClick={() => setFormData((prev) => ({ ...prev, version: vp }))}
-                      className="px-2.5 py-1 text-xs font-mono font-black bg-white border border-border-color rounded-md hover:bg-neo-yellow cursor-pointer shadow-[1px_1px_0_var(--border-color)] text-black"
+                      className="px-2.5 py-1 text-xs font-mono font-black bg-yellow-green border-border-color rounded-md hover:bg-neo-yellow cursor-pointer shadow-[1px_1px_0_var(--border-color)] text-black"
                     >
                       {vp}
                     </button>
@@ -455,7 +450,7 @@ export const ProductForm: React.FC<ProductFormProps> = ({
                       key={sp}
                       type="button"
                       onClick={() => setFormData((prev) => ({ ...prev, size: sp }))}
-                      className="px-2.5 py-1 text-xs font-mono font-black bg-white border border-border-color rounded-md hover:bg-neo-cyan cursor-pointer shadow-[1px_1px_0_var(--border-color)] text-black"
+                      className="px-2.5 py-1 text-xs font-mono font-black bg-yellow-green border-border-color rounded-md hover:bg-neo-cyan cursor-pointer shadow-[1px_1px_0_var(--border-color)] text-black"
                     >
                       {sp}
                     </button>
@@ -477,7 +472,7 @@ export const ProductForm: React.FC<ProductFormProps> = ({
                       key={lp}
                       type="button"
                       onClick={() => setFormData((prev) => ({ ...prev, license: lp }))}
-                      className="px-2.5 py-1 text-xs font-mono font-black bg-white border border-border-color rounded-md hover:bg-neo-lime cursor-pointer shadow-[1px_1px_0_var(--border-color)] text-black"
+                      className="px-2.5 py-1 text-xs font-mono font-black bg-yellow-green border-border-color rounded-md hover:bg-neo-lime cursor-pointer shadow-[1px_1px_0_var(--border-color)] text-black"
                     >
                       {lp.split(' ')[0]}
                     </button>
@@ -495,14 +490,14 @@ export const ProductForm: React.FC<ProductFormProps> = ({
                 value={formData.downloadUrl}
                 onChange={handleChange}
               />
-              <p className="text-xs font-mono font-bold text-black/70 pt-1">
+              <p className="text-xs font-mono font-bold text-darkteal mt-2">
                 🔗 If set, users clicking &quot;DOWNLOAD&quot; on the public asset detail page will be directed to this external link.
               </p>
             </div>
 
             {/* Operating Systems */}
             <div className="space-y-2 pt-2">
-              <label className="block text-[14px] font-mono font-black uppercase tracking-wider text-black">
+              <label className="block text-sm font-mono font-black uppercase tracking-wider text-darkteal">
                 Supported Platforms (Select All That Apply)
               </label>
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 font-mono">
@@ -514,8 +509,8 @@ export const ProductForm: React.FC<ProductFormProps> = ({
                       type="button"
                       onClick={() => toggleOS(os.id)}
                       className={`px-3.5 py-3 rounded-xl border-2 font-mono text-xs sm:text-sm font-black uppercase transition-all flex items-center justify-between cursor-pointer ${isSelected
-                        ? 'bg-yellow-green text-black border-border-color shadow-[2px_2px_0_var(--border-color)]'
-                        : 'bg-cayenne text-black/70 border-border-color hover:bg-neo-yellow'
+                        ? 'bg-green-400 text-black border-border-color shadow-[2px_2px_0_var(--border-color)]'
+                        : 'bg-cayenne text-darkteal border-border-color hover:bg-neo-yellow'
                         }`}
                     >
                       <span>{os.label}</span>
@@ -531,9 +526,8 @@ export const ProductForm: React.FC<ProductFormProps> = ({
 
           {/* Section 4: Markdown Documentation Specs */}
           <div className="space-y-5">
-            <h3 className="text-base sm:text-lg font-mono font-black uppercase tracking-widest text-black border-b-2 border-border-color/20 pb-3 flex items-center gap-6">
-              <IconRenderer icon="/icon/doc.svg" alt="Doc" className="w-5 h-5 object-contain" />
-              <span>DOCUMENTATION OVERVIEW</span>
+            <h3 className="text-base sm:text-lg font-mono font-black uppercase tracking-widest text-darkteal border-b-2 border-border-color/20 pb-3 flex items-center gap-6">
+              <span>◯ DOCUMENTATION OVERVIEW</span>
             </h3>
 
             <Input
@@ -545,8 +539,8 @@ export const ProductForm: React.FC<ProductFormProps> = ({
             />
 
             <div className="space-y-2">
-              <label className="block text-[14px] font-mono font-black uppercase tracking-wider text-black">
-                ▶▶▶▶ Inline Details Markdown
+              <label className="block text-[14px] font-mono font-black uppercase tracking-wider text-darkteal">
+               +++++++++++++++Markdown Details+++++++++++++
               </label>
               <textarea
                 name="detailsMarkdown"
@@ -554,21 +548,21 @@ export const ProductForm: React.FC<ProductFormProps> = ({
                 onChange={handleChange}
                 rows={6}
                 placeholder="### 🎨 Asset Overview&#10;&#10;**Features:**&#10;- Feature 1&#10;- Feature 2..."
-                className="w-full px-4 py-3 bg-white border-2 border-border-color rounded-xl text-sm font-mono font-bold text-black placeholder-black/50 focus:outline-none focus:border-neo-pink shadow-hard-sm leading-relaxed"
+                className="w-full px-4 py-3 bg-white border border-border-color rounded-lg text-sm font-mono font-bold text-black placeholder-black/50 focus:outline-none focus:border-neo-pink shadow-hard-sm leading-relaxed"
               />
             </div>
 
             <div className="space-y-2">
-              <label className="block text-[14px] font-mono font-black uppercase tracking-wider text-black">
-                🖥️ Hardware Requirements (JSON or Key: Value)
+              <label className="block text-sm font-mono font-black uppercase tracking-wider text-darkteal">
+                +++++++++++++++Requirements+++++++++++++
               </label>
               <textarea
-                name="requirementsRaw"
-                value={formData.requirementsRaw}
+                name="detailsMarkdown"
+                value={formData.detailsMarkdown}
                 onChange={handleChange}
                 rows={4}
                 placeholder={`{\n  "Sistem Operasi": "Windows 11 atau 10 64-bit",\n  "RAM": "8 GB Recommended"\n}`}
-                className="w-full px-4 py-3 bg-white border-2 border-border-color rounded-xl text-sm font-mono font-bold text-black placeholder-black/50 focus:outline-none focus:border-neo-pink shadow-hard-sm leading-relaxed"
+                className="w-full px-4 py-3 bg-white border border-border-color rounded-lg text-sm font-mono font-bold text-black placeholder-black/50 focus:outline-none focus:border-neo-pink shadow-hard-sm leading-relaxed"
               />
             </div>
           </div>
@@ -577,7 +571,7 @@ export const ProductForm: React.FC<ProductFormProps> = ({
 
         {/* ── RIGHT COLUMN (4 Cols): LIVE INTERACTIVE ASSET STORE PREVIEW CARD ── */}
         <div className="lg:col-span-4 space-y-6 sticky top-40">
-          <div className="bg-soft-linen p-6 rounded-2xl border-2 border-border-color shadow-hard space-y-4">
+          <div className="bg-yellow-100 p-6 rounded-2xl border-2 border-border-color shadow-hard space-y-4">
             <div className="flex items-center justify-between border-b-2 border-border-color/20 pb-3">
               <span className="text-base font-mono font-black uppercase tracking-widest text-black flex items-center gap-6">
                 <IconRenderer icon="/icon/multimedia.svg" alt="Preview" className="w-7 h-7 object-contain" />
@@ -590,7 +584,7 @@ export const ProductForm: React.FC<ProductFormProps> = ({
 
             {/* Simulated Live Public Store Asset Card */}
             <div className="bg-white rounded-2xl border-2 border-border-color shadow-hard overflow-hidden">
-              <div className="w-full h-40 bg-cool-blue flex items-center justify-center overflow-hidden relative border-b-2 border-border-color p-4">
+              <div className="w-full h-40 bg-yellow-300 flex items-center justify-center overflow-hidden relative border-b-2 border-border-color p-4">
                 {formData.bannerImage ? (
                   <img src={formData.bannerImage} alt="Banner" className="w-full h-full object-cover" />
                 ) : (
@@ -620,12 +614,12 @@ export const ProductForm: React.FC<ProductFormProps> = ({
                   </span>
                 </div>
 
-                <p className="text-xs text-black/80 font-bold leading-relaxed line-clamp-2">
+                <p className="text-xs text-darkteal font-bold leading-relaxed line-clamp-2">
                   {formData.desc || 'Asset description will appear here as you type...'}
                 </p>
 
                 <div className="flex flex-wrap gap-1.5 text-xs font-mono font-black pt-1">
-                  <span className="bg-neo-cyan text-black px-2 py-0.5 rounded border border-border-color">{formData.version}</span>
+                  <span className="bg-cayenne text-white px-2 py-0.5 rounded border border-border-color">{formData.version}</span>
                   <span className="bg-neo-lime text-black px-2 py-0.5 rounded border border-border-color">{formData.size}</span>
                   {formData.downloadUrl && (
                     <span className="bg-neo-pink text-white px-2 py-0.5 rounded border border-border-color">🔗 EXT DOWNLOAD</span>

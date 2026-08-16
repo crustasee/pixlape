@@ -37,7 +37,7 @@ export const AssetPreviewGallery: React.FC<AssetPreviewGalleryProps> = ({ asset,
   return (
     <div className="flex flex-col gap-5">
       {/* Active Slide Display Container */}
-      <div className="border-1 border-black bg-white/70 shadow-hard-sm rounded-2xl p-4 md:p-5 flex flex-col gap-4 overflow-hidden transition-all duration-300">
+      <div className="border border-black bg-white/70 shadow-hard-sm rounded-2xl p-4 md:p-5 flex flex-col gap-4 overflow-hidden transition-all duration-300">
         {/* Slide Header Bar (Non-Overlapping) */}
         <div className="flex items-center justify-between border-b-2 border-black/10 pb-2.5">
           <span className="badge badge-yellow text-black border-black font-mono text-[14px] font-black px-2.5 py-1 rounded-md uppercase">

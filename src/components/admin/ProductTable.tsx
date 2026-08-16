@@ -35,8 +35,8 @@ export const ProductTable: React.FC<ProductTableProps> = ({
     {
       header: 'ASSET PRODUCT',
       cell: (item) => (
-        <div className="flex items-center space-x-4 select-none font-mono">
-          <div className="w-12 h-12 rounded-lg bg-white border-1 border-border-color flex items-center justify-center shrink-0 shadow-hard-sm hover:scale-105 transition-transform duration-200 p-2 overflow-hidden">
+        <div className="flex items-center space-x-5 select-none font-mono">
+          <div className="w-12 h-12 rounded-lg bg-white border border-border-color flex items-center justify-center shrink-0 shadow-hard-sm hover:scale-105 transition-transform duration-200 p-2 overflow-hidden">
             <IconRenderer icon={item.icon} alt={item.name} className="w-full h-full object-contain" />
           </div>
           <div className="min-w-0">
@@ -44,7 +44,7 @@ export const ProductTable: React.FC<ProductTableProps> = ({
               {item.name}
             </div>
             <div className="flex flex-wrap items-center gap-2 text-xs font-mono font-bold mt-1 text-darkteal">
-              <span className="bg-white/30 text-black px-2 py-0.5 rounded-md border-1.5 border-border-color shadow-[1px_1px_0_var(--border-color)] font-black">
+              <span className="bg-yellow-50 border text-black px-2 py-0.5 rounded-md border-1.5 border-border-color shadow-[1px_1px_0_var(--border-color)] font-black">
                 {item.version}
               </span>
               <span>•</span>

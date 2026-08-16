@@ -17,7 +17,7 @@ export const AdminHeader: React.FC<AdminHeaderProps> = ({
   const [showUserMenu, setShowUserMenu] = useState(false);
 
   return (
-    <header className="h-14 border-b-2 border-border-color bg-yellow-green px-8 flex items-center justify-between sticky top-0 z-30 select-none text-yellow-green shadow-hard-sm">
+    <header className="h-14 border-b-2 border-border-color bg-yellow-green px-8 flex items-center justify-between sticky top-0 z-30 select-none text-yellow-green rounded-2xl">
       {/* Left Title & Breadcrumbs */}
       <div className="flex items-center space-x-3">
         <div>

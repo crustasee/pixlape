@@ -30,7 +30,7 @@ export const AssetCard: React.FC<AssetCardProps> = ({ asset, onQuickView }) => {
   return (
     <div
       onClick={handleCardClick}
-      className="asset-card group flex flex-col w-full bg-soft-linen text-black rounded-2xl border-2 border-border-color shadow-hard hover:shadow-hard-lg hover:-translate-y-1 transition-all duration-200 overflow-hidden cursor-pointer focus-visible:outline-3 focus-visible:outline-cayenne"
+      className="asset-card group flex flex-col w-full bg-yellow-100 text-black rounded-lg border border-border-color shadow-hard hover:shadow-hard-lg hover:-translate-y-1 transition-all duration-200 overflow-hidden cursor-pointer focus-visible:outline-3 focus-visible:outline-cayenne"
       role="button"
       tabIndex={0}
       onKeyDown={(e) => {
@@ -41,7 +41,7 @@ export const AssetCard: React.FC<AssetCardProps> = ({ asset, onQuickView }) => {
       }}
     >
       {/* Card Image / Icon Area */}
-      <div className="w-full h-40 bg-cool-blue flex items-center justify-center overflow-hidden relative rounded-xl border-b-1 border-border-color">
+      <div className="w-full h-40 bg-white flex items-center justify-center overflow-hidden relative rounded-xl border-b-1 border-border-color">
         {isImageIcon(asset.icon) ? (
           <img
             src={getIconSrc(asset.icon)}

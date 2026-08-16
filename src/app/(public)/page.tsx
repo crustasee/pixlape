@@ -38,24 +38,21 @@ export default function HomePage() {
     <div className="flex-1 w-full flex flex-col gap-6">
       {showHero && (
         <section className="px-4 sm:px-6 md:px-8 pt-6 max-w-[1850px] w-full mx-auto" aria-label="Hero">
-          <div className="hero-static-box hero-grid-bg p-5 md:p-7 relative overflow-hidden border-2 border-border-color shadow-hard rounded-3xl">
-            {/* Ambient glows */}
-            <div className="absolute -top-10 -right-10 w-52 h-52 bg-neo-yellow rounded-full opacity-20 blur-4xl pointer-events-none" aria-hidden="true" />
-            <div className="absolute -bottom-10 -left-10 w-48 h-48 bg-neo-cyan rounded-full opacity-20 blur-4xl pointer-events-none" aria-hidden="true" />
+          <div className="hero-static-box hero-grid-bg p-5 md:p-7 relative overflow-hidden border shadow-hard-sm rounded-xl">
 
             <div className="relative flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6">
               {/* Left Side: Content */}
               <div className="flex-1">
-                <h1 className="font-head font-black text-3xl md:text-4xl lg:text-5xl tracking-tight text-white leading-none mb-3">
-                  <span className="inline-block bg-neo-yellow text-black px-2.5 py-0.5 rounded border-1 border-border-color shadow-[2px_2px_0_var(--border-color)] mr-2">
-                    ----PIXLAPE----
+                <h1 className="font-head font-black text-3xl md:text-4xl lg:text-5xl tracking-tight mb-3">
+                  <span className="inline-block font-pixel bg-neo-yellow text-darkteal px-4 py-3 rounded-xl border mr-6">
+                    PIXLAPE+
                   </span>
-                  <span className="text-white drop-shadow-[0_2px_6px_rgba(0,0,0,0.5)]">
-                    ++TROVE++DIGITAL++VAULT
+                  <span className="font-pixel text-white">
+                    ++TROVE++
                   </span>
                 </h1>
 
-                <p className="font-body text-xs md:text-sm text-gray-200 font-medium max-w-2xl leading-relaxed mb-4 bg-black/20 backdrop-blur-sm p-3 rounded-lg border border-white/5">
+                <p className="font-body text-xs md:text-sm text-gray-200 font-medium max-w-2xl leading-relaxed mb-4 p-3 rounded-lg border border-white/5">
                   Frontend Developers, UI Templates, icon packs, design tools, and dev utilities — built with obsession.
                   Free & Pro assets, virus-scanned, ready to download.
                 </p>

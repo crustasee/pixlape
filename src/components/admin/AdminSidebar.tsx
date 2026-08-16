@@ -54,7 +54,7 @@ export const AdminSidebar: React.FC = () => {
       {!isCollapsed ? (
         <div className="text-[11px] font-mono font-black uppercase tracking-widest text-yellow-green px-3 mb-2 select-none flex items-center justify-between">
           <span>{title}</span>
-          <span className="text-[9px] bg-evergreen px-1.5 py-0.5 rounded text-white/70 border border-white/10">
+          <span className="text-[9px] bg-darkteal px-1.5 py-0.5 rounded text-white/70 border border-yellow-green">
             {items.length}
           </span>
         </div>
@@ -71,7 +71,7 @@ export const AdminSidebar: React.FC = () => {
             <div key={item.href} className="relative group">
               <Link
                 href={item.href}
-                className={`flex items-center ${isCollapsed ? 'justify-center px-2 py-3' : 'justify-between px-3 py-2.5'
+                className={`flex items-center ${isCollapsed ? 'justify-center px-4 py-3' : 'justify-between px-3 py-2.5'
                   } rounded-xl text-xs font-mono font-black transition-all duration-200 border-2 ${isActive
                     ? `${activeColorClass} border-border-color shadow-[3px_3px_0_var(--border-color)] translate-x-0.5`
                     : `bg-darkteal text-white border-transparent hover:${hoverBgClass} hover:border-white/50 hover:shadow-[2px_2px_0_var(--border-color)]`
@@ -81,7 +81,7 @@ export const AdminSidebar: React.FC = () => {
                   <IconRenderer
                     icon={item.icon}
                     alt={item.label}
-                    className="w-5 h-5 object-contain shrink-0 transition-transform group-hover:scale-110"
+                    className="w-5 h-5 object-contain shrink-0 transition-transform group-hover:scale-120"
                   />
                   {!isCollapsed && <span className="truncate">{item.label}</span>}
                 </div>
@@ -100,7 +100,7 @@ export const AdminSidebar: React.FC = () => {
 
               {/* Tooltip on Collapsed Hover */}
               {isCollapsed && (
-                <div className="absolute left-full top-1/2 -translate-y-1/2 ml-3 px-3 py-2 bg-darkteal text-white border-2 border-border-color rounded-xl text-xs font-mono font-black shadow-hard-sm whitespace-nowrap opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition-opacity z-50 flex items-center gap-2">
+                <div className="absolute left-full top-1/6 -translate-y-1/6 ml-3 px-3 py-2 bg-darkteal text-white border border-border-color rounded-xl text-xs font-mono font-black shadow-hard-sm whitespace-nowrap opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition-opacity z-50 flex items-center gap-4">
                   <span>{item.label}</span>
                   {item.badge && (
                     <span className="text-[9px] bg-neo-yellow text-black px-1.5 py-0.5 rounded border border-border-color">
@@ -182,11 +182,11 @@ export const AdminSidebar: React.FC = () => {
               </div>
             </div>
 
-            <div className="grid grid-cols-2 gap-2 pt-1 w-full">
+            <div className="grid grid-cols-0 gap-4 pt-1 w-30">
               <Link
                 href="/"
                 title="View Main Site"
-                className="w-full flex items-center justify-center gap-1.5 py-2.5 px-2 bg-green-400 text-evergreen border-2 border-border-color rounded-xl text-xs font-mono font-black shadow-hard-sm hover:translate-x-0.5 hover:translate-y-0.5 hover:shadow-none transition-all duration-200 cursor-pointer min-w-0"
+                className="w-55 flex items-center justify-center gap-1.5 py-2.5 px-2 bg-green-400 text-evergreen border-2 border-border-color rounded-xl text-xs font-mono font-black shadow-hard-sm hover:translate-x-0.5 hover:translate-y-0.5 hover:shadow-none transition-all duration-200 cursor-pointer min-w-0"
               >
                 <Globe className="w-4 h-4 shrink-0 text-evergreen" />
                 <span className="truncate">SITE</span>
@@ -194,7 +194,7 @@ export const AdminSidebar: React.FC = () => {
               <button
                 onClick={() => signOut({ callbackUrl: '/login' })}
                 title="Sign Out of Dashboard"
-                className="w-full flex items-center justify-center gap-1.5 py-2.5 px-2 bg-cayenne text-white border-2 border-border-color rounded-xl text-xs font-mono font-black shadow-hard-sm hover:translate-x-0.5 hover:translate-y-0.5 hover:shadow-none transition-all duration-200 cursor-pointer min-w-0"
+                className="w-55 flex items-center justify-center gap-1.5 py-2.5 px-2 bg-cayenne text-white border-2 border-border-color rounded-xl text-xs font-mono font-black shadow-hard-sm hover:translate-x-0.5 hover:translate-y-0.5 hover:shadow-none transition-all duration-200 cursor-pointer min-w-0"
               >
                 <LogOut className="w-4 h-4 shrink-0 text-white" />
                 <span className="truncate">LOGOUT</span>
@@ -202,18 +202,18 @@ export const AdminSidebar: React.FC = () => {
             </div>
           </>
         ) : (
-          <div className="flex flex-col justify-center items-center gap-2">
+          <div className="flex flex-col justify-center items-center gap-3">
             <Link
               href="/"
               title="Back to Public Site"
-              className="w-10 h-10 flex items-center justify-center bg-evergreen text-white border-2 border-border-color rounded-xl shadow-hard-sm hover:translate-x-0.5 hover:translate-y-0.5 transition-all"
+              className="flex flex-col w-full h-10 flex items-center justify-center bg-green-400 text-darkteal border border-border-color rounded-xl shadow-hard-sm hover:translate-x-0.5 hover:translate-y-0.5 transition-all cursor-pointer gap-4"
             >
-              <Globe className="w-4 h-4 text-yellow-green" />
+              <Globe className="w-4 h-4 text-darkteal" />
             </Link>
             <button
               onClick={() => signOut({ callbackUrl: '/login' })}
               title="Logout"
-              className="w-10 h-10 flex items-center justify-center bg-cayenne text-white border-2 border-border-color rounded-xl shadow-hard-sm hover:translate-x-0.5 hover:translate-y-0.5 transition-all cursor-pointer"
+              className="flex-col w-full h-10 flex items-center justify-center bg-cayenne text-white border border-border-color rounded-xl shadow-hard-sm hover:translate-x-0.5 hover:translate-y-0.5 transition-all cursor-pointer"
             >
               <LogOut className="w-4 h-4" />
             </button>

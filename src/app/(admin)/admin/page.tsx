@@ -56,7 +56,7 @@ export default function AdminDashboardPage() {
   return (
     <>
       <AdminHeader title="Admin Overview & Asset Management" />
-      <main className="p-4 sm:p-6 lg:p-8 space-y-8 max-w-[1600px] w-full text-text font-mono">
+      <main className="p-4 sm:p-6 lg:p-8 space-y-8 max-w-[1920px] w-full text-text font-mono mx-auto">
 
         {/* ── Section 1: Metric Overview Cards ── */}
         <section>
@@ -64,7 +64,7 @@ export default function AdminDashboardPage() {
             <div>
               <h2 className="text-lg font-mono font-black text-darkteal uppercase tracking-widest">Vault Dashboard Metrics</h2>
             </div>
-            <span className="font-mono text-sm text-white bg-green-500 border-1 border-border-color px-2.5 py-1 rounded-lg shadow-hard-sm select-none">
+            <span className="font-mono text-sm text-white bg-green-500 border border-border-color px-2.5 py-1 rounded-lg shadow-hard-sm select-none">
               ●●●○○ Sync
             </span>
           </div>
@@ -77,15 +77,13 @@ export default function AdminDashboardPage() {
         </section>
 
         {/* ── Section 2: Quick Actions + Category Distribution + Activity ── */}
-        <section className="grid grid-cols-1 lg:grid-cols-12 gap-6">
-
+        <section className="grid grid-cols-1 lg:grid-cols-12 gap-2">
           {/* Quick Action Shortcuts — 4 cols */}
-          <div className="lg:col-span-4 bg-yellow-100 border-2 border-border-color p-5 rounded-xl shadow-hard space-y-4">
+          <div className="lg:col-span-4 bg-yellow-100 border-2 border-border-color p-5 rounded-xl shadow-hard space-y-3">
             <div>
               <h3 className="text-md text-darkteal font-mono font-black uppercase tracking-widest flex items-center gap-5">
-                <span>▶ Quick Actions</span>
+                <span>◯ Quick Actions</span>
               </h3>
-              <p className="text-lg font-mono text-darkteal font-black uppercase tracking-widest flex items-center gap-5">-------------------------------------------------------------</p>
             </div>
             <div className="grid grid-cols-1 gap-2.5">
               {quickActions.map((action) => (
@@ -103,14 +101,12 @@ export default function AdminDashboardPage() {
               ))}
             </div>
           </div>
-
           {/* Category Breakdown — 4 cols */}
-          <div className="lg:col-span-4 bg-yellow-100 border-2 border-border-color p-5 rounded-xl shadow-hard space-y-4">
+          <div className="lg:col-span-4 bg-yellow-100 border border-border-color p-5 rounded-xl shadow-hard space-y-3">
             <div>
               <h3 className="text-lg font-mono font-black uppercase tracking-widest text-darkteal flex items-center gap-4">
-                <span>◯ Filter</span>
+                <span>◯ CATEGORY</span>
               </h3>
-              <p className="text-lg font-mono text-darkteal font-black uppercase tracking-widest flex items-center gap-5">-------------------------------------------------------------</p>
             </div>
             <div className="space-y-2.5 font-mono text-sm">
               {categoryBreakdown.map((cat) => (
@@ -128,41 +124,16 @@ export default function AdminDashboardPage() {
               ))}
             </div>
           </div>
-
-          {/* Activity Feed — 4 cols */}
-          <div className="flex-col-2 lg:col-span-4 bg-yellow-100 border-2 border-border-color p-5 rounded-xl shadow-hard space-y-4">
-            <div>
-              <h3 className="text-lg font-mono font-black uppercase tracking-widest text-darkteal flex items-center gap-4">
-                <span>▶ Recent System Activity</span>
-              </h3>
-              <p className="text-sm font-mono font-bold text-darkteal">+++++++ Audit log & activity feed ++++++++++</p>
-            </div>
-            <div className="space-y-1 font-mono text-xs">
-              {recentActivity.map((act, idx) => (
-                <div key={idx} className="p-3 bg-yellow-200 border-2 border-border-color rounded-lg shadow-hard-sm flex items-start space-x-3">
-                  <span className={`w-2.5 h-2.5 rounded-full ${act.color} border border-border-color shrink-0 mt-1`} />
-                  <div className="min-w-0 flex-1">
-                    <div className="font-black text-lg text-darkteal flex justify-between items-center">
-                      <span className="uppercase text-sm">{act.action}</span>
-                      <span className="text-sm text-text/60 font-bold">{act.time}</span>
-                    </div>
-                    <div className="text-sm text-darkteal font-mono font-medium mt-0.5 truncate">{act.detail}</div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-
         </section>
 
         {/* ── Section 3: Recent Asset Catalog Table ── */}
-        <section className="space-y-4">
+        <section className="bg-yellow-50 text-darkteal border border-border-color p-4 rounded-lg shadow-hard-sm space-y-6">
           <div className="flex flex-col-2items-center justify-between">
             <div>
-              <h2 className="text-base font-black uppercase font-mono text-text tracking-wide">
+              <h2 className="text-mono font-black uppercase font-mono text-darkteal tracking-wide">
                 Vault Product Assets ({assets.length})
               </h2>
-              <p className="text-xs text-text/80 font-medium font-body">Manage, quick view, or edit items directly</p>
+              <p className="text-xs text-darkteal font-mono">Manage, quick view, or edit items directly</p>
             </div>
             <Link href="/admin/products/new">
               <Button variant="primary" className="font-mono text-lg font-black uppercase bg-green-400 text-darkteal border-2 border-border-color shadow-hard-sm flex items-center gap-2">

@@ -128,18 +128,15 @@ export const ArticlesForm: React.FC<ArticlesFormProps> = ({
   return (
     <form onSubmit={handleSubmit} className="w-full max-w-full space-y-8 select-none font-mono text-evergreen">
       {/* ── Sticky Control Header ── */}
-      <div className="bg-darkteal p-5 sm:p-6 rounded-2xl border-2 border-border-color shadow-hard-lg flex flex-col md:flex-row items-start md:items-center justify-between gap-4 sticky top-20 z-20">
+      <div className="bg-yellow-green p-3 sm:p-4 rounded-lg border border-border-color shadow-hard flex flex-col md:flex-row items-start md:items-center justify-between gap-4 sticky top-20 z-20">
         <div>
           <div className="flex items-center gap-3">
-            <span className="px-3 py-1 rounded-md text-xs font-mono font-black uppercase tracking-wider bg-black text-yellow-green border border-border-color shadow-[1.5px_1.5px_0_var(--border-color)]">
+            <span className="px-3 py-1 rounded-md text-xs font-mono font-black uppercase tracking-wider bg-cayenne text-white border border-border-color shadow-[1.5px_1.5px_0_var(--border-color)]">
               DOCUMENT VAULT CMS
             </span>
-            <span className="text-xs text-white/80 font-mono font-bold">
-              {formData.id ? `Editing ID: #${formData.id}` : 'Create Article Draft'}
-            </span>
           </div>
-          <h2 className="text-2xl sm:text-3xl font-black text-yellow-green font-head tracking-tight uppercase mt-1">
-            {formData.title ? `Article: ${formData.title}` : 'Create & Publish Article Document'}
+          <h2 className="text-2xl sm:text-2xl font-black text-darkteal font-head tracking-tight uppercase mt-1">
+            {formData.title ? `Article: ${formData.title}` : 'Create & Publish Article'}
           </h2>
         </div>
 
@@ -148,7 +145,7 @@ export const ArticlesForm: React.FC<ArticlesFormProps> = ({
             <Button
               type="button"
               variant="neutral"
-              className="font-mono text-xs font-black uppercase border-2 border-border-color bg-cayenne text-white hover:bg-red-700 py-2.5 px-4 rounded-xl"
+              className="font-mono text-xs font-black uppercase border border-border-color bg-cayenne text-white hover:bg-red-700 py-2.5 px-4 rounded-xl"
             >
               CANCEL
             </Button>
@@ -157,9 +154,8 @@ export const ArticlesForm: React.FC<ArticlesFormProps> = ({
             type="submit"
             disabled={isSubmitting}
             variant="primary"
-            className="font-mono text-xs sm:text-sm font-black text-black uppercase bg-yellow-green border-2 border-border-color shadow-hard hover:bg-neo-yellow hover:translate-x-0.5 hover:translate-y-0.5 transition-all flex items-center gap-2 py-2.5 px-5 cursor-pointer rounded-xl"
+            className="font-mono text-xs sm:text-sm font-black text-black uppercase bg-green-400 border border-border-color shadow-hard hover:bg-neo-yellow hover:translate-x-0.5 hover:translate-y-0.5 transition-all flex items-center gap-2 py-2.5 px-5 cursor-pointer rounded-xl"
           >
-            <IconRenderer icon="/icon/button/save_white.svg" alt="Publish" className="w-5 h-5 object-contain" />
             <span>{isSubmitting ? 'PUBLISHING...' : formData.id ? 'SAVE CHANGES' : 'PUBLISH ARTICLE'}</span>
           </Button>
         </div>
@@ -168,12 +164,11 @@ export const ArticlesForm: React.FC<ArticlesFormProps> = ({
       {/* ── 2 Columns Layout: Form Fields + Live Preview Card ── */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
         {/* ── LEFT / MAIN FORM AREA (8 Cols) - SOFT LINEN PANEL ── */}
-        <div className="lg:col-span-8 bg-soft-linen p-6 sm:p-8 rounded-2xl border-2 border-border-color shadow-hard-lg space-y-8 font-mono">
+        <div className="lg:col-span-8 bg-yellow-100 p-6 sm:p-8 rounded-2xl border-2 border-border-color shadow-hard-lg space-y-8 font-mono">
           {/* Section 1: Article Metadata & Primary Info */}
           <div className="space-y-5">
             <h3 className="text-base sm:text-lg font-head font-black uppercase tracking-widest text-evergreen border-b-2 border-border-color/20 pb-3 flex items-center gap-3">
-              <IconRenderer icon="/icon/blogtotal2.svg" alt="Article" className="w-7 h-7 object-contain" />
-              <span>Primary Article Details</span>
+              <span>● Primary Article Details</span>
             </h3>
 
             <Input
@@ -279,26 +274,26 @@ export const ArticlesForm: React.FC<ArticlesFormProps> = ({
           {/* Section 2: Cover Image & Media Placeholder (Recommended Size Preset 1440x480px .JPEG/.PNG/.SVG/.WEBM/.GIF) */}
           <div className="space-y-5">
             <div className="border-b-2 border-border-color/20 pb-3 flex items-center justify-between flex-wrap gap-2">
-              <h3 className="text-base sm:text-lg font-head font-black uppercase tracking-widest text-evergreen flex items-center gap-3">
-                <IconRenderer icon="/icon/add_white.svg" alt="Media" className="w-6 h-6 object-contain" />
-                <span>COVER IMAGE & GRAPHIC BANNER</span>
+              <h3 className="text-base sm:text-lg font-head font-black uppercase tracking-widest text-darkteal flex items-center gap-3">
+
+                <span>● COVER IMAGE & GRAPHIC BANNER</span>
               </h3>
-              <span className="text-xs font-mono font-black bg-darkteal text-yellow-green px-3 py-1 rounded-lg border border-border-color">
+              <span className="text-xs font-mono font-black bg-yellow-200 text-darkteal px-3 py-1 rounded-lg border border-border-color">
                 PRESET BANNER: 1440 × 480 PX
               </span>
             </div>
 
             {/* Supported Format Specification Bar */}
-            <div className="p-3.5 bg-evergreen text-white rounded-xl border-2 border-border-color shadow-hard-sm flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-xs font-mono">
+            <div className="p-3.5 bg-yellow-green text-white rounded-xl border-2 border-border-color shadow-hard-sm flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-xs font-mono">
               <div className="flex items-center gap-2">
-                <span className="text-yellow-green text-sm font-black">⚙️ COMPATIBILITY:</span>
-                <span className="font-bold text-white/90">Formats Supported:</span>
+                <span className="text-darkteal text-sm font-black">COMPATIBILITY:</span>
+                <span className="font-bold text-darkteal">Formats Supported:</span>
               </div>
               <div className="flex flex-wrap gap-1.5">
                 {supportedFormats.map((fmt) => (
                   <span
                     key={fmt}
-                    className="px-2.5 py-0.5 bg-black text-yellow-green rounded border border-border-color text-[10px] font-black uppercase"
+                    className="px-2.5 py-0.5 bg-cayenne text-white rounded border border-border-color text-xs font-black uppercase"
                   >
                     {fmt}
                   </span>
@@ -307,20 +302,20 @@ export const ArticlesForm: React.FC<ArticlesFormProps> = ({
             </div>
 
             {/* Cover Image Input with Live Preview */}
-            <div className="space-y-4 bg-white p-5 rounded-2xl border-2 border-border-color shadow-hard-sm">
+            <div className="space-y-4 bg-yellow-50 p-5 rounded-2xl border-2 border-border-color shadow-hard-sm">
               <Input
                 label="COVER BANNER IMAGE / VIDEO URL (.JPEG, .PNG, .SVG, .WEBM, .GIF)"
                 name="imageUrl"
                 placeholder="e.g. /icon/stock/blog001.svg or https://images.unsplash.com/..."
                 value={formData.imageUrl}
                 onChange={handleChange}
-                className="border-2 border-border-color bg-white text-xs font-bold text-evergreen shadow-hard-sm rounded-xl"
+                className="border-2 border-border-color bg-yellow-50 text-xs font-bold text-darkteal shadow-hard-sm rounded-xl"
               />
 
               {/* Cover Image Live Preview Box (1440x480 Aspect Ratio Preset) */}
               <div className="space-y-2">
                 <div className="flex items-center justify-between">
-                  <label className="block text-xs font-mono font-black uppercase text-evergreen">
+                  <label className="block text-xs font-mono font-black uppercase text-darkteal">
                     Banner Preview Box (Preset 1440 × 480 px Aspect Ratio):
                   </label>
                   <span className="text-[10px] font-black uppercase bg-yellow-green text-black px-2 py-0.5 rounded border border-border-color">
@@ -423,9 +418,8 @@ export const ArticlesForm: React.FC<ArticlesFormProps> = ({
 
           {/* Section 3: Publication Scope / Target Tab */}
           <div className="space-y-5">
-            <h3 className="text-base sm:text-lg font-head font-black uppercase tracking-widest text-evergreen border-b-2 border-border-color/20 pb-3 flex items-center gap-3">
-              <IconRenderer icon="/icon/checklist.svg" alt="Tab" className="w-6 h-6 object-contain" />
-              <span>Publication Scope & Target Tab</span>
+            <h3 className="text-base sm:text-lg font-head font-black uppercase tracking-widest text-darkteal border-b-2 border-border-color/20 pb-3 flex items-center gap-3">
+              <span>● Publication Scope & Target Tab</span>
             </h3>
 
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
@@ -459,13 +453,12 @@ export const ArticlesForm: React.FC<ArticlesFormProps> = ({
 
           {/* Section 4: Full Article Markdown Content */}
           <div className="space-y-5">
-            <h3 className="text-base sm:text-lg font-head font-black uppercase tracking-widest text-evergreen border-b-2 border-border-color/20 pb-3 flex items-center gap-3">
-              <IconRenderer icon="/icon/doc.svg" alt="Content" className="w-6 h-6 object-contain" />
-              <span>FULL ARTICLE MARKDOWN CONTENT</span>
+            <h3 className="text-base sm:text-lg font-head font-black uppercase tracking-widest text-darkteal border-b-2 border-border-color/20 pb-3 flex items-center gap-3">
+              <span>● FULL ARTICLE MARKDOWN CONTENT</span>
             </h3>
 
             <RichTextEditor
-              label="Article Body (Markdown & Rich Text)"
+              label="+ Article Body (Markdown & Rich Text)"
               name="content"
               value={formData.content}
               onChange={handleChange}
@@ -478,19 +471,18 @@ export const ArticlesForm: React.FC<ArticlesFormProps> = ({
 
         {/* ── RIGHT COLUMN (4 Cols): LIVE PUBLIC STORE ARTICLE PREVIEW CARD ── */}
         <div className="lg:col-span-4 space-y-6 sticky top-28 font-mono">
-          <div className="bg-darkteal p-6 rounded-2xl border-2 border-border-color shadow-hard space-y-4">
+          <div className="bg-yellow-100 p-6 rounded-2xl border-2 border-border-color shadow-hard space-y-4">
             <div className="flex items-center justify-between border-b-2 border-border-color/20 pb-3">
-              <span className="text-base font-head font-black uppercase tracking-widest text-yellow-green flex items-center gap-2">
-                <IconRenderer icon="/icon/eye_white.svg" alt="Preview" className="w-6 h-6 object-contain" />
-                <span>ARTICLE PREVIEW</span>
+              <span className="text-lg font-head font-black uppercase tracking-widest text-darkteal flex items-center gap-2">
+                <span>●●○○ARTICLE PREVIEW</span>
               </span>
-              <span className="text-xs font-mono font-black bg-yellow-green text-black border border-border-color px-2.5 py-1 rounded-md shadow-[1px_1px_0_var(--border-color)]">
-                LIVE VIEW
+              <span className="text-xs font-mono font-black bg-yellow-green text-darkteal border border-border-color px-2.5 py-1 rounded-md shadow-[1px_1px_0_var(--border-color)]">
+                PAGE PREVIEW
               </span>
             </div>
 
             {/* Simulated Public Blog Card */}
-            <article className="bg-soft-linen rounded-2xl border-2 border-border-color shadow-hard overflow-hidden">
+            <article className="bg-yellow-50 rounded-xl border-2 border-border-color shadow-hard overflow-hidden justify-center items-center">
               <div className="w-full aspect-[3/1] bg-darkteal flex items-center justify-center overflow-hidden relative border-b-2 border-border-color">
                 {formData.imageUrl && !imageError ? (
                   isVideoFormat(formData.imageUrl) ? (
@@ -499,7 +491,7 @@ export const ArticlesForm: React.FC<ArticlesFormProps> = ({
                     <img src={formData.imageUrl} alt="Preview Cover" className="w-full h-full object-cover" />
                   )
                 ) : (
-                  <div className="flex flex-col items-center justify-center bg-yellow-green/30 w-full h-full p-4 text-center">
+                  <div className="flex flex-col items-center justify-center bg-yellow-green w-full h-full p-4 text-center">
                     <span className="text-4xl">{formData.icon || '📝'}</span>
                   </div>
                 )}
@@ -511,28 +503,28 @@ export const ArticlesForm: React.FC<ArticlesFormProps> = ({
               </div>
 
               <div className="p-5 space-y-3 font-mono">
-                <div className="text-[11px] font-mono font-black text-cayenne uppercase flex items-center gap-2">
+                <div className="text-sm font-mono font-black text-cayenne uppercase flex items-center gap-2">
                   <span>{formData.category}</span>
                   <span>•</span>
                   <span>{formData.date}</span>
                 </div>
 
-                <h3 className="font-head font-black text-base text-evergreen leading-snug uppercase">
+                <h3 className="font-head font-black text-xl text-darkteal leading-snug uppercase">
                   {formData.title || 'Untitled Article'}
                 </h3>
 
-                <p className="text-xs text-evergreen/80 font-bold leading-relaxed line-clamp-3 font-body">
+                <p className="text-sm text-darkteal font-bold leading-relaxed line-clamp-3 font-body">
                   {formData.excerpt || 'Article summary description will appear here as you type...'}
                 </p>
 
-                <div className="pt-3 border-t-2 border-border-color/20 flex justify-between items-center text-[10px] font-mono font-black text-evergreen/70">
+                <div className="pt-3 border-t-2 border-border-color flex justify-between items-center text-xs font-mono font-black text-darkteal">
                   <span>By {formData.author}</span>
                   <span>⏱️ {formData.readTime}</span>
                 </div>
               </div>
             </article>
 
-            <div className="text-xs font-mono text-white/90 font-bold text-center">
+            <div className="text-xs font-mono text-darkteal font-bold text-center">
               Real-time store view preview updates dynamically (1440 × 480 px banner).
             </div>
 
@@ -540,9 +532,8 @@ export const ArticlesForm: React.FC<ArticlesFormProps> = ({
               type="submit"
               disabled={isSubmitting}
               variant="primary"
-              className="w-full py-3.5 text-xs font-mono font-black uppercase bg-yellow-green text-black border-2 border-border-color shadow-hard hover:bg-neo-yellow hover:translate-x-0.5 hover:translate-y-0.5 transition-all cursor-pointer flex items-center justify-center gap-2 rounded-xl"
+              className="w-full py-3.5 text-lg font-mono font-black uppercase bg-green-400 text-black border-2 border-border-color shadow-hard hover:bg-green-400 hover:translate-x-0.5 hover:translate-y-0.5 transition-all cursor-pointer flex items-center justify-center gap-2 rounded-xl"
             >
-              <IconRenderer icon="/icon/button/save_white.svg" alt="Publish" className="w-5 h-5 object-contain" />
               <span>{isSubmitting ? 'PUBLISHING...' : formData.id ? 'SAVE CHANGES' : 'PUBLISH ARTICLE'}</span>
             </Button>
           </div>
