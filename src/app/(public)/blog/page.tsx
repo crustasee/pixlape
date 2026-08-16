@@ -10,13 +10,10 @@ export const metadata = {
 
 export default function BlogPage() {
   return (
-    <div className="flex flex-col p-6 md:p-8 max-w-[1640px] mx-auto w-full flex-1 gap-8">
-      {/* Blog Intro Header */}
+    <div className="flex flex-col p-6 md:p-8 max-w-full mx-auto w-full flex-1 gap-8">
+      {/* =======================Blog Intro Header======================= */}
       <div className="rounded-lg border-1 border-border-color shadow-hard bg-yellow-100 p-6 md:p-8 flex flex-col gap-3">
-        <div className="flex items-center gap-2">
-          <span className="badge bg-yellow-green text-black text-lg font-mono font-bold px-3 py-1 rounded-md">ARTICLES</span>
-          <span className="badge bg-yellow-green text-black text-lg font-mono font-bold px-3 py-1 rounded-md">CREATOR HUB</span>
-        </div>
+
         <h1 className="font-head font-black text-3xl md:text-6xl text-darkteal tracking-wide uppercase">
           BLOG & INSIGHTS
         </h1>
@@ -25,16 +22,16 @@ export default function BlogPage() {
         </p>
       </div>
 
-      {/* Blog Grid */}
+      {/* ====================================Blog Grid ====================================*/}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {BLOG_POSTS.map((post, index) => (
           <Link key={post.id} href={`/blog/${post.id}`}>
             <article
-              className="asset-card bg-soft-linen p-0 flex flex-col h-full hover:-translate-y-0.5 hover:-translate-x-0.5 hover:shadow-hard-lg cursor-pointer overflow-hidden"
+              className="asset-card p-4 flex flex-col h-full hover:-translate-y-0.5 hover:-translate-x-0.5 hover:shadow-hard-sm cursor-pointer overflow-hidden"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
-              {/* Cover Image */}
-              <div className="w-full h-48 bg-soft-linen border-b-2 border-border-color overflow-hidden relative">
+              {/* ==================================Cover Image ======================================*/}
+              <div className="w-full h-48 bg-soft-linen border rounded-lg border-border-color overflow-hidden relative">
                 {post.imageUrl ? (
                   <img
                     src={post.imageUrl}

@@ -20,8 +20,8 @@ export const Header: React.FC = () => {
   ];
 
   return (
-    <header className="sticky top-0 z-50 border-b-2 border-border-color bg-yellow-100 text-darkteal transition-all duration-300">
-      <div className="max-w-[1950px] mx-auto w-full px-4 sm:px-6 md:px-8 py-3.5 flex items-center justify-between gap-6">
+    <header className="sticky top-0 z-20 border-b border-border-color bg-yellow-100 text-darkteal transition-all duration-300">
+      <div className="max-w-full mx-auto w-full px-4 sm:px-6 md:px-8 py-3.5 flex items-center justify-between gap-9">
         <Link
           href="/"
           className="logo flex items-center gap-5 font-pixel text-sm font-black tracking-tighter text-darkteal focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 rounded-lg"

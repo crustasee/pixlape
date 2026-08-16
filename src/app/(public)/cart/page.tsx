@@ -9,7 +9,7 @@ export default function CartPage() {
     <div className="container mx-auto px-6 py-10 max-w-3xl">
       <h1 className="text-2xl font-bold text-white mb-6">Shopping Cart</h1>
 
-      <div className="bg-gray-900 border border-gray-800 rounded-xl p-8 text-center space-y-4">
+      <div className="bg-gray-900 border border-gray-800 rounded-lg p-8 text-center space-y-4">
         <div className="text-5xl">🛒</div>
         <h2 className="text-xl font-semibold text-white">Your cart is currently empty</h2>
         <p className="text-gray-400 text-sm max-w-md mx-auto">

@@ -26,10 +26,10 @@ export const AssetGrid: React.FC<AssetGridProps> = ({
   onQuickView,
 }) => {
   return (
-    <main className="flex-1 w-full flex flex-col gap-6">
+    <main className="flex-1 w-full flex flex-col gap-4">
       {/* Top Search Bar */}
-      <div className="search-bar-box bg-yellow-100 p-5">
-        <div className="search-bar-wrapper bg-yellow-100">
+      <div className="rounded-lg shadow-sm search-bar-box bg-yellow-50 p-4">
+        <div className="rounded-lg search-bar-wrapper bg-yellow-100">
           <span className="search-bar-icon" aria-hidden="true">
             🖥️
           </span>
@@ -54,10 +54,10 @@ export const AssetGrid: React.FC<AssetGridProps> = ({
       </div>
 
       {/* Grid Controls Header */}
-      <div className="bg-yellow-green text-darkteal border-2 border-border-color shadow-hard rounded-2xl p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-5">
+      <div className="bg-yellow-green text-darkteal border border-border-color shadow-hard-sm rounded-lg p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-5">
         <div className="flex items-center gap-3">
           <h2 className="font-head font-black text-xl md:text-2xl tracking-wider uppercase text-darkteal">
-            {category.replace(/_/g, ' ')} TROVE ※
+            {category.replace(/_/g, ' ')} TROVE ++
           </h2>
           <span className="bg-yellow-green text-darkteal text-sm font-mono px-2.5 py-1 rounded-lg font-bold border border-border-color shadow-[1px_1px_0_var(--border-color)]">
             {totalCount} ITEMS ▼
@@ -72,7 +72,7 @@ export const AssetGrid: React.FC<AssetGridProps> = ({
             id="sort-select"
             value={sortOption}
             onChange={(e) => onSortChange(e.target.value as SortOption)}
-            className="px-4 py-2 text-sm font-mono font-black border-2 border-border-color bg-yellow-green text-darkteal rounded-lg outline-none cursor-pointer hover:bg-yellow-green/90 transition-colors shadow-hard-sm"
+            className="px-4 py-2 text-sm font-mono font-black border-2 border-border-color bg-yellow-100 text-darkteal rounded-lg outline-none cursor-pointer hover:bg-yellow-100 transition-colors"
             aria-label="Sort assets"
           >
             <option value="popular">● Most Downloads</option>
@@ -84,14 +84,14 @@ export const AssetGrid: React.FC<AssetGridProps> = ({
 
       {/* Card Grid */}
       {assets.length > 0 ? (
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-7">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6 ">
           {assets.map((asset) => (
             <AssetCard key={asset.id} asset={asset} onQuickView={onQuickView} />
           ))}
         </div>
       ) : (
-        <div className="neo-glass bg-darkteal p-12 flex flex-col items-center justify-center text-cente">
-          <div className="text-5xl mb-4 select-none animate-bounce">🔍</div>
+        <div className="neo-glass bg-yellow-green gap-12 flex flex-col items-center justify-center text-cente">
+          <div className="text-5xl mb-4 select-none animate-bounce">●●●●●●●●○○○○○○○ search</div>
           <h3 className="font-head font-black text-xl text-text mb-2 tracking-wide uppercase">
             NO ASSETS FOUND
           </h3>

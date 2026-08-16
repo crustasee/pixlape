@@ -8,9 +8,9 @@ export const metadata: Metadata = {
   description: 'Free & Pro digital assets by an independent developer. Icon packs, design tools, APK builds, dev utilities — all virus-scanned and ready to download.',
   keywords: 'digital assets, icon pack, free downloads, independent developer, design tools, APK, procreate brushes, coreldraw, Next.js, neo-brutalism, pixlape',
   icons: {
-    icon: 'public/logopixl.png',
-    shortcut: 'public/logopixl.png',
-    apple: 'public/logopixl.png',
+    icon: 'public/logo1.svg',
+    shortcut: 'public/logo1.svg',
+    apple: 'public/logo1.svg',
   },
 };
 

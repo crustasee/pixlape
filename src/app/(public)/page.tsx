@@ -35,16 +35,16 @@ export default function HomePage() {
   const showHero = searchQuery.trim() === '' && osFilter === 'all';
 
   return (
-    <div className="flex-1 w-full flex flex-col gap-6">
+    <div className="flex-1 w-full flex flex-col gap-3">
       {showHero && (
-        <section className="px-4 sm:px-6 md:px-8 pt-6 max-w-[1850px] w-full mx-auto" aria-label="Hero">
-          <div className="hero-static-box hero-grid-bg p-5 md:p-7 relative overflow-hidden border shadow-hard-sm rounded-xl">
+        <section className="px-4 sm:px-6 md:px-8 pt-6 max-w-full w-full mx-auto" aria-label="Hero">
+          <div className="hero-static-box hero-grid-bg p-5 md:p-7 relative overflow-hidden border shadow-hard-sm rounded-lg">
 
-            <div className="relative flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6">
+            <div className="relative flex flex-col lg:flex-row lg:items-center lg:justify-between gap-5">
               {/* Left Side: Content */}
               <div className="flex-1">
-                <h1 className="font-head font-black text-3xl md:text-4xl lg:text-5xl tracking-tight mb-3">
-                  <span className="inline-block font-pixel bg-neo-yellow text-darkteal px-4 py-3 rounded-xl border mr-6">
+                <h1 className="font-head font-black text-3xl md:text-3xl lg:text-3xl tracking-tight mb-3">
+                  <span className="font-pixel bg-neo-yellow text-darkteal px-6 py-4 rounded-lg border mr-6">
                     PIXLAPE+
                   </span>
                   <span className="font-pixel text-white">
@@ -56,31 +56,13 @@ export default function HomePage() {
                   Frontend Developers, UI Templates, icon packs, design tools, and dev utilities — built with obsession.
                   Free & Pro assets, virus-scanned, ready to download.
                 </p>
-
-                <div className="flex flex-wrap gap-2.5">
-                  <button
-                    onClick={() => {
-                      document.getElementById('vault-grid')?.scrollIntoView({ behavior: 'smooth' });
-                    }}
-                    className="px-4 py-2 text-sm font-mono font-black tracking-wider border-1 border-border-color bg-white/20 text-black rounded-lg shadow-hard-sm hover:opacity-90 active:opacity-100 transition-opacity focus:outline-none focus:ring-2 focus:ring-neo-cyan focus:ring-offset-2 transform-none"
-                  >
-                    BROWSE THE VAULT  ▶
-                  </button>
-                  <button
-                    onClick={() => setCategory('design_app')}
-                    className="px-4 py-2 text-sm font-mono font-black tracking-wider border-1 border-border-color bg-white/20 text-black rounded-lg shadow-hard-sm hover:opacity-90 active:opacity-100 transition-opacity focus:outline-none focus:ring-2 focus:ring-neo-cyan focus:ring-offset-2 transform-none"
-                  >
-                    EXPLORE THE ABYSS  ▶
-                  </button>
-                </div>
               </div>
 
               {/* Right Side: Compact Stats */}
-              <div className="flex lg:flex-col sm:flex-row flex-wrap gap-4 shrink-0 justify-start sm:justify-between lg:justify-center">
+              <div className="flex lg:flex-col sm:flex-row flex-wrap gap-2 shrink-0 justify-start sm:justify-between lg:justify-center">
                 {[
                   { label: 'ASSETS COUNT', value: `${stats.totalAssets}++`, color: 'bg-yellow-green text-black' },
                   { label: 'FREE ITEMS', value: `${stats.freeAssets}`, color: 'bg-yellow-green text-black' },
-                  { label: 'PRO VAULT', value: `${stats.premiumAssets}`, color: 'bg-yellow-green text-black' },
                 ].map((stat) => (
                   <div
                     key={stat.label}
@@ -102,7 +84,7 @@ export default function HomePage() {
 
       <div
         id="vault-grid"
-        className="flex flex-col md:flex-row items-start gap-8 px-4 sm:px-6 md:px-8 pb-8 max-w-[1850px] w-full mx-auto flex-1"
+        className="flex flex-col md:flex-row items-start gap-3 px-4 sm:px-6 md:px-8 pb-8 max-w-full w-full mx-auto flex-1"
       >
         <Sidebar
           currentCategory={category}

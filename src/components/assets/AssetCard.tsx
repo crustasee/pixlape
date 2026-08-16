@@ -30,7 +30,7 @@ export const AssetCard: React.FC<AssetCardProps> = ({ asset, onQuickView }) => {
   return (
     <div
       onClick={handleCardClick}
-      className="asset-card group flex flex-col w-full bg-yellow-100 text-black rounded-lg border border-border-color shadow-hard hover:shadow-hard-lg hover:-translate-y-1 transition-all duration-200 overflow-hidden cursor-pointer focus-visible:outline-3 focus-visible:outline-cayenne"
+      className="asset-card group flex flex-col w-full bg-yellow-100 text-darkteal rounded-lg border border-border-color shadow-hard-sm hover:shadow-hard-lg hover:-translate-y-1 transition-all duration-200 overflow-hidden cursor-pointer focus-visible:outline-3 focus-visible:outline-cayenne"
       role="button"
       tabIndex={0}
       onKeyDown={(e) => {
@@ -41,7 +41,7 @@ export const AssetCard: React.FC<AssetCardProps> = ({ asset, onQuickView }) => {
       }}
     >
       {/* Card Image / Icon Area */}
-      <div className="w-full h-40 bg-white flex items-center justify-center overflow-hidden relative rounded-xl border-b-1 border-border-color">
+      <div className="w-full h-40 bg-white flex items-center justify-center overflow-hidden relative rounded-lg border border-border-color">
         {isImageIcon(asset.icon) ? (
           <img
             src={getIconSrc(asset.icon)}
@@ -51,7 +51,7 @@ export const AssetCard: React.FC<AssetCardProps> = ({ asset, onQuickView }) => {
           />
         ) : (
           <div className="w-full h-full flex items-center justify-center bg-cool-blue/60">
-            <span className="text-4xl transition-transform duration-300 group-hover:scale-110 select-none">
+            <span className="text-3xl transition-transform duration-300 group-hover:scale-110 select-none">
               {asset.icon || '📦'}
             </span>
           </div>
@@ -99,7 +99,7 @@ export const AssetCard: React.FC<AssetCardProps> = ({ asset, onQuickView }) => {
         {/* Footer info (Stats & CTA) */}
         <div className="flex flex-col gap-3 mt-2">
           {/* Stats */}
-          <div className="flex items-center justify-between border-t-2 border-border-color/20 pt-3 text-xs font-mono font-bold text-black">
+          <div className="flex items-center justify-between border-t-2 border-border-color/20 pt-3 text-xs font-mono font-bold text-darkteal">
             <span className="flex items-center gap-1" title="File size">● {asset.size}</span>
             <span className="flex items-center gap-1" title="Rating">● {asset.rating}</span>
             <span className="flex items-center gap-1" title="Downloads">● {asset.downloads}</span>

@@ -5,9 +5,8 @@ import Link from 'next/link';
 import { useParams } from 'next/navigation';
 import { AssetService } from '@/lib/asset-service';
 import { Button } from '@/components/ui/Button';
-import { AssetItem } from '@/types';
+import { AssetItem, LicenseTier, LICENSE_PRICES } from '@/types';
 import { AssetPreviewGallery } from './AssetPreviewGallery';
-import { AssetLicenseSelector, LicenseTier, LICENSE_PRICES } from './AssetLicenseSelector';
 import { AssetCheckoutModal } from './AssetCheckoutModal';
 import { AssetRelatedList } from './AssetRelatedList';
 import { MarkdownRenderer } from '@/components/ui/MarkdownRenderer';
@@ -28,10 +27,7 @@ export const AssetDetailView: React.FC<AssetDetailViewProps> = ({ assetId }) => 
   const [downloadSuccess, setDownloadSuccess] = useState(false);
 
   // Premium License & Checkout State
-  const [selectedLicense, setSelectedLicense] = useState<LicenseTier>('commercial');
-  const [couponCode, setCouponCode] = useState('');
-  const [discountPercent, setDiscountPercent] = useState(0);
-  const [couponMsg, setCouponMsg] = useState<{ text: string; success: boolean } | null>(null);
+  const [selectedLicense] = useState<LicenseTier>('commercial');
   const [checkoutModalOpen, setCheckoutModalOpen] = useState(false);
 
   // Share Link State
@@ -69,7 +65,7 @@ export const AssetDetailView: React.FC<AssetDetailViewProps> = ({ assetId }) => 
 
   if (!asset) {
     return (
-      <div className="flex flex-col items-center justify-center min-h-[60vh] p-8 text-center">
+      <div className="flex flex-col w-full max-w-full items-center justify-center p-8 text-center">
         <div className="text-4xl mb-4 font-mono font-black animate-bounce">📦</div>
         <h2 className="font-head text-2xl font-black uppercase text-text mb-2">ASSET NOT FOUND</h2>
         <p className="font-mono text-lg text-text/90 mb-6">The requested digital asset could not be located in the vault.</p>
@@ -83,7 +79,7 @@ export const AssetDetailView: React.FC<AssetDetailViewProps> = ({ assetId }) => 
   }
 
   const tier = LICENSE_PRICES[selectedLicense];
-  const finalPrice = Math.round(tier.usd * (1 - discountPercent / 100));
+  const finalPrice = tier.usd;
 
   const handleDownload = () => {
     setDownloading(true);
@@ -97,22 +93,6 @@ export const AssetDetailView: React.FC<AssetDetailViewProps> = ({ assetId }) => 
       setDownloadSuccess(true);
       setTimeout(() => setDownloadSuccess(false), 6000);
     }, 1200);
-  };
-
-  const applyCoupon = () => {
-    const code = couponCode.trim().toUpperCase();
-    if (code === 'MOD2026') {
-      setDiscountPercent(20);
-      setCouponMsg({ text: '🎉 20% DISCOUNT APPLIED SUCCESSFULLY!', success: true });
-    } else if (code === 'FREEPRO') {
-      setDiscountPercent(100);
-      setCouponMsg({ text: '🔥 100% PROMO DISCOUNT APPLIED!', success: true });
-    } else if (code === 'PROMO50') {
-      setDiscountPercent(50);
-      setCouponMsg({ text: '⚡ 50% SPECIAL DISCOUNT APPLIED!', success: true });
-    } else {
-      setCouponMsg({ text: '❌ INVALID CODE. TRY "MOD2026" OR "PROMO50"', success: false });
-    }
   };
 
   const copyShareLink = () => {
@@ -129,23 +109,23 @@ export const AssetDetailView: React.FC<AssetDetailViewProps> = ({ assetId }) => 
     .slice(0, 3);
 
   return (
-    <div className="flex flex-col px-4 sm:px-6 md:px-8 py-6 max-w-[1920px] mx-auto w-full flex-1 gap-6">
-      {/* Top Navigation & Mode Switcher */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b-2 border-border-color pb-4">
+    <div className="flex flex-col px-4 sm:px-6 md:px-8 py-6 max-w-full mx-auto w-full flex-1 gap-1">
+      {/* ---------------------------------Top Navigation & Mode Switcher ----------------------------------------------------------------*/}
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between text-darkteal gap-4 border-border-color pb-4">
         {/* Breadcrumb Navigation */}
-        <div className="flex items-center space-x-2 text-lg font-mono font-bold text-text/90 overflow-x-auto">
+        <div className="flex items-center space-x-2 text-sm font-mono font-bold text-darkteal overflow-x-auto">
           <Link href="/" className="hover:text-cayenne transition-colors shrink-0">
             HOME
           </Link>
           <span>/</span>
-          <span className="text-yellow-green uppercase shrink-0">
+          <span className="text-cayenne uppercase shrink-0">
             {asset.category ? asset.category.replace('_', ' ') : 'VAULT'}
           </span>
           <span>/</span>
           <span className="opacity-70 uppercase truncate max-w-75 sm:max-w-lg">{asset.name}</span>
         </div>
 
-        {/* Share & Dynamic Mode Switcher */}
+        {/* -----------------------------------------Share & Dynamic Mode Switcher------------------------------------- */}
         <div className="flex items-center gap-2 flex-wrap">
           <button
             onClick={copyShareLink}
@@ -179,12 +159,12 @@ export const AssetDetailView: React.FC<AssetDetailViewProps> = ({ assetId }) => 
         </div>
       </div>
 
-      {/* Main Content Panel */}
-      <div className="bg-yellow-50 text-darkteal p-6 md:p-8 flex flex-col gap-6 shadow-hard-lg rounded-xl border-2 border-border-color">
-        {/* Head Section */}
-        <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 border-b-2 border-border-color pb-6">
+      {/* --------------------------Main Content Panel ----------------------------------------------*/}
+      <div className="bg-yellow-50 text-darkteal p-6 md:p-8 flex flex-col gap-6 shadow-hard-sm rounded-xl border-2 border-border-color">
+        {/* ......................Head Section............................. */}
+        <div className="flex flex-col md:flex-row md:items-center justify-between gap-2 border-border-color pb-6">
           <div className="flex flex-col gap-4">
-            <div className="flex flex-wrap items-center gap-3">
+            <div className="flex flex-wrap items-center gap-4">
               {isPremiumMode ? (
                 <span className="bg-yellow-green text-darkteal border-1 border-border-color text-sm font-mono font-bold px-2 py-2 rounded-md uppercase tracking-wider">
                   ❤️PREMIUM
@@ -210,12 +190,12 @@ export const AssetDetailView: React.FC<AssetDetailViewProps> = ({ assetId }) => 
               )}
             </div>
 
-            <h1 className="font-head text-2xl sm:text-3xl md:text-4xl font-black uppercase text-evergreen tracking-tight leading-tight">
+            <h1 className="font-head text-3xl sm:text-3xl md:text-4xl font-black uppercase text-darkteal tracking-tight leading-tight">
               {asset.name}
             </h1>
           </div>
 
-          {/* Stats Badges */}
+          {/* ........................ Stats Badges ........................*/}
           <div className="flex items-center gap-2 sm:gap-4 shrink-0 flex-wrap">
             <span className="font-mono text-sm font-black text-evergreen bg-white px-3 py-2 border-2 border-border-color rounded-lg">
               ◯ {asset.rating} / 5.0
@@ -231,30 +211,15 @@ export const AssetDetailView: React.FC<AssetDetailViewProps> = ({ assetId }) => 
           </div>
         </div>
 
-        {/* Body Section Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-          {/* Left Column (7/12): 3-Slide Gallery */}
-          <div className="lg:col-span-7">
+        {/* ....................Body Section Grid.................................... */}
+        <div className="max-w-full w-full gap-8 items-start">
+          {/* ......................Left Column (7/12): 3-Slide Gallery.................... */}
+          <div className="w-full max-w-full">
             <AssetPreviewGallery asset={asset} isPremiumMode={isPremiumMode} />
-          </div>
-
-          {/* Right Column (5/12): License / Pricing Options */}
-          <div className="lg:col-span-5 lg:sticky lg:top-20 self-start">
-            <AssetLicenseSelector
-              asset={asset}
-              isPremiumMode={isPremiumMode}
-              selectedLicense={selectedLicense}
-              onSelectLicense={setSelectedLicense}
-              couponCode={couponCode}
-              onCouponCodeChange={setCouponCode}
-              onApplyCoupon={applyCoupon}
-              couponMsg={couponMsg}
-              discountPercent={discountPercent}
-            />
           </div>
         </div>
 
-        {/* Product Markdown Description & Information Section (Markdown Rendering Panel) */}
+        {/* ===============Product Markdown Description & Information Section (Markdown Rendering Panel) =============== */}
         <div className="border-t-2 border-border-color/30 pt-9 flex flex-col gap-6">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-5 bg-evergreen/5 p-3.5 rounded-xl border-2 border-border-color/30">
             <div className="flex items-center gap-3 flex-wrap">
@@ -268,7 +233,7 @@ export const AssetDetailView: React.FC<AssetDetailViewProps> = ({ assetId }) => 
               )}
             </div>
 
-            {/* View Mode Tabs */}
+            {/* ========================View Mode Tabs =========================== */}
             <div className="flex items-center gap-4 font-mono text-sm font-bold flex-wrap">
               <button
                 type="button"
@@ -340,9 +305,7 @@ export const AssetDetailView: React.FC<AssetDetailViewProps> = ({ assetId }) => 
                 >
                   <span>DOWNLOAD</span>
                   <span className="text-sm font-bold uppercase tracking-wider opacity-90">
-                    {discountPercent > 0
-                      ? `${tier.label} — $${finalPrice} USD`
-                      : `${selectedLicense} license — $${tier.usd} USD`}
+                    {`${selectedLicense} license — $${tier.usd} USD`}
                   </span>
                 </button>
               ) : (
@@ -379,10 +342,10 @@ export const AssetDetailView: React.FC<AssetDetailViewProps> = ({ assetId }) => 
         </div>
       </div>
 
-      {/* Recommended Assets List */}
+      {/* -----------------------------------------Recommended Assets List----------------------------------------------- */}
       <AssetRelatedList relatedAssets={relatedAssets} />
 
-      {/* Checkout Modal */}
+      {/* -------------------------------------------Checkout Modal--------------------------------------------------------- */}
       <AssetCheckoutModal
         asset={asset}
         isOpen={checkoutModalOpen}
@@ -391,7 +354,7 @@ export const AssetDetailView: React.FC<AssetDetailViewProps> = ({ assetId }) => 
         finalPrice={finalPrice}
       />
 
-      {/* Back Link */}
+      {/* --------------------------------------------------Back Link ------------------------------------------------------*/}
       <div className="flex justify-center mt-4">
         <Link href="/">
           <Button variant="neutral" className="px-6 py-3 font-mono text-lg font-black uppercase rounded-lg">

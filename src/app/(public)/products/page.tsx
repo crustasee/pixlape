@@ -20,7 +20,7 @@ export default function ProductsPage() {
   const [activeModalAsset, setActiveModalAsset] = useState<AssetItem | null>(null);
 
   return (
-    <div className="max-w-[1850px] mx-auto px-4 sm:px-6 md:px-8 py-6 w-full flex-1 flex flex-col gap-6">
+    <div className="max-w-full mx-auto px-5 sm:px-6 md:px-8 w-full flex-1 flex flex-col gap-2">
       <div className="mb-6">
       </div>
 

@@ -37,7 +37,7 @@ export const AssetPreviewGallery: React.FC<AssetPreviewGalleryProps> = ({ asset,
   return (
     <div className="flex flex-col gap-5">
       {/* Active Slide Display Container */}
-      <div className="border border-black bg-white/70 shadow-hard-sm rounded-2xl p-4 md:p-5 flex flex-col gap-4 overflow-hidden transition-all duration-300">
+      <div className="border border-black bg-yellow-100 shadow-hard-sm rounded-2xl p-4 md:p-5 flex flex-col gap-4 overflow-hidden transition-all duration-300">
         {/* Slide Header Bar (Non-Overlapping) */}
         <div className="flex items-center justify-between border-b-2 border-black/10 pb-2.5">
           <span className="badge badge-yellow text-black border-black font-mono text-[14px] font-black px-2.5 py-1 rounded-md uppercase">
@@ -51,7 +51,7 @@ export const AssetPreviewGallery: React.FC<AssetPreviewGalleryProps> = ({ asset,
         {activeSlide === 0 ? (
           <div className="w-full flex flex-col gap-4 p-1">
             {/* Banner Container inside Slide 01 */}
-            <div className="w-full aspect-[16/9] sm:aspect-[1440/480] max-h-72 relative rounded-lg border-1 border-border-color shadow-hard-sm overflow-hidden bg-yellow-green">
+            <div className="w-full aspect-[16/9] sm:aspect-[1440/480] max-h-72 relative rounded-lg border border-border-color overflow-hidden bg-yellow-green">
               {bannerSrc ? (
                 <Image
                   src={bannerSrc}
@@ -59,7 +59,7 @@ export const AssetPreviewGallery: React.FC<AssetPreviewGalleryProps> = ({ asset,
                   fill
                   priority
                   sizes="(max-width: 1200px) 100vw, 800px"
-                  className="object-cover w-full h-full transition-transform duration-500 group-hover:scale-105"
+                  className="object-cover w-full h-full transition-transform duration-500 group-hover:scale-100"
                 />
               ) : (
                 <div className="w-full h-full hero-grid-bg p-6 flex flex-col items-center justify-center text-center gap-3 relative">
@@ -86,8 +86,8 @@ export const AssetPreviewGallery: React.FC<AssetPreviewGalleryProps> = ({ asset,
               )}
 
               {/* Resolution Overlay Tag */}
-              <div className="absolute bottom-2.5 right-2.5 bg-yellow-green text-black border-1 border-border-color font-mono text-xs font-bold px-2 py-0.5 rounded shadow-sm">
-                Documentation preview
+              <div className="absolute bottom-2.5 right-2.5 bg-yellow-100 text-darkteal border border-border-color font-mono text-xs font-bold px-2 py-0.5 rounded shadow-sm">
+                SCREENSHOOT
               </div>
             </div>
 
@@ -142,17 +142,17 @@ export const AssetPreviewGallery: React.FC<AssetPreviewGalleryProps> = ({ asset,
       </div>
 
       {/* Slide Thumbnails / Selector Buttons */}
-      <div className="grid grid-cols-3 gap-3">
+      <div className="grid grid-cols-3 gap-6">
         {slides.map((slide, idx) => (
           <button
             key={idx}
             onClick={() => setActiveSlide(idx)}
-            className={`p-3 border-2 border-border-color rounded-xl font-mono text-lg font-black transition-all text-left flex flex-col gap-1 cursor-pointer ${activeSlide === idx
-              ? 'bg-cayenne text-white shadow-hard-sm -translate-x-px -translate-y-px'
-              : 'bg-surface text-text hover:bg-yellow-green/40'
+            className={`p-3 border border-border-color rounded-lg font-mono text-sm font-black transition-all text-left flex flex-col gap-1 cursor-pointer ${activeSlide === idx
+              ? 'bg-green-200 text-white shadow-hard-sm -translate-x-px -translate-y-px'
+              : 'bg-yellow-50 text-text hover:bg-green-100'
               }`}
           >
-            <span className="text-[14px] opacity-80">{slide.badge}</span>
+            <span className="text-xs opacity-80">{slide.badge}</span>
             <span className="truncate">{slide.title}</span>
           </button>
         ))}

@@ -21,6 +21,35 @@ export type OSFilterType = 'all' | 'windows' | 'macos' | 'linux' | 'mobile' | 'c
 
 export type SortOption = 'popular' | 'newest' | 'name';
 
+export type LicenseTier = 'personal' | 'commercial' | 'enterprise';
+
+export const LICENSE_PRICES: Record<
+  LicenseTier,
+  { usd: number; originalUsd: number; idr: string; label: string; desc: string }
+> = {
+  personal: {
+    usd: 29,
+    originalUsd: 49,
+    idr: 'Rp 450.000',
+    label: 'Personal License',
+    desc: '1 User, Personal projects & non-commercial apps.',
+  },
+  commercial: {
+    usd: 59,
+    originalUsd: 99,
+    idr: 'Rp 890.000',
+    label: 'Commercial / Team License',
+    desc: 'Up to 10 Seats, Commercial client projects & SaaS products.',
+  },
+  enterprise: {
+    usd: 149,
+    originalUsd: 249,
+    idr: 'Rp 2.250.000',
+    label: 'Enterprise / Extended License',
+    desc: 'Unlimited Users, Re-distribution rights & priority support.',
+  },
+};
+
 // -----------------------------------------------------------------------------
 // 2. Asset / Frontend Types
 // -----------------------------------------------------------------------------

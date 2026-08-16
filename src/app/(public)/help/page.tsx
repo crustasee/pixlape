@@ -17,41 +17,9 @@ export default function HelpPage() {
   );
 
   return (
-    <div className="flex flex-col px-4 sm:px-6 md:px-8 py-6 max-w-[1850px] mx-auto w-full flex-1 gap-7 font-mono text-evergreen">
-      {/* Help Center Intro Header */}
-      <div className="bg-yellow-100 border-2 border-border-color rounded-2xl p-6 md:p-8 flex flex-col gap-4 text-center items-center shadow-hard">
-        <h1 className="font-head font-black text-darkteal text-4xl md:text-5xl tracking-wide uppercase">
-          HELP & DOCUMENTATION CENTER
-        </h1>
-
-        {/* View Switcher Tabs */}
-        <div className="mt-4 flex items-center gap-3 bg-soft-linen p-2 rounded-xl border border-border-color">
-          <button
-            type="button"
-            onClick={() => setActiveTab('articles')}
-            className={`px-5 py-2.5 rounded-lg border-2 text-sm font-mono font-black uppercase transition-all cursor-pointer ${
-              activeTab === 'articles'
-                ? 'bg-yellow-green text-black border-border-color shadow-hard-sm'
-                : 'bg-white text-white border-transparent hover:bg-white/20'
-            }`}
-          >
-            DETAIL HELP ARTICLES
-          </button>
-          <button
-            type="button"
-            onClick={() => setActiveTab('faqs')}
-            className={`px-5 py-2.5 rounded-lg border-2 text-xs font-mono font-black uppercase transition-all cursor-pointer ${
-              activeTab === 'faqs'
-                ? 'bg-yellow-green text-black border-border-color shadow-hard-sm'
-                : 'bg-white/10 text-white border-transparent hover:bg-white/20'
-            }`}
-          >
-            ❓ QUICK FAQS
-          </button>
-        </div>
-      </div>
-
-      {/* Main View Content */}
+    <div className="flex flex-col px-4 sm:px-6  py-6 max-w-full mx-auto w-full flex-1 gap-3">
+      {/* ===============================Help Center Intro Header===================================================== */}
+      {/* -------------------------------Main View Content--------------------------------------------------------- */}
       {activeTab === 'articles' ? (
         <HelpArticles />
       ) : (

@@ -14,26 +14,26 @@ export const AssetHeroBanner: React.FC<AssetHeroBannerProps> = ({ asset }) => {
   const bannerSrc = asset.bannerImage || (isCorel ? '/public/uploads/corelBanner1.jpg' : null);
 
   return (
-    <div className="w-full overflow-hidden rounded-xl border-2 border-border-color shadow-hard bg-yellow-100 relative group">
+    <div className="w-full overflow-hidden rounded-lg border border-border-color shadow-hard bg-yellow-100 relative group">
       {/* 1440px x 480px ratio container */}
-      <div className="w-full aspect-[1440/480] min-h-[200px] max-h-[480px] relative flex items-center justify-center overflow-hidden bg-cool-blue">
+      <div className="w-full aspect-[1440/480] min-h-[200px] max-h-[480px] relative flex items-center justify-center overflow-hidden bg-yellow-green">
         {bannerSrc ? (
           <Image
             src={bannerSrc}
             alt={`${asset.name} Hero Banner (1440x480)`}
             fill
             priority
-            sizes="(max-width: 1440px) 100vw, 1440px"
-            className="object-cover w-full h-full transition-transform duration-500 group-hover:scale-102"
+            sizes="(max-width:full) 100vw, 1440px"
+            className="object-cover w-full h-full transition-transform duration-500 group-hover:scale-100"
           />
         ) : (
           /* Fallback Neo-Brutalist Banner Pattern */
           <div className="w-full h-full hero-grid-bg p-6 md:p-10 flex flex-col justify-between relative">
             <div className="flex justify-between items-start z-10">
-              <span className="badge badge-pink font-mono text-sm font-black uppercase px-4 py-2 rounded-md">
+              <span className="badge badge-darkteal font-mono text-sm font-black uppercase px-4 py-2 rounded-md">
                 {asset.tag || 'PIXLAPE VAULT'}
               </span>
-              <span className="badge badge-yellow font-mono text-sm font-black px-4 py-2 rounded-md">
+              <span className="badge badge-pink font-mono text-sm font-black px-4 py-2 rounded-md">
                 1440 × 480 PX ASSET HERO
               </span>
             </div>
@@ -60,7 +60,7 @@ export const AssetHeroBanner: React.FC<AssetHeroBannerProps> = ({ asset }) => {
         )}
 
         {/* Dimension Tag Indicator */}
-        <div className="absolute bottom-3 right-3 z-10 bg-cassis/85 text-cool-blue backdrop-blur-md border border-border-color font-mono text-[10px] font-bold px-2.5 py-1 rounded-md shadow-sm pointer-events-none">
+        <div className="absolute bottom-3 right-3 z-10 bg-yellow-green text-darkteal backdrop-blur-md border border-border-color font-mono text-[10px] font-bold px-2.5 py-1 rounded-md shadow-sm pointer-events-none">
           1440 × 480 PX HERO BANNER
         </div>
       </div>

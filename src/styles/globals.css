@@ -113,6 +113,7 @@
   --c-cayenne: #E55812;
   --c-soft-linen: #EFE7DA;
 
+
   /* Legacy named tokens alias to palette */
   --c-yellow-wasabi: var(--c-yellow-green);
   --c-orange-topaz: var(--c-cayenne);
@@ -393,11 +394,11 @@ header.topbar.scrolled {
 }
 
 .logo-icon {
-  width: 40px;
-  height: 40px;
+  width: 52px;
+  height: 52px;
   background: var(--color-white);
-  border: 1.5px solid var(--border-color);
-  box-shadow: 3px 3px 0 var(--border-color), var(--glow-pink);
+  border: 1px solid var(--border-color);
+  box-shadow: 2px 2px 0 var(--border-color);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -464,12 +465,12 @@ nav.mainnav {
 .search-input {
   width: 100%;
   background: var(--bg);
-  border: 1.5px solid var(--border-color);
+  border: 1px solid var(--border-color);
   padding: 10px 14px 10px 40px;
   font-family: var(--font-mono);
   font-size: 13px;
   font-weight: 700;
-  color: var(--text);
+  color: var(--darkteal);
   box-shadow: 3px 3px 0 var(--border-color);
   outline: none;
   caret-color: var(--c-pink);
@@ -806,12 +807,12 @@ nav.mainnav {
 /* Card base */
 .asset-card,
 .card {
-  background: var(--surface);
-  color: var(--text);
+  background: var(--c-soft-linen);
+  color: var(--c-darkteal);
   border: var(--border);
-  box-shadow: var(--shadow-hard);
+  box-shadow: var(--shadow-hard-sm);
   border-radius: 1.25rem;
-  padding: 20px;
+  padding: 10px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -819,7 +820,7 @@ nav.mainnav {
   position: relative;
   overflow: hidden;
   transition: transform 0.3s var(--ease-out-expo), box-shadow 0.3s var(--ease-out-expo), border-color 0.2s ease;
-  animation: cardFadeIn 0.5s var(--ease-out-expo) backwards;
+  animation: cardFadeIn 1s var(--ease-out-expo) backwards;
 }
 
 /* Coloured top accent stripe — cycles through brand colours */
@@ -2220,7 +2221,7 @@ nav.mainnav {
    ============================================================================= */
 
 footer {
-  background: var(--surface);
+  background: var(--color-yellow-100);
   border-top: var(--border);
   text-align: center;
   padding: 24px;

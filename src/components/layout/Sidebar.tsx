@@ -69,13 +69,13 @@ export const Sidebar: React.FC<SidebarProps> = ({
 
   return (
     <aside className="flex flex-col w-full md:w-80 shrink-0 gap-6 md:sticky md:top-26 h-auto md:h-fit" role="complementary" aria-label="Sidebar filters">
-      {/* Categories Section */}
-      <div className="bg-yellow-100 text-evergreen border-2 border-border-color shadow-hard rounded-2xl p-5 flex flex-col gap-4">
+      {/* CATEGORIES SECTION */}
+      <div className="bg-yellow-100 text-evergreen border border-border-color shadow-hard-sm rounded-lg p-5 flex flex-col gap-5">
         <div className="flex items-center justify-between border-b-2 border-border-color pb-3">
           <span className="font-head font-extrabold text-base tracking-wider uppercase text-evergreen">CATEGORIES</span>
           <span className="badge bg-cayenne text-white text-xs rounded-lg font-mono font-bold px-2.5 py-1 border border-border-color shadow-[1.5px_1.5px_0_var(--border-color)]">VAULT</span>
         </div>
-        <div className="flex flex-wrap md:flex-col gap-2.5" role="group" aria-label="Asset categories">
+        <div className="flex flex-wrap bg-yellow-100 md:flex-col gap-2.5" role="group" aria-label="Asset categories">
           {categories.map((cat) => {
             const isActive = currentCategory === cat.id;
             return (
@@ -86,8 +86,8 @@ export const Sidebar: React.FC<SidebarProps> = ({
                 aria-pressed={isActive}
                 aria-label={`${cat.label} (${cat.badge} items)`}
               >
-                <span className="flex items-center gap-3">
-                  <span aria-hidden="true" className="flex items-center justify-center w-6 h-6">{renderIcon(cat.icon)}</span>
+                <span className="flex items-center gap-5">
+                  <span aria-hidden="true" className="flex items-center justify-center w-5 h-5">{renderIcon(cat.icon)}</span>
                   {cat.label}
                 </span>
                 <span className={`badge badge-${cat.variant} text-[11px] px-2 py-0.5 rounded-md border border-border-color`}>{cat.badge}</span>
@@ -97,13 +97,13 @@ export const Sidebar: React.FC<SidebarProps> = ({
         </div>
       </div>
 
-      {/* OS Filter Section */}
-      <div className="bg-yellow-100 text-black border-2 border-border-color shadow-hard rounded-2xl p-5 flex flex-col gap-4">
+      {/* OS PLATFORM FILTER */}
+      <div className="bg-yellow-100 text-darkteal border border-border-color shadow-hard-sm rounded-lg p-5 flex flex-col gap-4">
         <div className="flex items-center justify-between border-b-2 border-black/30 pb-3">
-          <span className="font-head font-extrabold text-base tracking-wider uppercase text-black">PLATFORM</span>
-          <span className="badge bg-yellow-green text-evergreen text-xs rounded-lg font-mono font-bold px-2.5 py-1 border border-border-color shadow-[1.5px_1.5px_0_var(--border-color)]">SYSTEM</span>
+          <span className="font-head font-extrabold text-base tracking-wider uppercase text-darkteal">◯ PLATFORM</span>
+          <span className="badge bg-yellow-green text-darkteal text-xs rounded-lg font-mono font-bold px-2.5 py-1 border border-border-color shadow-[1.5px_1.5px_0_var(--border-color)]">SYSTEM</span>
         </div>
-        <div className="flex flex-wrap gap-2.5" role="group" aria-label="Operating system filters">
+        <div className="flex flex-wrap gap-2" role="group" aria-label="Operating system filters">
           {osFilters.map((os) => {
             const isActive = currentOS === os.id;
             return (
@@ -125,26 +125,25 @@ export const Sidebar: React.FC<SidebarProps> = ({
       </div>
 
       {/* Vault Status Section */}
-      <div className="neo-glass bg-yellow-green text-black border-2 border-border-color shadow-hard rounded-2xl p-5 flex flex-col gap-4">
-        <div className="flex items-center justify-between border-b-2 border-black/30 pb-3">
-          <span className="font-head font-extrabold text-base tracking-wider uppercase text-black">VAULT STATUS</span>
-          <span className="badge bg-yellow-green text-evergreen text-[11px] font-mono font-bold px-2.5 py-0.5 rounded border border-border-color animate-pulse">● LIVE</span>
+      <div className="bg-green-200 text-darkteal border border-border-color shadow-hard-sm rounded-lg p-5 flex flex-col gap-4">
+        <div className="flex items-center justify-between border-b-2 border-black pb-3">
+          <span className="font-head font-extrabold text-base tracking-wider uppercase text-darkteal">▩ VAULT STATUS</span>
+          <span className="badge bg-green-400 text-evergreen text-sm font-mono font-bold px-2.5 py-0.5 rounded border border-border-color animate-pulse">● LIVE</span>
         </div>
-        <div className="flex flex-col gap-2.5 font-mono text-xs text-black bg-black/20 p-3.5 rounded-xl border border-white/10">
+        <div className="flex flex-col gap-2.5 font-mono text-xs text-black bg-green-100 p-3.5 rounded-xl border">
           <div className="flex justify-between">
             <span>Total Assets:</span>
             <span className="font-black text-black">{totalItems} Items</span>
           </div>
           <div className="flex justify-between">
             <span>Online Now:</span>
-            <span className="font-black text-yellow-green flex items-center gap-1.5">
-              <span className="w-2 h-2 rounded-full bg-yellow-green animate-pulse" />
-              23 users
+            <span className="font-black text-cayenne flex items-center gap-1.5">
+             ● 102 users
             </span>
           </div>
           <div className="flex justify-between">
             <span>Security:</span>
-            <span className="font-bold text-black">🛡️ Trusted</span>
+            <span className="font-bold text-black">✓ Verified</span>
           </div>
         </div>
       </div>

@@ -87,9 +87,9 @@ export const ArticlePage: React.FC<ArticlePageProps> = ({ article }) => {
     };
 
     return (
-        <article className="w-full max-w-[1700px] mx-auto px-6 sm:px-6 lg:px-8 py-8 font-mono text-evergreen" ref={contentRef}>
+        <article className="w-full max-w-full mx-auto px-6 sm:px-6 lg:px-24 py-8 font-mono text-evergreen" ref={contentRef}>
             {/* Reading Progress Bar */}
-            <div className="fixed top-0 left-0 right-0 z-[100] h-[5px] bg-black/10">
+            <div className="fixed top-0 left-0 right-0 z-[100] h-[5px] bg-yellow-green">
                 <div className="h-full bg-cayenne transition-[width] duration-150 shadow-[0_0_8px_var(--c-cayenne)]" style={{ width: `${readingProgress}%` }} />
             </div>
 

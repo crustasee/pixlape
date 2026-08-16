@@ -37,27 +37,27 @@ export const QuickModal: React.FC<QuickModalProps> = ({ asset, onClose }) => {
 
   return (
     <div
-      className="fixed inset-0 z-100 flex items-center justify-center p-4 bg-black transition-opacity duration-300 animate-in fade-in"
+      className="fixed inset-0 z-100 flex items-center justify-center p-4 bg-yellow-green/20 backdrop-blur-sm transition-opacity duration-300 animate-in fade-in"
       onClick={onClose}
       role="dialog"
       aria-modal="true"
       aria-label={`Quick view: ${asset.name}`}
     >
       <div
-        className="neo-glass w-full max-w-lg bg-yellow-green p-6 flex flex-col relative animate-in zoom-in-95 slide-in-from-bottom-4 duration-300 max-h-[90vh] overflow-y-auto"
+        className="w-full max-w-lg bg-soft-linen p-6 flex flex-col rounded-lg border border-black shadow-hard-sm relative animate-in zoom-in-95 slide-in-from-bottom-4 duration-300 max-h-[90vh] overflow-y-auto"
         onClick={(e) => e.stopPropagation()}
       >
         <button
-          className="absolute top-4 right-4 w-8 h-8 rounded-full border-2 border-border-color bg-surface hover:bg-neo-pink hover:text-white flex items-center justify-center font-bold text-lg cursor-pointer transition-colors focus:outline-none focus:ring-2 focus:ring-neo-cyan focus:ring-offset-2"
+          className="absolute top-4 right-4 w-12 h-12 rounded-lg border bg-red-500 border-black hover:bg-red-400 hover:text-white flex items-center justify-center font-bold text-xl cursor-pointer transition-colors focus:outline-none focus:ring-2 focus:ring-neo-cyan focus:ring-offset-2"
           onClick={onClose}
           aria-label="Close modal"
         >
-          ×
+          ✕
         </button>
 
         {/* Modal Header */}
         <div className="flex items-center gap-4 mb-4 pr-8">
-          <div className="w-15 h-15 shrink-0 bg-neo-beige border-2 border-border-color shadow-[2px_2px_0_var(--border-color)] rounded-xl flex items-center justify-center text-3xl overflow-hidden p-1.5 select-none">
+          <div className="w-24 h-24 shrink-0 bg-white border border-border-color shadow-[2px_2px_0_var(--border-color)] rounded-lg flex items-center justify-center text-3xl overflow-hidden p-1.5 select-none">
             {isImageIcon(asset.icon) ? (
               <Image
                 src={getIconSrc(asset.icon)}
@@ -71,18 +71,18 @@ export const QuickModal: React.FC<QuickModalProps> = ({ asset, onClose }) => {
             )}
           </div>
           <div className="min-w-0">
-            <h2 className="font-head font-black text-xl tracking-tight text-black leading-tight truncate">
+            <h2 className="font-head font-black text-2xl tracking-tight text-darkteal leading-tight truncate">
               {asset.name}
             </h2>
-            <div className="flex gap-1.5 mt-1.5 flex-wrap">
+            <div className="flex gap-4 mt-4 flex-wrap">
               {asset.isPremium && (
-                <span className="badge badge-pink text-sm text-black font-mono px-2 py-0.5 rounded-md font-bold">PRO</span>
+                <span className="border-2 border-darkteal bg-yellow-green text-sm text-darkteal font-mono px-2 py-0.5 rounded-md font-bold">PRO</span>
               )}
-              <span className="badge badge-yellow text-sm text-black font-mono px-2 py-0.5 rounded-md font-bold">
+              <span className="border-2 border-darkteal bg-yellow-green text-sm text-darkteal font-mono px-2 py-0.5 rounded-md font-bold">
                 {asset.tag}
               </span>
               {asset.version && (
-                <span className="badge badge-cyan text-sm text-black font-mono px-2 py-0.5 rounded-md font-bold">
+                <span className="border-2 border-darkteal bg-yellow-green text-sm text-darkteal font-mono px-2 py-0.5 rounded-md font-bold">
                   {asset.version}
                 </span>
               )}
@@ -91,38 +91,38 @@ export const QuickModal: React.FC<QuickModalProps> = ({ asset, onClose }) => {
         </div>
 
         {/* Modal Description */}
-        <p className="font-bold text-sm text-black leading-relaxed mb-5">
+        <p className="font-bold text-sm text-darkteal leading-relaxed mb-5">
           {asset.desc}
         </p>
 
         {/* Stats Grid */}
-        <div className="grid grid-cols-2 gap-3 p-4 bg-soft-linen border-2 border-border-color shadow-[3px_3px_0_var(--border-color)] rounded-xl mb-5 font-mono text-sm font-bold text-black">
+        <div className="flex flex-col-2 gap-6 p-4 bg-yellow-100 border border-border-color shadow-[3px_3px_0_var(--border-color)] rounded-lg mb-5 font-mono text-sm font-bold text-darkteal">
           <div className="flex flex-col">
-            <span className="text-black text-sm uppercase tracking-wider">SIZE</span>
+            <span className="text-darkteal text-sm uppercase tracking-wider">SIZE</span>
             <span>{asset.size} </span>
           </div>
           <div className="flex flex-col">
-            <span className="text-black text-sm uppercase tracking-wider">RATING</span>
-            <span className="flex items-center gap-1">⭐ {asset.rating}</span>
+            <span className="text-darkteal text-sm uppercase tracking-wider">RATING</span>
+            <span className="flex items-center gap-1">●{asset.rating}</span>
           </div>
           <div className="flex flex-col">
-            <span className="text-black text-sm uppercase tracking-wider">DOWNLOADS</span>
-            <span className="flex items-center gap-1">⬇️ {asset.downloads}</span>
+            <span className="text-darkteal text-sm uppercase tracking-wider">DOWNLOADS</span>
+            <span className="flex items-center gap-1">▼ {asset.downloads}</span>
           </div>
           <div className="flex flex-col">
-            <span className="text-black text-sm uppercase tracking-wider">LICENSE</span>
+            <span className="text-darkteal text-sm uppercase tracking-wider">LICENSE</span>
             <span className="truncate">{asset.license}</span>
           </div>
         </div>
 
         {/* Supported OS Badges */}
         <div className="mb-6">
-          <span className="font-mono text-sm font-black tracking-wider uppercase text-black block mb-2">
-            SUPPORTED PLATFORMS:
+          <span className="font-mono text-sm font-black tracking-wider uppercase text-darkteal block mb-2">
+            ▩ PLATFORMS:
           </span>
           <div className="flex gap-1.5 flex-wrap">
             {asset.os.map((o) => (
-              <span key={o} className="badge badge-soft-linen text-sm text-black font-mono px-2.5 py-0.5 rounded-md font-bold uppercase">
+              <span key={o} className="bg-yellow-green border border-black shadow-hard-sm text-sm text-white font-mono px-2.5 py-0.5 rounded-md font-bold uppercase">
                 {o}
               </span>
             ))}
@@ -131,14 +131,6 @@ export const QuickModal: React.FC<QuickModalProps> = ({ asset, onClose }) => {
 
         {/* Action Buttons */}
         <div className="flex gap-3 flex-col sm:flex-row">
-          <Button
-            onClick={onClose}
-            variant="neutral"
-            className="flex-1 bg-soft-linen uppercase text-lg font-black tracking-wider rounded-xl py-2.5 focus:outline-none focus:ring-2 focus:ring-cayenne focus:ring-offset-2"
-          >
-            CLOSE
-          </Button>
-
           {asset.downloadUrl ? (
             <a
               href={asset.downloadUrl}
@@ -160,7 +152,7 @@ export const QuickModal: React.FC<QuickModalProps> = ({ asset, onClose }) => {
               variant="default"
               className="w-full uppercase font-black tracking-wider rounded-xl py-2.5 focus:outline-none focus:ring-2 focus:ring-cayenne focus:ring-offset-2"
             >
-              FULL PREVIEW →
+              SEE DETAILS ▶▶
             </Button>
           </Link>
         </div>

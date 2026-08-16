@@ -6,12 +6,12 @@ import * as React from "react"
 import { cn } from "@/lib/utils"
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center whitespace-nowrap rounded-xl font-mono font-black uppercase tracking-wider ring-offset-white transition-all duration-200 gap-2 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 cursor-pointer border-2 border-border-color shadow-hard-sm hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-hard active:translate-x-0 active:translate-y-0 active:shadow-none select-none focus:outline-none focus:ring-2 focus:ring-yellow-green focus:ring-offset-2",
+  "inline-flex items-center justify-center whitespace-nowrap rounded-lg font-mono uppercase tracking-wider ring-offset-white transition-all duration-200 gap-2 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 cursor-pointer border-2 border-border-color shadow-hard-sm hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-hard active:translate-x-0 active:translate-y-0 active:shadow-none select-none focus:outline-none focus:ring-2 focus:ring-yellow-green focus:ring-offset-2",
   {
     variants: {
       variant: {
         default:
-          "bg-cayenne text-white hover:bg-yellow-green hover:text-evergreen",
+          "bg-pink-400 text-white hover:bg-pink-300 hover:text-white font-pixel",
         noShadow:
           "bg-cayenne text-white shadow-none hover:translate-x-0 hover:translate-y-0",
         neutral:
