@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useCallback } from 'react';
 import { AdminHeader } from '@/components/admin/AdminHeader';
 import { Button } from '@/components/ui/Button';
 import { Input } from '@/components/ui/Input';
@@ -30,9 +30,9 @@ export default function AdminToolsPage() {
   const [selectedCategory, setSelectedCategory] = useState<CategoryFilter>('all');
   const [isLogCollapsed, setIsLogCollapsed] = useState(false);
 
-  const addLog = (msg: string) => {
+  const addLog = useCallback((msg: string) => {
     setActionLog((prev) => [`[${new Date().toLocaleTimeString()}] ${msg}`, ...prev]);
-  };
+  }, []);
 
   const toggleItem = (id: string) => {
     setOpenItems((prev) => {
@@ -54,7 +54,7 @@ export default function AdminToolsPage() {
     setOpenItems(new Set());
   };
 
-  const handleClearCache = () => {
+  const handleClearCache = useCallback(() => {
     setIsProcessing(true);
     addLog('Initiating temporary cache & asset index purge...');
     setTimeout(() => {
@@ -62,9 +62,9 @@ export default function AdminToolsPage() {
       addLog('✓ AssetService local cache re-indexed.');
       setIsProcessing(false);
     }, 1000);
-  };
+  }, [addLog]);
 
-  const handleRunSecurityScan = () => {
+  const handleRunSecurityScan = useCallback(() => {
     setIsProcessing(true);
     addLog('Starting VirusTotal Security Audit on vault assets...');
     setTimeout(() => {
@@ -73,9 +73,9 @@ export default function AdminToolsPage() {
       addLog(`✓ ${count}/${count} assets passed VirusTotal clean check. 0 threats found.`);
       setIsProcessing(false);
     }, 1200);
-  };
+  }, [addLog]);
 
-  const handleExportJSON = () => {
+  const handleExportJSON = useCallback(() => {
     const assets = AssetService.getAll();
     const dataStr = 'data:text/json;charset=utf-8,' + encodeURIComponent(JSON.stringify(assets, null, 2));
     const downloadAnchor = document.createElement('a');
@@ -85,23 +85,23 @@ export default function AdminToolsPage() {
     downloadAnchor.click();
     downloadAnchor.remove();
     addLog(`✓ Exported ${assets.length} assets database JSON backup file.`);
-  };
+  }, [addLog]);
 
-  const handleGenerateKey = () => {
+  const handleGenerateKey = useCallback(() => {
     const newKey =
       'mod_live_sk_' +
       Math.random().toString(36).substring(2, 15) +
       Math.random().toString(36).substring(2, 15);
     setApiKey(newKey);
     addLog(`✓ Generated new API Key: ${newKey.substring(0, 16)}...`);
-  };
+  }, [addLog]);
 
-  const handleCopyKey = () => {
+  const handleCopyKey = useCallback(() => {
     navigator.clipboard.writeText(apiKey);
     setCopiedKey(true);
     addLog('✓ Active Secret API Key copied to clipboard.');
     setTimeout(() => setCopiedKey(false), 2000);
-  };
+  }, [apiKey, addLog]);
 
   // Tools definitions list
   const toolsList = useMemo(() => [
@@ -287,7 +287,7 @@ export default function AdminToolsPage() {
         </div>
       ),
     },
-  ], [addLog]);
+  ], [addLog, apiKey, copiedKey, handleClearCache, handleCopyKey, handleExportJSON, handleGenerateKey, handleRunSecurityScan, isProcessing]);
 
   // Filter tools based on search and category
   const filteredTools = useMemo(() => {

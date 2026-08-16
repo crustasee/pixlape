@@ -14,6 +14,51 @@ export interface ProductFormProps {
   isSubmitting?: boolean;
 }
 
+const AVAILABLE_OS = [
+  { id: 'windows', label: 'Windows' },
+  { id: 'macos', label: 'macOS' },
+  { id: 'linux', label: 'Linux' },
+  { id: 'cli', label: 'CLI / Shell' },
+];
+
+const PRESET_SVG_ICONS = [
+  { label: 'software', path: '/icon/allapps.svg' },
+  { label: 'app', path: '/icon/appssoftware.svg' },
+  { label: 'design', path: '/icon/stock/adobe-dw.svg' },
+  { label: 'multimedia', path: '/icon/multimedia.svg' },
+  { label: 'apk', path: '/icon/android21.svg' },
+  { label: 'graphics', path: '/icon/stock/adobe_draw.svg' },
+  { label: 'CLI Tool', path: '/icon/console.svg' },
+  { label: 'Dev Kit', path: '/icon/devtools.svg' },
+  { label: 'Gimp', path: '/icon/stock/gimp.svg' },
+  { label: 'paint', path: '/icon/stock/paint.svg' },
+  { label: 'Documentation', path: '/icon/stock/doc.svg' },
+  { label: 'Finance', path: '/icon/finance.svg' },
+  { label: 'art graphic', path: '/icon/graphicdraw.svg' },
+  { label: 'note', path: '/icon/stock/evernote.svg' },
+  { label: 'Charts', path: '/icon/chart.svg' },
+  { label: 'Tag', path: '/icon/stock/dino.svg' },
+  { label: 'MediaEncoder', path: '/icon/stock/media_encoder.svg' },
+  { label: 'java', path: '/icon/stock/java.svg' },
+];
+
+const PRESET_ICONS = [
+  '⚡', '🎨', '📦', '💻', '🛠️', '🎵', '🚀', '🔥',
+  '⚙️', '💎', '🎮', '📱', '🔒', '🌐', '📊', '✨',
+];
+
+const VERSION_PRESETS = ['v1.0.0', 'v2.4.0', 'v2026.1', 'v3.0.0'];
+const SIZE_PRESETS = ['15 MB', '85 MB', '450 MB', '1.2 GB', '2.4 GB'];
+const LICENSE_PRESETS = ['CC0 1.0 Universal', 'MIT License', 'OFL Font License', 'Commercial Pro'];
+
+const isPresetIcon = (iconStr?: string) => {
+  if (!iconStr) return false;
+  if (PRESET_ICONS.includes(iconStr)) return true;
+  return PRESET_SVG_ICONS.some(
+    (s) => s.path === iconStr || s.path.replace(/^public\//, '/') === iconStr.replace(/^public\//, '/')
+  );
+};
+
 export const ProductForm: React.FC<ProductFormProps> = ({
   initialData,
   onSubmit,
@@ -42,50 +87,12 @@ export const ProductForm: React.FC<ProductFormProps> = ({
     requirementsRaw: initialData?.requirements ? JSON.stringify(initialData.requirements, null, 2) : '',
   });
 
-  const availableOS = [
-    { id: 'windows', label: 'Windows' },
-    { id: 'macos', label: 'macOS' },
-    { id: 'linux', label: 'Linux' },
-    { id: 'cli', label: 'CLI / Shell' },
-  ];
-
-  const presetSvgIcons = [
-    { label: 'software', path: '/icon/allapps.svg' },
-    { label: 'app', path: '/icon/appssoftware.svg' },
-    { label: 'design', path: '/icon/stock/adobe-dw.svg' },
-    { label: 'multimedia', path: '/icon/multimedia.svg' },
-    { label: 'apk', path: '/icon/android21.svg' },
-    { label: 'graphics', path: '/icon/stock/adobe_draw.svg' },
-    { label: 'CLI Tool', path: '/icon/console.svg' },
-    { label: 'Dev Kit', path: '/icon/devtools.svg' },
-    { label: 'Gimp', path: '/icon/stock/gimp.svg' },
-    { label: 'paint', path: '/icon/stock/paint.svg' },
-    { label: 'Documentation', path: '/icon/stock/doc.svg' },
-    { label: 'Finance', path: '/icon/finance.svg' },
-    { label: 'art graphic', path: '/icon/graphicdraw.svg' },
-    { label: 'note', path: '/icon/stock/evernote.svg' },
-    { label: 'Charts', path: '/icon/chart.svg' },
-    { label: 'Tag', path: '/icon/stock/dino.svg' },
-    { label: 'MediaEncoder', path: '/icon/stock/media_encoder.svg' },
-    { label: 'java', path: '/icon/stock/java.svg' },
-  ];
-
-  const presetIcons = [
-    '⚡', '🎨', '📦', '💻', '🛠️', '🎵', '🚀', '🔥',
-    '⚙️', '💎', '🎮', '📱', '🔒', '🌐', '📊', '✨',
-  ];
-
-  const versionPresets = ['v1.0.0', 'v2.4.0', 'v2026.1', 'v3.0.0'];
-  const sizePresets = ['15 MB', '85 MB', '450 MB', '1.2 GB', '2.4 GB'];
-  const licensePresets = ['CC0 1.0 Universal', 'MIT License', 'OFL Font License', 'Commercial Pro'];
-
-  const isPresetIcon = (iconStr?: string) => {
-    if (!iconStr) return false;
-    if (presetIcons.includes(iconStr)) return true;
-    return presetSvgIcons.some(
-      (s) => s.path === iconStr || s.path.replace(/^public\//, '/') === iconStr.replace(/^public\//, '/')
-    );
-  };
+  const availableOS = AVAILABLE_OS;
+  const presetSvgIcons = PRESET_SVG_ICONS;
+  const presetIcons = PRESET_ICONS;
+  const versionPresets = VERSION_PRESETS;
+  const sizePresets = SIZE_PRESETS;
+  const licensePresets = LICENSE_PRESETS;
 
   const initialIcon = initialData?.icon || '/icon/product.svg';
   const initialIsCustom = isImageIcon(initialIcon) && !isPresetIcon(initialIcon);

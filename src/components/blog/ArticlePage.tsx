@@ -13,16 +13,7 @@ export interface ArticlePageProps {
     article?: Partial<BlogPost> & { imageUrl?: string; content?: string };
 }
 
-export const ArticlePage: React.FC<ArticlePageProps> = ({ article }) => {
-    const [copied, setCopied] = useState(false);
-    const [liked, setLiked] = useState(false);
-    const [imageError, setImageError] = useState(false);
-    const [readingProgress, setReadingProgress] = useState(0);
-    const [showBackToTop, setShowBackToTop] = useState(false);
-    const [activeId, setActiveId] = useState('');
-    const contentRef = useRef<HTMLDivElement>(null);
-
-    const FALLBACK_CONTENT = `
+const FALLBACK_CONTENT = `
 ### 🚀 Why Neo-Brutalism is Transforming Modern Web Interfaces
 
 Modern web design has entered a new era. Enter **Neo-Brutalism**: a design movement that embraces raw aesthetics, high-contrast borders, bold typography, vibrant colors, and hard drop shadows.
@@ -41,7 +32,16 @@ Modern web design has entered a new era. Enter **Neo-Brutalism**: a design movem
 - **CSS Custom Properties**: Define tokens for border colors and shadow offsets.
 - **Micro-Interactions**: Use crisp translate animations on hover for tactile feedback.
 - **Semantic Structure**: Maintain WCAG AAA standards for accessible text.
-  `;
+`;
+
+export const ArticlePage: React.FC<ArticlePageProps> = ({ article }) => {
+    const [copied, setCopied] = useState(false);
+    const [liked, setLiked] = useState(false);
+    const [imageError, setImageError] = useState(false);
+    const [readingProgress, setReadingProgress] = useState(0);
+    const [showBackToTop, setShowBackToTop] = useState(false);
+    const [activeId, setActiveId] = useState('');
+    const contentRef = useRef<HTMLDivElement>(null);
 
     const post = useMemo(() => ({
         ...BLOG_POSTS[0], ...article,
