@@ -274,16 +274,13 @@ export const HelpArticles: React.FC = () => {
   };
 
   return (
-    <div className="w-full space-y-8 font-mono text-text">
-      {/* ── HEADER BANNER ── */}
-      <div className="bg-yellow-green border-2 border-border-color p-6 md:p-8 rounded-2xl shadow-hard space-y-4">
+    <div className="w-full space-y-3 font-mono text-text">
+      {/* ── ++++++++++++++++++++++++ HEADER BANNER ++++++++++++++++++++++++++++++++++++++── */}
+      <div className="bg-yellow-green border border-border-color p-6 md:p-8 rounded-lg shadow-hard-sm space-y-2">
         <div className="flex flex-wrap items-center justify-between gap-3 border-b-2 border-border-color/20 pb-4">
           <div className="flex items-center gap-3">
             <span className="px-3 py-1 bg-yellow-100 text-darkteal font-mono text-xs font-black uppercase rounded-lg border border-border-color shadow-[2px_2px_0_var(--border-color)]">
               HELP ARTICLES CENTER
-            </span>
-            <span className="text-sm font-bold text-darkteal hidden sm:inline">
-              Panduan Resmi PIXLAPE Vault
             </span>
           </div>
           <span className="text-xs font-black text-yellow-green bg-evergreen px-3 py-1 rounded-md border border-border-color">
@@ -293,12 +290,8 @@ export const HelpArticles: React.FC = () => {
 
         <div className="space-y-2">
           <h2 className="text-2xl md:text-4xl font-head font-black uppercase text-darkteal tracking-tight">
-            Pusat Informasi & Dokumentasi Detail
+            HELP CENTER & FAQ
           </h2>
-          <p className="text-lg font-mono text-darkteal leading-relaxed max-w-3xl font-body">
-            Temukan rincian jawaban mengenai prosedur pengunduhan asset, batasan hukum lisensi,
-            kompatibilitas software, serta panduan tata cara kerja sama dan kolaborasi penerbitan projek.
-          </p>
         </div>
 
         {/* Filter Search Input */}
@@ -310,7 +303,7 @@ export const HelpArticles: React.FC = () => {
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder="Cari kata kunci (misal: download, lisensi komersial, CorelDraw, bagi hasil)..."
-              className="w-full bg-white/50 border-2 border-border-color rounded-xl pl-10 pr-4 py-2.5 text-xs font-mono font-bold text-yellow-green placeholder-white/50 focus:outline-none focus:border-yellow-green shadow-hard-sm"
+              className="w-full bg-yellow-100 border border-border-color rounded-lg pl-10 pr-4 py-2.5 text-xs font-mono font-bold text-darkteal placeholder-darkteal focus:outline-none focus:border-yellow-green shadow-hard-sm"
             />
           </div>
           {searchQuery && (
@@ -325,8 +318,8 @@ export const HelpArticles: React.FC = () => {
         </div>
       </div>
 
-      {/* ── CATEGORY FILTER TABS ── */}
-      <div className="flex flex-wrap items-center gap-2 bg-yellow-50 border-2 border-border-color p-3 rounded-2xl shadow-hard">
+      {/* =============================================CATEGORY FILTER TABS ===============================================================================================================*/}
+      <div className="flex flex-wrap items-center gap-5 bg-yellow-50 border border-border-color p-3 rounded-lg shadow-hard-sm">
         {categories.map((cat) => {
           const isActive = selectedCategory === cat.key;
           return (
@@ -334,9 +327,9 @@ export const HelpArticles: React.FC = () => {
               key={cat.key}
               type="button"
               onClick={() => setSelectedCategory(cat.key)}
-              className={`px-4 py-2.5 rounded-lg border-2 font-mono text-sm font-black uppercase transition-all cursor-pointer flex items-center gap-5 ${
+              className={`px-4 py-2.5 rounded-lg border font-mono text-sm font-black uppercase transition-all cursor-pointer flex items-center gap-5 ${
                 isActive
-                  ? 'bg-yellow-green/30 text-black border-border-color shadow-[2px_2px_0_var(--border-color)] scale-105'
+                  ? 'bg-yellow-green text-black border-border-color shadow-[2px_2px_0_var(--border-color)] scale-105'
                   : 'bg-white/10 text-darkteal border-border-color hover:bg-yellow-green hover:text-black'
               }`}
             >
@@ -350,7 +343,7 @@ export const HelpArticles: React.FC = () => {
       {/* ── ARTICLES CONTENT LIST ── */}
       <div className="space-y-6">
         {filteredArticles.length === 0 ? (
-          <div className="bg-darkteal border-2 border-border-color p-8 rounded-2xl shadow-hard text-center space-y-3 font-mono">
+          <div className="bg-darkteal border border-border-color p-8 rounded-lg shadow-hard-sm text-center space-y-3 font-mono">
             <span className="text-4xl">🔍</span>
             <h3 className="text-lg font-black text-yellow-green uppercase">Artikel Tidak Ditemukan</h3>
             <p className="text-xs text-darkteal max-w-md mx-auto">
@@ -374,12 +367,12 @@ export const HelpArticles: React.FC = () => {
               <div
                 key={article.id}
                 id={article.id}
-                className="bg-soft-linen border-2 border-border-color rounded-2xl shadow-hard overflow-hidden transition-all duration-200"
+                className="bg-yellow-100 border border-border-color rounded-lg shadow-hard-sm overflow-hidden transition-all duration-200 mb-3"
               >
-                {/* ── ARTICLE ITEM HEADER ── */}
+                {/*========================================== ARTICLE ITEM HEADER=====================================================================================================================*/}
                 <div
                   onClick={() => setExpandedArticleId(isExpanded ? '' : article.id)}
-                  className="p-5 md:p-6 bg-soft-linen border-b-2 border-border-color cursor-pointer select-none hover:bg-yellow-green/10 transition-colors flex flex-col md:flex-row md:items-center justify-between gap-4"
+                  className="p-5 md:p-6 bg-yellow-200 border-b-2 border-border-color cursor-pointer select-none hover:bg-yellow-green/10 transition-colors flex flex-col md:flex-row md:items-center justify-between gap-3"
                 >
                   <div className="flex items-start md:items-center gap-4 flex-1 min-w-0">
                     <span className="w-15 h-15 rounded-lg bg-white text-darkteal border-1 border-border-color flex items-center justify-center text-2xl shrink-0">
@@ -408,7 +401,7 @@ export const HelpArticles: React.FC = () => {
                     </div>
                   </div>
 
-                  {/* Toggle Chevron & Share Button */}
+                  {/*======================================= Toggle Chevron & Share Button ===========================================*/}
                   <div
                     className="flex items-center gap-2 shrink-0 self-end md:self-center"
                     onClick={(e) => e.stopPropagation()}
@@ -425,7 +418,7 @@ export const HelpArticles: React.FC = () => {
                   </div>
                 </div>
 
-                {/* ── ARTICLE EXPANDED BODY DETAILS ── */}
+                {/* ── ==================================ARTICLE EXPANDED BODY DETAILS================================================= ── */}
                 {isExpanded && (
                   <div className="p-6 md:p-8 space-y-6 bg-white/60 font-mono text-evergreen animate-fadeIn">
                     {/* Overview Summary */}
@@ -438,7 +431,7 @@ export const HelpArticles: React.FC = () => {
                       </p>
                     </div>
 
-                    {/* Step-by-Step Tutorial Guide (if exists) */}
+                    {/*========================================= Step-by-Step Tutorial Guide (if exists) =================================*/}
                     {article.steps && article.steps.length > 0 && (
                       <div className="space-y-4">
                         <h4 className="font-head font-black text-lg uppercase text-black flex items-center gap-2 border-b-2 border-border-color/20 pb-2">
@@ -467,7 +460,7 @@ export const HelpArticles: React.FC = () => {
                       </div>
                     )}
 
-                    {/* Key Takeaways & Rules Bullet Points (if exists) */}
+                    {/*========================================== Key Takeaways & Rules Bullet Points (if exists) =======================*/}
                     {article.keyPoints && article.keyPoints.length > 0 && (
                       <div className="space-y-3">
                         <h4 className="font-head font-black text-lg uppercase text-evergreen flex items-center gap-2 border-b-2 border-border-color/20 pb-2">
@@ -483,7 +476,7 @@ export const HelpArticles: React.FC = () => {
                       </div>
                     )}
 
-                    {/* Callout Notice Box (if exists) */}
+                    {/* =====================================Callout Notice Box (if exists)=========================== */}
                     {article.callout && (
                       <div
                         className={`p-4 rounded-lg border-1 border-border-color shadow-hard-sm space-y-1.5 ${
@@ -503,31 +496,8 @@ export const HelpArticles: React.FC = () => {
                       </div>
                     )}
 
-                    {/* FAQs Accordion Subsection */}
-                    <div className="space-y-4 pt-2">
-                      <h4 className="font-head font-black text-lg uppercase text-evergreen flex items-center gap-4 border-b-2 border-border-color/20 pb-2">
-                        <span>❓</span> Pertanyaan Populer & Jawaban Detail
-                      </h4>
-                      <div className="space-y-3">
-                        {article.faqs.map((faq, fIdx) => (
-                          <div
-                            key={fIdx}
-                            className="bg-white border-1 border-border-color rounded-lg p-4 space-y-2 "
-                          >
-                            <div className="font-mono text-md font-bold text-evergreen uppercase flex items-start gap-4">
-                              <span className="text-cayenne font-mono">Q:</span>
-                              <span>{faq.question}</span>
-                            </div>
-                            <div className="text-sm font-mono text-black leading-relaxed border-t border-border-color/20 pt-2 flex items-start gap-4">
-                              <span className="text-darkteal font-mono font-bold">A:</span>
-                              <span>{faq.answer}</span>
-                            </div>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
 
-                    {/* Feedback Helpful Section */}
+                    {/* ===============================Feedback Helpful Section==================================== */}
                     <div className="pt-4 border-t-2 border-border-color/20 flex flex-col sm:flex-row items-center justify-between gap-4 font-mono text-xs">
                       <span className="font-bold text-evergreen/80">
                         Apakah artikel ini membantu Anda ?
@@ -565,8 +535,8 @@ export const HelpArticles: React.FC = () => {
         )}
       </div>
 
-      {/* ── FOOTER CALLOUT BOX ── */}
-      <div className="bg-yellow-green text-black border-2 border-border-color p-6 md:p-8 rounded-2xl shadow-hard flex flex-col md:flex-row items-center justify-between gap-6 font-mono">
+      {/* ── -----------------------FOOTER CALLOUT BOX------------------------------------------- ── */}
+      <div className="bg-yellow-green text-black border border-border-color p-6 md:p-8 rounded-lg shadow-hard-sm flex flex-col md:flex-row items-center justify-between gap-6 font-mono">
         <div className="space-y-1 text-center md:text-left">
           <span className="px-3 py-1 bg-black text-yellow-green text-xs font-black uppercase rounded-md border border-border-color">
             Custom & Commission Project 

@@ -20,24 +20,33 @@ export const ArticleSidebar: React.FC<ArticleSidebarProps> = ({
     highlights,
     relatedPosts
 }) => {
+    const hasHighlights = highlights && highlights.length > 0;
+
     return (
-        <aside className="lg:col-span-4 font-mono">
-            <div className="sticky top-24 space-y-6 p-6">
-                {/* TOC Section Card */}
-                <div className="bg-white border-2 border-border-color p-5 rounded-2xl shadow-hard-sm space-y-4">
-                    <h3 className="font-head font-black text-lg uppercase text-evergreen border-b-2 border-border-color/20 pb-2 flex items-center gap-2">
-                        <span>📌</span> Table of Contents
+        <section className="w-full mx-auto font-mono border-t-2 border-border-color bg-yellow-50/60 p-6 sm:p-10 space-y-6">
+            <div className="flex items-center gap-3 border-b-2 border-border-color/20 pb-4">
+                <span className="w-3 h-3 bg-cayenne border border-border-color rounded-full shadow-[1px_1px_0_var(--border-color)] inline-block"></span>
+                <h2 className="font-head font-black text-xl uppercase tracking-wider text-evergreen">
+                    Article Navigation & Context
+                </h2>
+            </div>
+
+            <div className="flex md:flex-row w-full max-w-full gap-2">
+                {/* Table of Contents Card */}
+                <div className="w-full md:w-1/2 bg-yellow-100 border border p-5 sm:p-6 rounded-lg shadow-hard-sm space-y-3 flex flex-col">
+                    <h3 className="font-head font-black text-base uppercase text-evergreen border-b-2 border-border-color pb-2 flex items-center gap-2">
+                        <span>▢</span> Table of Contents
                     </h3>
-                    <nav className="space-y-1.5 text-xs font-bold" aria-label="Table of contents">
+                    <nav className="space-y-1.5 text-xs font-bold flex-1 overflow-y-auto max-h-full pr-1" aria-label="Table of contents">
                         {headings.length > 0 ? headings.map((h) => (
                             <a
                                 key={h.id}
                                 href={`#${h.id}`}
-                                className={`block py-2 px-3 rounded-xl border-1.5 font-mono transition-all duration-200 ${
+                                className={`block py-2 px-3 rounded-lg border text-xs font-mono transition-all duration-200 ${
                                     activeId === h.id
-                                        ? 'bg-cayenne text-white border-border-color shadow-[2px_2px_0_var(--border-color)] font-black translate-x-1'
+                                        ? 'bg-yellow-green text-white shadow-[2px_2px_0_var(--border-color)] font-black translate-x-1'
                                         : 'border-transparent text-evergreen/80 hover:border-border-color hover:bg-yellow-green/40 hover:text-evergreen'
-                                } ${h.level >= 4 ? 'ml-4 text-[11px]' : ''}`}
+                                } ${h.level >= 4 ? 'ml-4 text-xs' : ''}`}
                             >
                                 {h.text}
                             </a>
@@ -45,7 +54,7 @@ export const ArticleSidebar: React.FC<ArticleSidebarProps> = ({
                             <a
                                 key={i}
                                 href={`#section-${i}`}
-                                className="block py-2 px-3 rounded-xl border-1.5 border-transparent text-evergreen/80 hover:border-border-color hover:bg-yellow-green/40 transition-all font-mono"
+                                className="block py-2 px-3 rounded-lg border-1.5 border-transparent text-evergreen hover:border-border-color hover:bg-yellow-green/40 transition-all font-mono"
                             >
                                 {item}
                             </a>
@@ -53,29 +62,32 @@ export const ArticleSidebar: React.FC<ArticleSidebarProps> = ({
                     </nav>
                 </div>
 
-                {/* Highlights Takeaways Card */}
-                {highlights && highlights.length > 0 && (
-                    <div className="bg-yellow-green/20 border-2 border-border-color p-5 rounded-2xl shadow-hard-sm space-y-3">
-                        <h3 className="font-head font-black text-sm uppercase text-evergreen flex items-center gap-2">
-                            <span>⚡</span> Article Key Takeaways
+                {/* Key Takeaways Card */}
+                {hasHighlights && (
+                    <div className="w-full md:w-1/2 bg-yellow-100 border p-5 sm:p-6 rounded-lg shadow-hard-sm space-y-3 flex flex-col">
+                        <h3 className="font-head font-black text-base uppercase text-evergreen border-b-2 pb-2 flex items-center gap-2">
+                            <span>▣</span> Key Takeaways
                         </h3>
-                        <ul className="space-y-2 text-xs font-mono font-bold text-evergreen/90 list-disc pl-4">
+                        <ul className="space-y-2.5 text-xs font-mono font-bold text-evergreen flex-1">
                             {highlights.map((h, idx) => (
-                                <li key={idx} className="leading-snug">{h}</li>
+                                <li key={idx} className="flex items-start gap-2 bg-yellow-50/80 p-2.5 rounded-lg border border-border leading-snug">
+                                    <span className="text-cayenne font-black select-none">•</span>
+                                    <span>{h}</span>
+                                </li>
                             ))}
                         </ul>
                     </div>
                 )}
 
-                {/* Recent Articles Card */}
-                <div className="bg-white border-2 border-border-color p-5 rounded-2xl shadow-hard-sm space-y-4">
-                    <h3 className="font-head font-black text-lg uppercase text-evergreen border-b-2 border-border-color/20 pb-2 flex items-center gap-2">
-                        <span>📰</span> Related Vault Articles
+                {/* Related Vault Articles Card */}
+                <div className={`w-full md:w-1/2 bg-yellow-100 border border-border-color p-5 sm:p-6 rounded-lg shadow-hard-sm space-y-4 flex flex-col ${!hasHighlights ? 'md:col-span-1 lg:col-span-2' : ''}`}>
+                    <h3 className="font-head font-black text-base uppercase text-evergreen border-b-2 border-border pb-2 flex items-center gap-2">
+                        <span>▣</span> Related Vault Articles
                     </h3>
-                    <div className="space-y-3">
+                    <div className={`gap-3 flex-1 ${!hasHighlights ? 'grid grid-cols-1 sm:grid-cols-2' : 'space-y-3'}`}>
                         {relatedPosts.map((rel) => (
                             <Link key={rel.id} href={`/blog/${rel.id}`} className="block group">
-                                <div className="border-1.5 border-border-color bg-[#FAF7F2] p-3.5 rounded-xl shadow-sm group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:bg-yellow-green/20 transition-all cursor-pointer space-y-1.5">
+                                <div className="h-full border-2 border-border-color bg-yellow-50 p-3.5 rounded-xl shadow-hard-sm group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:bg-yellow-green transition-all cursor-pointer space-y-2">
                                     <div className="flex items-center justify-between">
                                         <span className="text-[10px] font-black bg-cayenne text-white px-2 py-0.5 border border-border-color rounded uppercase shadow-[1px_1px_0_var(--border-color)]">
                                             {rel.category}
@@ -91,7 +103,8 @@ export const ArticleSidebar: React.FC<ArticleSidebarProps> = ({
                     </div>
                 </div>
             </div>
-        </aside>
+        </section>
     );
 };
+
 

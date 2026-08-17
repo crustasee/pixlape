@@ -88,19 +88,19 @@ export const ArticlePage: React.FC<ArticlePageProps> = ({ article }) => {
 
     return (
         <article className="w-full max-w-full mx-auto px-6 sm:px-6 lg:px-24 py-8 font-mono text-evergreen" ref={contentRef}>
-            {/* Reading Progress Bar */}
+            {/* =============================Reading Progress Bar========================================== */}
             <div className="fixed top-0 left-0 right-0 z-[100] h-[5px] bg-yellow-green">
                 <div className="h-full bg-cayenne transition-[width] duration-150 shadow-[0_0_8px_var(--c-cayenne)]" style={{ width: `${readingProgress}%` }} />
             </div>
 
-            {/* Breadcrumb Navigation */}
+            {/* ======================================Breadcrumb Navigation===================================== */}
             <nav className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 text-xs font-mono font-bold border-b-2 border-border-color/20 pb-4 mb-6">
-                <ol className="flex items-center gap-2.5 text-evergreen/80 list-none flex-wrap">
+                <ol className="flex items-center gap-2.5 text-evergreen list-none flex-wrap">
                     <li><Link href="/" className="hover:text-cayenne transition-colors uppercase font-black">HOME</Link></li>
                     <li aria-hidden className="text-evergreen/40">/</li>
                     <li><Link href="/blog" className="hover:text-cayenne transition-colors uppercase font-black">BLOG</Link></li>
-                    <li aria-hidden className="text-evergreen/40">/</li>
-                    <li className="text-evergreen font-black uppercase truncate max-w-[320px] sm:max-w-[500px]" aria-current="page">{post.title}</li>
+                    <li aria-hidden className="text-evergreen">/</li>
+                    <li className="text-cayenne font-black uppercase truncate max-w-[320px] sm:max-w-[500px]" aria-current="page">{post.title}</li>
                 </ol>
                 <Link href="/blog">
                     <Button variant="neutral" size="sm" className="font-mono text-xs font-black uppercase border-2 border-border-color bg-white hover:bg-yellow-green text-black px-4 py-2 shadow-hard-sm cursor-pointer transition-all">
@@ -109,8 +109,8 @@ export const ArticlePage: React.FC<ArticlePageProps> = ({ article }) => {
                 </Link>
             </nav>
 
-            {/* ONE UNIFIED MAIN ARTICLE PANEL */}
-            <div className="bg-yellow-50 border-2 border-border-color rounded-3xl shadow-hard-lg overflow-hidden">
+            {/* ++++++++++++++++++++++++++++++++++++ ONE UNIFIED MAIN ARTICLE PANEL ++++++++++++++++++++++++++++++++++++++++++ */}
+            <div className="bg-yellow-50 border border-border-color rounded-xl shadow-hard-sm overflow-hidden">
                 {/* ── PANEL HEADER (Category + Metadata) ── */}
                 <div className="bg-soft-linen p-6 sm:p-10 border-b-2 border-border-color space-y-5">
                     <div className="flex flex-wrap items-center gap-3">
@@ -177,10 +177,10 @@ export const ArticlePage: React.FC<ArticlePageProps> = ({ article }) => {
                     )}
                 </figure>
 
-                {/* ── MAIN BODY GRID: Article Content + Right Side Panel ── */}
-                <div className="grid grid-cols-1 lg:grid-cols-12 gap-0 divide-y-2 lg:divide-y-0 lg:divide-x-2 divide-border-color">
-                    {/* LEFT: Article Body (8 cols) */}
-                    <div className="lg:col-span-8 p-6 sm:p-10 space-y-6 font-body text-evergreen leading-relaxed bg-white/40">
+                {/* ── ARTICLE CONTENT & FOOTER NAVIGATION ── */}
+                <div className="w-full">
+                    {/* Article Main Body */}
+                    <div className="p-6 sm:p-10 lg:p-12 space-y-6 font-body text-evergreen leading-relaxed bg-white/40">
                         {post.content ? <ContentRenderer content={post.content} /> : <p className="text-base font-medium text-evergreen">{post.excerpt}</p>}
 
                         {/* Tags & Share Footer */}
@@ -200,7 +200,7 @@ export const ArticlePage: React.FC<ArticlePageProps> = ({ article }) => {
                         </div>
                     </div>
 
-                    {/* RIGHT: Side Panel (4 cols) */}
+                    {/* Bottom Component (Table of Contents, Key Takeaways, Related Articles) */}
                     <ArticleSidebar
                         headings={headings}
                         activeId={activeId}

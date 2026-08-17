@@ -24,11 +24,11 @@ export default function HelpPage() {
         <HelpArticles />
       ) : (
         <div className="space-y-6">
-          <div className="bg-darkteal border-2 border-border-color p-4 rounded-xl shadow-hard flex items-center gap-3">
+          <div className="bg-darkteal border border-border-color p-4 rounded-xl shadow-hard flex items-center gap-3">
             <span className="text-xl">🔍</span>
             <input
               type="text"
-              className="w-full bg-black/40 border border-border-color rounded-lg px-4 py-2 text-xs font-mono font-bold text-yellow-green placeholder-white/50 focus:outline-none"
+              className="w-full bg-black border border-border-color rounded-lg px-4 py-2 text-xs font-mono font-bold text-yellow-green placeholder-white/50 focus:outline-none"
               placeholder="Cari FAQ cepat..."
               value={searchFilter}
               onChange={(e) => setSearchFilter(e.target.value)}
@@ -68,13 +68,13 @@ export default function HelpPage() {
         </div>
       )}
 
-      {/* Discord Footer Action Box */}
-      <div className="bg-darkteal border-2 border-border-color p-6 rounded-2xl shadow-hard flex flex-col md:flex-row md:items-center justify-between gap-6 font-mono">
+      {/* ===========================Discord Footer Action Box====================================== */}
+      <div className="bg-yellow-green border border-border-color p-6 rounded-lg shadow-hard-sm flex flex-col md:flex-row md:items-center justify-between gap-6 font-mono">
         <div>
-          <h3 className="font-mono font-black text-yellow-green text-lg uppercase">
+          <h3 className="font-mono font-black text-evergreen text-lg uppercase">
             MASIH MEMBUTUHKAN BANTUAN KHUSUS?
           </h3>
-          <p className="font-mono text-lg text-yellow-green leading-relaxed mt-1">
+          <p className="font-mono text-lg text-darkteal leading-relaxed mt-1">
             PIXLApe Sentoesa Art Studio .
           </p>
         </div>
@@ -82,7 +82,7 @@ export default function HelpPage() {
           href="https://discord.com"
           target="_blank"
           rel="noreferrer"
-          className="inline-flex items-center justify-center font-mono font-black text-sm uppercase tracking-wider px-5 py-3 bg-cayenne text-white border-2 border-border-color shadow-[3px_3px_0_var(--border-color)] rounded-xl transition-all hover:translate-x-0.5 hover:translate-y-0.5 hover:shadow-none shrink-0"
+          className="inline-flex items-center justify-center font-mono font-black text-sm uppercase tracking-wider px-5 py-3 bg-cayenne text-white border border-border-color shadow-[3px_3px_0_var(--border-color)] rounded-lg transition-all hover:translate-x-0.5 hover:translate-y-0.5 hover:shadow-none shrink-0"
         >
           JOIN DISCORD COMMUNITY →
         </a>
