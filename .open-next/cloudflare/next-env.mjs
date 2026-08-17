@@ -1,0 +1,3 @@
+export const production = {"DATABASE_URL":"postgresql://postgres:postgres@localhost:5432/modtrove_db?schema=public","NEXTAUTH_URL":"http://localhost:3000","NEXTAUTH_SECRET":"dev-secret-key-modtrove","ADMIN_SECRET":"dev-admin-secret"};
+export const development = {"DATABASE_URL":"postgresql://postgres:postgres@localhost:5432/modtrove_db?schema=public","NEXTAUTH_URL":"http://localhost:3000","NEXTAUTH_SECRET":"dev-secret-key-modtrove","ADMIN_SECRET":"dev-admin-secret"};
+export const test = {"DATABASE_URL":"postgresql://postgres:postgres@localhost:5432/modtrove_db?schema=public","NEXTAUTH_URL":"http://localhost:3000","NEXTAUTH_SECRET":"dev-secret-key-modtrove","ADMIN_SECRET":"dev-admin-secret"};

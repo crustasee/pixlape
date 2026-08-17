@@ -49,7 +49,7 @@ export const AuthorProfileClient: React.FC = () => {
         </div>
 
         {/* ================= HERO PROFILE GRID ================= */}
-        <div className="w-full flex flex-col lg:grid-cols-12 gap-8 items-start">
+        <div className="w-full flex flex-col lg:grid lg:grid-cols-12 gap-8 items-start">
 
           {/* Left Column: Avatar Profile & Skill Badges (5/12 cols) */}
           <div className="lg:col-span-5 flex flex-col items-center w-full">
