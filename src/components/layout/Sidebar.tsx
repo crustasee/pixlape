@@ -13,7 +13,7 @@ interface SidebarProps {
 
 const renderIcon = (icon: string) => {
   if (!icon) return null;
-  // If icon is an HTML string like '<img src="public/icon/all_icon.svg">'
+  // ================================================ If icon is an HTML string like '<img src="public/icon/all_icon.svg">' ================================================       
   if (icon.startsWith('<img') || icon.startsWith('<svg')) {
     const match = icon.match(/src=["']([^"']+)["']/);
     if (match && match[1]) {
@@ -21,7 +21,7 @@ const renderIcon = (icon: string) => {
       return <img src={src.startsWith('/') ? src : `/${src}`} alt="" className="w-6 h-6 object-contain inline-block" />;
     }
   }
-  // If icon is an asset path like '/icon/all_icon.svg' or 'public/icon/all_icon.svg'
+  // ================================================ If icon is an asset path like '/icon/all_icon.svg' or 'public/icon/all_icon.svg' ================================================       
   if (icon.includes('/') || icon.endsWith('.svg') || icon.endsWith('.png')) {
     const src = icon.replace(/^public\//, '/');
     return <img src={src.startsWith('/') ? src : `/${src}`} alt="" className="w-6 h-6 object-contain inline-block" />;
@@ -68,14 +68,14 @@ export const Sidebar: React.FC<SidebarProps> = ({
   ];
 
   return (
-    <aside className="flex flex-col w-full md:w-80 shrink-0 gap-6 md:sticky md:top-26 h-auto md:h-fit" role="complementary" aria-label="Sidebar filters">
-      {/* CATEGORIES SECTION */}
+    <aside className="flex flex-col w-full h-full md:h-fit lg:h-auto md:w-80 shrink-0 gap-3 md:sticky md:top-26 h-auto md:h-fit" role="complementary" aria-label="Sidebar filters">
+      {/* ================================================== CATEGORIES SECTION =================================================*/}
       <div className="bg-yellow-100 text-evergreen border border-border-color shadow-hard-sm rounded-lg p-5 flex flex-col gap-5">
         <div className="flex items-center justify-between border-b-2 border-border-color pb-3">
           <span className="font-head font-extrabold text-base tracking-wider uppercase text-evergreen">CATEGORIES</span>
-          <span className="badge bg-cayenne text-white text-xs rounded-lg font-mono font-bold px-2.5 py-1 border border-border-color shadow-[1.5px_1.5px_0_var(--border-color)]">VAULT</span>
+          <span className="badge bg-yellow-green text-white text-xs rounded-lg font-mono font-bold px-2.5 py-1 border border-border-color shadow-[1.5px_1.5px_0_var(--border-color)]">VAULT</span>
         </div>
-        <div className="flex flex-wrap bg-yellow-100 md:flex-col gap-2.5" role="group" aria-label="Asset categories">
+        <div className="flex flex-col bg-yellow-100 md:flex-col gap-2" role="group" aria-label="Asset categories">
           {categories.map((cat) => {
             const isActive = currentCategory === cat.id;
             return (
@@ -97,13 +97,13 @@ export const Sidebar: React.FC<SidebarProps> = ({
         </div>
       </div>
 
-      {/* OS PLATFORM FILTER */}
-      <div className="bg-yellow-100 text-darkteal border border-border-color shadow-hard-sm rounded-lg p-5 flex flex-col gap-4">
+      {/* ================================================OS PLATFORM FILTER ================================================*/}
+      <div className="bg-yellow-100 text-evergreen border border-border-color shadow-hard-sm rounded-lg p-5 flex flex-col gap-5">
         <div className="flex items-center justify-between border-b-2 border-black/30 pb-3">
           <span className="font-head font-extrabold text-base tracking-wider uppercase text-darkteal">◯ PLATFORM</span>
           <span className="badge bg-yellow-green text-darkteal text-xs rounded-lg font-mono font-bold px-2.5 py-1 border border-border-color shadow-[1.5px_1.5px_0_var(--border-color)]">SYSTEM</span>
         </div>
-        <div className="flex flex-wrap gap-2" role="group" aria-label="Operating system filters">
+        <div className="flex flex-col rounded-lg gap-2" role="group" aria-label="Operating system filters">
           {osFilters.map((os) => {
             const isActive = currentOS === os.id;
             return (
@@ -124,13 +124,13 @@ export const Sidebar: React.FC<SidebarProps> = ({
         </div>
       </div>
 
-      {/* Vault Status Section */}
-      <div className="bg-green-200 text-darkteal border border-border-color shadow-hard-sm rounded-lg p-5 flex flex-col gap-4">
+      {/* ================================================Vault Status Section ================================================*/}
+      <div className="bg-yellow-green text-evergreen border border-border-color shadow-hard-sm rounded-lg p-5 flex flex-col gap-5">
         <div className="flex items-center justify-between border-b-2 border-black pb-3">
           <span className="font-head font-extrabold text-base tracking-wider uppercase text-darkteal">▩ VAULT STATUS</span>
-          <span className="badge bg-green-400 text-evergreen text-sm font-mono font-bold px-2.5 py-0.5 rounded border border-border-color animate-pulse">● LIVE</span>
+          <span className="badge bg-yellow-300 text-evergreen text-sm font-mono font-bold px-2.5 py-0.5 rounded-xl border border-border-color animate-pulse">● LIVE</span>
         </div>
-        <div className="flex flex-col gap-2.5 font-mono text-xs text-black bg-green-100 p-3.5 rounded-xl border">
+        <div className="flex flex-col gap-2.5 font-mono text-sm text-black bg-yellow-200 p-3.5 rounded-xl border">
           <div className="flex justify-between">
             <span>Total Assets:</span>
             <span className="font-black text-black">{totalItems} Items</span>
