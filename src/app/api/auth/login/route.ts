@@ -22,7 +22,7 @@ export async function OPTIONS() {
 
 export async function POST(req: Request) {
   try {
-    const { email, password } = await req.json();
+    const { email, password } = (await req.json()) as Record<string, any>;
 
     if (!email || !password) {
       const res = NextResponse.json({ success: false, error: 'Email and password are required' }, { status: 400 });

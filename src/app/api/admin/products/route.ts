@@ -53,7 +53,7 @@ export async function POST(req: Request) {
       return addCorsHeaders(res);
     }
 
-    const body = await req.json();
+    const body = (await req.json()) as Record<string, any>;
     const { name, desc, size, os, tag, icon, license, version, category, isPremium, price, stock, downloadUrl, downloadLink, status, authorName, format } = body;
     const finalDownloadUrl = downloadUrl || downloadLink || '';
 

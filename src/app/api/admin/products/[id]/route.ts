@@ -69,7 +69,7 @@ export async function PUT(
       return addCorsHeaders(res);
     }
 
-    const body = await req.json();
+    const body = (await req.json()) as Record<string, unknown>;
 
     const isConnected = await checkDbConnection();
     if (!isConnected) {
@@ -87,7 +87,7 @@ export async function PUT(
     if (body.rating !== undefined) updateData.rating = Number(body.rating);
 
     // Slug regeneration if name changed
-    if (body.name) {
+    if (typeof body.name === 'string') {
       const baseSlug = body.name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
       updateData.slug = `${baseSlug}-${params.id}`;
     }

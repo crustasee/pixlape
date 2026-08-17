@@ -21,7 +21,7 @@
     "paths": {
       "@/*": ["./src/*"]
     },
-    "types": ["node"]
+    "types": ["node", "@cloudflare/workers-types"]
   },
   "include": ["src/**/*", "prisma/**/*", "next-env.d.ts", ".next/types/**/*.ts"],
   "exclude": ["node_modules"]

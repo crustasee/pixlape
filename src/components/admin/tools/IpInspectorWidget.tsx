@@ -41,7 +41,7 @@ export const IpInspectorWidget: React.FC<IpInspectorWidgetProps> = ({ onLog, sho
   useEffect(() => {
     fetch('https://ipapi.co/json/')
       .then((res) => res.json())
-      .then((data) => {
+      .then((data: any) => {
         if (data && data.ip) {
           setIpData({
             ip: data.ip || '103.147.218.45',
@@ -68,7 +68,7 @@ export const IpInspectorWidget: React.FC<IpInspectorWidgetProps> = ({ onLog, sho
 
     fetch(`https://ipapi.co/${ipToInspect}/json/`)
       .then((res) => res.json())
-      .then((data) => {
+      .then((data: any) => {
         setIsLoading(false);
         if (data && !data.error) {
           setIpData({
