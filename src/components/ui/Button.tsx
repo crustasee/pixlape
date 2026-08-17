@@ -19,7 +19,7 @@ const buttonVariants = cva(
         reverse:
           "bg-cayenne text-white hover:translate-x-0.5 hover:translate-y-0.5",
         primary:
-          "bg-green-500 text-black hover:bg-green-400 hover:text-evergreen",
+          "bg-green-500 text-white hover:bg-green-400 hover:text-evergreen",
         secondary:
           "bg-yellow-green text-black hover:bg-cayenne hover:text-white",
         outline:

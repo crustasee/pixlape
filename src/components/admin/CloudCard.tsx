@@ -100,12 +100,12 @@ export const CloudCard: React.FC<CloudCardProps> = ({
 
   return (
     <>
-      <div className="bg-yellow-100 border-2 border-border-color rounded-2xl p-5 shadow-hard hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-hard-lg transition-all duration-200 flex flex-col justify-between gap-4 relative overflow-hidden text-text font-body">
+      <div className="bg-yellow-100 border border-border-color p-5 shadow-hard-sm rounded-lg hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-hard-lg transition-all duration-200 flex flex-col justify-between gap-4 relative overflow-hidden text-text font-body">
 
         {/* Card Header: Icon, Provider Title, Status & Quick Manage Settings */}
         <div className="flex items-start justify-between gap-3 border-b-2 border-border-color/20 pb-4">
           <div className="flex items-center space-x-3 min-w-0">
-            <div className={`w-12 h-12 rounded-2xl ${provider.badgeBg} border-2 border-border-color flex items-center justify-center shadow-hard-sm shrink-0 p-2 overflow-hidden`}>
+            <div className={`w-12 h-12 rounded-lg ${provider.badgeBg} border border-border-color flex items-center justify-center shadow-hard-sm shrink-0 p-2 overflow-hidden`}>
               <IconRenderer icon={provider.icon} alt={provider.name} className="w-full h-full object-contain" fallbackEmoji="☁️" />
             </div>
             <div className="min-w-0">

@@ -45,7 +45,7 @@ export const CardBlogs: React.FC<CardBlogsProps> = ({
     const isCopied = copiedId === doc.id;
 
     return (
-        <div className="bg-yellow-100 border-2 border-border-color rounded-2xl p-5 shadow-hard hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-hard-lg transition-all duration-200 flex flex-col justify-between gap-4 relative text-text font-body">
+        <div className="bg-yellow-100 border border-border-color rounded-lg p-5 shadow-hard-sm hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-hard-lg transition-all duration-200 flex flex-col justify-between gap-4 relative text-text font-body">
             {/* Header Info */}
             <div className="space-y-3">
                 <div className="flex items-center justify-between gap-2 border-b-2 border-border-color/20 pb-3 font-mono">

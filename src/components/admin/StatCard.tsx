@@ -30,7 +30,7 @@ export const StatCard: React.FC<StatCardProps> = ({
   }
 
   return (
-    <div className="bg-yellow-green border-2 border-border-color rounded-2xl p-5 shadow-hard-sm hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-hard-lg transition-all duration-200 group select-none relative overflow-hidden flex flex-col justify-between gap-3 text-text">
+    <div className="bg-yellow-green border border-border-color rounded-lg p-5 shadow-hard-sm hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-hard-lg transition-all duration-200 group select-none relative overflow-hidden flex flex-col justify-between gap-3 text-text">
       <div className="flex items-center justify-between">
         <span className="text-darkteal text-lg font-black uppercase tracking-wider font-mono">
           {title}

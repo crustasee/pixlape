@@ -165,10 +165,10 @@ export default function AdminSettingsPage() {
   return (
     <>
       <AdminHeader title="Admin Settings & Store Configuration" breadcrumb={['Admin', 'Settings']} />
-      <main className="p-4 sm:p-6 lg:p-8 space-y-6 max-w-[1600px] w-full text-text font-mono">
+      <main className="p-4 sm:p-6 lg:p-8 space-y-6 max-w-full w-full text-text font-mono">
         {/* ── Section 1: Settings Telemetry Status Bar ── */}
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
-          <div className="bg-yellow-100 border-2 border-border-color p-4 rounded-xl shadow-hard-sm font-mono text-darkteal">
+          <div className="bg-yellow-green border border-border-color p-4 rounded-lg shadow-hard-sm font-mono text-darkteal">
             <span className="text-xs text-darkteal font-black uppercase tracking-wider block">◯ Main Store Logo Status</span>
             <div className="text-sm font-black text-darkteal mt-1 flex items-center gap-2">
               <span className="w-2.5 h-2.5 rounded-full bg-green-500 inline-block"></span>
@@ -176,7 +176,7 @@ export default function AdminSettingsPage() {
             </div>
           </div>
 
-          <div className="bg-yellow-100 border-2 border-border-color p-4 rounded-xl shadow-hard-sm font-mono text-darkteal">
+          <div className="bg-yellow-green border border-border-color p-4 rounded-lg shadow-hard-sm font-mono text-darkteal">
             <span className="text-xs text-darkteal font-black uppercase tracking-wider block">◯ Admin Profile Role</span>
             <div className="text-sm font-black text-darkteal mt-1 flex items-center gap-2">
               <span className="px-2.5 py-0.5 bg-yellow-green text-darkteal rounded-md text-xs uppercase font-black border border-border-color">
@@ -185,7 +185,7 @@ export default function AdminSettingsPage() {
             </div>
           </div>
 
-          <div className="bg-yellow-100 border-2 border-border-color p-4 rounded-xl shadow-hard-sm font-mono text-darkteal">
+          <div className="bg-yellow-green border border-border-color p-4 rounded-lg shadow-hard-sm font-mono text-darkteal">
             <span className="text-xs text-darkteal font-black uppercase tracking-wider block">$ Vault Currency</span>
             <div className="text-sm font-black text-darkteal mt-1">
               {settings.currency === 'USD'
@@ -198,7 +198,7 @@ export default function AdminSettingsPage() {
             </div>
           </div>
 
-          <div className="bg-yellow-100 border-2 border-border-color p-4 rounded-xl shadow-hard-sm font-mono text-darkteal">
+          <div className="bg-yellow-green border border-border-color p-4 rounded-lg shadow-hard-sm font-mono text-darkteal">
             <span className="text-xs text-darkteal font-black uppercase tracking-wider block">◯ Security Guard</span>
             <div className="text-xs font-black text-darkteal bg-yellow-green px-2.5 py-1 rounded-md border border-border-color w-fit mt-1">
               {settings.virusTotalAutoScan ? 'VERIFIED (100% CLEAN)' : 'MANUAL SCANS ONLY'}
@@ -208,7 +208,7 @@ export default function AdminSettingsPage() {
 
         {/* ── Saved Toast Banner ── */}
         {saved && (
-          <div className="bg-neo-lime text-black border-2 border-border-color p-4 rounded-2xl shadow-hard font-mono font-black text-sm flex items-center justify-between animate-in fade-in slide-in-from-top-2 duration-200">
+          <div className="bg-soft-linen text-black border- border-border-color p-4 rounded-lg shadow-hard-sm font-mono font-black text-sm flex items-center justify-between animate-in fade-in slide-in-from-top-2 duration-200">
             <div className="flex items-center gap-3">
               <span className="text-xl">✅</span>
               <span>SETTINGS SAVED SUCCESSFULLY! Persistent state synced across local vault configuration.</span>
@@ -218,7 +218,7 @@ export default function AdminSettingsPage() {
         )}
 
         {/* ── Section 2: Tab Navigation Controls ── */}
-        <div className="flex flex-wrap items-center gap-3 bg-yellow-100 border-2 border-border-color p-3.5 rounded-2xl shadow-hard font-mono">
+        <div className="flex flex-wrap items-center gap-3 bg-yellow-100 border border-border-color p-3.5 rounded-lg shadow-hard-sm font-mono">
           {[
             { id: 'branding', label: '▶ BRANDING & LOGOS', desc: 'Main Store Logo & Ticker' },
             { id: 'profile', label: '▶ ADMIN PROFILE', desc: 'Avatar & Account Details' },
@@ -233,7 +233,7 @@ export default function AdminSettingsPage() {
                 key={tab.id}
                 type="button"
                 onClick={() => setActiveTab(tab.id as any)}
-                className={`px-4 py-3 rounded-xl border-2 font-mono text-xs font-black uppercase transition-all duration-200 cursor-pointer flex flex-col items-start ${
+                className={`px-4 py-3 rounded-lg border border-border-color font-mono text-xs font-black uppercase transition-all duration-200 cursor-pointer flex flex-col items-start ${
                   isActive
                     ? 'bg-yellow-green text-darkteal border-border-color shadow-hard-sm scale-102'
                     : 'bg-white text-darkteal border-border-color hover:bg-yellow-green hover:text-darkteal'

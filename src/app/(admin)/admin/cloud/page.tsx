@@ -251,16 +251,16 @@ export default function AdminCloudPage() {
   return (
     <>
       <AdminHeader title="Cloud Storage & Vault Mirrors" breadcrumb={['Admin', 'Cloud Storage']} />
-      <main className="p-4 sm:p-6 lg:p-8 space-y-8 max-w-[1600px] w-full text-text font-body">
+      <main className="p-4 sm:p-6 lg:p-8 space-y-8 max-w-full w-full text-text font-body">
 
         {/* ── Section 1: Metrics Overview Cards ── */}
         <section>
-          <div className="flex items-center justify-between mb-4">
-            <span className="text-[12px] font-mono font-black text-black bg-neo-lime border-2 border-border-color px-3 py-1 rounded-xl shadow-hard-sm select-none">
+          <div className="flex items-center justify-between mb-2">
+            <span className="text-[12px] font-mono font-black text-darkteal bg-yellow-100 border border-border-color px-3 py-1 rounded-lg shadow-hard-sm select-none">
               ALL MIRRORS 100% HEALTHY
             </span>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-5">
+          <div className="grid grid-cols-1 w-full max-w-full sm:grid-cols-2 xl:grid-cols-4 gap-3">
             <StatCard title="Connected Cloud Providers" value={`${activeConnectedCount} / ${providers.length}`} icon="public/icon/cloudprove.svg" trend="Active" isPositive />
             <StatCard title="Total Vault Storage Used" value="3.56 TB" icon="public/icon/folderblue.svg" trend="10.0 TB Total" isPositive />
             <StatCard title="Mirror Download Traffic" value="18.4k" icon="public/icon/cloudprove.svg" trend="High-Speed" isPositive />
@@ -269,11 +269,11 @@ export default function AdminCloudPage() {
         </section>
 
         {/* ── Section 2: Vault Direct Mirror Link Generator Tool ── */}
-        <section className="bg-yellow-50 border-2 border-border-color p-6 rounded-2xl shadow-hard space-y-4">
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b-2 border-border-color/20 pb-4">
+        <section className="bg-yellow-50 border-2 border-border-color p-6 rounded-lg shadow-hard-sm space-y-1">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-5 border-b-2 border-border-color/20 pb-4">
             <div>
               <h3 className="font-head font-black text-xl text-darkteal uppercase tracking-tight mt-1">
-                Generate Direct Asset Cloud Mirror Links
+                ◯ Generate Direct Asset Cloud Mirror Links
               </h3>
               <p className="text-sm font-medium text-darkteal">
                 Select a vault asset and cloud provider to instantly generate a direct download mirror link for users.
@@ -283,7 +283,7 @@ export default function AdminCloudPage() {
             <Button
               variant="primary"
               onClick={() => setIsAddModalOpen(true)}
-              className="font-mono text-lg uppercase bg-yellow-green text-evergreen border-2 border-border-color shadow-hard-sm shrink-0"
+              className="font-mono text-lg uppercase bg-green-400 text-evergreen border-2 border-border-color shadow-hard-sm shrink-0"
             >+ ADD CLOUD PROVIDER
             </Button>
           </div>

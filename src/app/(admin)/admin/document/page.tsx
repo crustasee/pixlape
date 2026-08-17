@@ -182,7 +182,7 @@ export default function AdminDocumentPage() {
   return (
     <>
       <AdminHeader title="Documents & Articles Collection" breadcrumb={['Admin', 'Documents & Blogs']} />
-      <main className="p-4 sm:p-6 lg:p-8 space-y-8 max-w-[1600px] w-full text-text font-body">
+      <main className="w-full max-w-full p-4 sm:p-6 lg:p-8 space-y-8 max-w-[1600px] w-full text-text font-body">
 
         {/* ── Metrics Overview ── */}
         <section>
@@ -191,12 +191,12 @@ export default function AdminDocumentPage() {
               <h2 className="text-xs font-mono font-black uppercase tracking-widest text-text/75">Content Vault Telemetry</h2>
               <p className="text-xs text-text/80 font-medium">Articles, Guides, FAQs and Markdown docs displayed on public /blog and /help pages</p>
             </div>
-            <span className="text-[10px] font-mono font-black text-black bg-white border-2 border-border-color px-3 py-1 rounded-xl shadow-hard-sm select-none">
+            <span className="text-xs font-mono font-black text-black bg-white border border-border-color px-3 py-1 rounded-lg shadow-hard-sm select-none">
               PUBLISHED & LIVE SYNCED
             </span>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-5">
+          <div className="w-full max-w-full grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-5">
             <StatCard title="Total Published Docs" value={documents.length} icon="public/icon/blogtotal2.svg" trend="Live Sync" isPositive />
             <StatCard title="Blog Articles (/blog)" value={blogCount} icon="public/icon/blogtotal.svg" trend="Public" isPositive />
             <StatCard title="Help & FAQ Guides (/help)" value={helpCount} icon="public/icon/blogtotal.svg" trend="Public" isPositive />
@@ -205,7 +205,7 @@ export default function AdminDocumentPage() {
         </section>
 
         {/* ── Main Web Collection Controller Bar ── */}
-        <section className="bg-yellow-200 border-2 border-border-color p-6 rounded-xl shadow-hard space-y-5">
+        <section className="bg-yellow-200 border-2 border-border-color p-6 rounded-lg shadow-hard-sm space-y-3">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b-2 border-border-color/20 pb-4">
             <div>
               <h3 className="font-head font-black text-2xl text-evergreen uppercase tracking-tight mt-1">
@@ -221,7 +221,7 @@ export default function AdminDocumentPage() {
                 variant="primary"
                 className="font-mono text-lg uppercase bg-green-600 text-black border-1 border-border-color shadow-hard-sm shrink-0"
               >
-                ▶ NEW ARTICLE
+                + NEW ARTICLE
               </Button>
             </Link>
           </div>

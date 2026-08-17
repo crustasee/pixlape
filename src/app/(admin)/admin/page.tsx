@@ -56,11 +56,11 @@ export default function AdminDashboardPage() {
   return (
     <>
       <AdminHeader title="Admin Overview & Asset Management" />
-      <main className="p-4 sm:p-6 lg:p-8 space-y-8 max-w-[1920px] w-full text-text font-mono mx-auto">
+      <main className="flex flex-col p-4 sm:p-6 lg:p-8 space-y-8 max-w-full w-full text-text font-mono mx-auto">
 
         {/* ── Section 1: Metric Overview Cards ── */}
         <section>
-          <div className="flex items-center justify-between mb-4">
+          <div className="flex flex-col lg:flex-row w-full items-center justify-between mb-4">
             <div>
               <h2 className="text-lg font-mono font-black text-darkteal uppercase tracking-widest">Vault Dashboard Metrics</h2>
             </div>
@@ -68,7 +68,7 @@ export default function AdminDashboardPage() {
               ●●●○○ Sync
             </span>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-5">
+          <div className="w-full grid grid-cols-1 sm:grid-cols-3xl:grid-cols-4 gap-5">
             <StatCard title="Total Product" value={stats.totalAssets} icon="public/icon/01total.svg" trend="12%" isPositive />
             <StatCard title="Total Downloads" value="24.5k" icon="public/icon/01download.svg" trend="8%" isPositive />
             <StatCard title="Total Revenue" value="$4,850" icon="public/icon/finance.svg" trend="24%" isPositive />

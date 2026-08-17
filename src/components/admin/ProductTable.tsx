@@ -40,7 +40,7 @@ export const ProductTable: React.FC<ProductTableProps> = ({
             <IconRenderer icon={item.icon} alt={item.name} className="w-full h-full object-contain" />
           </div>
           <div className="min-w-0">
-            <div className="font-mono font-black text-darkteal hover:text-yellow-green transition-colors truncate max-w-[200px] sm:max-w-[280px] text-base uppercase tracking-tight">
+            <div className="font-mono font-black text-darkteal hover:text-yellow-200 transition-colors truncate max-w-[200px] sm:max-w-[280px] text-base uppercase tracking-tight">
               {item.name}
             </div>
             <div className="flex flex-wrap items-center gap-2 text-xs font-mono font-bold mt-1 text-darkteal">

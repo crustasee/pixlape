@@ -26,10 +26,10 @@ export const AssetGrid: React.FC<AssetGridProps> = ({
   onQuickView,
 }) => {
   return (
-    <main className="flex-1 w-full flex flex-col gap-4">
+    <main className="w-full flex flex-col gap-3">
       {/* Top Search Bar */}
-      <div className="rounded-lg shadow-sm search-bar-box bg-yellow-50 p-4">
-        <div className="rounded-lg search-bar-wrapper bg-yellow-100">
+      <div className="rounded search-bar-box bg-yellow-50">
+        <div className="search-bar-wrapper bg-yellow-100">
           <span className="search-bar-icon" aria-hidden="true">
             🖥️
           </span>
@@ -54,7 +54,7 @@ export const AssetGrid: React.FC<AssetGridProps> = ({
       </div>
 
       {/* Grid Controls Header */}
-      <div className="bg-yellow-green text-darkteal border border-border-color shadow-hard-sm rounded-lg p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-5">
+      <div className="bg-soft-linen text-darkteal border border-border-color shadow-hard-sm rounded-lg p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-5">
         <div className="flex items-center gap-3">
           <h2 className="font-head font-black text-xl md:text-2xl tracking-wider uppercase text-darkteal">
             {category.replace(/_/g, ' ')} TROVE ++

@@ -20,7 +20,7 @@ export function Table<T>({
   emptyMessage = 'No data available in catalog',
 }: TableProps<T>) {
   return (
-    <div className="w-full shadow-hard-sm">
+    <div className="overflow-x-auto shadow-hard-sm">
       <table className="w-full text-left text-sm text-text font-mono">
         <thead className="bg-yellow-green text-darkteal text-xs sm:text-sm font-black uppercase tracking-wider font-mono">
           <tr>

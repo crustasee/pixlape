@@ -24,10 +24,10 @@ export const ToolAccordionItem: React.FC<ToolAccordionItemProps> = ({
   title, 
   description,
   icon,
-  iconBg = 'bg-white',
+  iconBg = 'bg-soft-linen',
   category,
   badge,
-  badgeColor = 'bg-neo-lime text-black',
+  badgeColor = 'bg-yellow-100 text-black',
   isOpen,
   onToggle,
   quickAction,
@@ -35,34 +35,34 @@ export const ToolAccordionItem: React.FC<ToolAccordionItemProps> = ({
 }) => {
   return (
     <div
-      className={`border-1 border-border-color rounded-lg shadow-hard transition-all duration-200 overflow-hidden font-mono ${isOpen ? 'bg-yellow-green' : 'bg-yellow-green hover:translate-x-0.5 hover:-translate-y-0.5'
+      className={`border border-border-color rounded-lg shadow-hard transition-all duration-200 overflow-hidden font-mono ${isOpen ? 'bg-soft-linen' : 'bg-soft-linen hover:translate-x-0.5 hover:-translate-y-0.5'
         }`}
     >
       {/* ── Accordion List Header Bar ── */}
       <div
         onClick={onToggle}
-        className="p-4 sm:p-5 flex flex-col md:flex-row md:items-center justify-between gap-4 cursor-pointer select-none transition-colors hover:bg-black/5"
+        className="p-4 sm:p-5 flex flex-col md:flex-row md:items-center justify-between gap-4 cursor-pointer select-none transition-colors hover:bg-yellow-100"
       >
-        <div className="flex items-center gap-3 sm:gap-4 flex-1 min-w-0">
+        <div className="flex items-center gap-3 sm:gap-4 flex-1 min-w-full">
           {/* Index Pill */}
-          <span className="px-2.5 py-1 text-xs font-black bg-yellow-green text-darkteal border border-border-color rounded-lg shrink-0">
+          <span className="px-3 py-1 text-xs font-black bg-yellow-green text-darkteal border border-border-color rounded-lg shrink-0">
             #{index}
           </span>
 
           {/* Icon Box */}
           <div
-            className={`w-11 h-11 rounded-xl ${iconBg} border-2 border-border-color flex items-center justify-center p-2 shadow-hard-sm shrink-0`}
+            className={`w-11 h-11 rounded-lg ${iconBg} flex items-center justify-center p-1 shrink-0`}
           >
             <IconRenderer icon={icon} alt={title} className="w-6 h-6 object-contain" />
           </div>
 
           {/* Title & Description */}
           <div className="flex-1 min-w-0">
-            <div className="flex items-center gap-2 flex-wrap">
-              <h3 className="font-head font-bold uppercase text-base sm:text-xl text-darkteal tracking-tight truncate">
+            <div className="flex items-center gap-7 flex-wrap">
+              <h3 className="font-head font-bold uppercase text-base sm:text-xl text-evergreen tracking-tight truncate">
                 {title}
               </h3>
-              <span className="text-sm font-black uppercase px-2 py-0.5 bg-white/30 text-darkteal border border-border-color rounded">
+              <span className="text-sm font-black uppercase px-2 py-0.5 bg-green-200 text-darkteal border border-border-color rounded">
                 {category}
               </span>
               {badge && (
@@ -85,7 +85,7 @@ export const ToolAccordionItem: React.FC<ToolAccordionItemProps> = ({
             type="button"
             onClick={onToggle}
             aria-expanded={isOpen}
-            className={`w-7 h-7 rounded-lg bg-none border-1 border-white flex items-center justify-center font-black text-white shadow-medium hover:bg-neo-yellow transition-all duration-200 ${isOpen ? 'rotate-180 bg-neo-yellow' : ''
+            className={`w-7 h-7 rounded-lg bg-none border border-white flex items-center justify-center font-black text-white shadow-medium hover:bg-neo-yellow transition-all duration-200 ${isOpen ? 'rotate-180 bg-neo-yellow' : ''
               }`}
           >
             <svg

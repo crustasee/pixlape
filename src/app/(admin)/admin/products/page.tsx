@@ -56,16 +56,16 @@ export default function AdminProductsPage() {
   return (
     <>
       <AdminHeader title="Manage Product Assets" breadcrumb={['Admin', 'Products', 'Catalog']} />
-      <main className="p-4 sm:p-6 lg:p-8 space-y-6 max-w-[1600px] w-full text-text font-body">
+      <main className="p-4 sm:p-6 lg:p-8 space-y-6 max-w-full w-full text-text font-body">
 
         {/* Filter Controls & Search */}
-        <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 bg-yellow-green border-2 border-border-color p-4 rounded-2xl shadow-hard font-mono">
-          <div className="flex-1 max-w-md">
+        <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between bg-soft-linen border border-border-color p-4 rounded-lg shadow-hard-sm font-mono">
+          <div className="flex-1 max-w-full gap-10 p-4">
             <Input
               placeholder="🔍 Search asset name, tag, or description..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="border-2 border-border-color bg-white/50 focus:border-neo-pink text-xs font-bold rounded-xl shadow-hard-sm"
+              className="border border-border-color bg-white/50 focus:border-neo-pink text-xs font-bold rounded-lg shadow-hard-sm"
             />
           </div>
 

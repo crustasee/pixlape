@@ -169,7 +169,7 @@ export default function AdminToolsPage() {
       icon: 'public/icon/button/maintenance.svg',
       iconBg: 'bg-white',
       component: (
-        <div className="space-y-4 font-mono text-black">
+        <div className="space-y-7 font-mono text-black">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             <div className="p-4 bg-white/10 border border-border-color rounded-lg shadow-hard-sm space-y-3 flex flex-col justify-between">
               <div>
@@ -316,9 +316,9 @@ export default function AdminToolsPage() {
   return (
     <>
       <AdminHeader title="Admin Tools & System Utilities" breadcrumb={['Admin', 'Tools']} />
-      <main className="p-4 sm:p-6 lg:p-8 space-y-6 max-w-[1600px] w-full text-text font-body">
+      <main className="flexmax-w-full w-full lg:p-6 space-y-3 text-text font-body">
         {/* Top Info Banner */}
-        <div className="bg-yellow-green text-black border-2 border-border-color p-6 rounded-2xl shadow-hard flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+        <div className="bg-yellow-100 text-black border border-border-color p-4 rounded-lg shadow-hard-sm flex flex-col sm:flex-row items-start sm:items-center justify-between gap-1">
           <div>
             <div className="flex items-center gap-6">
               <span className="px-3 py-1 rounded bg-cayenne text-white font-mono text-xs font-black uppercase border border-border-color">
@@ -344,17 +344,17 @@ export default function AdminToolsPage() {
 
         {/* ── Expandable List View (Accordion Dropdown Menu) ── */}
         <div className="space-y-4">
-          <div className="flex bg-yellow-100 items-center justify-between font-mono text-sm p-3 rounded-xl border-2 border-border-color shadow-hard-sm">
+          <div className="flex bg-yellow-100 items-center justify-between font-mono text-sm p-2 rounded-sm border border-border-color shadow-hard-sm">
             <span className="font-black uppercase text-darkteal">
               Tool System List ({filteredTools.length} {filteredTools.length === 1 ? 'item' : 'items'})
             </span>
-            <span className="font-black text-neo-pink">
+            <span className="font-black text-neo-pink mr-4">
               {openItems.size} of {toolsList.length} Expanded
             </span>
           </div>
 
           {filteredTools.length === 0 ? (
-            <div className="bg-yellow-green border-2 border-border-color p-8 rounded-2xl shadow-hard text-center font-mono space-y-2">
+            <div className="bg-yellow-green border border-border-color p-8 rounded-lg shadow-hard-sm text-center font-mono space-y-">
               <div className="text-2xl">🔍</div>
               <div className="font-black text-sm text-black uppercase">No Tools Found</div>
               <div className="text-xs text-darkteal">
@@ -395,7 +395,7 @@ export default function AdminToolsPage() {
         </div>
 
         {/* ── Diagnostic Execution Log Console ── */}
-        <div className="bg-yellow-green border-2 border-border-color p-5 rounded-2xl shadow-hard space-y-3 font-mono text-xs">
+        <div className="bg-yellow-green border-2 border-border-color p-5 rounded-lg shadow-hard-sm space-y-3 font-mono text-xs">
           <div className="flex items-center justify-between border-b-2 border-border-color/20 pb-2">
             <span className="font-black uppercase text-darkteal flex items-center gap-2">
               <span>Diagnostic Execution Console</span>
@@ -422,7 +422,7 @@ export default function AdminToolsPage() {
           </div>
 
           {!isLogCollapsed && (
-            <div className="p-4 bg-evergreen text-neo-lime rounded-xl border-2 border-border-color min-h-30 max-h-55 overflow-y-auto leading-relaxed shadow-hard-sm space-y-1 font-mono">
+            <div className="p-4 bg-evergreen text-white rounded-lg border-2 border-border-color min-h-30 max-h-55 overflow-y-auto leading-relaxed shadow-hard-sm space-y-1 font-mono">
               {actionLog.length === 0 ? (
                 <span className="text-neo-lime/60 italic">{"// Console ready. Execute actions in any tool above to view logs..."}</span>
               ) : (

@@ -22,9 +22,6 @@ export const AssetDetailView: React.FC<AssetDetailViewProps> = ({ assetId }) => 
   const [asset, setAsset] = useState<AssetItem | null>(null);
   const [isPremiumMode, setIsPremiumMode] = useState<boolean>(false);
 
-  // Free Download State
-  const [downloading, setDownloading] = useState(false);
-  const [downloadSuccess, setDownloadSuccess] = useState(false);
 
   // Premium License & Checkout State
   const [selectedLicense] = useState<LicenseTier>('commercial');
@@ -81,19 +78,6 @@ export const AssetDetailView: React.FC<AssetDetailViewProps> = ({ assetId }) => 
   const tier = LICENSE_PRICES[selectedLicense];
   const finalPrice = tier.usd;
 
-  const handleDownload = () => {
-    setDownloading(true);
-    if (asset.downloadUrl && asset.downloadUrl.trim() !== '') {
-      if (typeof window !== 'undefined') {
-        window.open(asset.downloadUrl.trim(), '_blank');
-      }
-    }
-    setTimeout(() => {
-      setDownloading(false);
-      setDownloadSuccess(true);
-      setTimeout(() => setDownloadSuccess(false), 6000);
-    }, 1200);
-  };
 
   const copyShareLink = () => {
     if (typeof window !== 'undefined') {
@@ -166,25 +150,25 @@ export const AssetDetailView: React.FC<AssetDetailViewProps> = ({ assetId }) => 
           <div className="flex flex-col gap-4">
             <div className="flex flex-wrap items-center gap-4">
               {isPremiumMode ? (
-                <span className="bg-yellow-green text-darkteal border-1 border-border-color text-sm font-mono font-bold px-2 py-2 rounded-md uppercase tracking-wider">
+                <span className="bg-yellow-green text-darkteal border border-border-color text-sm font-mono font-bold px-2 py-2 rounded-md uppercase tracking-wider">
                   ❤️PREMIUM
                 </span>
               ) : (
-                <span className="bg-yellow-green text-darkteal border-1 border-border-color text-sm font-mono font-bold px-2 py-2 rounded-md uppercase tracking-wider">
+                <span className="bg-yellow-green text-darkteal border border-border-color text-sm font-mono font-bold px-2 py-2 rounded-md uppercase tracking-wider">
                   FREE DOWNLOAD
                 </span>
               )}
-              <span className="bg-yellow-green text-darkteal border-1 border-border-color text-sm font-mono font-bold px-2 py-2 rounded-md">
+              <span className="bg-yellow-green text-darkteal border border-border-color text-sm font-mono font-bold px-2 py-2 rounded-md">
                 {asset.tag || 'FEATURED'}
               </span>
-              <span className="bg-yellow-green text-darkteal border-1 border-border-color text-sm font-mono font-bold px-2 py-2 rounded-md">
+              <span className="bg-yellow-green text-darkteal border border-border-color text-sm font-mono font-bold px-2 py-2 rounded-md">
                 VERSION {asset.version || 'v1.0'}
               </span>
-              <span className="bg-yellow-green text-darkteal border-1 border-border-color text-sm font-mono font-bold px-2 py-2 rounded-md uppercase">
+              <span className="bg-yellow-green text-darkteal border border-border-color text-sm font-mono font-bold px-2 py-2 rounded-md uppercase">
                 {asset.category || 'ASSET'}
               </span>
               {asset.downloadUrl && (
-                <span className="bg-neo-pink text-white border-1 border-border-color text-sm font-mono font-bold px-2 py-2 rounded-md uppercase flex items-center gap-1">
+                <span className="bg-neo-pink text-white border border-border-color text-sm font-mono font-bold px-2 py-2 rounded-md uppercase flex items-center gap-1">
                   🔗 DIRECT EXTERNAL DOWNLOAD
                 </span>
               )}
@@ -290,51 +274,30 @@ export const AssetDetailView: React.FC<AssetDetailViewProps> = ({ assetId }) => 
           </div>
         </div>
 
-        {/* Bottom Action Footer Bar */}
+        {/* ======================Bottom Action Footer Bar=============================== */}
         <div className="border-t-2 border-border-color pt-8 flex flex-col gap-9">
-          {downloadSuccess ? (
-            <div className="p-4 bg-yellow-green text-evergreen border border-border-color font-mono font-black text-center text-sm rounded-xl shadow-hard animate-in zoom-in-95 duration-200">
-              DOWNLOAD PIPELINE STARTED SUCCESSFULLY! CHECK YOUR DOWNLOADS FOLDER.
-            </div>
-          ) : (
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-              {isPremiumMode ? (
-                <button
-                  onClick={() => setCheckoutModalOpen(true)}
-                  className="w-full py-6 px-8 font-mono font-black text-xl uppercase tracking-wider rounded-lg border-2 border-border-color bg-green-400 text-white shadow-hard hover:bg-green-300 hover:text-evergreen transition-all duration-200 hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-hard-lg cursor-pointer flex flex-col items-center justify-center"
-                >
-                  <span>DOWNLOAD</span>
-                  <span className="text-sm font-bold uppercase tracking-wider opacity-90">
-                    {`${selectedLicense} license — $${tier.usd} USD`}
-                  </span>
-                </button>
-              ) : (
-                <button
-                  onClick={handleDownload}
-                  disabled={downloading}
-                  className="w-full py-6 px-8 font-mono font-black text-lg uppercase tracking-wider rounded-lg border-2 border-border-color bg-yellow-green text-white shadow-hard hover:bg-yellow-green hover:text-evergreen transition-all duration-200 hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-hard-lg cursor-pointer disabled:opacity-70"
-                >
-                  {downloading
-                    ? 'PROCESSING DIRECT CDN LINK ●●●●●●●○○○○○○○○○'
-                    : `DOWNLOAD (${asset.size})`}
-                </button>
-              )}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <button
+              onClick={() => setCheckoutModalOpen(true)}
+              className="w-full py-6 px-8 font-mono font-black text-lg uppercase tracking-wider rounded-lg border-2 border-border-color bg-yellow-green text-white shadow-hard hover:bg-yellow-green hover:text-evergreen transition-all duration-200 hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-hard-lg cursor-pointer flex items-center justify-center gap-2"
+            >
+              DOWNLOAD {asset.size ? `(${asset.size})` : ''}
+            </button>
 
-              <a
-                href="https://ko-fi.com/X8H2252NMD"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-full"
+            <a
+              href="https://ko-fi.com/X8H2252NMD"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full"
+            >
+              <button
+                type="button"
+                className="w-full py-6 px-8 font-mono font-black text-lg uppercase tracking-wider rounded-xl border-2 border-border-color bg-yellow-500 text-black shadow-hard transition-all duration-200 hover:bg-yellow-300 hover:text-white hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-hard-lg cursor-pointer"
               >
-                <button
-                  type="button"
-                  className="w-full py-6 px-8 font-mono font-black text-lg uppercase tracking-wider rounded-xl border-2 border-border-color bg-yellow-500 text-black shadow-hard transition-all duration-200 hover:bg-yellow-300 hover:text-white hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-hard-lg cursor-pointer"
-                >
-                  ❤️ SUPPORT (DONATE)
-                </button>
-              </a>
-            </div>
-          )}
+                ❤️ SUPPORT (DONATE)
+              </button>
+            </a>
+          </div>
 
           <div className="text-center font-mono text-sm text-black">
             🔒 100% VirusTotal Clean • High-Speed CDN Mirror • Direct Instant Archive Access

@@ -40,9 +40,9 @@ export default function AdminChangelogPage() {
   return (
     <>
       <AdminHeader title="Audit Logs & System Changelog" breadcrumb={['Admin', 'Changelog']} />
-      <main className="p-4 sm:p-6 lg:p-8 max-w-4xl space-y-6 text-text font-body">
+      <main className="p-4 sm:p-6 lg:p-8 max-w-full space-y-2 text-text font-body">
         {changelog.map((item) => (
-          <div key={item.version} className="bg-yellow-green border-1 border-border-color p-6 rounded-2xl shadow-hard space-y-3">
+          <div key={item.version} className="bg-yellow-100 border border-border-color p-6 rounded-lg shadow-hard space-y-3">
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b-2 border-border-color/20 pb-2">
               <div className="flex items-center space-x-2.5">
                 <span className="px-2.5 py-1 bg-neo-yellow text-black font-mono text-xs rounded-md border border-border-color font-black shadow-[1.5px_1.5px_0_var(--border-color)]">
