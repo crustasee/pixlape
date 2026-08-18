@@ -179,7 +179,7 @@ export const EditDocumentModal: React.FC<EditDocumentModalProps> = ({
       isOpen={!!editingDoc}
       onClose={onClose}
       maxWidthClass="max-w-[1400px]"
-      className="bg-soft-linen border rounded-lg border-black text-black shadow-hard-sm text-evergreen"
+      className="bg-soft-linen border rounded-lg border-black shadow-hard-sm text-evergreen"
     >
       <div className="font-mono space-y-5" onKeyDown={handleKeyDown}>
         {/* ── Modal Header Header Banner ── */}
@@ -378,7 +378,7 @@ export const EditDocumentModal: React.FC<EditDocumentModalProps> = ({
                         type="file"
                         accept="image/*"
                         onChange={handleFileUpload}
-                        className="block w-full text-xs text-black font-mono border-2 border-black rounded-lg bg-white file:mr-3 file:py-2 file:px-3 file:rounded-md file:border-1 file:border-black file:text-xs file:font-black file:bg-yellow-300 hover:file:bg-yellow-400 cursor-pointer shadow-[2px_2px_0_#000]"
+                        className="block w-full text-xs text-black font-mono border border-black rounded-lg bg-white file:mr-3 file:py-2 file:px-3 file:rounded-md border border-black file:text-xs file:font-black file:bg-yellow-300 hover:file:bg-yellow-400 cursor-pointer shadow-[2px_2px_0_#000]"
                       />
                       <p className="text-[10px] text-black/60 font-mono">
                         Supports SVG, PNG, JPG, WEBP, GIF. File converts to persistent local data stream preview.
