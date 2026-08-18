@@ -49,9 +49,9 @@ export const Header: React.FC = () => {
               <Link
                 key={item.href}
                 href={item.href}
-                className={`font-mono text-xs font-black tracking-wider transition-all duration-200 px-3 py-1.5 rounded-xl border-2 focus:outline-none focus:ring-2 focus:ring-yellow-green focus:ring-offset-2 ${isActive
-                  ? 'bg-yellow-green text-darkteal border-border-color'
-                  : 'bg-yellow-100 text-darkteal font-mono text-sm border-transparent hover:bg-yellow-green hover:text-darkteal hover:border-border-color hover:shadow-[2px_2px_0_var(--border-color)]'
+                className={`font-mono text-xs font-black tracking-wider transition-all duration-200 px-4 py-1 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-green focus:ring-offset-2 ${isActive
+                  ? 'bg-yellow-100 text-cayenne'
+                  : 'bg-yellow-100 text-darkteal font-mono text-sm hover:bg-yellow-200 hover:text-darkteal hover:border hover:shadow-hard-sm'
                   }`}
                 aria-current={isActive ? 'page' : undefined}
               >
@@ -66,7 +66,7 @@ export const Header: React.FC = () => {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="md:hidden w-9 h-9 rounded-xl border-2 border-border-color bg-cayenne text-white flex items-center justify-center text-lg transition-all duration-200 hover:bg-yellow-green hover:text-evergreen hover:translate-x-0.5 hover:translate-y-0.5 hover:shadow-none shadow-[2px_2px_0_var(--border-color)] focus:outline-none focus:ring-2 focus:ring-yellow-green focus:ring-offset-2"
+            className="md:hidden w-9 h-9 rounded-lg border border-border-color bg-cayenne text-white flex items-center justify-center text-lg transition-all duration-200 hover:bg-yellow-green hover:text-evergreen hover:translate-x-0.5 hover:translate-y-0.5 hover:shadow-none shadow-[2px_2px_0_var(--border-color)] focus:outline-none focus:ring-2 focus:ring-yellow-green focus:ring-offset-2"
             aria-label={mobileMenuOpen ? 'Close menu' : 'Open menu'}
             aria-expanded={mobileMenuOpen}
           >
