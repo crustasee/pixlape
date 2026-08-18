@@ -2329,7 +2329,7 @@
       "format": "cjs"
     },
     ".open-next/server-functions/default/node_modules/next/dist/server/load-manifest.js": {
-      "bytes": 195847,
+      "bytes": 195845,
       "imports": [
         {
           "path": "fs",
@@ -3120,8 +3120,8 @@
       ],
       "format": "cjs"
     },
-    ".open-next/server-functions/default/.next/server/app/(admin)/admin/document/page.js": {
-      "bytes": 35722,
+    ".open-next/server-functions/default/.next/server/app/(admin)/admin/products/page.js": {
+      "bytes": 6411,
       "imports": [
         {
           "path": ".open-next/server-functions/default/node_modules/next/dist/client/components/action-async-storage.external.js",
@@ -3151,8 +3151,8 @@
       ],
       "format": "cjs"
     },
-    ".open-next/server-functions/default/.next/server/app/(admin)/admin/products/page.js": {
-      "bytes": 6411,
+    ".open-next/server-functions/default/.next/server/app/(admin)/admin/document/page.js": {
+      "bytes": 35722,
       "imports": [
         {
           "path": ".open-next/server-functions/default/node_modules/next/dist/client/components/action-async-storage.external.js",
@@ -4232,14 +4232,14 @@
           "original": "D:\\Projectweb\\modtlab\\PixlApe\\.open-next\\server-functions\\default\\.next\\server\\app\\(admin)\\admin\\changelog\\page.js"
         },
         {
-          "path": ".open-next/server-functions/default/.next/server/app/(admin)/admin/document/page.js",
-          "kind": "require-call",
-          "original": "D:\\Projectweb\\modtlab\\PixlApe\\.open-next\\server-functions\\default\\.next\\server\\app\\(admin)\\admin\\document\\page.js"
-        },
-        {
           "path": ".open-next/server-functions/default/.next/server/app/(admin)/admin/products/page.js",
           "kind": "require-call",
           "original": "D:\\Projectweb\\modtlab\\PixlApe\\.open-next\\server-functions\\default\\.next\\server\\app\\(admin)\\admin\\products\\page.js"
+        },
+        {
+          "path": ".open-next/server-functions/default/.next/server/app/(admin)/admin/document/page.js",
+          "kind": "require-call",
+          "original": "D:\\Projectweb\\modtlab\\PixlApe\\.open-next\\server-functions\\default\\.next\\server\\app\\(admin)\\admin\\document\\page.js"
         },
         {
           "path": ".open-next/server-functions/default/.next/server/app/(admin)/admin/settings/page.js",
@@ -6316,7 +6316,7 @@
           "bytesInOutput": 589
         },
         ".open-next/server-functions/default/node_modules/next/dist/server/load-manifest.js": {
-          "bytesInOutput": 178056
+          "bytesInOutput": 178054
         },
         ".open-next/server-functions/default/node_modules/next/dist/client/components/action-async-storage-instance.js": {
           "bytesInOutput": 767
@@ -6423,11 +6423,11 @@
         ".open-next/server-functions/default/.next/server/app/(admin)/admin/changelog/page.js": {
           "bytesInOutput": 4940
         },
-        ".open-next/server-functions/default/.next/server/app/(admin)/admin/document/page.js": {
-          "bytesInOutput": 36336
-        },
         ".open-next/server-functions/default/.next/server/app/(admin)/admin/products/page.js": {
           "bytesInOutput": 6592
+        },
+        ".open-next/server-functions/default/.next/server/app/(admin)/admin/document/page.js": {
+          "bytesInOutput": 36336
         },
         ".open-next/server-functions/default/.next/server/app/(admin)/admin/settings/page.js": {
           "bytesInOutput": 37394
@@ -6670,7 +6670,7 @@
           "bytesInOutput": 62412
         }
       },
-      "bytes": 2997863
+      "bytes": 2997861
     }
   }
 }
