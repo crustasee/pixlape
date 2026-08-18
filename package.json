@@ -8,6 +8,8 @@
     "start": "next start",
     "lint": "next lint",
     "postinstall": "prisma generate",
+    "build:cf": "opennextjs-cloudflare build --dangerouslyUseUnsupportedNextVersion",
+    "pages:build": "opennextjs-cloudflare build --dangerouslyUseUnsupportedNextVersion",
     "preview": "opennextjs-cloudflare build --dangerouslyUseUnsupportedNextVersion && opennextjs-cloudflare preview",
     "deploy": "opennextjs-cloudflare build --dangerouslyUseUnsupportedNextVersion && opennextjs-cloudflare deploy"
   },
