@@ -1,25 +1,10 @@
-import { PrismaClient } from '@prisma/client';
+import { prisma } from './prisma';
 
-declare global {
-  // eslint-disable-next-line no-var
-  var prisma: PrismaClient | undefined;
-}
-
-let prismaInstance: PrismaClient | null = null;
-try {
-  prismaInstance = globalThis.prisma || new PrismaClient();
-  if (process.env.NODE_ENV !== 'production' && prismaInstance) {
-    globalThis.prisma = prismaInstance;
-  }
-} catch (e) {
-  console.warn('⚠️ [Prisma] Could not initialize PrismaClient in this runtime:', e);
-}
-
-export const prisma = prismaInstance;
+export { prisma };
 
 let lastDbCheckTime = 0;
 let cachedDbStatus: boolean | null = null;
-const CACHE_TTL_MS = 5000; // 5 seconds cache for unreachable state
+const CACHE_TTL_MS = 5000;
 
 export async function checkDbConnection(): Promise<boolean> {
   const now = Date.now();
@@ -36,15 +21,15 @@ export async function checkDbConnection(): Promise<boolean> {
 
   try {
     const connectPromise = prisma.$connect();
-    const timeoutPromise = new Promise((_, reject) => 
-      setTimeout(() => reject(new Error('Database timeout')), 1000)
+    const timeoutPromise = new Promise((_, reject) =>
+      setTimeout(() => reject(new Error('Database timeout')), 2000)
     );
     await Promise.race([connectPromise, timeoutPromise]);
     cachedDbStatus = true;
     lastDbCheckTime = now;
     return true;
   } catch (err) {
-    console.warn("⚠️ PostgreSQL database is unreachable. Gracefully falling back to Mock Mode.");
+    console.warn('⚠️ PostgreSQL database is unreachable. Gracefully falling back to Mock Mode.');
     cachedDbStatus = false;
     lastDbCheckTime = now;
     return false;
