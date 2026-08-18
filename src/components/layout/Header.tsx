@@ -5,7 +5,6 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import Image from 'next/image';
 
-
 export const Header: React.FC = () => {
   const pathname = usePathname();
 

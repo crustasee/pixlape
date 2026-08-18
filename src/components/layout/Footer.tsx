@@ -17,7 +17,7 @@ import {
   CheckCircle2,
   Heart,
 } from 'lucide-react';
-import { Google, Github, Discord, TwitterFill12, Facebook } from '@/components/ui/icontype';
+import { Google, Github, Discord, TwitterFill12, Facebook } from '@/components/ui/icon';
 import { UserCommentSection } from '@/components/ui/UserCommentSection';
 
 const SOCIAL_LINKS = [

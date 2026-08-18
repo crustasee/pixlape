@@ -78,14 +78,14 @@ export const ToolAccordionItem: React.FC<ToolAccordionItemProps> = ({
         </div>
 
         {/* Header Right Actions & Chevron Toggle */}
-        <div className="items-center gap-3 shrink-0 self-end md:self-center" onClick={(e) => e.stopPropagation()}>
+        <div className="flex items-center gap-3 shrink-0 self-end md:self-center" onClick={(e) => e.stopPropagation()}>
           {quickAction}
 
           <button
             type="button"
             onClick={onToggle}
             aria-expanded={isOpen}
-            className={`w-7 h-7 rounded-lg bg-none border border flex items-center justify-center font-black text-white shadow-medium hover:bg-neo-yellow transition-all duration-200 ${isOpen ? 'rotate-180 bg-neo-yellow' : ''
+            className={`w-7 h-7 rounded-lg bg-none border border-white flex items-center justify-center font-black text-white shadow-medium hover:bg-neo-yellow transition-all duration-200 ${isOpen ? 'rotate-180 bg-neo-yellow' : ''
               }`}
           >
             <svg
