@@ -10,6 +10,8 @@ out/
 # Production & Builds
 build/
 dist/
+.open-next/
+.wrangler/
 
 # Misc & OS
 .DS_Store
@@ -29,6 +31,6 @@ yarn-error.log*
 # TypeScript build info
 *.tsbuildinfo
 
-# Aider
+# Aider & Prisma
 .aider*
 .prisma/

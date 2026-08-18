@@ -1,5 +1,0 @@
-Design :	Brush
-		App  > photosop, corell draw, illustrator, affinity
-		Plugins > photoshop plugins
-		Template > designs templates
-		Matterial
