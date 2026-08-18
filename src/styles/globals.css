@@ -1516,7 +1516,7 @@ nav.mainnav {
    ============================================================================= */
 
 .search-bar-box {
-  background-color: var(--c-yellow-green);
+  background-color: var(c-yellow-100);
   border: var(--border);
   box-shadow: var(--shadow-hard-sm);
   border-radius: 0.5rem;

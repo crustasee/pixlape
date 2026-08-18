@@ -137,12 +137,12 @@ export const Footer: React.FC = () => {
           </div>
 
           <div className="flex items-center gap-3">
-            <span className="px-3 py-1.5 rounded-xl bg-soft-linen text-evergreen border-2 border-border-color text-[14px] font-mono font-black uppercase shadow-[2px_2px_0_var(--border-color)]">
-              MODLab+Project
+            <span className="px-3 py-1.5 rounded-lg bg-yellow-100 text-darkteal border border-border-color text-[14px] font-mono font-black uppercase shadow-[2px_2px_0_var(--border-color)]">
+              MODTLab+Project
             </span>
             <button
               onClick={scrollToTop}
-              className="inline-flex items-center gap-2 px-4 py-2 text-sm font-mono font-black border-2 border-border-color rounded-xl bg-yellow-green text-darkteal shadow-hard-sm hover:bg-yellow-green hover:text-cayenne hover:translate-x-0.5 hover:translate-y-0.5 hover:shadow-none transition-all duration-200 cursor-pointer focus:outline-none focus:ring-2 focus:ring-yellow-green focus:ring-offset-2"
+              className="inline-flex items-center gap-2 px-4 py-2 text-sm font-mono font-black border order-border-color rounded-xl bg-yellow-green text-darkteal shadow-hard-sm hover:bg-yellow-green hover:text-cayenne hover:translate-x-0.5 hover:translate-y-0.5 hover:shadow-none transition-all duration-200 cursor-pointer focus:outline-none focus:ring-2 focus:ring-yellow-green focus:ring-offset-2"
               aria-label="Back to top"
             >
               <ArrowUp className="w-5 h-5" aria-hidden="true" />
