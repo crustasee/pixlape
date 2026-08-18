@@ -17,6 +17,7 @@ export interface DocumentItem {
     readTime?: string;
     tag?: string;
     icon?: string;
+    imageUrl?: string;
     content?: string;
 }
 

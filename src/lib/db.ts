@@ -5,11 +5,17 @@ declare global {
   var prisma: PrismaClient | undefined;
 }
 
-export const prisma = globalThis.prisma || new PrismaClient();
-
-if (process.env.NODE_ENV !== 'production') {
-  globalThis.prisma = prisma;
+let prismaInstance: PrismaClient | null = null;
+try {
+  prismaInstance = globalThis.prisma || new PrismaClient();
+  if (process.env.NODE_ENV !== 'production' && prismaInstance) {
+    globalThis.prisma = prismaInstance;
+  }
+} catch (e) {
+  console.warn('⚠️ [Prisma] Could not initialize PrismaClient in this runtime:', e);
 }
+
+export const prisma = prismaInstance;
 
 let lastDbCheckTime = 0;
 let cachedDbStatus: boolean | null = null;
@@ -19,6 +25,12 @@ export async function checkDbConnection(): Promise<boolean> {
   const now = Date.now();
   if (cachedDbStatus === true) return true;
   if (cachedDbStatus === false && now - lastDbCheckTime < CACHE_TTL_MS) {
+    return false;
+  }
+
+  if (!prisma) {
+    cachedDbStatus = false;
+    lastDbCheckTime = now;
     return false;
   }
 

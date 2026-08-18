@@ -11,14 +11,14 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
     return (
       <div className="w-full space-y-1.5 font-mono">
         {label && (
-          <label htmlFor={id} className="block text-[16px] font-mono font-black text-black uppercase tracking-wider select-none">
+          <label htmlFor={id} className="block text-lg font-mono font-black text-darkteal uppercase tracking-wider select-none">
             {label}
           </label>
         )}
         <input
           ref={ref}
           id={id}
-          className={`w-full px-3.5 py-2.5 bg-white/50 border-1 border-border-color rounded-lg text-[16px] font-mono font-bold text-black placeholder-text/50 focus:outline-none focus:border-neo-pink shadow-hard-sm transition-colors ${error ? 'border-neo-pink focus:border-neo-pink' : ''
+          className={`w-full px-3.5 py-2.5 bg-white border border-border-color rounded-lg text-lg font-mono font-bold text-evergreen placeholder focus:outline-none focus:border-neo-pink shadow-hard-sm transition-colors ${error ? 'border-neo-pink focus:border-neo-pink' : ''
             } ${className}`}
           aria-invalid={error ? 'true' : 'false'}
           aria-describedby={error ? `${id}-error` : undefined}

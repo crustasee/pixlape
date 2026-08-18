@@ -325,7 +325,7 @@ export default function AdminCloudPage() {
               <Button
                 variant="primary"
                 onClick={handleGenerateMirror}
-                className="w-[300px] py-4 font-pixel text-2xl bg-yellow-400 text-darkteal border-2 border-border-color shadow-hard-sm"
+                className="w-75 py-4 font-pixel text-2xl bg-yellow-400 text-darkteal border-2 border-border-color shadow-hard-sm"
               >●●●○○ GENERATE LINK
               </Button>
             </div>

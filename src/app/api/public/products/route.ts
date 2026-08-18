@@ -19,7 +19,7 @@ export async function OPTIONS() {
 export async function GET() {
   try {
     const isConnected = await checkDbConnection();
-    if (!isConnected) {
+    if (!isConnected || !prisma) {
       const res = NextResponse.json({ success: true, data: ASSETS_DATA });
       return addCorsHeaders(res);
     }

@@ -31,7 +31,7 @@ export async function GET(
     }
 
     const isConnected = await checkDbConnection();
-    if (!isConnected) {
+    if (!isConnected || !prisma) {
       const product = ASSETS_DATA.find((a: AssetItem) => String(a.id) === params.id);
       if (!product) {
         const res = NextResponse.json({ success: false, error: 'Product not found' }, { status: 404 });
@@ -72,7 +72,7 @@ export async function PUT(
     const body = (await req.json()) as Record<string, unknown>;
 
     const isConnected = await checkDbConnection();
-    if (!isConnected) {
+    if (!isConnected || !prisma) {
       // Mock mode fallback
       const updatedProduct = { id: params.id, ...body };
       const res = NextResponse.json({ success: true, data: updatedProduct });
@@ -117,7 +117,7 @@ export async function DELETE(
     }
 
     const isConnected = await checkDbConnection();
-    if (!isConnected) {
+    if (!isConnected || !prisma) {
       const res = NextResponse.json({ success: true, message: `Product ${params.id} deleted successfully` });
       return addCorsHeaders(res);
     }

@@ -65,7 +65,7 @@ export default function AdminProductsPage() {
               placeholder="🔍 Search asset name, tag, or description..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="border border-border-color bg-white/50 focus:border-neo-pink text-xs font-bold rounded-lg shadow-hard-sm"
+              className="text-xs font-bold"
             />
           </div>
 

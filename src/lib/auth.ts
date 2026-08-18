@@ -15,7 +15,8 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
   pages: {
     signIn: "/login",
   },
-  secret: process.env.NEXTAUTH_SECRET || "dev-secret-key-pixlape",
+  secret: process.env.AUTH_SECRET || process.env.NEXTAUTH_SECRET || "dev-secret-key-pixlape",
+  trustHost: true,
   providers: [
     Credentials({
       name: "credentials",
@@ -32,24 +33,26 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
         const password = credentials.password as string;
 
         // 1. Cek PostgreSQL via Prisma jika DB terhubung
-        try {
-          const user = await prisma.user.findUnique({
-            where: { email },
-          });
+        if (prisma) {
+          try {
+            const user = await prisma.user.findUnique({
+              where: { email },
+            });
 
-          if (user && user.password) {
-            const isValid = await bcrypt.compare(password, user.password);
-            if (isValid) {
-              return {
-                id: user.id,
-                email: user.email,
-                name: user.name || "Admin User",
-                role: user.role || "ADMIN",
-              };
+            if (user && user.password) {
+              const isValid = await bcrypt.compare(password, user.password);
+              if (isValid) {
+                return {
+                  id: user.id,
+                  email: user.email,
+                  name: user.name || "Admin User",
+                  role: user.role || "ADMIN",
+                };
+              }
             }
+          } catch (dbErr) {
+            console.warn("⚠️ [Auth] Database user query fallback:", dbErr);
           }
-        } catch (dbErr) {
-          console.warn("⚠️ [Auth] Database user query fallback:", dbErr);
         }
 
         // 2. Fallback Kredensial Admin Default (untuk dev/demo/tanpa seeding DB)

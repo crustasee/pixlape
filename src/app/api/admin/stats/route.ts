@@ -30,7 +30,7 @@ export async function GET(req: Request) {
     let totalRevenue = 49.0;
     let activeUsers = 1240;
 
-    if (isConnected) {
+    if (isConnected && prisma) {
       try {
         const prodCount = await prisma.product.count();
         if (prodCount > 0) {

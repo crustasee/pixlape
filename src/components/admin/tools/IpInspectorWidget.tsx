@@ -124,7 +124,7 @@ export const IpInspectorWidget: React.FC<IpInspectorWidgetProps> = ({ onLog, sho
             placeholder="Enter custom IP address (e.g. 8.8.8.8)..."
             value={searchIp}
             onChange={(e) => setSearchIp(e.target.value)}
-            className="border-1 border-border-color bg-white/40 font-mono text-xs font-black shadow-soft"
+            className="border border-border-color bg-white/40 font-mono text-xs font-black shadow-soft"
           />
         </div>
         <Button
@@ -139,7 +139,7 @@ export const IpInspectorWidget: React.FC<IpInspectorWidgetProps> = ({ onLog, sho
       </div>
 
       {/* IP Inspection Result Card */}
-      <div className="bg-evergreen p-4 rounded-sm border-1 border-border-color shadow-soft space-y-3 font-mono text-xs">
+      <div className="bg-evergreen p-4 rounded-sm border border-border-color shadow-soft space-y-3 font-mono text-xs">
         <div className="flex items-center justify-between border-b-2 border-border-color/20 pb-2">
           <div>
             <span className="text-[12px] font-black text-green-400 uppercase block">TARGET IP ADDRESS</span>

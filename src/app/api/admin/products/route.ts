@@ -28,7 +28,7 @@ export async function GET(req: Request) {
     }
 
     const isConnected = await checkDbConnection();
-    if (!isConnected) {
+    if (!isConnected || !prisma) {
       const res = NextResponse.json({ success: true, data: ASSETS_DATA });
       return addCorsHeaders(res);
     }
@@ -68,7 +68,7 @@ export async function POST(req: Request) {
 
     const isConnected = await checkDbConnection();
 
-    if (!isConnected) {
+    if (!isConnected || !prisma) {
       // Mock mode fallback
       const newProduct = {
         id: `AST-${Date.now()}`,

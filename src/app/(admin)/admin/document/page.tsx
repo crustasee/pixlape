@@ -10,6 +10,7 @@ import { Modal } from '@/components/ui/Modal';
 import { BLOG_POSTS } from '@/data/blogs';
 import { FAQ_ITEMS } from '@/data/faqs';
 import { CardBlogs, DocumentItem } from '@/components/admin/CardBlogs';
+import { EditDocumentModal } from '@/components/admin/EditDocumentModal';
 
 const INITIAL_DOCUMENTS: DocumentItem[] = [
   // Blog Articles (Main Web /blog)
@@ -137,12 +138,9 @@ export default function AdminDocumentPage() {
     setNewDoc({ title: '', excerpt: '', category: 'General', targetTab: 'Blog Tab', author: 'PIXLApe Admin', tag: 'NEW', icon: '📄' });
   };
 
-  const handleUpdateDocument = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!editingDoc) return;
-
+  const handleUpdateDocument = (updatedDoc: DocumentItem) => {
     setDocuments((prev) =>
-      prev.map((d) => (d.id === editingDoc.id ? editingDoc : d))
+      prev.map((d) => (d.id === updatedDoc.id ? updatedDoc : d))
     );
     setEditingDoc(null);
   };
@@ -182,7 +180,7 @@ export default function AdminDocumentPage() {
   return (
     <>
       <AdminHeader title="Documents & Articles Collection" breadcrumb={['Admin', 'Documents & Blogs']} />
-      <main className="w-full max-w-full p-4 sm:p-6 lg:p-8 space-y-8 max-w-[1600px] w-full text-text font-body">
+      <main className="w-full max-w-[1600px] p-4 sm:p-6 lg:p-8 space-y-8 text-text font-body">
 
         {/* ── Metrics Overview ── */}
         <section>
@@ -219,7 +217,7 @@ export default function AdminDocumentPage() {
             <Link href="/admin/document/new">
               <Button
                 variant="primary"
-                className="font-mono text-lg uppercase bg-green-600 text-black border-1 border-border-color shadow-hard-sm shrink-0"
+                className="font-mono text-lg uppercase bg-green-600 text-black border border-border-color shadow-hard-sm shrink-0"
               >
                 + NEW ARTICLE
               </Button>
@@ -379,77 +377,11 @@ export default function AdminDocumentPage() {
         </Modal>
 
         {/* Modal: Edit Existing Document */}
-        <Modal
-          isOpen={!!editingDoc}
+        <EditDocumentModal
+          editingDoc={editingDoc}
           onClose={() => setEditingDoc(null)}
-          title={editingDoc ? `Edit Document: ${editingDoc.title}` : ''}
-        >
-          {editingDoc && (
-            <form onSubmit={handleUpdateDocument} className="space-y-4 font-mono text-xs text-text">
-              <div>
-                <label className="block text-xs font-black uppercase text-text mb-1">Document Title</label>
-                <Input
-                  value={editingDoc.title}
-                  onChange={(e) => setEditingDoc({ ...editingDoc, title: e.target.value })}
-                  className="border-2 border-border-color bg-white text-xs font-bold shadow-hard-sm"
-                  required
-                />
-              </div>
-
-              <div className="grid grid-cols-2 gap-4">
-                <div>
-                  <label className="block text-xs font-black uppercase text-text mb-1">Category</label>
-                  <Input
-                    value={editingDoc.category}
-                    onChange={(e) => setEditingDoc({ ...editingDoc, category: e.target.value })}
-                    className="border-2 border-border-color bg-white text-xs font-bold shadow-hard-sm"
-                  />
-                </div>
-                <div>
-                  <label className="block text-xs font-black uppercase text-text mb-1">Target Web Tab</label>
-                  <select
-                    value={editingDoc.targetTab}
-                    onChange={(e) => setEditingDoc({ ...editingDoc, targetTab: e.target.value as any })}
-                    className="w-full px-3 py-2 bg-white border-2 border-border-color rounded-xl text-xs font-bold text-text focus:outline-none shadow-hard-sm"
-                  >
-                    <option value="Blog Tab">Blog Tab (/blog)</option>
-                    <option value="Help Center Tab">Help Center Tab (/help)</option>
-                    <option value="Legal & Policy Tab">Legal & Policy Tab (/privacy-polish)</option>
-                    <option value="Markdown System Doc">Markdown System Doc (/preview/9)</option>
-                  </select>
-                </div>
-              </div>
-
-              <div>
-                <label className="block text-xs font-black uppercase text-text mb-1">Excerpt / Content</label>
-                <textarea
-                  value={editingDoc.excerpt}
-                  onChange={(e) => setEditingDoc({ ...editingDoc, excerpt: e.target.value })}
-                  rows={5}
-                  className="w-full px-3.5 py-2.5 bg-white border rounded-xl text-xs font-medium text-text focus:outline-none shadow-hard-sm leading-relaxed"
-                />
-              </div>
-
-              <div className="pt-2 flex justify-end gap-2">
-                <Button
-                  type="button"
-                  variant="neutral"
-                  onClick={() => setEditingDoc(null)}
-                  className="font-mono text-xs font-black uppercase"
-                >
-                  CANCEL
-                </Button>
-                <Button
-                  type="submit"
-                  variant="primary"
-                  className="font-mono text-xs font-black uppercase bg-neo-lime text-black border-2 border-border-color shadow-hard-sm"
-                >
-                  💾 SAVE CHANGES
-                </Button>
-              </div>
-            </form>
-          )}
-        </Modal>
+          onSave={handleUpdateDocument}
+        />
 
       </main>
     </>

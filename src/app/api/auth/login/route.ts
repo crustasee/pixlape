@@ -31,7 +31,7 @@ export async function POST(req: Request) {
 
     const isConnected = await checkDbConnection();
 
-    if (!isConnected) {
+    if (!isConnected || !prisma) {
       // Fallback for mocked mode if DB not connected
       const defaultEmail = (process.env.ADMIN_EMAIL || 'admin@store.com').toLowerCase();
       const defaultPassword = process.env.ADMIN_PASSWORD || 'admin123';

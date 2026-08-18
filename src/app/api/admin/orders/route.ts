@@ -42,7 +42,7 @@ export async function GET(req: Request) {
     ];
 
     const isConnected = await checkDbConnection();
-    if (!isConnected) {
+    if (!isConnected || !prisma) {
       const res = NextResponse.json({ success: true, data: dummyOrders });
       return addCorsHeaders(res);
     }

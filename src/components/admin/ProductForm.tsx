@@ -187,24 +187,21 @@ export const ProductForm: React.FC<ProductFormProps> = ({
   };
 
   return (
-    <form onSubmit={handleSubmit} className="w-full max-w-full space-y-8 select-none font-mono text-text">
+    <form onSubmit={handleSubmit} className="w-full max-w-full space-y-8 select-none font-mono">
 
-      {/* ── Sticky Configurator Control Header ── */}
-      <div className="bg-yellow-green p-3 rounded-lg border border-border-color shadow-hard-sm flex flex-col md:flex-row items-start md:items-center justify-between gap-4 sticky top-20 z-20">
+      {/* ──======================== Sticky Configurator Control Header ========================── */}
+      <div className="bg-yellow-green p-3 rounded-lg border border-border-color shadow-hard-sm flex flex-col md:flex-row items-start md:items-center justify-between gap-3 sticky top-15 z-15">
         <div>
-          <div className="flex items-center gap-6">
-            <span className="px-3 py-1 rounded-md text-xs font-mono font-black uppercase tracking-wider bg-cayenne text-soft-linen border border-border-color shadow-[2px_2px_0_var(--border-color)]">
-              MANAGE CONTENT
-            </span>
+          <div className="flex items-center gap-3">
           </div>
-          <h2 className="text-xl font-black text-darkteal font-mono tracking-tight uppercase mt-1">
+          <h2 className="text-2xl font-black font-mono text-darkteal tracking-tight uppercase">
             {initialData?.name ? `Edit Asset: ${initialData.name}` : 'Create New Asset Product'}
           </h2>
         </div>
 
         <div className="flex items-center gap-3 w-full md:w-auto justify-end">
           <Link href="/admin/products">
-            <Button type="button" variant="neutral" className="font-mono text-xl font-black uppercase bg-cayenne text-white py-2.5 px-3">
+            <Button type="button" variant="neutral" className="font-mono text-xl font-black uppercase bg-cayenne text-white px-9">
               cancel
             </Button>
           </Link>
@@ -212,7 +209,7 @@ export const ProductForm: React.FC<ProductFormProps> = ({
             type="submit"
             disabled={isSubmitting}
             variant="primary"
-            className="font-mono text-sm font-black text-darkteal uppercase bg-green-500 border-2 border-border-color hover:translate-x-0.5 hover:translate-y-0.5 transition-all flex items-center gap-2 py-2.5 px-5 cursor-pointer"
+            className="font-mono text-sm font-black text-darkteal uppercase bg-green-500 border border-border-color hover:translate-x-0.5 hover:translate-y-0.5 transition-all py-2.5 px-9 cursor-pointer"
           >
             <span>{isSubmitting ? 'SAVING...' : initialData?.name ? 'SAVE' : 'PUBLISH ASSET'}</span>
           </Button>
@@ -220,14 +217,14 @@ export const ProductForm: React.FC<ProductFormProps> = ({
       </div>
 
       {/* ── Main Form Layout: 2 Columns (Form Fields + Live Interactive Preview Card) ── */}
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+      <div className="grid grid-cols-1 items-start">
 
         {/* ── LEFT / MAIN FORM AREA (8 Cols) - UNIFIED BEIGE PANEL ── */}
-        <div className="lg:col-span-8 bg-yellow-100 p-6 sm:p-8 rounded-2xl border-2 border-border-color shadow-hard-lg space-y-8 font-mono">
+        <div className="lg:col-span-8 bg-yellow-50 p-6 sm:p-8 rounded-lg border border-border-color shadow-hard-sm space-y-8 font-mono">
 
           {/* Section 1: Basic Information */}
           <div className="space-y-5">
-            <h3 className="text-base sm:text-xl font-mono font-black uppercase tracking-widest text-darkteal border-b-2 border-border-color/20 pb-3 flex items-center gap-7">
+            <h3 className="text-base sm:text-xl font-mono font-black uppercase tracking-widest text-darkteal border-b-2 border-border-color pb-3 flex items-center gap-5">
               <span>▶ Primary Product Information</span>
             </h3>
 
@@ -293,8 +290,8 @@ export const ProductForm: React.FC<ProductFormProps> = ({
 
           {/* Section 2: Icon & Cover Media */}
           <div className="space-y-5">
-            <div className="border-b-2 border-border-color/20 pb-3 flex items-center justify-between">
-              <h3 className="text-base sm:text-xl font-mono font-black uppercase tracking-widest text-darkteal flex items-center gap-7">
+            <div className="border-border-color flex items-center justify-between">
+              <h3 className="text-base sm:text-lg font-mono font-black uppercase tracking-widest text-darkteal flex items-center gap-5">
                 <span>◯ INSERT ICON & IMAGE</span>
               </h3>
               <button
@@ -306,8 +303,8 @@ export const ProductForm: React.FC<ProductFormProps> = ({
               </button>
             </div>
 
-            <div className="flex flex-col sm:flex-row items-center gap-4 bg-yellow-100 p-5 rounded-xl border-2 border-border-color shadow-hard-sm">
-              <div className="w-20 h-20 rounded-2xl bg-white border border-border-color flex items-center justify-center shrink-0 shadow-hard-sm overflow-hidden p-2.5">
+            <div className="flex flex-col sm:flex-row items-center gap-4 bg-yellow-50 p-5 rounded-lg border border-border-color shadow-hard-sm">
+              <div className="w-20 h-20 rounded-lg bg-white border border-border-color flex items-center justify-center shrink-0 shadow-hard-sm overflow-hidden p-2.5">
                 <IconRenderer icon={currentActiveIcon} alt="Icon Preview" className="w-full h-full object-contain" />
               </div>
 
@@ -364,7 +361,7 @@ export const ProductForm: React.FC<ProductFormProps> = ({
                 ) : (
                   <div className="space-y-1">
                     <Input
-                      label="Custom Icon Image Path or URL (/icon/shared/addasset.svg)"
+                      label="Add Icon Path (.svg/.png./.webp/.gif/.ico/.jpg)"
                       placeholder="/icon/shared/addasset.svg"
                       value={customIconUrl}
                       onChange={(e) => setCustomIconUrl(e.target.value)}
@@ -375,7 +372,7 @@ export const ProductForm: React.FC<ProductFormProps> = ({
             </div>
 
             <Input
-              label="Banner Image Cover Path (/Assets/img/...)"
+              label="◯ Banner Image Cover Path (/Assets/img/...)"
               name="bannerImage"
               placeholder="/Assets/img/cdraw.png"
               value={formData.bannerImage}
@@ -383,16 +380,16 @@ export const ProductForm: React.FC<ProductFormProps> = ({
             />
           </div>
 
-          <div className="border-t-2 border-border-color/20 my-6" />
+          <div className="border-t-2 border-border-color my-6" />
 
           {/* Section 3: Pricing, OS & License */}
           <div className="space-y-5">
-            <h3 className="text-base sm:text-lg font-mono font-black uppercase tracking-widest text-darkteal border-b-2 border-border-color/20 pb-3 flex items-center gap-6">
+            <h3 className="text-base sm:text-lg font-mono font-black uppercase tracking-widest text-darkteal pb-3 flex items-center gap-4">
               <span>◯ Access Tier, Pricing & Operating Systems</span>
             </h3>
 
             {/* Pro Vault Toggle */}
-            <div className="flex items-center justify-between p-4 bg-yellow-100 border-2 border-border-color rounded-xl shadow-hard-sm">
+            <div className="flex items-center justify-between p-4 bg-yellow-100 border border-border-color rounded-lg shadow-hard-sm">
               <div>
                 <span className="font-mono font-black text-sm uppercase text-darkteal block">Pro Vault Access Tier</span>
                 <span className="text-xs font-mono font-bold text-darkteal">Exclusive for Pro membership users</span>
@@ -402,13 +399,13 @@ export const ProductForm: React.FC<ProductFormProps> = ({
                 name="isPremium"
                 checked={formData.isPremium}
                 onChange={handleChange}
-                className="w-6 h-6 rounded border-2 border-border-color text-neo-pink focus:ring-0 cursor-pointer"
+                className="w-6 h-6 rounded border border-border-color focus:ring-0 cursor-pointer"
               />
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+            <div className="flex flex-col w-2xl gap-4">
               <Input
-                label="Price (USD $)"
+                label="▷ Price (USD $)"
                 name="price"
                 type="number"
                 step="0.01"
@@ -418,86 +415,40 @@ export const ProductForm: React.FC<ProductFormProps> = ({
               />
 
               {/* Version Presets */}
-              <div className="space-y-1">
+              <div className="space-y-1 flex flex-col">
                 <Input
-                  label="Build Version Tag"
+                  label="▷ Build Version Tag"
                   name="version"
                   placeholder="v2026.1"
                   value={formData.version}
                   onChange={handleChange}
                 />
-                <div className="flex gap-2 pt-1.5">
-                  {versionPresets.map((vp) => (
-                    <button
-                      key={vp}
-                      type="button"
-                      onClick={() => setFormData((prev) => ({ ...prev, version: vp }))}
-                      className="px-2.5 py-1 text-xs font-mono font-black bg-yellow-green border-border-color rounded-md hover:bg-neo-yellow cursor-pointer shadow-[1px_1px_0_var(--border-color)] text-black"
-                    >
-                      {vp}
-                    </button>
-                  ))}
-                </div>
               </div>
             </div>
 
             {/* Size & License Presets */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+            <div className="flex flex-col w-2xl md:grid-cols-2 gap-4">
               <div className="space-y-1">
                 <Input
-                  label="Download Size"
+                  label="▷ Download Size"
                   name="size"
                   placeholder="2.4 GB"
                   value={formData.size}
                   onChange={handleChange}
                 />
-                <div className="flex flex-wrap gap-2 pt-1.5">
-                  {sizePresets.map((sp) => (
-                    <button
-                      key={sp}
-                      type="button"
-                      onClick={() => setFormData((prev) => ({ ...prev, size: sp }))}
-                      className="px-2.5 py-1 text-xs font-mono font-black bg-yellow-green border-border-color rounded-md hover:bg-neo-cyan cursor-pointer shadow-[1px_1px_0_var(--border-color)] text-black"
-                    >
-                      {sp}
-                    </button>
-                  ))}
-                </div>
-              </div>
-
-              <div className="space-y-1">
-                <Input
-                  label="License Terms"
-                  name="license"
-                  placeholder="CC0 1.0 Universal"
-                  value={formData.license}
-                  onChange={handleChange}
-                />
-                <div className="flex flex-wrap gap-2 pt-1.5">
-                  {licensePresets.map((lp) => (
-                    <button
-                      key={lp}
-                      type="button"
-                      onClick={() => setFormData((prev) => ({ ...prev, license: lp }))}
-                      className="px-2.5 py-1 text-xs font-mono font-black bg-yellow-green border-border-color rounded-md hover:bg-neo-lime cursor-pointer shadow-[1px_1px_0_var(--border-color)] text-black"
-                    >
-                      {lp.split(' ')[0]}
-                    </button>
-                  ))}
-                </div>
               </div>
             </div>
 
-            {/* External Target Download URL Field */}
-            <div className="space-y-1">
+            {/* ==============================External Target Download URL Field ============================*/}
+            <div className="border border-black rounded-lg p-5 shadow-hard-sm bg-yellow-100 space-y-1">
               <Input
                 label="◯ URL External Target Download (Direct CDN / Download Mirror)"
                 name="downloadUrl"
-                placeholder="e.g. https://github.com/user/repo/releases/download/v1.0/installer.exe or https://drive.google.com/..."
+                placeholder="e.g. https://drive.google.com/..."
                 value={formData.downloadUrl}
                 onChange={handleChange}
               />
-              <p className="text-xs font-mono font-bold text-darkteal mt-2">
+              <p className="text-sm font-mono font-bold text-yellow-green mt-5">
                 🔗 If set, users clicking &quot;DOWNLOAD&quot; on the public asset detail page will be directed to this external link.
               </p>
             </div>
@@ -515,9 +466,9 @@ export const ProductForm: React.FC<ProductFormProps> = ({
                       key={os.id}
                       type="button"
                       onClick={() => toggleOS(os.id)}
-                      className={`px-3.5 py-3 rounded-xl border-2 font-mono text-xs sm:text-sm font-black uppercase transition-all flex items-center justify-between cursor-pointer ${isSelected
-                        ? 'bg-green-400 text-black border-border-color shadow-[2px_2px_0_var(--border-color)]'
-                        : 'bg-cayenne text-darkteal border-border-color hover:bg-neo-yellow'
+                      className={`px-3.5 py-3 rounded-lg border font-mono sm:text-sm font-black uppercase transition-all flex items-center justify-between cursor-pointer ${isSelected
+                        ? 'bg-green-400 text-evergreen border-border-color shadow-[2px_2px_0_var(--border-color)]'
+                        : 'bg-red-300 text-cayenne border-border-color hover:bg-green-200'
                         }`}
                     >
                       <span>{os.label}</span>
@@ -529,25 +480,25 @@ export const ProductForm: React.FC<ProductFormProps> = ({
             </div>
           </div>
 
-          <div className="border-t-2 border-border-color/20 my-6" />
 
           {/* Section 4: Markdown Documentation Specs */}
-          <div className="space-y-5">
-            <h3 className="text-base sm:text-lg font-mono font-black uppercase tracking-widest text-darkteal border-b-2 border-border-color/20 pb-3 flex items-center gap-6">
+          <div className="border border-border-color bg-yellow-100 rounded-lg p-5 shadow-hard-sm space-y-5">
+            <h3 className="text-base sm:text-lg font-mono font-black uppercase tracking-widest text-darkteal pb-3 flex items-center gap-6">
               <span>◯ DOCUMENTATION OVERVIEW</span>
             </h3>
 
             <Input
-              label="◯ Description Data ( /public/DescriptionData/...)"
+              label="Description (/public/Description/...)"
               name="markdownFile"
               placeholder="/DescriptionData/CorelDraw2026.md"
               value={formData.markdownFile}
               onChange={handleChange}
+              className="bg-green-200 text-sm"
             />
 
             <div className="space-y-2">
               <label className="block text-[14px] font-mono font-black uppercase tracking-wider text-darkteal">
-               +++++++++++++++Markdown Details+++++++++++++
+               ≡ Markdown Details
               </label>
               <textarea
                 name="detailsMarkdown"
@@ -561,7 +512,7 @@ export const ProductForm: React.FC<ProductFormProps> = ({
 
             <div className="space-y-2">
               <label className="block text-sm font-mono font-black uppercase tracking-wider text-darkteal">
-                +++++++++++++++Requirements+++++++++++++
+                ≡ Requirements
               </label>
               <textarea
                 name="detailsMarkdown"
@@ -578,7 +529,7 @@ export const ProductForm: React.FC<ProductFormProps> = ({
 
         {/* ── RIGHT COLUMN (4 Cols): LIVE INTERACTIVE ASSET STORE PREVIEW CARD ── */}
         <div className="lg:col-span-4 space-y-6 sticky top-40">
-          <div className="bg-yellow-100 p-6 rounded-2xl border-2 border-border-color shadow-hard space-y-4">
+          <div className="bg-yellow-100 p-6 rounded-lg border border-border-color shadow-hard-sm space-y-5">
             <div className="flex items-center justify-between border-b-2 border-border-color/20 pb-3">
               <span className="text-base font-mono font-black uppercase tracking-widest text-black flex items-center gap-6">
                 <IconRenderer icon="/icon/multimedia.svg" alt="Preview" className="w-7 h-7 object-contain" />
@@ -590,7 +541,7 @@ export const ProductForm: React.FC<ProductFormProps> = ({
             </div>
 
             {/* Simulated Live Public Store Asset Card */}
-            <div className="bg-white rounded-2xl border-2 border-border-color shadow-hard overflow-hidden">
+            <div className="bg-yellow-50 rounded-xl border-2 border-border-color shadow-hard-sm overflow-hidden">
               <div className="w-full h-40 bg-yellow-300 flex items-center justify-center overflow-hidden relative border-b-2 border-border-color p-4">
                 {formData.bannerImage ? (
                   <img src={formData.bannerImage} alt="Banner" className="w-full h-full object-cover" />
@@ -638,7 +589,7 @@ export const ProductForm: React.FC<ProductFormProps> = ({
               </div>
             </div>
 
-            <div className="text-xs font-mono text-black font-bold text-center">
+            <div className="text-xs font-mono text-evergreen font-bold text-center">
               Preview updates live as you edit form fields.
             </div>
 
@@ -646,9 +597,8 @@ export const ProductForm: React.FC<ProductFormProps> = ({
               type="submit"
               disabled={isSubmitting}
               variant="primary"
-              className="w-full py-4 text-sm font-mono font-bold uppercase tracking-wider bg-green-400 text-black border-2 border-border-color shadow-hard hover:translate-x-0.5 hover:translate-y-0.5 transition-all cursor-pointer flex items-center justify-center gap-8"
+              className="w-full py-4 text-sm font-mono font-bold uppercase tracking-wider bg-green-500 border border-border-color shadow-hard hover:translate-x-0.5 hover:translate-y-0.5 transition-all cursor-pointer flex items-center justify-center gap-8"
             >
-              <IconRenderer icon="/icon/button/save_white.svg" alt="Publish" className="w-5 h-5 object-contain" />
               <span>{isSubmitting ? 'SAVING...' : initialData?.name ? 'SAVE CHANGES' : 'PUBLISH ASSET'}</span>
             </Button>
           </div>

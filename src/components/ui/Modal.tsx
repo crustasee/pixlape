@@ -5,6 +5,8 @@ export interface ModalProps {
   onClose: () => void;
   title?: string;
   children: React.ReactNode;
+  maxWidthClass?: string;
+  className?: string;
 }
 
 export const Modal: React.FC<ModalProps> = ({
@@ -12,6 +14,8 @@ export const Modal: React.FC<ModalProps> = ({
   onClose,
   title,
   children,
+  maxWidthClass = 'max-w-lg',
+  className = 'bg-gray-900 border-gray-800 text-white',
 }) => {
   React.useEffect(() => {
     if (!isOpen) return;
@@ -35,14 +39,14 @@ export const Modal: React.FC<ModalProps> = ({
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center bg-black p-4"
+      className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-xs p-4 overflow-y-auto"
       onClick={onClose}
       role="dialog"
       aria-modal="true"
       aria-label={title || 'Modal'}
     >
       <div
-        className="relative w-full max-w-lg rounded-xl border border-gray-800 bg-gray-900 p-6 shadow-2xl animate-in zoom-in-95 duration-200"
+        className={`relative w-full ${maxWidthClass} rounded-2xl border-2 shadow-2xl animate-in zoom-in-95 duration-200 p-6 my-8 ${className}`}
         onClick={(e) => e.stopPropagation()}
       >
         <div className="flex items-center justify-between border-b border-gray-800 pb-3 mb-4">

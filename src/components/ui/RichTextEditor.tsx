@@ -133,7 +133,7 @@ export const RichTextEditor: React.FC<RichTextEditorProps> = ({
   const charCount = value.length;
 
   return (
-    <div className="space-y-2 font-mono">
+    <div className="space-y-2">
       {/* Label and Header Bar */}
       <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2">
         <label className="block text-md font-mono font-black uppercase tracking-wider text-darkteal flex items-center gap-2">
@@ -178,7 +178,7 @@ export const RichTextEditor: React.FC<RichTextEditorProps> = ({
               <select
                 value={fontSizeSelect}
                 onChange={handleHeadingChange}
-                className="px-2.5 py-1.5 bg-green-300 border border-border-color rounded-lg text-xs font-mono font-black text-black focus:outline-none shadow-[1.5px_1.5px_0_var(--border-color)] cursor-pointer"
+                className="px-2.5 py-1.5 bg-green-300 border border-border-color rounded-lg text-xs font-mono font-black text-evergreen focus:outline-none shadow-[1.5px_1.5px_0_var(--border-color)] cursor-pointer"
                 title="Heading / Font Size"
               >
                 <option value="normal">Normal Text</option>
@@ -194,13 +194,13 @@ export const RichTextEditor: React.FC<RichTextEditorProps> = ({
             <div className="h-6 w-[2px] bg-border-color/30 mx-0.5" />
 
             {/* Inline Formatting Tools */}
-            <div className="flex items-center gap-1">
+            <div className="flex items-center gap-3 text-evergreen">
               {/* Bold */}
               <button
                 type="button"
                 onClick={() => insertFormatting('**', '**', 'Bold Text')}
                 title="Bold (Ctrl+B)"
-                className="w-8 h-8 rounded-lg border border-border-color bg-green-400 hover:bg-cayenne text-black font-black text-lg flex items-center justify-center shadow-[1.5px_1.5px_0_var(--border-color)] hover:translate-x-0.5 hover:translate-y-0.5 transition-all cursor-pointer"
+                className="w-8 h-8 rounded-lg border border-border-color bg-green-400 hover:bg-cayenne font-black text-lg flex items-center justify-center shadow-[1.5px_1.5px_0_var(--border-color)] hover:translate-x-0.5 hover:translate-y-0.5 transition-all cursor-pointer"
               >
                 B
               </button>
@@ -236,16 +236,16 @@ export const RichTextEditor: React.FC<RichTextEditorProps> = ({
               </button>
             </div>
 
-            <div className="h-6 w-[2px] bg-border-color/30 mx-0.5" />
+            <div className="h-6 w-[2px] bg-darkteal mx-5" />
 
             {/* Paragraph & List Tools */}
-            <div className="flex items-center gap-1">
+            <div className="flex items-center gap-3 text-evergreen">
               {/* Numbered List */}
               <button
                 type="button"
                 onClick={() => insertLinePrefix('%d. ')}
                 title="Numbered List"
-                className="h-8 px-2.5 rounded-lg border border-border-color bg-green-400 hover:bg-cayenne text-black font-black text-xl items-center gap-1 shadow-[1.5px_1.5px_0_var(--border-color)] hover:translate-x-0.5 hover:translate-y-0.5 transition-all cursor-pointer"
+                className="h-8 px-2.5 rounded-lg border border-border-color bg-green-400 hover:bg-cayenne font-black text-xl items-center gap-1 shadow-[1.5px_1.5px_0_var(--border-color)] hover:translate-x-0.5 hover:translate-y-0.5 transition-all cursor-pointer"
               >
                 <span className="hidden sm:inline">≡</span>
               </button>
@@ -255,7 +255,7 @@ export const RichTextEditor: React.FC<RichTextEditorProps> = ({
                 type="button"
                 onClick={() => insertLinePrefix('- ')}
                 title="Bullet List"
-                className="h-8 px-2.5 rounded-lg border border-border-color bg-green-400 hover:bg-cayenne text-black font-black text-xs flex items-center gap-1 shadow-[1.5px_1.5px_0_var(--border-color)] hover:translate-x-0.5 hover:translate-y-0.5 transition-all cursor-pointer"
+                className="h-8 px-2.5 rounded-lg border border-border-color bg-green-400 hover:bg-cayenne font-black text-xs flex items-center gap-1 shadow-[1.5px_1.5px_0_var(--border-color)] hover:translate-x-0.5 hover:translate-y-0.5 transition-all cursor-pointer"
               >
                 <span className="hidden sm:inline">●●</span>
               </button>
@@ -265,7 +265,7 @@ export const RichTextEditor: React.FC<RichTextEditorProps> = ({
                 type="button"
                 onClick={() => insertLinePrefix('> ')}
                 title="Quote Block"
-                className="w-8 h-8 rounded-lg border border-border-color bg-green-400 hover:bg-cayenne text-black font-black text-xs flex items-center justify-center shadow-[1.5px_1.5px_0_var(--border-color)] hover:translate-x-0.5 hover:translate-y-0.5 transition-all cursor-pointer"
+                className="w-8 h-8 rounded-lg border border-border-color bg-green-400 hover:bg-cayenne font-black text-xs flex items-center justify-center shadow-[1.5px_1.5px_0_var(--border-color)] hover:translate-x-0.5 hover:translate-y-0.5 transition-all cursor-pointer"
               >
                 &ldquo;&rdquo;
               </button>
@@ -281,10 +281,10 @@ export const RichTextEditor: React.FC<RichTextEditorProps> = ({
               </button>
             </div>
 
-            <div className="h-6 w-[2px] bg-border-color/30 mx-0.5" />
+            <div className="h-6 w-[2px] bg-border-color/30 mx-5" />
 
             {/* Text Alignment Tools */}
-            <div className="flex items-center gap-1">
+            <div className="flex items-center gap-3 text-evergreen">
               {/* Align Left */}
               <button
                 type="button"
@@ -328,7 +328,7 @@ export const RichTextEditor: React.FC<RichTextEditorProps> = ({
             placeholder={placeholder}
             required={required}
             style={{ minHeight }}
-            className="w-full p-4 sm:p-5 bg-white text-sm sm:text-base font-mono font-bold text-black placeholder-text/40 focus:outline-none leading-relaxed resize-y"
+            className="w-full p-4 sm:p-5 bg-white sm:text-base font-mono font-bold text-darkteal placeholder-text focus:outline-none leading-relaxed resize-y"
           />
         ) : (
           <div
@@ -353,8 +353,8 @@ export const RichTextEditor: React.FC<RichTextEditorProps> = ({
           </div>
 
           <div className="flex items-center gap-3">
-            <span className="text-[10px] uppercase bg-neo-yellow text-black px-2 py-0.5 rounded border border-border-color font-black">
-              Markdown & HTML Tags Supported
+            <span className="text-xs uppercase bg-white text-darkteal px-2 py-0.5 rounded border border-border-color font-black">
+              HTML Tags
             </span>
           </div>
         </div>
