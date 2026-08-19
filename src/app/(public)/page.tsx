@@ -71,9 +71,13 @@ export default function HomePage() {
                     <div className="font-mono text-xs font-bold opacity-90 tracking-wider order-2 lg:order-1">
                       {stat.label}
                     </div>
-                    <div className="font-head font-black text-lg md:text-xl leading-none order-1 lg:order-2">
+                    <div
+                      className="font-head font-black text-lg md:text-xl leading-none order-1 lg:order-2"
+                      suppressHydrationWarning
+                    >
                       {stat.value}
                     </div>
+
                   </div>
                 ))}
               </div>

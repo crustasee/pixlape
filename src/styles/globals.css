@@ -57,7 +57,35 @@
   --color-surface: var(--surface);
   --color-text: var(--text);
   --color-border-color: var(--border-color);
+
+  --font-pixel: 'Press Start 2P', cursive;
+  --font-head: 'Space Grotesk', sans-serif;
+  --font-body: 'Plus Jakarta Sans', sans-serif;
+  --font-mono: 'JetBrains Mono', 'Space Mono', monospace;
 }
+
+/* Explicit Font Helper Utilities */
+.font-pixel {
+  font-family: 'Press Start 2P', cursive !important;
+}
+
+.font-pixel-caps {
+  font-family: 'Press Start 2P', cursive !important;
+  text-transform: uppercase;
+}
+
+.font-head {
+  font-family: 'Space Grotesk', sans-serif !important;
+}
+
+.font-body {
+  font-family: 'Plus Jakarta Sans', sans-serif !important;
+}
+
+.font-mono {
+  font-family: 'JetBrains Mono', 'Space Mono', monospace !important;
+}
+
 
 /* Explicit Palette Helper Utilities */
 .bg-evergreen {
@@ -1516,9 +1544,10 @@ nav.mainnav {
    ============================================================================= */
 
 .search-bar-box {
-  background-color: var(c-yellow-100);
+  background-color: var(--c-yellow-light);
   border: var(--border);
   box-shadow: var(--shadow-hard-sm);
+
   border-radius: 0.5rem;
   padding: 0.875rem;
   display: flex;
