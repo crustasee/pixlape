@@ -68,7 +68,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
   ];
 
   return (
-    <aside className="flex flex-col w-full h-full md:h-fit lg:h-auto md:w-80 shrink-0 gap-3 md:sticky md:top-26 h-auto md:h-fit" role="complementary" aria-label="Sidebar filters">
+    <aside className="flex flex-col w-full h-full md:h-fit lg:h-auto md:w-80 shrink-0 gap-3 md:sticky md:top-26 md:h-fit" role="complementary" aria-label="Sidebar filters">
       {/* ================================================== CATEGORIES SECTION =================================================*/}
       <div className="bg-yellow-100 text-evergreen border border-border-color shadow-hard-sm rounded-lg p-5 flex flex-col gap-5">
         <div className="flex items-center justify-between border-b-2 border-border-color pb-3">
