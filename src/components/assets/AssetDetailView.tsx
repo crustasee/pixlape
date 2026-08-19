@@ -10,6 +10,8 @@ import { AssetPreviewGallery } from './AssetPreviewGallery';
 import { AssetCheckoutModal } from './AssetCheckoutModal';
 import { AssetRelatedList } from './AssetRelatedList';
 import { MarkdownRenderer } from '@/components/ui/MarkdownRenderer';
+import { IconRenderer } from '@/components/ui/IconRenderer';
+
 
 export interface AssetDetailViewProps {
   assetId?: string | number;
@@ -174,9 +176,15 @@ export const AssetDetailView: React.FC<AssetDetailViewProps> = ({ assetId }) => 
               )}
             </div>
 
-            <h1 className="font-head text-3xl sm:text-3xl md:text-4xl font-black uppercase text-darkteal tracking-tight leading-tight">
-              {asset.name}
-            </h1>
+            <div className="flex items-center gap-4">
+              <div className="w-16 h-16 sm:w-20 sm:h-20 border-2 border-border-color bg-white shadow-hard-sm rounded-xl flex items-center justify-center p-2 shrink-0 overflow-hidden">
+                <IconRenderer icon={asset.icon} alt={asset.name} size={64} className="w-12 h-12 sm:w-16 sm:h-16 object-contain" />
+              </div>
+              <h1 className="font-head text-2xl sm:text-3xl md:text-4xl font-black uppercase text-darkteal tracking-tight leading-tight">
+                {asset.name}
+              </h1>
+            </div>
+
           </div>
 
           {/* ........................ Stats Badges ........................*/}

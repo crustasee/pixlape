@@ -66,7 +66,8 @@ export default function HomePage() {
                 ].map((stat) => (
                   <div
                     key={stat.label}
-                    className={`${stat.color} border-1 border-border-color rounded-lg px-4 py-2 flex flex-row lg:flex-col items-center justify-between lg:justify-center gap-3 lg:gap-1 min-w-[120px] sm:min-w-[140px] shadow-[2px_2px_0_var(--border-color)] transition-all hover:translate-x-0.5 hover:translate-y-0.5 hover:shadow-none`}
+                    className={`${stat.color} border border-border-color rounded-lg px-4 py-2 flex flex-row lg:flex-col items-center justify-between lg:justify-center gap-3 lg:gap-1 min-w-30 sm:min-w-35 shadow-[2px_2px_0_var(--border-color)] transition-all hover:translate-x-0.5 hover:translate-y-0.5 hover:shadow-none`}
+
                   >
                     <div className="font-mono text-xs font-bold opacity-90 tracking-wider order-2 lg:order-1">
                       {stat.label}

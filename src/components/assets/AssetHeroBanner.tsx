@@ -1,30 +1,32 @@
 'use client';
 
 import React from 'react';
-import Image from 'next/image';
 import { AssetItem } from '@/types';
+import { isImageIcon, getIconSrc } from '@/data/assets';
+import { IconRenderer } from '@/components/ui/IconRenderer';
 
 interface AssetHeroBannerProps {
   asset: AssetItem;
 }
 
 export const AssetHeroBanner: React.FC<AssetHeroBannerProps> = ({ asset }) => {
-  // Check if banner image is explicitly set or if asset is CorelDraw
   const isCorel = asset.name.toLowerCase().includes('corel') || asset.id === 9;
-  const bannerSrc = asset.bannerImage || (isCorel ? '/public/uploads/corelBanner1.jpg' : null);
+  const rawBanner =
+    asset.bannerImage ||
+    (isImageIcon(asset.icon) ? getIconSrc(asset.icon) : null) ||
+    (isCorel ? '/uploads/corelBanner1.jpg' : null);
+
+  const bannerSrc = rawBanner ? getIconSrc(rawBanner) : null;
 
   return (
     <div className="w-full overflow-hidden rounded-lg border border-border-color shadow-hard bg-yellow-100 relative group">
       {/* 1440px x 480px ratio container */}
-      <div className="w-full aspect-[1440/480] min-h-[200px] max-h-[480px] relative flex items-center justify-center overflow-hidden bg-yellow-green">
+      <div className="w-full aspect-1440/480 min-h-50 max-h-120 relative flex items-center justify-center overflow-hidden bg-yellow-green">
         {bannerSrc ? (
-          <Image
+          <img
             src={bannerSrc}
             alt={`${asset.name} Hero Banner (1440x480)`}
-            fill
-            priority
-            sizes="(max-width:full) 100vw, 1440px"
-            className="object-cover w-full h-full transition-transform duration-500 group-hover:scale-100"
+            className="object-cover w-full h-full transition-transform duration-500 group-hover:scale-105"
           />
         ) : (
           /* Fallback Neo-Brutalist Banner Pattern */
@@ -39,8 +41,8 @@ export const AssetHeroBanner: React.FC<AssetHeroBannerProps> = ({ asset }) => {
             </div>
 
             <div className="z-10 flex items-center gap-6 bg-surface/95 backdrop-blur-sm p-6 rounded-xl border-2 border-border-color shadow-hard-sm max-w-2xl">
-              <span className="text-5xl shrink-0 select-none">
-                {asset.icon && !asset.icon.includes('/') ? asset.icon : '📦'}
+              <span className="text-5xl shrink-0 select-none flex items-center justify-center w-16 h-16 bg-white border border-border-color rounded-xl p-2">
+                <IconRenderer icon={asset.icon} alt={asset.name} size={48} className="w-12 h-12 object-contain" />
               </span>
               <div>
                 <h2 className="font-head text-2xl md:text-3xl font-black uppercase text-text tracking-tight leading-tight">

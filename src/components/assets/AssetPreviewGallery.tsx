@@ -1,9 +1,10 @@
 'use client';
 
 import React, { useState } from 'react';
-import Image from 'next/image';
 import { AssetItem } from '@/types';
 import { isImageIcon, getIconSrc } from '@/data/assets';
+import { IconRenderer } from '@/components/ui/IconRenderer';
+
 
 interface AssetPreviewGalleryProps {
   asset: AssetItem;
@@ -14,7 +15,10 @@ export const AssetPreviewGallery: React.FC<AssetPreviewGalleryProps> = ({ asset,
   const [activeSlide, setActiveSlide] = useState(0);
 
   const isCorel = asset.name.toLowerCase().includes('corel') || asset.id === 9;
-  const bannerSrc = asset.bannerImage || (isCorel ? '/corelBanner1.jpg' : null);
+  const bannerSrc =
+    asset.bannerImage ||
+    (isImageIcon(asset.icon) ? getIconSrc(asset.icon) : null) ||
+    (isCorel ? '/corelBanner1.jpg' : null);
 
   const defaultReqs: Record<string, string> = {
     "Sistem Operasi": "Windows 11 atau Windows 10 64-bit",
@@ -51,30 +55,18 @@ export const AssetPreviewGallery: React.FC<AssetPreviewGalleryProps> = ({ asset,
         {activeSlide === 0 ? (
           <div className="w-full flex flex-col gap-4 p-1">
             {/* Banner Container inside Slide 01 */}
-            <div className="w-full aspect-[16/9] sm:aspect-[1440/480] max-h-72 relative rounded-lg border border-border-color overflow-hidden bg-yellow-green">
+            <div className="w-full aspect-video sm:aspect-1440/480 max-h-80 relative rounded-lg border border-border-color overflow-hidden bg-yellow-green flex items-center justify-center">
+
               {bannerSrc ? (
-                <Image
+                <img
                   src={bannerSrc}
                   alt={`${asset.name} Banner Overview`}
-                  fill
-                  priority
-                  sizes="(max-width: 1200px) 100vw, 800px"
-                  className="object-cover w-full h-full transition-transform duration-500 group-hover:scale-100"
+                  className="object-cover w-full h-full transition-transform duration-500 hover:scale-105"
                 />
               ) : (
                 <div className="w-full h-full hero-grid-bg p-6 flex flex-col items-center justify-center text-center gap-3 relative">
-                  <div className="w-32 h-32 border-2 border-border-color bg-white shadow-hard-sm rounded-xl flex items-center justify-center p-2 text-4xl shrink-0">
-                    {isImageIcon(asset.icon) ? (
-                      <Image
-                        src={getIconSrc(asset.icon)}
-                        alt={asset.name}
-                        width={64}
-                        height={64}
-                        className="object-contain w-full h-full"
-                      />
-                    ) : (
-                      <span>{asset.icon || '📦'}</span>
-                    )}
+                  <div className="w-24 h-24 sm:w-32 sm:h-32 border-2 border-border-color bg-white shadow-hard-sm rounded-xl flex items-center justify-center p-2 text-4xl shrink-0 overflow-hidden">
+                    <IconRenderer icon={asset.icon} alt={asset.name} size={64} className="w-16 h-16 sm:w-20 sm:h-20 object-contain" />
                   </div>
                   <h3 className="font-head font-black text-lg md:text-xl text-text uppercase tracking-tight">
                     {asset.name}
@@ -87,15 +79,15 @@ export const AssetPreviewGallery: React.FC<AssetPreviewGalleryProps> = ({ asset,
 
               {/* Resolution Overlay Tag */}
               <div className="absolute bottom-2.5 right-2.5 bg-yellow-100 text-darkteal border border-border-color font-mono text-xs font-bold px-2 py-0.5 rounded shadow-sm">
-                SCREENSHOOT
+                SCREENSHOT
               </div>
             </div>
 
             {/* Info Bar under banner inside Slide 01 */}
             <div className="flex items-center justify-between gap-3 p-3 bg-yellow-green border-2 border-border-color rounded-lg font-mono text-sm">
               <div className="flex items-center gap-2 font-bold truncate text-text">
-                <span className="text-base select-none">
-                  {asset.icon && !asset.icon.includes('/') ? asset.icon : '●●●○○'}
+                <span className="flex items-center justify-center w-6 h-6 shrink-0 select-none">
+                  <IconRenderer icon={asset.icon} alt={asset.name} size={24} className="w-5 h-5 object-contain" />
                 </span>
                 <span className="truncate">{asset.name}</span>
               </div>
@@ -104,6 +96,7 @@ export const AssetPreviewGallery: React.FC<AssetPreviewGalleryProps> = ({ asset,
               </span>
             </div>
           </div>
+
         ) : activeSlide === 1 ? (
           <div className="w-full flex flex-col gap-4 p-2 text-left">
             <h4 className="font-head font-black text-lg text-black uppercase border-b-2 border-black pb-2 flex items-center justify-between">

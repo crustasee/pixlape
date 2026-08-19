@@ -80,12 +80,13 @@ export const Footer: React.FC = () => {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               placeholder=">>>>> your-email@domain.com"
-              className="flex-1 px-4 py-3 sm:py-3.5 bg-soft-linen border border-black placeholder-darkteal font-mono text-xs font-bold text-evergreen rounded-xl shadow-[3px_3px_0_rgba(0,0,0,1)] outline-none focus:border-cayenne focus:shadow-[4px_4px_0_rgba(0,0,0,1)] transition-all"
+              className="flex-1 px-4 py-3 sm:py-3.5 bg-soft-linen border border-black font-mono text-xs font-bold text-evergreen rounded-xl shadow-[3px_3px_0_rgba(0,0,0,1)] outline-none focus:border-cayenne focus:shadow-[4px_4px_0_rgba(0,0,0,1)] transition-all"
             />
             <button
               type="submit"
-              className="inline-flex items-center justify-center gap-2 px-6 py-3 sm:py-3.5 font-mono font-black text-xs uppercase tracking-wider border-2 border-black bg-cayenne text-white rounded-xl shadow-[3px_3px_0_rgba(0,0,0,1)] hover:bg-yellow-green hover:text-evergreen hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-[5px_5px_0_rgba(0,0,0,1)] active:translate-x-0 active:translate-y-0 active:shadow-none transition-all duration-200 cursor-pointer focus:outline-none focus:ring-2 focus:ring-yellow-green focus:ring-offset-2 whitespace-nowrap"
+              className="inline-flex items-center justify-center gap-2 px-6 py-3 sm:py-3.5 font-mono font-black text-xs uppercase tracking-wider border-2 border-black bg-cayenne text-white rounded-xl shadow-[3px_3px_0_rgba(0,0,0,1)] hover:bg-yellow-green hover:text-evergreen hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-[5px_5px_0_rgba(0,0,0,1)] transition-all duration-200 cursor-pointer focus:outline-none focus:ring-2 focus:ring-yellow-green focus:ring-offset-2 whitespace-nowrap"
             >
+
               {subscribed ? (
                 <>
                   <ShieldCheck className="w-4 h-4" aria-hidden="true" /> Subscribed!
