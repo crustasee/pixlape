@@ -1,6 +1,5 @@
 import { NextResponse } from 'next/server';
-import { ASSETS_DATA } from '@/data/assets';
-import { prisma, checkDbConnection } from '@/lib/db';
+import { AssetService } from '@/lib/asset-service';
 import { verifyAdmin } from '@/lib/admin';
 
 export const dynamic = 'force-dynamic';
@@ -20,22 +19,13 @@ export async function OPTIONS() {
 
 export async function GET(req: Request) {
   try {
-    // Verify admin
     const auth = await verifyAdmin(req);
     if (!auth.success) {
       const res = NextResponse.json({ success: false, error: 'Unauthorized' }, { status: 401 });
       return addCorsHeaders(res);
     }
 
-    const isConnected = await checkDbConnection();
-    if (!isConnected || !prisma) {
-      const res = NextResponse.json({ success: true, data: ASSETS_DATA });
-      return addCorsHeaders(res);
-    }
-
-    const products = await prisma.product.findMany({
-      orderBy: { createdAt: 'desc' }
-    });
+    const products = await AssetService.getAllAsync();
     const res = NextResponse.json({ success: true, data: products });
     return addCorsHeaders(res);
   } catch (err: any) {
@@ -46,7 +36,6 @@ export async function GET(req: Request) {
 
 export async function POST(req: Request) {
   try {
-    // Verify admin
     const auth = await verifyAdmin(req);
     if (!auth.success) {
       const res = NextResponse.json({ success: false, error: 'Unauthorized' }, { status: 401 });
@@ -54,79 +43,33 @@ export async function POST(req: Request) {
     }
 
     const body = (await req.json()) as Record<string, any>;
-    const { name, desc, size, os, tag, icon, license, version, category, isPremium, price, stock, downloadUrl, downloadLink, status, authorName, format } = body;
-    const finalDownloadUrl = downloadUrl || downloadLink || '';
+    const { name, desc, price, category, size, os, tag, icon, license, version, isPremium, downloadUrl, downloadLink } = body;
 
     if (!name || !desc) {
       const res = NextResponse.json({ success: false, error: 'Name and description are required' }, { status: 400 });
       return addCorsHeaders(res);
     }
 
-    // Generate unique slug
-    const baseSlug = name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
-    const slug = `${baseSlug}-${Date.now()}`;
-
-    const isConnected = await checkDbConnection();
-
-    if (!isConnected || !prisma) {
-      // Mock mode fallback
-      const newProduct = {
-        id: `AST-${Date.now()}`,
-        slug,
-        name,
-        desc,
-        size: size || '0 MB',
-        os: os || ['all'],
-        rating: 5.0,
-        downloads: 0,
-        tag: tag || 'General',
-        icon: icon || '📦',
-        license: license || 'Freeware',
-        version: version || 'v1.0.0',
-        category: category || 'design_app',
-        isPremium: !!isPremium,
-        price: Number(price) || 0.0,
-        stock: Number(stock) || 100,
-        downloadUrl: finalDownloadUrl,
-        downloadLink: finalDownloadUrl,
-        status: status || 'PUBLISHED',
-        authorName: authorName || 'Unknown',
-        format: format || '',
-        createdAt: new Date().toISOString(),
-        updatedAt: new Date().toISOString(),
-      };
-      const res = NextResponse.json({ success: true, data: newProduct }, { status: 201 });
-      return addCorsHeaders(res);
-    }
-
-    const product = await prisma.product.create({
-      data: {
-        slug,
-        name,
-        desc,
-        size: size || '0 MB',
-        os: os || ['all'],
-        rating: 5.0,
-        downloads: 0,
-        tag: tag || 'General',
-        icon: icon || '📦',
-        license: license || 'Freeware',
-        version: version || 'v1.0.0',
-        category: category || 'design_app',
-        isPremium: !!isPremium,
-        price: Number(price) || 0.0,
-        stock: Number(stock) || 100,
-        downloadLink: finalDownloadUrl,
-        status: status || 'PUBLISHED',
-        authorName: authorName || 'Unknown',
-        format: format || ''
-      }
+    const created = await AssetService.createAssetAsync({
+      name,
+      desc,
+      price: price ?? (isPremium ? 29 : 0),
+      category,
+      size,
+      os,
+      tag,
+      icon,
+      license,
+      version,
+      isPremium: Boolean(isPremium),
+      downloadUrl: downloadUrl || downloadLink || '',
     });
 
-    const res = NextResponse.json({ success: true, data: product }, { status: 201 });
+    const res = NextResponse.json({ success: true, data: created }, { status: 201 });
     return addCorsHeaders(res);
   } catch (err: any) {
     const res = NextResponse.json({ success: false, error: err.message || 'Database error' }, { status: 500 });
     return addCorsHeaders(res);
   }
 }
+

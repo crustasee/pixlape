@@ -22,10 +22,11 @@ export function formatCurrency(amount: number, currency: string = 'USD'): string
  */
 export function assetItemToProduct(item: AssetItem): Product {
   const parsedPrice = item.price
-    ? parseFloat(item.price.replace(/[^0-9.]/g, '')) || 0
+    ? parseFloat(String(item.price).replace(/[^0-9.]/g, '')) || 0
     : item.isPremium
     ? 29
     : 0;
+
 
   const generatedSlug = item.name
     .toLowerCase()

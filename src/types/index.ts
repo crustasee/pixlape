@@ -51,30 +51,59 @@ export const LICENSE_PRICES: Record<
 };
 
 // -----------------------------------------------------------------------------
-// 2. Asset / Frontend Types
+// 2. Product & Asset Consolidated Types
 // -----------------------------------------------------------------------------
 
-export interface AssetItem {
-  id: number;
+export interface Product {
+  id: number | string;
+  slug?: string;
   name: string;
   desc: string;
-  tagline?: string;
   size: string;
   os: string[];
-  rating: string;
-  downloads: string;
+  rating: string | number;
+  downloads: string | number;
   tag: string;
   icon: string;
   license: string;
   version: string;
   category?: CategoryType;
   isPremium?: boolean;
-  price?: string;
+  price?: string | number;
   downloadUrl?: string;
+  downloadLink?: string;
+  stock?: number;
+  tagline?: string;
   bannerImage?: string;
   detailsMarkdown?: string;
   markdownFile?: string;
   requirements?: Record<string, string>;
+  createdAt?: string | Date;
+  updatedAt?: string | Date;
+}
+
+/**
+ * AssetItem is an alias for Product to maintain backward compatibility
+ * with frontend components while sharing a single unified structure.
+ */
+export type AssetItem = Product & {
+  id: number;
+};
+
+export interface CreateProductInput {
+  name: string;
+  slug?: string;
+  desc: string;
+  price: number;
+  category: string;
+  size?: string;
+  os?: string[];
+  tag?: string;
+  license?: string;
+  version?: string;
+  isPremium?: boolean;
+  downloadUrl?: string;
+  stock?: number;
 }
 
 // -----------------------------------------------------------------------------
@@ -105,47 +134,6 @@ export interface FAQItem {
   category: string;
 }
 
-// -----------------------------------------------------------------------------
-// 4. Product (Backend/Admin) Types
-// -----------------------------------------------------------------------------
-
-export interface Product {
-  id: string | number;
-  slug: string;
-  name: string;
-  desc: string;
-  size: string;
-  os: string[] | OSFilterType[];
-  rating: string | number;
-  downloads: string | number;
-  tag: string;
-  icon: string;
-  license: string;
-  version: string;
-  category: CategoryType | string;
-  isPremium: boolean;
-  price: number | string;
-  downloadUrl?: string;
-  stock?: number;
-  createdAt?: string | Date;
-  updatedAt?: string | Date;
-}
-
-export interface CreateProductInput {
-  name: string;
-  slug?: string;
-  desc: string;
-  price: number;
-  category: string;
-  size?: string;
-  os?: string[];
-  tag?: string;
-  license?: string;
-  version?: string;
-  isPremium?: boolean;
-  downloadUrl?: string;
-  stock?: number;
-}
 
 // -----------------------------------------------------------------------------
 // 5. Order Types

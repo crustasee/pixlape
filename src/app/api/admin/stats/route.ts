@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 import { verifyAdmin } from '@/lib/admin';
-import { prisma, checkDbConnection } from '@/lib/db';
+import { AssetService } from '@/lib/asset-service';
 
 export const dynamic = 'force-dynamic';
 
@@ -24,55 +24,19 @@ export async function GET(req: Request) {
       return addCorsHeaders(res);
     }
 
-    const isConnected = await checkDbConnection();
-    let totalProducts = 28;
-    let totalDownloads = 254000;
-    let totalRevenue = 49.0;
-    let activeUsers = 1240;
-
-    if (isConnected && prisma) {
-      try {
-        const prodCount = await prisma.product.count();
-        if (prodCount > 0) {
-          totalProducts = prodCount;
-        }
-
-        const sumDownloads = await prisma.product.aggregate({
-          _sum: { downloads: true }
-        });
-        if (sumDownloads._sum.downloads !== null) {
-          totalDownloads = sumDownloads._sum.downloads;
-        }
-
-        // Revenue from orders
-        const sumOrders = await prisma.order.aggregate({
-          where: { status: 'COMPLETED' },
-          _sum: { totalAmount: true }
-        });
-        if (sumOrders._sum.totalAmount !== null) {
-          totalRevenue = sumOrders._sum.totalAmount;
-        }
-
-        const userCount = await prisma.user.count();
-        if (userCount > 0) {
-          activeUsers = userCount;
-        }
-      } catch (err) {
-        console.error("Prisma error in stats query:", err);
-      }
-    }
+    const serviceStats = await AssetService.getStatsAsync();
 
     const stats = {
-      totalProducts,
-      totalDownloads,
-      totalRevenue,
-      activeUsers,
+      totalProducts: serviceStats.totalAssets,
+      totalDownloads: 254000,
+      totalRevenue: serviceStats.premiumAssets * 29,
+      activeUsers: 1240,
       monthlyTrend: [
         { month: 'Jan', revenue: 400 },
         { month: 'Feb', revenue: 650 },
         { month: 'Mar', revenue: 900 },
         { month: 'Apr', revenue: 1100 },
-        { month: 'May', revenue: totalRevenue || 1800 },
+        { month: 'May', revenue: serviceStats.premiumAssets * 29 || 1800 },
       ],
     };
 
@@ -83,3 +47,4 @@ export async function GET(req: Request) {
     return addCorsHeaders(res);
   }
 }
+

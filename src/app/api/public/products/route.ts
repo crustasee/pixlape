@@ -1,6 +1,5 @@
 import { NextResponse } from 'next/server';
-import { ASSETS_DATA } from '@/data/assets';
-import { prisma, checkDbConnection } from '@/lib/db';
+import { AssetService } from '@/lib/asset-service';
 
 export const dynamic = 'force-dynamic';
 
@@ -18,20 +17,12 @@ export async function OPTIONS() {
 
 export async function GET() {
   try {
-    const isConnected = await checkDbConnection();
-    if (!isConnected || !prisma) {
-      const res = NextResponse.json({ success: true, data: ASSETS_DATA });
-      return addCorsHeaders(res);
-    }
-
-    const products = await prisma.product.findMany({
-      where: { status: 'PUBLISHED' },
-      orderBy: { createdAt: 'desc' }
-    });
+    const products = await AssetService.getAllAsync();
     const res = NextResponse.json({ success: true, data: products });
     return addCorsHeaders(res);
   } catch (err: any) {
-    const res = NextResponse.json({ success: false, error: err.message || 'Database error' }, { status: 500 });
+    const res = NextResponse.json({ success: false, error: err.message || 'Error fetching products' }, { status: 500 });
     return addCorsHeaders(res);
   }
 }
+
